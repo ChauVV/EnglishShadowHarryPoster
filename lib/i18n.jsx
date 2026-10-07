@@ -163,7 +163,7 @@ function readLang() {
   try {
     const stored = window.localStorage.getItem(LANG_KEY);
     if (LANGS.includes(stored)) return stored;
-    return window.navigator.language?.toLowerCase().startsWith('vi') ? 'vi' : 'en';
+    return DEFAULT_LANG;
   } catch {
     return DEFAULT_LANG;
   }
