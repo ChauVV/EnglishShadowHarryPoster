@@ -16,7 +16,7 @@ function findActive(sentences, t) {
   return idx;
 }
 
-export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, heading, backHref = '/', lesson, prevHref, nextHref }) {
+export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, heading, lesson, prevHref, nextHref }) {
   const { t } = useI18n();
   const audioRef = useRef(null);
   const listRef = useRef(null);
@@ -111,9 +111,9 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
         <div className="max-w-[1800px] mx-auto px-4 h-14 flex items-center gap-3">
-          <Link href={backHref} aria-label={t.backToList} className="p-2 -ml-2 rounded-full hover:bg-slate-100">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M19 12H5m7-7-7 7 7 7" />
+          <Link href="/" aria-label={t.home} title={t.home} className="p-2 -ml-2 rounded-full hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m3 11 9-8 9 8M5 10v10h5v-6h4v6h5V10" />
             </svg>
           </Link>
           <div className="min-w-0 flex-1">
@@ -122,17 +122,6 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
             </h1>
             <p className="text-xs text-slate-500 truncate">{bookLabel}</p>
           </div>
-          <Link
-            href="/"
-            aria-label={t.home}
-            title={t.home}
-            className="inline-flex items-center gap-1.5 rounded-full px-3 h-9 text-sm font-medium border border-slate-200 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-emerald-500"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="m3 11 9-8 9 8M5 10v10h5v-6h4v6h5V10" />
-            </svg>
-            <span className="hidden md:inline">{t.home}</span>
-          </Link>
           <LessonLink href={prevHref}>{t.prevLessonLink}</LessonLink>
           <LessonLink href={nextHref}>{t.nextLessonLink}</LessonLink>
           <LanguageSwitch tone="light" />

@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
+import LessonSkeleton from '../../../../components/LessonSkeleton';
 import ShadowingPlayer from '../../../../components/ShadowingPlayer';
 import { lessonLabel, useI18n } from '../../../../lib/i18n';
 import { topicCoverSrc } from '../../../../lib/topicCovers';
@@ -23,7 +24,7 @@ export default function LessonClient() {
     if (idx >= 0) markTopicLessonOpened(topicLessonKey(name, params.part));
   }, [idx, name, params.part]);
 
-  if (topicLoading || lessonLoading) return <Message>{t.loadingLesson}</Message>;
+  if (topicLoading || lessonLoading) return <LessonSkeleton />;
   if (idx < 0 || !lesson) {
     return (
       <Message>
@@ -44,7 +45,6 @@ export default function LessonClient() {
       coverUrl={topicCoverSrc(name, lesson.lesson_index)}
       bookLabel={topic.title}
       heading={`${topic.title} · ${lessonLabel(lesson.title)}`}
-      backHref={`/#topic-${encodeURIComponent(name)}`}
       lesson={lesson}
       prevHref={idx > 0 ? href(lessons[idx - 1]) : null}
       nextHref={idx < lessons.length - 1 ? href(lessons[idx + 1]) : null}

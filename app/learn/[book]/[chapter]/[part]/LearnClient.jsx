@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import LessonSkeleton from '../../../../../components/LessonSkeleton';
 import ShadowingPlayer from '../../../../../components/ShadowingPlayer';
 import { BOOKS } from '../../../../../lib/books';
 import { useI18n } from '../../../../../lib/i18n';
@@ -28,7 +29,7 @@ export default function LearnClient() {
   const lessonIdx = lessons?.findIndex((l) => String(l.lesson_index) === part) ?? -1;
 
   if (!loaded) {
-    return <Message>{t.loadingLesson}</Message>;
+    return <LessonSkeleton />;
   }
   if (data.failed || lessonIdx < 0) {
     return (
