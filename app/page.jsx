@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import LanguageSwitch from '../components/LanguageSwitch';
 import { BOOKS } from '../lib/books';
 import { lessonLabel, useI18n } from '../lib/i18n';
+import { topicLessonKey, useTopicProgress } from '../lib/topicProgress';
 
 const PROGRESS_KEY = 'hp-shadowing-progress';
 
@@ -68,6 +69,7 @@ export default function LibraryPage() {
   const { t } = useI18n();
   const [library, setLibrary] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [topics, setTopics] = useState(null);
   const [error, setError] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const progress = useProgress();
@@ -80,6 +82,13 @@ export default function LibraryPage() {
         setLibrary(data.books);
       })
       .catch(() => setError(true));
+  }, []);
+
+  useEffect(() => {
+    fetch('/api/topics')
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(String(res.status)))))
+      .then((data) => setTopics(data.topics))
+      .catch(() => setTopics([]));
   }, []);
 
   const chaptersByBook = useMemo(
@@ -129,6 +138,7 @@ export default function LibraryPage() {
         totalMinutes={totalMinutes}
         startEntry={startEntry}
         continuing={Boolean(lastEntry)}
+        hasTopics={topics?.length > 0}
       />
 
       <main className="max-w-6xl mx-auto px-4 pb-20">
@@ -140,7 +150,9 @@ export default function LibraryPage() {
 
         {!library && !error && <LibrarySkeleton />}
 
-        {library && !isAdmin && <FreeTopicsPlaceholder />}
+        {topics?.length > 0 && <TopicsSection topics={topics} />}
+
+        {library && topics && !isAdmin && topics.length === 0 && <FreeTopicsPlaceholder />}
 
         {library && isAdmin && (
           <>
@@ -223,7 +235,7 @@ function TopBar() {
   );
 }
 
-function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, continuing }) {
+function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, continuing, hasTopics }) {
   const { t } = useI18n();
   return (
     <section className="relative overflow-hidden bg-slate-950 text-white">
@@ -252,11 +264,13 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
                 {continuing ? t.nextLesson : t.startLearning}
               </Link>
             ) : (
-              <span className="inline-flex items-center rounded-full bg-white/10 px-5 h-11 text-slate-300">
-                {loaded ? t.noLessons : t.loading}
-              </span>
+              !hasTopics && (
+                <span className="inline-flex items-center rounded-full bg-white/10 px-5 h-11 text-slate-300">
+                  {loaded ? t.noLessons : t.loading}
+                </span>
+              )
             )}
-            <a href="#shelf-title" className="inline-flex items-center h-11 px-5 rounded-full border border-white/20 text-sm font-medium hover:bg-white/10 transition">
+            <a href={hasTopics ? '#topics-title' : '#shelf-title'} className="inline-flex items-center h-11 px-5 rounded-full border border-white/20 text-sm font-medium hover:bg-white/10 transition">
               {t.browseLibrary}
             </a>
           </div>
@@ -284,6 +298,44 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
           ))}
         </ol>
       </div>
+    </section>
+  );
+}
+
+// Topic miễn phí (Drive: <topic>/lesson_X) -> lưới thẻ, bấm vào mở trang topic liệt kê các lesson
+function TopicsSection({ topics }) {
+  const { t } = useI18n();
+  const visited = useTopicProgress();
+  return (
+    <section className="mt-12" aria-labelledby="topics-title">
+      <SectionHeading id="topics-title" eyebrow={t.topicsEyebrow} title={t.topicsTitle} note={t.topicsCount(topics.length)} />
+      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {topics.map((topic, i) => {
+          const total = topic.lessons.length;
+          const done = topic.lessons.filter((l) => visited.has(topicLessonKey(topic.topic, l.lesson_index))).length;
+          const totalMin = Math.round(topic.lessons.reduce((sum, l) => sum + l.duration_seconds, 0) / 60);
+          return (
+            <li key={topic.topic}>
+              <Link
+                href={`/topic/${encodeURIComponent(topic.topic)}`}
+                className="group flex h-full gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-emerald-400 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+              >
+                <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white ${COVERS[i % COVERS.length]}`}>
+                  <HeadphonesIcon className="h-6 w-6" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block font-display text-lg font-semibold truncate">{topic.title}</span>
+                  <span className="block text-xs text-slate-500">{t.topicSummary(total, totalMin)}</span>
+                  <span className="mt-2 block">
+                    <ProgressBar percent={total ? Math.round((done / total) * 100) : 0} small />
+                  </span>
+                  <span className="mt-1 block text-[11px] text-slate-400">{t.topicLessons(done, total)}</span>
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }

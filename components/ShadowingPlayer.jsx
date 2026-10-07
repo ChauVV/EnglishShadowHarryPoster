@@ -17,7 +17,7 @@ function findActive(sentences, t) {
   return idx;
 }
 
-export default function ShadowingPlayer({ bookId, bookLabel, chapter, lesson, prevHref, nextHref }) {
+export default function ShadowingPlayer({ bookId, bookLabel, chapter, heading, backHref = '/', lesson, prevHref, nextHref }) {
   const { t } = useI18n();
   const audioRef = useRef(null);
   const listRef = useRef(null);
@@ -32,7 +32,7 @@ export default function ShadowingPlayer({ bookId, bookLabel, chapter, lesson, pr
   const [showVi, setShowVi] = useState(true);
   const hasTranslation = sentences.some((s) => s.vi);
   const [speed, setSpeed] = useState(1);
-  const [hasCover, setHasCover] = useState(true);
+  const [hasCover, setHasCover] = useState(Boolean(bookId));
   const coverSrc = `/covers/book_${bookId}.jpg`;
 
   const activeIndex = findActive(sentences, time);
@@ -112,14 +112,14 @@ export default function ShadowingPlayer({ bookId, bookLabel, chapter, lesson, pr
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
         <div className="max-w-[1800px] mx-auto px-4 h-14 flex items-center gap-3">
-          <Link href="/" aria-label={t.backToList} className="p-2 -ml-2 rounded-full hover:bg-slate-100">
+          <Link href={backHref} aria-label={t.backToList} className="p-2 -ml-2 rounded-full hover:bg-slate-100">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <path d="M19 12H5m7-7-7 7 7 7" />
             </svg>
           </Link>
           <div className="min-w-0 flex-1">
             <h1 className="font-bold truncate">
-              Chapter {chapter.chapter_number}: {chapter.chapter_title} · {lessonLabel(lesson.title)}
+              {heading ?? `Chapter ${chapter.chapter_number}: ${chapter.chapter_title} · ${lessonLabel(lesson.title)}`}
             </h1>
             <p className="text-xs text-slate-500 truncate">{bookLabel}</p>
           </div>

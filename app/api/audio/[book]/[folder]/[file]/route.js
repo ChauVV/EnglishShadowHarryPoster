@@ -4,28 +4,9 @@ import path from 'node:path';
 import { Readable } from 'node:stream';
 import { CONTENT_ROOT, BOOK_DIR_PATTERN, CHAPTER_DIR_PATTERN } from '../../../../../../lib/chapters';
 import { isAdminRequest } from '../../../../../../lib/auth';
-import { driveConfigured, driveList, driveMedia, driveResolveFolder } from '../../../../../../lib/drive';
+import { driveConfigured, streamDriveAudio } from '../../../../../../lib/drive';
 
 const FILE_PATTERN = /^lesson_\d+\.mp3$/;
-
-// Chuyển tiếp audio từ Drive, giữ Range để tua được
-async function streamFromDrive(request, book, folder, file) {
-  try {
-    const folderId = await driveResolveFolder([book, folder]);
-    const item = folderId && (await driveList(folderId)).find((f) => !f.isFolder && f.name === file);
-    if (!item) return new Response('Not found', { status: 404 });
-
-    const upstream = await driveMedia(item.id, request.headers.get('range'));
-    const headers = new Headers({ 'Content-Type': 'audio/mpeg', 'Accept-Ranges': 'bytes' });
-    for (const name of ['content-length', 'content-range']) {
-      const value = upstream.headers.get(name);
-      if (value) headers.set(name, value);
-    }
-    return new Response(upstream.body, { status: upstream.status, headers });
-  } catch (err) {
-    return new Response(err.message, { status: 502 });
-  }
-}
 
 export async function GET(request, { params }) {
   if (!isAdminRequest(request)) return new Response('Not found', { status: 404 });
@@ -34,7 +15,7 @@ export async function GET(request, { params }) {
     return new Response('Not found', { status: 404 });
   }
 
-  if (driveConfigured()) return streamFromDrive(request, book, folder, file);
+  if (driveConfigured()) return streamDriveAudio(request, [book, folder], file);
 
   const filePath = path.join(/*turbopackIgnore: true*/ CONTENT_ROOT, book, folder, file);
   let size;
