@@ -54,7 +54,7 @@ Web không cần deploy lại khi có bài mới: web đọc `catalog.json` từ
 Upload cần quyền ghi nên không dùng API key được. Cần OAuth client:
 1. https://console.cloud.google.com/apis/credentials (đúng project `harryposterenglishshadowing`) -> **Create credentials -> OAuth client ID** -> Application type **Desktop app** -> Create -> **Download JSON**.
 2. Lưu file đó thành `.english-shadowing/client.json` trong thư mục dự án (thư mục này nằm trong `.gitignore`, **tuyệt đối không commit** vì chứa client secret). Script cũng chấp nhận `~/.english-shadowing/client.json`.
-3. Màn hình **OAuth consent screen**: User type **External**, điền tên app và email, thêm email của bạn vào **Test users**. Nên bấm **Publish app** (In production) để token không hết hạn sau 7 ngày. App chưa verify chỉ có bạn dùng nên chấp nhận cảnh báo "unverified".
+3. OAuth consent screen: đã thiết lập (External, app `englishshadow`, đã **Publish app** sang In production ngày 2026-10-07, nên token không hết hạn sau 7 ngày). Nếu sau này token vẫn bị từ chối, chạy lại bước 4.
 4. Chạy `python scripts/drive_upload.py auth` -> trình duyệt mở -> chọn tài khoản chủ thư mục Drive -> Cho phép. Token lưu cùng thư mục với `client.json`.
 5. Thư mục gốc Drive phải được chia sẻ **Anyone with the link: Viewer** (file mới upload kế thừa quyền này). `DRIVE_ROOT_FOLDER_ID` và `GOOGLE_API_KEY` nằm trong `.env.local`.
 
