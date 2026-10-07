@@ -454,7 +454,7 @@ function TopicRow({ topic, lessons, gradient }) {
 
       <ul
         ref={scroller}
-        className="-mx-4 flex snap-x scroll-px-4 gap-3 overflow-x-auto px-4 pb-1 sm:-mx-6 sm:scroll-px-6 sm:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="-mx-1 flex snap-x scroll-px-1 gap-3 overflow-x-auto px-1 pb-1 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {lessons.map((lesson) => {
           const key = topicLessonKey(topic.topic, lesson.lesson_index);
@@ -484,9 +484,9 @@ function LessonCard({ lesson, gradient, coverSrc, done, href, onOpen }) {
       <Link
         href={href}
         onClick={onOpen}
-        className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+        className="group block rounded-xl focus-visible:outline-none"
       >
-        <span className={`relative flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br text-white shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 ${gradient}`}>
+        <span className={`relative flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br text-white shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50 ${gradient}`}>
           {coverFailed ? (
             <span className="font-display text-5xl font-semibold opacity-90 drop-shadow">{lesson.lesson_index}</span>
           ) : (
