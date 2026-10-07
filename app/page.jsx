@@ -21,12 +21,6 @@ const COVERS = [
   'from-zinc-900 via-stone-700 to-amber-600',
 ];
 
-const STEP_KEYS = [
-  ['stepListen', 'stepListenDesc'],
-  ['stepRepeat', 'stepRepeatDesc'],
-  ['stepSpeak', 'stepSpeakDesc'],
-];
-
 // ---- tiến độ học lưu trên trình duyệt (các bài đã mở + bài mở gần nhất) ----
 function subscribeProgress(callback) {
   window.addEventListener('storage', callback);
@@ -67,6 +61,15 @@ const lessonKey = (book, chapter, lesson) => `${book}/${chapter}/${lesson}`;
 const lessonHref = (key) => `/learn/${key}`;
 const minutes = (seconds) => Math.max(1, Math.round(seconds / 60));
 
+// Tìm kiếm không phân biệt hoa/thường và dấu tiếng Việt ("ngan hang" khớp "Ngân hàng")
+const normalizeText = (text) =>
+  String(text ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/gi, 'd')
+    .toLowerCase()
+    .trim();
+
 export default function LibraryPage() {
   const { t } = useI18n();
   const [library, setLibrary] = useState(null);
@@ -74,6 +77,7 @@ export default function LibraryPage() {
   const [topics, setTopics] = useState(null);
   const [error, setError] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
+  const [query, setQuery] = useState('');
   const progress = useProgress();
 
   useEffect(() => {
@@ -131,7 +135,7 @@ export default function LibraryPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      <TopBar />
+      <TopBar query={query} onQueryChange={setQuery} />
 
       <Hero
         loaded={Boolean(library)}
@@ -152,7 +156,7 @@ export default function LibraryPage() {
 
         {!library && !error && <LibrarySkeleton />}
 
-        {topics?.length > 0 && <TopicsSection topics={topics} />}
+        {topics?.length > 0 && <TopicsSection topics={topics} query={query} onClearQuery={() => setQuery('')} />}
 
         {library && topics && !isAdmin && topics.length === 0 && <FreeTopicsPlaceholder />}
 
@@ -217,26 +221,49 @@ export default function LibraryPage() {
 
 /* ------------------------------------------------------------------ */
 
-function TopBar() {
+function TopBar({ query, onQueryChange }) {
   const { t } = useI18n();
   return (
-    <header className="sticky top-0 z-20 bg-slate-950/90 backdrop-blur border-b border-white/10">
+    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center gap-3">
-        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400 text-slate-950">
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-400 text-slate-950">
           <HeadphonesIcon className="h-4 w-4" />
         </span>
-        <span className="font-display font-semibold text-white tracking-tight">{t.brand}</span>
-        <span className="hidden sm:inline-flex ml-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-0.5 text-[11px] font-medium text-emerald-300">
-          {t.tagline}
-        </span>
-        <div className="ml-auto">
-          <LanguageSwitch tone="dark" />
+        <span className="hidden sm:inline font-display font-semibold tracking-tight text-slate-900">{t.brand}</span>
+
+        <label className="relative min-w-0 flex-1 sm:ml-4 sm:max-w-xl">
+          <span className="sr-only">{t.searchLabel}</span>
+          <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => onQueryChange(e.target.value)}
+            onKeyDown={(e) => e.key === 'Escape' && onQueryChange('')}
+            placeholder={t.searchPlaceholder}
+            autoComplete="off"
+            className="h-9 w-full rounded-full border border-transparent bg-slate-100 pl-10 pr-9 text-sm text-slate-900 placeholder:text-slate-400 transition [&::-webkit-search-cancel-button]:hidden focus:border-emerald-400 focus:bg-white focus:outline-2 focus:outline-emerald-400/30"
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={() => onQueryChange('')}
+              aria-label={t.clearSearch}
+              className="absolute right-1.5 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-emerald-500"
+            >
+              <CloseIcon className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </label>
+
+        <div className="shrink-0 sm:ml-auto">
+          <LanguageSwitch tone="light" />
         </div>
       </div>
     </header>
   );
 }
 
+// Banner mỏng một hàng: tiêu đề + số liệu nhanh + nút học tiếp
 function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, continuing, hasTopics }) {
   const { t } = useI18n();
   return (
@@ -246,82 +273,138 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(60% 80% at 85% 0%, rgba(16,185,129,.35), transparent 60%), radial-gradient(50% 70% at 0% 100%, rgba(245,158,11,.25), transparent 60%)',
+            'radial-gradient(60% 120% at 85% 0%, rgba(16,185,129,.35), transparent 60%), radial-gradient(40% 100% at 0% 100%, rgba(245,158,11,.22), transparent 60%)',
         }}
       />
-      <div className="relative max-w-6xl mx-auto px-4 pt-8 pb-12 sm:pt-10 sm:pb-14 grid gap-6 lg:gap-10 lg:grid-cols-[1.3fr_1fr] items-center">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">{t.eyebrow}</p>
-          <h1 className="font-display mt-2 text-3xl sm:text-4xl font-semibold leading-[1.15] tracking-tight">
-            {t.heroLine1}
-          </h1>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
-            {startEntry ? (
-              <Link
-                href={lessonHref(startEntry.key)}
-                onClick={() => markOpened(startEntry.key)}
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-5 h-11 font-semibold text-slate-950 hover:bg-emerald-300 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
-              >
-                <PlayIcon className="h-4 w-4" />
-                {continuing ? t.nextLesson : t.startLearning}
-              </Link>
-            ) : (
-              !hasTopics && (
-                <span className="inline-flex items-center rounded-full bg-white/10 px-5 h-11 text-slate-300">
-                  {loaded ? t.noLessons : t.loading}
-                </span>
-              )
-            )}
-            <a href={hasTopics ? '#topics-title' : '#shelf-title'} className="inline-flex items-center h-11 px-5 rounded-full border border-white/20 text-sm font-medium hover:bg-white/10 transition">
-              {t.browseLibrary}
-            </a>
-          </div>
-
-          {!(loaded && lessonCount === 0) && (
-            <dl className="mt-6 grid grid-cols-3 max-w-md gap-4">
-              <Stat value={loaded ? bookCount : '–'} label={t.statBooks} />
-              <Stat value={loaded ? lessonCount : '–'} label={t.statLessons} />
-              <Stat value={loaded ? totalMinutes : '–'} label={t.statMinutes} />
-            </dl>
-          )}
+      <div className="relative max-w-6xl mx-auto px-4 py-4 sm:py-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <div className="min-w-0 flex-1 basis-64">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">{t.eyebrow}</p>
+          <h1 className="font-display text-xl sm:text-2xl font-semibold leading-tight tracking-tight">{t.heroLine1}</h1>
         </div>
 
-        <ol className="grid gap-2.5">
-          {STEP_KEYS.map(([title, desc], i) => (
-            <li key={title} className="flex gap-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-4 py-3">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-400/15 text-emerald-300 font-display font-semibold">
-                {i + 1}
-              </span>
-              <div>
-                <p className="font-semibold">{t[title]}</p>
-                <p className="text-sm text-slate-400 mt-0.5">{t[desc]}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        {!(loaded && lessonCount === 0) && (
+          <dl className="hidden md:flex gap-6">
+            <Stat value={loaded ? bookCount : '–'} label={t.statBooks} />
+            <Stat value={loaded ? lessonCount : '–'} label={t.statLessons} />
+            <Stat value={loaded ? totalMinutes : '–'} label={t.statMinutes} />
+          </dl>
+        )}
+
+        {startEntry ? (
+          <Link
+            href={lessonHref(startEntry.key)}
+            onClick={() => markOpened(startEntry.key)}
+            className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-5 h-10 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+          >
+            <PlayIcon className="h-3.5 w-3.5" />
+            {continuing ? t.nextLesson : t.startLearning}
+          </Link>
+        ) : (
+          !hasTopics && (
+            <span className="inline-flex items-center rounded-full bg-white/10 px-5 h-10 text-sm text-slate-300">
+              {loaded ? t.noLessons : t.loading}
+            </span>
+          )
+        )}
       </div>
     </section>
   );
 }
 
-// Topic miễn phí: mỗi topic là một nhóm có tiêu đề, bên dưới là hàng lesson cuộn ngang (kiểu Corodomo)
-function TopicsSection({ topics }) {
+// Topic miễn phí: hàng tag chủ đề (lọc) + mỗi topic là một nhóm có tiêu đề, bên dưới là hàng lesson cuộn ngang (kiểu Corodomo)
+function TopicsSection({ topics, query, onClearQuery }) {
   const { t } = useI18n();
+  const [tag, setTag] = useState(null); // slug topic đang chọn, null = tất cả
+
+  const visible = useMemo(() => {
+    const q = normalizeText(query);
+    const result = [];
+    for (const topic of topics) {
+      if (tag && topic.topic !== tag) continue;
+      if (!q) {
+        result.push({ topic, lessons: topic.lessons });
+        continue;
+      }
+      // Khớp tên topic -> hiện cả topic; không thì chỉ giữ các bài có tên khớp
+      const topicMatch = normalizeText(`${topic.title} ${topic.title_vi ?? ''}`).includes(q);
+      const lessons = topicMatch ? topic.lessons : topic.lessons.filter((l) => normalizeText(lessonLabel(l.title)).includes(q));
+      if (lessons.length > 0) result.push({ topic, lessons });
+    }
+    return result;
+  }, [topics, tag, query]);
+
   return (
-    <section className="mt-12" aria-labelledby="topics-title">
-      <SectionHeading id="topics-title" eyebrow={t.topicsEyebrow} title={t.topicsTitle} note={t.topicsCount(topics.length)} />
-      <div className="space-y-10">
-        {topics.map((topic, i) => (
-          <TopicRow key={topic.topic} topic={topic} gradient={COVERS[i % COVERS.length]} />
-        ))}
+    <section className="mt-4" aria-labelledby="topics-title">
+      <TopicTags topics={topics} tag={tag} onSelect={setTag} />
+
+      <div className="mt-6">
+        <SectionHeading id="topics-title" eyebrow={t.topicsEyebrow} title={t.topicsTitle} note={t.topicsCount(visible.length)} />
       </div>
+
+      {visible.length === 0 ? (
+        <div className="rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-12 text-center">
+          <p className="font-semibold">{t.noResults}</p>
+          <p className="mx-auto mt-1 max-w-sm text-sm text-slate-500">{t.noResultsDesc}</p>
+          <button
+            type="button"
+            onClick={() => {
+              onClearQuery();
+              setTag(null);
+            }}
+            className="mt-4 inline-flex h-9 items-center rounded-full bg-slate-900 px-4 text-sm font-semibold text-white hover:bg-slate-700 transition"
+          >
+            {t.clearFilters}
+          </button>
+        </div>
+      ) : (
+        <div className="space-y-10">
+          {visible.map(({ topic, lessons }) => (
+            <TopicRow key={topic.topic} topic={topic} lessons={lessons} gradient={COVERS[(topic.number - 1) % COVERS.length]} />
+          ))}
+        </div>
+      )}
     </section>
+  );
+}
+
+// Hàng tag chủ đề cuộn ngang, dính dưới header khi cuộn trang
+function TopicTags({ topics, tag, onSelect }) {
+  const { t } = useI18n();
+  const items = [{ slug: null, label: t.allTopics }, ...topics.map((tp) => ({ slug: tp.topic, label: tp.title }))];
+  return (
+    <div className="sticky top-14 z-20 -mx-4 border-b border-slate-200/70 bg-slate-50/90 px-4 py-2.5 backdrop-blur">
+      <ul
+        role="group"
+        aria-label={t.topicTags}
+        className="flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {items.map((item) => {
+          const active = item.slug === tag;
+          return (
+            <li key={item.slug ?? 'all'} className="shrink-0">
+              <button
+                type="button"
+                aria-pressed={active}
+                onClick={() => onSelect(item.slug)}
+                className={`inline-flex h-8 items-center rounded-full border px-3.5 text-sm font-medium transition focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500 ${
+                  active
+                    ? 'border-emerald-500 bg-emerald-500 text-white shadow-sm'
+                    : 'border-slate-200 bg-white text-slate-600 hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800'
+                }`}
+              >
+                {item.label}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
 
 const SHORT_LESSON_MAX_SECONDS = 210; // bài ngắn 2-3 phút, bài dài 4-5 phút
 
-function TopicRow({ topic, gradient }) {
+function TopicRow({ topic, lessons, gradient }) {
   const { t } = useI18n();
   const visited = useTopicProgress();
   const scroller = useRef(null);
@@ -333,7 +416,7 @@ function TopicRow({ topic, gradient }) {
   };
 
   return (
-    <div id={`topic-${topic.topic}`} className="scroll-mt-20">
+    <div id={`topic-${topic.topic}`} className="scroll-mt-28">
       <div className="mb-3 flex items-center gap-3">
         <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white font-display text-sm font-semibold tabular-nums ${gradient}`}>
           {String(topic.number).padStart(2, '0')}
@@ -355,7 +438,7 @@ function TopicRow({ topic, gradient }) {
         ref={scroller}
         className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {topic.lessons.map((lesson) => {
+        {lessons.map((lesson) => {
           const key = topicLessonKey(topic.topic, lesson.lesson_index);
           return (
             <LessonCard
@@ -447,7 +530,7 @@ function FreeTopicsPlaceholder() {
 function Stat({ value, label }) {
   return (
     <div className="border-l-2 border-emerald-400/60 pl-3">
-      <dd className="font-display text-2xl font-semibold tabular-nums">{value}</dd>
+      <dd className="font-display text-xl font-semibold leading-tight tabular-nums">{value}</dd>
       <dt className="text-xs text-slate-400">{label}</dt>
     </div>
   );
@@ -797,6 +880,21 @@ function LockIcon({ className }) {
     <svg {...iconProps} className={className} {...stroke}>
       <rect x="5" y="11" width="14" height="9" rx="2" />
       <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+    </svg>
+  );
+}
+function SearchIcon({ className }) {
+  return (
+    <svg {...iconProps} className={className} {...stroke}>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-3.5-3.5" />
+    </svg>
+  );
+}
+function CloseIcon({ className }) {
+  return (
+    <svg {...iconProps} className={className} {...stroke}>
+      <path d="M6 6l12 12M18 6 6 18" />
     </svg>
   );
 }
