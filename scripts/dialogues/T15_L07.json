@@ -1,0 +1,39 @@
+{
+  "topic_number": 15,
+  "topic_title": "Money & Banking",
+  "topic_title_vi": "Tiền bạc & ngân hàng",
+  "lesson_number": 7,
+  "lesson_title": "Applying for a Home Loan",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Hi Jack, thanks for seeing me. My husband and I want to buy our first home, and we need a mortgage.", "Chào Jack, cảm ơn bạn đã gặp mình. Chồng mình và mình muốn mua căn nhà đầu tiên, và chúng mình cần một khoản vay thế chấp."],
+    ["Jack", "Congratulations! That is exciting. First, how much have you saved for the deposit?", "Chúc mừng bạn! Thật thú vị. Trước hết, hai bạn đã tiết kiệm được bao nhiêu cho khoản tiền đặt cọc?"],
+    ["Emma", "We have saved fifty thousand dollars. The house we like costs four hundred thousand.", "Chúng mình đã tiết kiệm được năm mươi nghìn đô la. Căn nhà chúng mình thích có giá bốn trăm nghìn."],
+    ["Jack", "So your deposit is about twelve and a half percent. Many lenders ask for ten to twenty percent, so you are in a good position.", "Vậy tiền đặt cọc của hai bạn khoảng mười hai phẩy năm phần trăm. Nhiều bên cho vay yêu cầu từ mười đến hai mươi phần trăm, nên hai bạn đang ở vị trí tốt."],
+    ["Emma", "What happens if the deposit is under twenty percent?", "Điều gì xảy ra nếu tiền đặt cọc dưới hai mươi phần trăm?"],
+    ["Jack", "Some lenders will still lend, but you may pay a higher interest rate or an extra insurance fee. It depends on the lender.", "Một số bên vẫn cho vay, nhưng bạn có thể phải trả lãi suất cao hơn hoặc thêm phí bảo hiểm. Điều đó tùy vào bên cho vay."],
+    ["Emma", "I see. Should we choose a fixed rate or a floating rate?", "Mình hiểu rồi. Chúng mình nên chọn lãi suất cố định hay lãi suất thả nổi?"],
+    ["Jack", "A fixed rate stays the same for a set time, so your payments never change. A floating rate can go up or down with the market.", "Lãi suất cố định giữ nguyên trong một thời gian nhất định, nên số tiền trả không thay đổi. Lãi suất thả nổi có thể tăng hoặc giảm theo thị trường."],
+    ["Emma", "We want to know exactly what we will pay, so fixed sounds safer.", "Chúng mình muốn biết chính xác mình sẽ trả bao nhiêu, nên lãi suất cố định nghe an toàn hơn."],
+    ["Jack", "Many first-home buyers think the same way. Some people also split the loan, with half fixed and half floating.", "Nhiều người mua nhà đầu tiên cũng nghĩ như vậy. Một số người còn chia khoản vay, một nửa cố định và một nửa thả nổi."],
+    ["Emma", "Are there any extra costs besides the loan payments?", "Có chi phí nào khác ngoài các khoản trả nợ không?"],
+    ["Jack", "Yes. You will pay for a lawyer, a property report, and insurance for the house. I will give you a full list so there are no surprises. Budget about three to five thousand dollars for these costs.", "Có. Hai bạn sẽ phải trả cho luật sư, báo cáo về căn nhà, và bảo hiểm cho ngôi nhà. Mình sẽ đưa danh sách đầy đủ để không có bất ngờ nào. Hãy dự trù khoảng ba đến năm nghìn đô la cho những khoản này."],
+    ["Emma", "That is interesting. How long is a typical home loan?", "Thú vị đấy. Một khoản vay mua nhà thông thường kéo dài bao lâu?"],
+    ["Jack", "Most are for twenty-five or thirty years. A longer loan means smaller payments, but you pay more interest in the end.", "Hầu hết kéo dài hai mươi lăm hoặc ba mươi năm. Khoản vay càng dài thì tiền trả mỗi kỳ càng nhỏ, nhưng cuối cùng bạn trả nhiều lãi hơn."],
+    ["Emma", "What will you need from us to start?", "Bạn cần gì từ chúng mình để bắt đầu?"],
+    ["Jack", "Your payslips, your bank statements, and a list of your debts. I also need to know your regular living costs.", "Phiếu lương, sao kê ngân hàng, và danh sách các khoản nợ của hai bạn. Mình cũng cần biết chi phí sinh hoạt thường xuyên."],
+    ["Emma", "Why do you need to know our living costs?", "Tại sao bạn cần biết chi phí sinh hoạt của chúng mình?"],
+    ["Jack", "The lender wants to be sure you can repay the loan comfortably, even if the interest rate goes up a little.", "Bên cho vay muốn chắc chắn rằng hai bạn có thể trả khoản vay một cách thoải mái, ngay cả khi lãi suất tăng lên một chút."],
+    ["Emma", "That makes sense. Can we get approval before we make an offer on the house?", "Nghe hợp lý đấy. Chúng mình có thể được duyệt trước khi trả giá mua căn nhà không?"],
+    ["Jack", "Yes, and I recommend it. It is called pre-approval. It tells you how much you can borrow, so you can shop with confidence.", "Được, và mình khuyên nên làm vậy. Nó gọi là phê duyệt trước. Nó cho bạn biết có thể vay được bao nhiêu, để bạn mua nhà một cách tự tin."],
+    ["Emma", "How long does pre-approval take?", "Phê duyệt trước mất bao lâu?"],
+    ["Jack", "Usually three to five working days, if your documents are complete.", "Thường là ba đến năm ngày làm việc, nếu hồ sơ của hai bạn đầy đủ."],
+    ["Emma", "Wonderful. We will bring everything on Monday.", "Tuyệt vời. Thứ Hai chúng mình sẽ mang đủ mọi thứ đến."],
+    ["Jack", "Great. I will prepare the forms, and we can start the application together.", "Tuyệt. Mình sẽ chuẩn bị các biểu mẫu, và chúng ta có thể bắt đầu hồ sơ cùng nhau."],
+    ["Emma", "Thank you so much. I feel much less nervous now.", "Cảm ơn bạn nhiều lắm. Giờ mình đỡ lo lắng hơn nhiều rồi."],
+    ["Jack", "That is normal. A home loan is a big step, but we will take it one step at a time.", "Điều đó bình thường thôi. Vay mua nhà là một bước lớn, nhưng chúng ta sẽ đi từng bước một."]
+  ]
+}

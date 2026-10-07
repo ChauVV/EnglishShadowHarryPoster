@@ -380,15 +380,17 @@ Ký hiệu: `D` = hội thoại 2 người, `M` = độc thoại.
 
 ## Topic 15 - Money & Banking (Tiền bạc & ngân hàng)
 
+> L04-L09 được người dùng yêu cầu đổi (2026-10-07) sang hướng tài chính cho vay: non-bank, tiết kiệm, vay cá nhân, vay mua nhà, vay bất động sản đầu tư. Các bài cũ bị thay: Paying by Card, Asking for Change, Splitting the Cost, Lending Money to a Friend, Applying for a Credit Card, Reporting a Lost Card.
+
 - T15-L01 · 2:00 (~276 từ) · D · Opening a Bank Account
 - T15-L02 · 2:10 (~299 từ) · D · Withdrawing Cash
 - T15-L03 · 2:20 (~322 từ) · D · Checking Your Balance
-- T15-L04 · 2:30 (~345 từ) · D · Paying by Card
-- T15-L05 · 2:40 (~368 từ) · D · Asking for Change
-- T15-L06 · 2:50 (~391 từ) · D · Splitting the Cost
-- T15-L07 · 3:00 (~414 từ) · D · Lending Money to a Friend
-- T15-L08 · 4:00 (~552 từ) · D · Applying for a Credit Card
-- T15-L09 · 4:05 (~564 từ) · D · Reporting a Lost Card
+- T15-L04 · 2:30 (~345 từ) · D · Banks and Non-Bank Lenders
+- T15-L05 · 2:40 (~368 từ) · D · Choosing a Savings Account
+- T15-L06 · 2:50 (~391 từ) · D · Applying for a Personal Loan
+- T15-L07 · 3:00 (~414 từ) · D · Applying for a Home Loan
+- T15-L08 · 4:00 (~552 từ) · D · Borrowing for an Investment Property
+- T15-L09 · 4:05 (~564 từ) · D · A Short-Term Loan from a Non-Bank Lender
 - T15-L10 · 4:10 (~575 từ) · D · Saving for a Trip
 - T15-L11 · 4:15 (~586 từ) · D · Making a Monthly Budget
 - T15-L12 · 4:20 (~598 từ) · D · Sending Money Abroad

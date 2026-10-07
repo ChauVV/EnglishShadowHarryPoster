@@ -1,0 +1,41 @@
+{
+  "topic_number": 15,
+  "topic_title": "Money & Banking",
+  "topic_title_vi": "Tiền bạc & ngân hàng",
+  "lesson_number": 5,
+  "lesson_title": "Choosing a Savings Account",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Sarah", "Good morning. I would like to start saving money. Which account do you suggest?", "Chào buổi sáng. Tôi muốn bắt đầu tiết kiệm tiền. Anh gợi ý tài khoản nào?"],
+    ["Adam", "Good morning. Congratulations on starting. Do you want to take your money out often, or leave it for a while?", "Chào buổi sáng. Chúc mừng chị đã bắt đầu. Chị muốn rút tiền thường xuyên hay để yên một thời gian?"],
+    ["Sarah", "I would like to leave it, but I may need it in an emergency.", "Tôi muốn để yên, nhưng có thể tôi sẽ cần dùng khi khẩn cấp."],
+    ["Adam", "Then a regular savings account is a good choice. You can withdraw your money at any time, and it still earns interest.", "Vậy thì tài khoản tiết kiệm thông thường là lựa chọn tốt. Chị có thể rút tiền bất cứ lúc nào, và tiền vẫn sinh lãi."],
+    ["Sarah", "What is the interest rate?", "Lãi suất là bao nhiêu?"],
+    ["Adam", "Right now it is three percent a year. That is not very high, but it is safe.", "Hiện giờ là ba phần trăm một năm. Không quá cao, nhưng rất an toàn."],
+    ["Sarah", "Is that rate fixed, or can it change?", "Lãi suất đó cố định, hay nó có thể thay đổi?"],
+    ["Adam", "It can change. If the bank lowers its rate, yours will go down too, but we always send you a notice before that happens.", "Nó có thể thay đổi. Nếu ngân hàng giảm lãi suất, lãi suất của chị cũng giảm, nhưng chúng tôi luôn gửi thông báo trước khi điều đó xảy ra."],
+    ["Sarah", "Is there a way to earn more?", "Có cách nào để kiếm được nhiều hơn không?"],
+    ["Adam", "Yes. A term deposit pays a higher rate, maybe four and a half percent. But you must lock your money away for a fixed time, like six or twelve months.", "Có. Tiền gửi có kỳ hạn trả lãi suất cao hơn, có thể là bốn phẩy năm phần trăm. Nhưng chị phải gửi cố định một khoảng thời gian, như sáu hoặc mười hai tháng."],
+    ["Sarah", "What if I need the money before then?", "Nếu tôi cần tiền trước thời hạn thì sao?"],
+    ["Adam", "You can usually take it out early, but the bank will charge a penalty or reduce your interest.", "Thường thì chị có thể rút sớm, nhưng ngân hàng sẽ tính phí phạt hoặc giảm lãi của chị."],
+    ["Sarah", "How big is that penalty usually?", "Khoản phạt đó thường lớn đến mức nào?"],
+    ["Adam", "It is often about one month of interest, so it is small. But it depends on the length of your term, so please read the details first.", "Thường khoảng một tháng tiền lãi, nên không lớn. Nhưng nó tùy vào thời hạn gửi của chị, vì vậy xin hãy đọc kỹ chi tiết trước."],
+    ["Sarah", "Hmm. Maybe I should use both. Is that possible?", "Ừm. Có lẽ tôi nên dùng cả hai. Điều đó có được không?"],
+    ["Adam", "Of course. Many people keep three months of living costs in a regular account, and put the rest in a term deposit.", "Tất nhiên được. Nhiều người giữ chi phí sinh hoạt của ba tháng trong tài khoản thông thường, và gửi phần còn lại vào tiền gửi có kỳ hạn."],
+    ["Sarah", "That is a clever idea. Are there any monthly fees?", "Ý tưởng hay đấy. Có phí hằng tháng nào không?"],
+    ["Adam", "No fees on this account. You just need to keep at least one hundred dollars in it.", "Tài khoản này không có phí. Chị chỉ cần giữ ít nhất một trăm đô la trong đó."],
+    ["Sarah", "Is my money protected if the bank has a problem?", "Tiền của tôi có được bảo vệ nếu ngân hàng gặp vấn đề không?"],
+    ["Adam", "Yes. In many countries the government guarantees deposits up to a certain amount, so your savings are protected.", "Có. Ở nhiều nước, chính phủ bảo lãnh tiền gửi đến một mức nhất định, nên tiền tiết kiệm của chị được bảo vệ."],
+    ["Sarah", "That is easy. Can I add money automatically each month?", "Dễ thôi. Tôi có thể tự động chuyển tiền vào mỗi tháng không?"],
+    ["Adam", "Yes, you can set up an automatic transfer on payday. Many customers find this the easiest way to save.", "Được, chị có thể cài đặt chuyển khoản tự động vào ngày nhận lương. Nhiều khách hàng thấy đó là cách tiết kiệm dễ nhất."],
+    ["Sarah", "Can I change the amount later if my income changes?", "Tôi có thể thay đổi số tiền sau này nếu thu nhập của tôi thay đổi không?"],
+    ["Adam", "Yes. You can raise it, lower it, or pause it online at any time, and there is no fee for doing that.", "Được. Chị có thể tăng, giảm hoặc tạm dừng nó trực tuyến bất cứ lúc nào, và không mất phí cho việc đó."],
+    ["Sarah", "Perfect. Let us open the regular account first, and I will think about the term deposit.", "Tuyệt. Hãy mở tài khoản thông thường trước, và tôi sẽ suy nghĩ về tiền gửi có kỳ hạn."],
+    ["Adam", "Sounds good. I just need your ID and your address, please.", "Nghe hay đấy. Tôi chỉ cần giấy tờ tùy thân và địa chỉ của chị."],
+    ["Sarah", "Here you are. How long will it take?", "Của anh đây. Sẽ mất bao lâu?"],
+    ["Adam", "About ten minutes. Please wait here, and I will get started.", "Khoảng mười phút. Xin chị chờ ở đây, tôi sẽ bắt đầu ngay."]
+  ]
+}

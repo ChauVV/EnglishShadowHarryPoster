@@ -64,6 +64,7 @@ const DICT = {
     loadingLesson: 'Đang tải bài học...',
     lessonNotFound: 'Không tìm thấy bài học này.',
     backToList: 'Về danh sách',
+    home: 'Trang chủ',
     // player
     prevLessonLink: '← Lesson trước',
     nextLessonLink: 'Lesson sau →',
@@ -146,6 +147,7 @@ const DICT = {
     loadingLesson: 'Loading lesson...',
     lessonNotFound: 'This lesson could not be found.',
     backToList: 'Back to library',
+    home: 'Home',
     prevLessonLink: '← Previous lesson',
     nextLessonLink: 'Next lesson →',
     pause: 'Pause',

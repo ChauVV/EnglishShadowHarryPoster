@@ -122,6 +122,17 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
             </h1>
             <p className="text-xs text-slate-500 truncate">{bookLabel}</p>
           </div>
+          <Link
+            href="/"
+            aria-label={t.home}
+            title={t.home}
+            className="inline-flex items-center gap-1.5 rounded-full px-3 h-9 text-sm font-medium border border-slate-200 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-emerald-500"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m3 11 9-8 9 8M5 10v10h5v-6h4v6h5V10" />
+            </svg>
+            <span className="hidden md:inline">{t.home}</span>
+          </Link>
           <LessonLink href={prevHref}>{t.prevLessonLink}</LessonLink>
           <LessonLink href={nextHref}>{t.nextLessonLink}</LessonLink>
           <LanguageSwitch tone="light" />

@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T15-L04`** (Topic 15 Money & Banking - Paying by Card, mục tiêu 2:30). Người dùng yêu cầu ưu tiên làm hết topic 15 trước; làm xong T15 thì quay lại **`T01-L05`** (Topic 01 - Asking for a Window Seat, mục tiêu 2:40). Khi đó cứ tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại.
+**NEXT: `T15-L10`** (Topic 15 Money & Banking - Saving for a Trip, mục tiêu 4:10). Người dùng yêu cầu ưu tiên làm hết topic 15 trước; làm xong T15 thì quay lại **`T01-L05`** (Topic 01 - Asking for a Window Seat, mục tiêu 2:40). Khi đó cứ tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN); người dùng muốn các bài T15 sau cũng thiên về non-bank, tiết kiệm, vay, thế chấp, vay bất động sản đầu tư.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -30,6 +30,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T15-L01 | Opening a Bank Account | 2:00 | 2:05 | rồi | 2026-10-07 |
 | T15-L02 | Withdrawing Cash | 2:10 | 2:06 | rồi | 2026-10-07 |
 | T15-L03 | Checking Your Balance | 2:20 | 2:20 | rồi | 2026-10-07 |
+| T15-L04 | Banks and Non-Bank Lenders | 2:30 | 2:35 | rồi | 2026-10-07 |
+| T15-L05 | Choosing a Savings Account | 2:40 | 2:47 | rồi | 2026-10-07 |
+| T15-L06 | Applying for a Personal Loan | 2:50 | 2:50 | rồi | 2026-10-07 |
+| T15-L07 | Applying for a Home Loan | 3:00 | 2:55 | rồi | 2026-10-07 |
+| T15-L08 | Borrowing for an Investment Property | 4:00 | 3:57 | rồi | 2026-10-07 |
+| T15-L09 | A Short-Term Loan from a Non-Bank Lender | 4:05 | 4:00 | rồi | 2026-10-07 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 

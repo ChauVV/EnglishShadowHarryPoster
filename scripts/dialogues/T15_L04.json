@@ -1,0 +1,37 @@
+{
+  "topic_number": 15,
+  "topic_title": "Money & Banking",
+  "topic_title_vi": "Tiền bạc & ngân hàng",
+  "lesson_number": 4,
+  "lesson_title": "Banks and Non-Bank Lenders",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Jack, you work in finance, right? Can I ask you a question about loans?", "Jack, bạn làm trong ngành tài chính, đúng không? Mình hỏi bạn một câu về khoản vay được không?"],
+    ["Jack", "Of course. What do you want to know?", "Tất nhiên rồi. Bạn muốn biết điều gì?"],
+    ["Emma", "My friend said she got a loan from a non-bank lender. What is that? I only know about banks.", "Bạn mình nói cô ấy vay tiền từ một tổ chức cho vay phi ngân hàng. Đó là gì vậy? Mình chỉ biết về ngân hàng thôi."],
+    ["Jack", "A non-bank lender is a company that lends money, but it is not a bank. It does not offer savings accounts or debit cards. Its main job is lending.", "Tổ chức cho vay phi ngân hàng là một công ty cho vay tiền, nhưng không phải là ngân hàng. Họ không có tài khoản tiết kiệm hay thẻ ghi nợ. Công việc chính của họ là cho vay."],
+    ["Emma", "So where does it get the money to lend?", "Vậy họ lấy tiền ở đâu để cho vay?"],
+    ["Jack", "Usually from investors or large funds. They put money in, and the lender gives out loans and shares the profit with them.", "Thường là từ các nhà đầu tư hoặc các quỹ lớn. Họ bỏ tiền vào, còn bên cho vay đem đi cho vay và chia lợi nhuận cho họ."],
+    ["Emma", "I see. Why would someone choose a non-bank lender instead of a bank?", "Mình hiểu rồi. Tại sao có người chọn tổ chức phi ngân hàng thay vì ngân hàng?"],
+    ["Jack", "Often because they are faster. A bank can take weeks to decide, but a non-bank lender might give you an answer in a few days.", "Thường là vì họ nhanh hơn. Ngân hàng có thể mất vài tuần để quyết định, còn tổ chức phi ngân hàng có thể trả lời bạn trong vài ngày."],
+    ["Emma", "That sounds great. Is there a catch?", "Nghe tuyệt đấy. Có điều gì bất lợi không?"],
+    ["Jack", "Sometimes the interest rate is a little higher. You pay more for the speed and the flexibility.", "Đôi khi lãi suất cao hơn một chút. Bạn trả thêm tiền cho sự nhanh chóng và linh hoạt."],
+    ["Emma", "What do you mean by flexibility?", "Ý bạn về sự linh hoạt là gì?"],
+    ["Jack", "Banks follow strict rules. If your income changes from month to month, a bank may say no. A non-bank lender can look at your whole situation.", "Ngân hàng tuân theo các quy định chặt chẽ. Nếu thu nhập của bạn thay đổi từng tháng, ngân hàng có thể từ chối. Tổ chức phi ngân hàng có thể xem xét toàn bộ hoàn cảnh của bạn."],
+    ["Emma", "That must help people who work for themselves.", "Chắc là điều đó giúp ích cho những người tự kinh doanh."],
+    ["Jack", "Exactly. Many business owners and freelancers go to non-bank lenders for that reason.", "Chính xác. Nhiều chủ doanh nghiệp và người làm tự do tìm đến các tổ chức phi ngân hàng vì lý do đó."],
+    ["Emma", "Is it safe, though? I worry about losing my money.", "Nhưng có an toàn không? Mình lo bị mất tiền."],
+    ["Jack", "In most countries, these lenders must be registered and follow the law. Always check that the company is on the official register before you sign anything.", "Ở hầu hết các nước, những tổ chức này phải đăng ký và tuân thủ pháp luật. Hãy luôn kiểm tra công ty có trong danh sách đăng ký chính thức trước khi ký bất cứ thứ gì."],
+    ["Emma", "Good tip. What else should I check?", "Lời khuyên hay đấy. Mình còn nên kiểm tra gì nữa?"],
+    ["Jack", "Read the fees and the total cost, not only the interest rate. And ask what happens if you pay late.", "Hãy đọc kỹ các khoản phí và tổng chi phí, không chỉ lãi suất. Và hỏi xem điều gì xảy ra nếu bạn trả trễ."],
+    ["Emma", "Okay. So a bank is safer, and a non-bank lender is faster?", "Được rồi. Vậy ngân hàng an toàn hơn, còn tổ chức phi ngân hàng nhanh hơn?"],
+    ["Jack", "Not exactly. Both can be safe if they are licensed. They are just different tools for different needs.", "Không hẳn vậy. Cả hai đều có thể an toàn nếu có giấy phép. Chúng chỉ là những công cụ khác nhau cho những nhu cầu khác nhau."],
+    ["Emma", "That makes sense. Thanks for explaining it so clearly.", "Nghe hợp lý đấy. Cảm ơn bạn đã giải thích rõ ràng như vậy."],
+    ["Jack", "No problem. If you want, I can introduce you to a good adviser who knows both options.", "Không có gì. Nếu bạn muốn, mình có thể giới thiệu một chuyên viên tư vấn giỏi hiểu cả hai lựa chọn."],
+    ["Emma", "Yes, please. I would like to compare them before I decide.", "Vâng, làm ơn. Mình muốn so sánh chúng trước khi quyết định."],
+    ["Jack", "Great. I will send you her details tonight.", "Tuyệt. Tối nay mình sẽ gửi thông tin liên hệ của cô ấy cho bạn."]
+  ]
+}

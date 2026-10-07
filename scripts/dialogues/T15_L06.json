@@ -1,0 +1,41 @@
+{
+  "topic_number": 15,
+  "topic_title": "Money & Banking",
+  "topic_title_vi": "Tiền bạc & ngân hàng",
+  "lesson_number": 6,
+  "lesson_title": "Applying for a Personal Loan",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Bella", "Hello, I would like to apply for a personal loan, please.", "Xin chào, tôi muốn đăng ký một khoản vay cá nhân."],
+    ["Michael", "Certainly. How much would you like to borrow, and what is it for?", "Được ạ. Chị muốn vay bao nhiêu, và để làm gì?"],
+    ["Bella", "I need ten thousand dollars to fix my car and pay some old bills.", "Tôi cần mười nghìn đô la để sửa xe và trả một vài hóa đơn cũ."],
+    ["Michael", "I understand. Over how many years would you like to repay it?", "Tôi hiểu. Chị muốn trả trong bao nhiêu năm?"],
+    ["Bella", "Maybe three years. What would the monthly payment be?", "Có lẽ ba năm. Mỗi tháng tôi sẽ phải trả bao nhiêu?"],
+    ["Michael", "At the current rate, about three hundred and twenty dollars a month. In total you would pay back a little over eleven and a half thousand.", "Với lãi suất hiện tại, khoảng ba trăm hai mươi đô la một tháng. Tổng cộng chị sẽ trả lại hơn mười một nghìn rưỡi một chút."],
+    ["Bella", "So the extra is the interest?", "Vậy phần chênh lệch là tiền lãi?"],
+    ["Michael", "Yes, plus a small set-up fee. If you choose a longer term, the monthly payment goes down, but you pay more interest overall.", "Đúng vậy, cộng thêm một khoản phí thiết lập nhỏ. Nếu chị chọn thời hạn dài hơn, số tiền trả hằng tháng sẽ giảm, nhưng tổng tiền lãi sẽ nhiều hơn."],
+    ["Bella", "Is the interest rate fixed for the whole three years?", "Lãi suất có cố định trong suốt ba năm không?"],
+    ["Michael", "Yes, this loan has a fixed rate. Your payment stays the same every month, which makes it easy to plan your budget.", "Có, khoản vay này có lãi suất cố định. Số tiền trả giữ nguyên mỗi tháng, giúp chị dễ lập kế hoạch chi tiêu."],
+    ["Bella", "How much is the set-up fee?", "Phí thiết lập là bao nhiêu?"],
+    ["Michael", "It is two hundred dollars. We take it from the loan, so you do not need to pay it separately on the first day.", "Là hai trăm đô la. Chúng tôi trừ nó từ khoản vay, nên chị không cần trả riêng vào ngày đầu tiên."],
+    ["Bella", "I see. What documents do you need from me?", "Tôi hiểu rồi. Anh cần những giấy tờ nào từ tôi?"],
+    ["Michael", "Your ID, your last three payslips, and your bank statements for the past three months.", "Giấy tờ tùy thân, ba phiếu lương gần nhất, và sao kê ngân hàng của ba tháng qua."],
+    ["Bella", "I have all of those with me. Do you check my credit history too?", "Tôi mang theo tất cả rồi. Anh có kiểm tra lịch sử tín dụng của tôi nữa không?"],
+    ["Michael", "Yes, we do. It shows how well you have paid back money in the past.", "Có, chúng tôi có kiểm tra. Nó cho thấy trước đây chị trả nợ tốt như thế nào."],
+    ["Bella", "I have always paid my bills on time, so I hope it is fine.", "Tôi luôn trả hóa đơn đúng hạn, nên tôi hy vọng không có vấn đề gì."],
+    ["Michael", "That is good news. One more question: do you have any other loans or credit cards?", "Đó là tin tốt. Thêm một câu hỏi nữa: chị có khoản vay hay thẻ tín dụng nào khác không?"],
+    ["Bella", "Just one small credit card. I pay it off every month.", "Chỉ một thẻ tín dụng nhỏ thôi. Tháng nào tôi cũng trả hết."],
+    ["Michael", "Perfect. I will send your application now. You should hear from us in two working days.", "Tuyệt vời. Tôi sẽ gửi hồ sơ của chị ngay bây giờ. Chị sẽ nhận được phản hồi trong hai ngày làm việc."],
+    ["Bella", "How will I receive the money if it is approved?", "Tôi sẽ nhận tiền như thế nào nếu được duyệt?"],
+    ["Michael", "We transfer it straight to your bank account, usually on the same day that you sign the contract.", "Chúng tôi chuyển thẳng vào tài khoản ngân hàng của chị, thường là ngay trong ngày chị ký hợp đồng."],
+    ["Bella", "Can I pay the loan off early if I have extra money?", "Tôi có thể trả hết khoản vay sớm nếu có thêm tiền không?"],
+    ["Michael", "Yes, and there is no early repayment fee on this loan. That can save you a lot of interest.", "Được, và khoản vay này không tính phí trả nợ trước hạn. Điều đó có thể giúp chị tiết kiệm nhiều tiền lãi."],
+    ["Bella", "What happens if I miss a payment one month?", "Điều gì xảy ra nếu một tháng tôi lỡ không trả?"],
+    ["Michael", "Please call us as soon as you know. We can sometimes arrange a short break, but a late fee may apply, and it can affect your credit history.", "Xin chị gọi cho chúng tôi ngay khi biết. Đôi khi chúng tôi có thể sắp xếp cho tạm hoãn ngắn hạn, nhưng có thể bị tính phí trả chậm, và điều đó có thể ảnh hưởng đến lịch sử tín dụng của chị."],
+    ["Bella", "Good to know. Thank you for your help today.", "Hay quá, biết rồi. Cảm ơn anh đã giúp đỡ hôm nay."],
+    ["Michael", "My pleasure. Please read the contract carefully before you sign it.", "Rất hân hạnh. Xin chị đọc kỹ hợp đồng trước khi ký."]
+  ]
+}
