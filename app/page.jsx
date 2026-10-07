@@ -321,10 +321,11 @@ function TopicsSection({ topics }) {
                 className="group flex h-full gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-emerald-400 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
               >
                 <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white ${COVERS[i % COVERS.length]}`}>
-                  <HeadphonesIcon className="h-6 w-6" />
+                  <span className="font-display text-xl font-semibold tabular-nums">{String(topic.number ?? i + 1).padStart(2, '0')}</span>
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block font-display text-lg font-semibold truncate">{topic.title}</span>
+                  {topic.title_vi && <span className="block text-xs text-slate-400 truncate">{topic.title_vi}</span>}
                   <span className="block text-xs text-slate-500">{t.topicSummary(total, totalMin)}</span>
                   <span className="mt-2 block">
                     <ProgressBar percent={total ? Math.round((done / total) * 100) : 0} small />

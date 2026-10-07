@@ -48,3 +48,9 @@ next-env.d.ts
 /windowApp/dist/
 __pycache__/
 *.pyc
+
+# generated lesson output (mp3 + metadata, see docs/CONTENT_PLAN.md)
+/generated/
+
+# Google OAuth client secret + token for scripts/drive_upload.py (never commit)
+/.english-shadowing/

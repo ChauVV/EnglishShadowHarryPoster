@@ -1,0 +1,39 @@
+{
+  "topic_number": 1,
+  "topic_title": "Travel & Airports",
+  "topic_title_vi": "Du lịch & sân bay",
+  "lesson_number": 1,
+  "lesson_title": "Checking in at the Airport Counter",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Good morning! Where are you flying to today?", "Chào buổi sáng! Hôm nay bạn bay đi đâu?"],
+    ["Emma", "Good morning. I'm flying to Singapore.", "Chào buổi sáng. Tôi bay đi Singapore."],
+    ["Jack", "Great. May I see your passport and your ticket, please?", "Tuyệt. Cho tôi xem hộ chiếu và vé của bạn được không?"],
+    ["Emma", "Sure. Here is my passport. My ticket is on my phone.", "Được ạ. Đây là hộ chiếu của tôi. Vé của tôi nằm trong điện thoại."],
+    ["Jack", "That's fine. Let me scan it. Okay, you're on flight two-one-four, at ten forty-five.", "Không sao. Để tôi quét nhé. Được rồi, bạn đi chuyến 214, lúc 10 giờ 45."],
+    ["Emma", "Yes, that's right. Is the flight on time?", "Vâng, đúng rồi. Chuyến bay có đúng giờ không?"],
+    ["Jack", "Yes, it is. Boarding starts at ten o'clock at gate twelve, so please be there a little early.", "Có ạ. Lên máy bay bắt đầu lúc 10 giờ ở cổng số 12, nên bạn hãy đến sớm một chút."],
+    ["Emma", "Thank you. Can I have a window seat, please?", "Cảm ơn. Cho tôi ghế cạnh cửa sổ được không?"],
+    ["Jack", "Let me check. Yes, I can give you seat fourteen A. It's by the window.", "Để tôi kiểm tra. Được, tôi có thể xếp cho bạn ghế 14A. Ghế đó cạnh cửa sổ."],
+    ["Emma", "Perfect! That's my favorite.", "Hoàn hảo! Tôi thích nhất chỗ đó."],
+    ["Jack", "How many bags are you checking in today?", "Hôm nay bạn ký gửi mấy túi hành lý?"],
+    ["Emma", "Just one suitcase. I also have a small backpack.", "Chỉ một vali thôi. Tôi còn có một ba lô nhỏ nữa."],
+    ["Jack", "Please put your suitcase on the scale.", "Bạn hãy đặt vali lên cân giúp tôi."],
+    ["Emma", "Okay. Is it too heavy?", "Được. Nó có quá nặng không?"],
+    ["Jack", "It's twenty-two kilos. The limit is twenty-three, so you're fine.", "Nặng 22 ký. Giới hạn là 23, nên bạn không sao."],
+    ["Emma", "Oh, good! I was worried about that.", "Ồ, tốt quá! Tôi đã lo chuyện đó."],
+    ["Jack", "Your backpack can go with you on the plane. Does it have any liquids?", "Ba lô của bạn có thể mang lên máy bay. Trong đó có chất lỏng nào không?"],
+    ["Emma", "Just a small bottle of water. Is that a problem?", "Chỉ một chai nước nhỏ. Có vấn đề gì không?"],
+    ["Jack", "No problem, but you must drink it or throw it away before security.", "Không sao, nhưng bạn phải uống hết hoặc bỏ đi trước khi qua kiểm tra an ninh."],
+    ["Emma", "Got it. I'll finish it now.", "Tôi hiểu rồi. Tôi sẽ uống hết ngay bây giờ."],
+    ["Jack", "Here is your boarding pass. Your gate number and seat number are on it.", "Đây là thẻ lên máy bay của bạn. Số cổng và số ghế đều ghi trên đó."],
+    ["Emma", "Thank you. Where is security?", "Cảm ơn. Khu kiểm tra an ninh ở đâu ạ?"],
+    ["Jack", "Go straight, then turn right. You'll see the signs.", "Bạn đi thẳng, rồi rẽ phải. Bạn sẽ thấy các biển chỉ dẫn."],
+    ["Emma", "Great. Thanks for your help!", "Tuyệt. Cảm ơn bạn đã giúp đỡ!"],
+    ["Jack", "You're welcome. Have a wonderful flight, and enjoy Singapore!", "Không có gì. Chúc bạn có một chuyến bay tuyệt vời, và tận hưởng Singapore nhé!"],
+    ["Emma", "Thank you, goodbye!", "Cảm ơn bạn, tạm biệt!"]
+  ]
+}

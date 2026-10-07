@@ -6,6 +6,8 @@ import { lessonLabel, useI18n } from '../../../lib/i18n';
 import { markTopicLessonOpened, topicLessonKey, useTopicProgress } from '../../../lib/topicProgress';
 import { decodeParam, useTopic } from '../../../lib/useTopic';
 
+// Bài dưới 3:30 là bài ngắn (2-3 phút), còn lại là bài dài (4-5 phút)
+const SHORT_MAX_SECONDS = 210;
 const minutes = (seconds) => Math.max(1, Math.round(seconds / 60));
 
 export default function TopicClient() {
@@ -50,6 +52,7 @@ export default function TopicClient() {
       <main className="max-w-4xl mx-auto px-4 py-8">
         <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600">{t.topicsEyebrow}</p>
         <h2 className="font-display mt-1 text-3xl font-semibold tracking-tight">{topic.title}</h2>
+        {topic.title_vi && <p className="text-slate-500">{topic.title_vi}</p>}
         <p className="mt-1 text-sm text-slate-500">{t.topicSummary(total, totalMin)}</p>
         <div className="mt-4 max-w-sm">
           <div className="flex justify-between text-xs text-slate-500 mb-1.5">
@@ -61,36 +64,46 @@ export default function TopicClient() {
           </div>
         </div>
 
-        <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-          {topic.lessons.map((lesson) => {
-            const key = topicLessonKey(name, lesson.lesson_index);
-            const isDone = visited.has(key);
-            return (
-              <li key={lesson.lesson_index}>
-                <Link
-                  href={`/topic/${encodeURIComponent(name)}/${lesson.lesson_index}`}
-                  onClick={() => markTopicLessonOpened(key)}
-                  className="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-3 transition hover:border-emerald-400 hover:bg-emerald-50/60 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
-                >
-                  <span
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition ${
-                      isDone ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-700 group-hover:bg-slate-900 group-hover:text-white'
-                    }`}
-                  >
-                    {isDone ? '✓' : lesson.lesson_index}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-sm font-semibold truncate">{lessonLabel(lesson.title)}</span>
-                    <span className="block text-xs text-slate-500">
-                      {t.minutesShort(minutes(lesson.duration_seconds))}
-                      {isDone && <span className="ml-1 text-emerald-600 font-medium">· {t.studied}</span>}
-                    </span>
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        {[
+          [t.shortLessons, topic.lessons.filter((l) => l.duration_seconds < SHORT_MAX_SECONDS)],
+          [t.longLessons, topic.lessons.filter((l) => l.duration_seconds >= SHORT_MAX_SECONDS)],
+        ]
+          .filter(([, group]) => group.length > 0)
+          .map(([label, group]) => (
+            <section key={label} className="mt-8">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">{label}</h3>
+              <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+                {group.map((lesson) => {
+                  const key = topicLessonKey(name, lesson.lesson_index);
+                  const isDone = visited.has(key);
+                  return (
+                    <li key={lesson.lesson_index}>
+                      <Link
+                        href={`/topic/${encodeURIComponent(name)}/${lesson.lesson_index}`}
+                        onClick={() => markTopicLessonOpened(key)}
+                        className="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-3 transition hover:border-emerald-400 hover:bg-emerald-50/60 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+                      >
+                        <span
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition ${
+                            isDone ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-700 group-hover:bg-slate-900 group-hover:text-white'
+                          }`}
+                        >
+                          {isDone ? '✓' : lesson.lesson_index}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-sm font-semibold truncate">{lessonLabel(lesson.title)}</span>
+                          <span className="block text-xs text-slate-500">
+                            {t.minutesShort(minutes(lesson.duration_seconds))}
+                            {isDone && <span className="ml-1 text-emerald-600 font-medium">· {t.studied}</span>}
+                          </span>
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          ))}
       </main>
     </div>
   );

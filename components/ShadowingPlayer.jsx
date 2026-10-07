@@ -202,6 +202,9 @@ export default function ShadowingPlayer({ bookId, bookLabel, chapter, heading, b
 
           {/* Câu đang đọc */}
           <div className="rounded-2xl bg-white border border-slate-200 px-5 py-5 text-center min-h-24 flex flex-col items-center justify-center gap-3">
+            {active?.speaker && (
+              <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600">{active.speaker}</p>
+            )}
             <p className={`text-lg sm:text-xl font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
             {hasTranslation && showVi && active?.vi && (
               <p className="text-base sm:text-lg font-medium text-emerald-700 leading-snug">{active.vi}</p>
@@ -278,6 +281,7 @@ export default function ShadowingPlayer({ bookId, bookLabel, chapter, heading, b
                     <PlayIcon size={10} />
                   </span>
                   <span className="min-w-0">
+                    {s.speaker && <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">{s.speaker}</span>}
                     <span className={`block text-base leading-relaxed ${blur} ${showText ? '' : 'group-hover:blur-none'}`}>
                       {s.text}
                     </span>

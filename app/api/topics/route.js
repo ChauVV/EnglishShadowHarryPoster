@@ -1,21 +1,28 @@
 import { NextResponse } from 'next/server';
-import { isTopicName, loadTopic, loadTopics } from '../../../lib/topics';
+import { loadTopic, loadTopicLesson, loadTopics } from '../../../lib/topics';
 
-// GET /api/topics               -> danh sách topic (công khai)
-// GET /api/topics?topic=market  -> 1 topic đầy đủ (text, segments, audio_url)
+// GET /api/topics                                  -> danh sách topic + lesson (công khai, nhẹ)
+// GET /api/topics?topic=travel-and-airports        -> 1 topic (danh sách lesson)
+// GET /api/topics?topic=travel-and-airports&lesson=3 -> 1 lesson đầy đủ (text, segments, audio_url)
 export async function GET(request) {
-  const topic = request.nextUrl.searchParams.get('topic');
+  const params = request.nextUrl.searchParams;
+  const topic = params.get('topic');
+  const lesson = params.get('lesson');
 
-  if (topic === null) {
-    try {
-      return NextResponse.json({ topics: await loadTopics() });
-    } catch (err) {
-      return NextResponse.json({ message: err.message }, { status: 502 });
+  try {
+    if (topic === null) return NextResponse.json({ topics: await loadTopics() });
+
+    if (lesson !== null) {
+      const lessonIndex = Number(lesson);
+      const data = Number.isInteger(lessonIndex) ? await loadTopicLesson(topic, lessonIndex) : null;
+      if (!data) return NextResponse.json({ message: 'Không tìm thấy bài' }, { status: 404 });
+      return NextResponse.json({ lesson: data });
     }
-  }
 
-  if (!isTopicName(topic)) return NextResponse.json({ message: 'Không tìm thấy topic' }, { status: 404 });
-  const data = await loadTopic(topic);
-  if (!data) return NextResponse.json({ message: 'Không tìm thấy topic' }, { status: 404 });
-  return NextResponse.json({ topic: data });
+    const data = await loadTopic(topic);
+    if (!data) return NextResponse.json({ message: 'Không tìm thấy topic' }, { status: 404 });
+    return NextResponse.json({ topic: data });
+  } catch (err) {
+    return NextResponse.json({ message: err.message }, { status: 502 });
+  }
 }

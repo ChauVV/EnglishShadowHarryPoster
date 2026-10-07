@@ -5,13 +5,14 @@ import { useEffect } from 'react';
 import ShadowingPlayer from '../../../../components/ShadowingPlayer';
 import { lessonLabel, useI18n } from '../../../../lib/i18n';
 import { markTopicLessonOpened, topicLessonKey } from '../../../../lib/topicProgress';
-import { decodeParam, useTopic } from '../../../../lib/useTopic';
+import { decodeParam, useTopic, useTopicLesson } from '../../../../lib/useTopic';
 
 export default function LessonClient() {
   const { t } = useI18n();
   const params = useParams();
   const name = decodeParam(params.topic);
-  const { loading, topic } = useTopic(name);
+  const { loading: topicLoading, topic } = useTopic(name);
+  const { loading: lessonLoading, lesson } = useTopicLesson(name, params.part);
 
   const lessons = topic?.lessons ?? [];
   const idx = lessons.findIndex((l) => String(l.lesson_index) === params.part);
@@ -21,8 +22,8 @@ export default function LessonClient() {
     if (idx >= 0) markTopicLessonOpened(topicLessonKey(name, params.part));
   }, [idx, name, params.part]);
 
-  if (loading) return <Message>{t.loadingLesson}</Message>;
-  if (idx < 0) {
+  if (topicLoading || lessonLoading) return <Message>{t.loadingLesson}</Message>;
+  if (idx < 0 || !lesson) {
     return (
       <Message>
         {t.lessonNotFound}{' '}
@@ -35,7 +36,6 @@ export default function LessonClient() {
 
   const base = `/topic/${encodeURIComponent(name)}`;
   const href = (l) => `${base}/${l.lesson_index}`;
-  const lesson = lessons[idx];
 
   return (
     <ShadowingPlayer
