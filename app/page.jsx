@@ -67,6 +67,7 @@ const minutes = (seconds) => Math.max(1, Math.round(seconds / 60));
 export default function LibraryPage() {
   const { t } = useI18n();
   const [library, setLibrary] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [error, setError] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const progress = useProgress();
@@ -74,7 +75,10 @@ export default function LibraryPage() {
   useEffect(() => {
     fetch('/api/lessons')
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(String(res.status)))))
-      .then((data) => setLibrary(data.books))
+      .then((data) => {
+        setIsAdmin(Boolean(data.admin));
+        setLibrary(data.books);
+      })
       .catch(() => setError(true));
   }, []);
 
@@ -136,7 +140,9 @@ export default function LibraryPage() {
 
         {!library && !error && <LibrarySkeleton />}
 
-        {library && (
+        {library && !isAdmin && <FreeTopicsPlaceholder />}
+
+        {library && isAdmin && (
           <>
             {lastEntry && (
               <ContinueCard
@@ -234,7 +240,6 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">{t.eyebrow}</p>
           <h1 className="font-display mt-2 text-3xl sm:text-4xl font-semibold leading-[1.15] tracking-tight">
             {t.heroLine1}
-            <span className="block text-emerald-300">{t.heroLine2}</span>
           </h1>
           <div className="mt-5 flex flex-wrap items-center gap-3">
             {startEntry ? (
@@ -256,11 +261,13 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
             </a>
           </div>
 
-          <dl className="mt-6 grid grid-cols-3 max-w-md gap-4">
-            <Stat value={loaded ? bookCount : '–'} label={t.statBooks} />
-            <Stat value={loaded ? lessonCount : '–'} label={t.statLessons} />
-            <Stat value={loaded ? totalMinutes : '–'} label={t.statMinutes} />
-          </dl>
+          {!(loaded && lessonCount === 0) && (
+            <dl className="mt-6 grid grid-cols-3 max-w-md gap-4">
+              <Stat value={loaded ? bookCount : '–'} label={t.statBooks} />
+              <Stat value={loaded ? lessonCount : '–'} label={t.statLessons} />
+              <Stat value={loaded ? totalMinutes : '–'} label={t.statMinutes} />
+            </dl>
+          )}
         </div>
 
         <ol className="grid gap-2.5">
@@ -277,6 +284,18 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
           ))}
         </ol>
       </div>
+    </section>
+  );
+}
+
+// Khách chưa đăng nhập admin: không có nội dung nào để hiển thị (Harry Potter chỉ dành cho admin)
+function FreeTopicsPlaceholder() {
+  const { t } = useI18n();
+  return (
+    <section className="mt-12 rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-14 text-center" aria-labelledby="shelf-title">
+      <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600">{t.library}</p>
+      <h2 id="shelf-title" className="font-display mt-2 text-2xl font-semibold">{t.freeTopicsTitle}</h2>
+      <p className="mx-auto mt-2 max-w-md text-sm text-slate-500">{t.freeTopicsDesc}</p>
     </section>
   );
 }

@@ -7,11 +7,10 @@ const DEFAULT_LANG = 'vi';
 
 const DICT = {
   vi: {
-    brand: 'Harry Potter Shadowing',
+    brand: 'English Shadowing',
     tagline: 'Luyện nghe · nói',
     eyebrow: 'Phương pháp shadowing',
     heroLine1: 'Nói tiếng Anh tự nhiên',
-    heroLine2: 'qua từng trang Harry Potter.',
     heroDesc:
       'Nghe giọng đọc chuẩn, lặp lại từng câu và nói theo ngay. Mỗi bài chỉ vài phút để giữ thói quen luyện tập mỗi ngày.',
     startLearning: 'Bắt đầu học',
@@ -37,6 +36,8 @@ const DICT = {
     library: 'Thư viện',
     pickBook: 'Chọn một tập để bắt đầu',
     booksAvailable: (n, total) => `${n}/${total} tập đã có nội dung`,
+    freeTopicsTitle: 'Các chủ đề miễn phí sắp ra mắt',
+    freeTopicsDesc: 'Chúng tôi đang chuẩn bị các bài luyện shadowing miễn phí. Hãy quay lại sớm nhé!',
     comingSoon: 'Sắp ra mắt',
     noContent: 'Chưa có nội dung',
     chaptersLessons: (c, l) => `${c} chapter · ${l} bài`,
@@ -47,7 +48,7 @@ const DICT = {
     lessonsStudied: (done, total) => `${done}/${total} bài đã học`,
     studied: 'Đã học',
     minutesShort: (n) => `${n} phút`,
-    footer: 'Harry Potter Shadowing · Công cụ luyện nghe nói tiếng Anh theo phương pháp shadowing.',
+    footer: 'English Shadowing · Công cụ luyện nghe nói tiếng Anh theo phương pháp shadowing.',
     switchLang: 'Ngôn ngữ giao diện',
     // learn page
     loadingLesson: 'Đang tải bài học...',
@@ -78,11 +79,10 @@ const DICT = {
       'Bài này chưa có timestamp từng câu nên thời gian chỉ là ước lượng. Xử lý lại chapter bằng app mới để chính xác.',
   },
   en: {
-    brand: 'Harry Potter Shadowing',
+    brand: 'English Shadowing',
     tagline: 'Listen · Speak',
     eyebrow: 'Shadowing method',
     heroLine1: 'Speak natural English',
-    heroLine2: 'one Harry Potter page at a time.',
     heroDesc:
       'Listen to a clear narrator, repeat each sentence and speak right along. Every lesson takes just a few minutes, so daily practice stays easy.',
     startLearning: 'Start learning',
@@ -108,6 +108,8 @@ const DICT = {
     library: 'Library',
     pickBook: 'Pick a book to begin',
     booksAvailable: (n, total) => `${n}/${total} books available`,
+    freeTopicsTitle: 'Free topics are coming soon',
+    freeTopicsDesc: 'We are preparing free shadowing lessons. Please check back soon!',
     comingSoon: 'Coming soon',
     noContent: 'No content yet',
     chaptersLessons: (c, l) => `${c} ${c === 1 ? 'chapter' : 'chapters'} · ${l} ${l === 1 ? 'lesson' : 'lessons'}`,
@@ -119,7 +121,7 @@ const DICT = {
     lessonsStudied: (done, total) => `${done}/${total} lessons studied`,
     studied: 'Studied',
     minutesShort: (n) => `${n} min`,
-    footer: 'Harry Potter Shadowing · An English listening and speaking trainer using the shadowing method.',
+    footer: 'English Shadowing · An English listening and speaking trainer using the shadowing method.',
     switchLang: 'Interface language',
     loadingLesson: 'Loading lesson...',
     lessonNotFound: 'This lesson could not be found.',

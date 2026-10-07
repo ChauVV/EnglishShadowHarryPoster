@@ -1,11 +1,27 @@
 ﻿'use client';
-import { useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function AdminPage() {
   const [isAuth, setIsAuth] = useState(false);
+  const [checking, setChecking] = useState(true);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  // Phiên đăng nhập nằm ở cookie -> kiểm tra lại khi tải trang để F5 không bị văng ra
+  useEffect(() => {
+    fetch('/api/admin/session')
+      .then((res) => res.json())
+      .then((data) => setIsAuth(Boolean(data.admin)))
+      .catch(() => {})
+      .finally(() => setChecking(false));
+  }, []);
+
+  const handleLogout = async () => {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    setIsAuth(false);
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,6 +34,8 @@ export default function AdminPage() {
     if (res.ok) setIsAuth(true);
     else setError('Tên đăng nhập hoặc mật khẩu không đúng');
   };
+
+  if (checking) return <div className="min-h-screen bg-slate-900" />;
 
   if (!isAuth) {
     return (
@@ -58,10 +76,13 @@ export default function AdminPage() {
       <div className="max-w-2xl mx-auto bg-slate-800 p-6 rounded-xl border border-slate-700">
         <div className="flex justify-between items-center mb-6 pb-4 border-b border-slate-700">
           <h1 className="text-xl font-bold">Admin Dashboard</h1>
-          <button onClick={() => setIsAuth(false)} className="text-sm text-red-400 hover:underline">
+          <button onClick={handleLogout} className="text-sm text-red-400 hover:underline">
             Đăng xuất
           </button>
         </div>
+        <Link href="/" className="mb-4 inline-flex rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold hover:bg-indigo-500 transition">
+          Xem thư viện bài học →
+        </Link>
         <p className="bg-indigo-950/60 p-4 rounded-lg border border-indigo-800/50 text-slate-300">
           📌 Chạy file Python script tại máy local để xử lý Audio + PDF, sau đó upload thư mục kết quả lên Google Drive <code className="text-amber-300">harry_poster_english_shadowing</code>.
         </p>

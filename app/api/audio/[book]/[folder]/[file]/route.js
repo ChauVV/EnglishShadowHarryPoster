@@ -3,6 +3,7 @@ import fsp from 'node:fs/promises';
 import path from 'node:path';
 import { Readable } from 'node:stream';
 import { CONTENT_ROOT, BOOK_DIR_PATTERN, CHAPTER_DIR_PATTERN } from '../../../../../../lib/chapters';
+import { isAdminRequest } from '../../../../../../lib/auth';
 import { driveConfigured, driveList, driveMedia, driveResolveFolder } from '../../../../../../lib/drive';
 
 const FILE_PATTERN = /^lesson_\d+\.mp3$/;
@@ -27,6 +28,7 @@ async function streamFromDrive(request, book, folder, file) {
 }
 
 export async function GET(request, { params }) {
+  if (!isAdminRequest(request)) return new Response('Not found', { status: 404 });
   const { book, folder, file } = await params;
   if (!BOOK_DIR_PATTERN.test(book) || !CHAPTER_DIR_PATTERN.test(folder) || !FILE_PATTERN.test(file)) {
     return new Response('Not found', { status: 404 });

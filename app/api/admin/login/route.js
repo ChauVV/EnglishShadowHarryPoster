@@ -1,19 +1,25 @@
-﻿import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { ADMIN_COOKIE, SESSION_SECONDS, authConfigured, checkCredentials, createSessionToken } from '../../../../lib/auth';
 
 export async function POST(request) {
+  if (!authConfigured()) {
+    return NextResponse.json({ success: false, message: 'Server chưa cấu hình tài khoản admin' }, { status: 500 });
+  }
   try {
     const { username, password } = await request.json();
-    if (username === 'admin' && password === 'vvC@123123') {
+    if (checkCredentials(username ?? '', password ?? '')) {
       const response = NextResponse.json({ success: true });
-      response.cookies.set('admin_token', 'authenticated', {
+      response.cookies.set(ADMIN_COOKIE, createSessionToken(), {
         httpOnly: true,
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production',
         path: '/',
-        maxAge: 86400,
+        maxAge: SESSION_SECONDS,
       });
       return response;
     }
     return NextResponse.json({ success: false, message: 'Sai thông tin đăng nhập' }, { status: 401 });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ success: false, message: 'Lỗi server' }, { status: 500 });
   }
 }

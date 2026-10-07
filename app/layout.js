@@ -11,8 +11,8 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata = {
-  title: "Harry Potter Shadowing",
-  description: "Luyện nghe nói tiếng Anh theo phương pháp shadowing qua Harry Potter.",
+  title: "English Shadowing",
+  description: "Luyện nghe nói tiếng Anh theo phương pháp shadowing qua các bài học ngắn mỗi ngày.",
 };
 
 export default function RootLayout({ children }) {
