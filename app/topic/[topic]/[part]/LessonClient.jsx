@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
 import ShadowingPlayer from '../../../../components/ShadowingPlayer';
 import { lessonLabel, useI18n } from '../../../../lib/i18n';
+import { topicCoverSrc } from '../../../../lib/topicCovers';
 import { markTopicLessonOpened, topicLessonKey } from '../../../../lib/topicProgress';
 import { decodeParam, useTopic, useTopicLesson } from '../../../../lib/useTopic';
 
@@ -40,6 +41,7 @@ export default function LessonClient() {
   return (
     <ShadowingPlayer
       key={`${name}/${params.part}`}
+      coverUrl={topicCoverSrc(name, lesson.lesson_index)}
       bookLabel={topic.title}
       heading={`${topic.title} · ${lessonLabel(lesson.title)}`}
       backHref={`/#topic-${encodeURIComponent(name)}`}

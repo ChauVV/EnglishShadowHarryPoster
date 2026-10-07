@@ -1,0 +1,41 @@
+{
+  "topic_number": 15,
+  "topic_title": "Money & Banking",
+  "topic_title_vi": "Tiền bạc & ngân hàng",
+  "lesson_number": 2,
+  "lesson_title": "Withdrawing Cash",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Adam", "Hello. What can I do for you?", "Xin chào. Tôi có thể giúp gì cho bạn?"],
+    ["Sarah", "Hi. I would like to withdraw some cash from my account.", "Chào anh. Tôi muốn rút một ít tiền mặt từ tài khoản của mình."],
+    ["Adam", "Sure. How much would you like to take out?", "Được ạ. Bạn muốn rút bao nhiêu?"],
+    ["Sarah", "I need three hundred dollars, please.", "Tôi cần ba trăm đô la."],
+    ["Adam", "May I see your ID and your bank card?", "Cho tôi xem giấy tờ tùy thân và thẻ ngân hàng của bạn được không?"],
+    ["Sarah", "Of course. Here they are.", "Dĩ nhiên rồi. Đây ạ."],
+    ["Adam", "Thank you. Could you also enter your PIN number on this keypad?", "Cảm ơn bạn. Bạn cũng vui lòng nhập mã PIN trên bàn phím này nhé?"],
+    ["Sarah", "Sure. Is it okay if I cover the keypad with my hand?", "Được. Tôi lấy tay che bàn phím có được không?"],
+    ["Adam", "Yes, that is a good idea. It keeps your PIN private.", "Được, đó là ý hay. Như vậy mã PIN của bạn được giữ kín."],
+    ["Sarah", "Done. Is there a limit on how much I can withdraw each day?", "Xong rồi. Mỗi ngày tôi chỉ được rút tối đa bao nhiêu không?"],
+    ["Adam", "Yes, the daily limit is one thousand dollars. You are well under it.", "Có, hạn mức mỗi ngày là một nghìn đô la. Bạn còn dưới mức đó nhiều."],
+    ["Sarah", "Good. I only need money for the weekend.", "Tốt. Tôi chỉ cần tiền cho cuối tuần thôi."],
+    ["Adam", "Would you like the cash in small bills or large bills?", "Bạn muốn nhận tiền mệnh giá nhỏ hay mệnh giá lớn?"],
+    ["Sarah", "Small bills, please. I need to pay for a taxi and some groceries.", "Mệnh giá nhỏ nhé. Tôi cần trả tiền taxi và mua một ít đồ ăn."],
+    ["Adam", "No problem. I will give you fifties, twenties, and a few tens.", "Không sao. Tôi sẽ đưa bạn các tờ năm mươi, hai mươi và vài tờ mười."],
+    ["Sarah", "That is perfect, thank you.", "Vậy là hoàn hảo, cảm ơn anh."],
+    ["Adam", "Here is your cash. Please count it before you leave.", "Tiền của bạn đây. Bạn hãy đếm lại trước khi rời đi nhé."],
+    ["Sarah", "One hundred, two hundred, three hundred. It is all here.", "Một trăm, hai trăm, ba trăm. Đủ cả rồi."],
+    ["Adam", "Wonderful. Would you like a receipt showing your new balance?", "Tuyệt vời. Bạn có muốn nhận biên lai ghi số dư mới không?"],
+    ["Sarah", "Yes, please. I want to check my balance afterward.", "Có, làm ơn. Tôi muốn kiểm tra số dư sau khi rút."],
+    ["Adam", "Here you go. You have about one thousand two hundred dollars left.", "Của bạn đây. Bạn còn lại khoảng một nghìn hai trăm đô la."],
+    ["Sarah", "Great. By the way, is there a cash machine nearby for the future?", "Tuyệt. Nhân tiện, gần đây có máy rút tiền nào để sau này tôi dùng không?"],
+    ["Adam", "Yes, there is one right outside the door, and it works all day and night.", "Có, ngay ngoài cửa có một máy, và nó hoạt động cả ngày lẫn đêm."],
+    ["Sarah", "That is very convenient. Do they charge a fee for using it?", "Thật tiện lợi. Dùng máy đó có mất phí không?"],
+    ["Adam", "Not for our customers. Other banks may charge a small fee.", "Không mất phí với khách hàng của chúng tôi. Ngân hàng khác có thể thu một khoản phí nhỏ."],
+    ["Sarah", "Good to know. Thanks for explaining everything.", "Tốt quá, tôi biết rồi. Cảm ơn anh đã giải thích mọi thứ."],
+    ["Adam", "You are welcome. Please keep your money safe and have a great weekend.", "Không có gì. Hãy giữ tiền cẩn thận và chúc bạn cuối tuần vui vẻ."],
+    ["Sarah", "You too. Goodbye!", "Anh cũng vậy. Tạm biệt!"]
+  ]
+}

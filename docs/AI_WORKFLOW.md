@@ -9,13 +9,16 @@
 3. Với mỗi lesson: viết kịch bản -> tạo audio -> kiểm tra thời lượng (xem "Làm một lesson").
 4. Sau khi cả 3 bài xong: **upload lên Drive** (xem "Upload lên Drive") và kiểm tra.
 5. Cập nhật file này: thêm 3 dòng vào bảng **LOG**, cập nhật **NEXT**. Chỉ ghi "đã lên Drive" khi lệnh upload đã báo thành công.
-6. Báo người dùng: đã làm bài nào, thời lượng thật, đã lên Drive chưa, NEXT là gì.
+6. **Commit và push code** lên git (kịch bản `scripts/dialogues/*.json`, file này, và mọi thay đổi code đi kèm; không commit `generated/` hay `.english-shadowing/`). Người dùng đã yêu cầu luôn push sau mỗi lần làm xong lesson.
+7. Báo người dùng: đã làm bài nào, thời lượng thật, đã lên Drive chưa, NEXT là gì.
+
+**Ảnh bìa:** mỗi topic có 5 ảnh SVG đơn giản trong `public/topic-covers/<slug>/1..5.svg`, tạo bằng `python scripts/make_topic_covers.py`. L01-L05 dùng ảnh 1-5, các bài sau `lib/topicCovers.js` chọn ngẫu nhiên (cố định theo bài) trong 5 ảnh. **Khi bắt đầu một topic mới** (chưa có thư mục ảnh), thêm 5 cảnh vào `SCENES` trong script đó, chạy lại, rồi commit cùng các lesson. Topic chưa có ảnh vẫn chạy bình thường (web dùng ô gradient).
 
 Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; nếu vẫn dừng giữa chừng, **chạy lại đúng lệnh** (ghi đè an toàn, không tạo bài trùng). Nếu upload thất bại (chưa đăng nhập, mất mạng...): vẫn ghi bài vào LOG với cột Drive = `chưa`, và `NEXT` vẫn tiến lên. Lần sau, **trước khi làm bài mới**, chạy `python scripts/drive_upload.py list` để xem Drive đang có bài nào, so với LOG; bài nào ở LOG là `chưa` mà `generated/` không còn thì phải **làm lại bài đó** (kịch bản vẫn còn trong `scripts/dialogues/`, chạy lại `make_dialogue.py` là ra audio giống hệt, rồi upload).
 
 ## PROGRESS
 
-**NEXT: `T01-L05`** (Topic 01 Travel & Airports - Asking for a Window Seat, mục tiêu 2:40)
+**NEXT: `T15-L04`** (Topic 15 Money & Banking - Paying by Card, mục tiêu 2:30). Người dùng yêu cầu ưu tiên làm hết topic 15 trước; làm xong T15 thì quay lại **`T01-L05`** (Topic 01 - Asking for a Window Seat, mục tiêu 2:40). Khi đó cứ tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -24,6 +27,9 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T01-L02 | Going Through Security | 2:10 | 2:10 | rồi | 2026-10-07 |
 | T01-L03 | Finding Your Gate | 2:20 | 2:20 | rồi | 2026-10-07 |
 | T01-L04 | Buying a Train Ticket | 2:30 | 2:31 | rồi | 2026-10-07 |
+| T15-L01 | Opening a Bank Account | 2:00 | 2:05 | rồi | 2026-10-07 |
+| T15-L02 | Withdrawing Cash | 2:10 | 2:06 | rồi | 2026-10-07 |
+| T15-L03 | Checking Your Balance | 2:20 | 2:20 | rồi | 2026-10-07 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 

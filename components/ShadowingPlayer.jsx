@@ -16,7 +16,7 @@ function findActive(sentences, t) {
   return idx;
 }
 
-export default function ShadowingPlayer({ bookId, bookLabel, chapter, heading, backHref = '/', lesson, prevHref, nextHref }) {
+export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, heading, backHref = '/', lesson, prevHref, nextHref }) {
   const { t } = useI18n();
   const audioRef = useRef(null);
   const listRef = useRef(null);
@@ -31,8 +31,8 @@ export default function ShadowingPlayer({ bookId, bookLabel, chapter, heading, b
   const [showVi, setShowVi] = useState(true);
   const hasTranslation = sentences.some((s) => s.vi);
   const [speed, setSpeed] = useState(1);
-  const [hasCover, setHasCover] = useState(Boolean(bookId));
-  const coverSrc = `/covers/book_${bookId}.jpg`;
+  const [hasCover, setHasCover] = useState(Boolean(bookId || coverUrl));
+  const coverSrc = coverUrl ?? `/covers/book_${bookId}.jpg`;
 
   const activeIndex = findActive(sentences, time);
   const active = sentences[activeIndex];

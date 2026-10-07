@@ -5,6 +5,7 @@ import LanguageSwitch from '../components/LanguageSwitch';
 import { BOOKS } from '../lib/books';
 import { lessonLabel, useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
+import { topicCoverSrc } from '../lib/topicCovers';
 import { markTopicLessonOpened, topicLessonKey, useTopicProgress } from '../lib/topicProgress';
 
 const PROGRESS_KEY = 'hp-shadowing-progress';
@@ -361,6 +362,7 @@ function TopicRow({ topic, gradient }) {
               key={lesson.lesson_index}
               lesson={lesson}
               gradient={gradient}
+              coverSrc={topicCoverSrc(topic.topic, lesson.lesson_index)}
               done={visited.has(key)}
               href={`/topic/${encodeURIComponent(topic.topic)}/${lesson.lesson_index}`}
               onOpen={() => markTopicLessonOpened(key)}
@@ -372,8 +374,9 @@ function TopicRow({ topic, gradient }) {
   );
 }
 
-function LessonCard({ lesson, gradient, done, href, onOpen }) {
+function LessonCard({ lesson, gradient, coverSrc, done, href, onOpen }) {
   const { t } = useI18n();
+  const [coverFailed, setCoverFailed] = useState(false); // topic chưa có ảnh bìa -> dùng ô gradient + số bài
   const isShort = lesson.duration_seconds < SHORT_LESSON_MAX_SECONDS;
   return (
     <li className="w-44 sm:w-52 shrink-0 snap-start">
@@ -383,7 +386,17 @@ function LessonCard({ lesson, gradient, done, href, onOpen }) {
         className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
       >
         <span className={`relative flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br text-white shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 ${gradient}`}>
-          <span className="font-display text-5xl font-semibold opacity-90 drop-shadow">{lesson.lesson_index}</span>
+          {coverFailed ? (
+            <span className="font-display text-5xl font-semibold opacity-90 drop-shadow">{lesson.lesson_index}</span>
+          ) : (
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={coverSrc} alt="" loading="lazy" onError={() => setCoverFailed(true)} className="absolute inset-0 h-full w-full object-cover" />
+              <span className="absolute left-1.5 bottom-1.5 flex h-6 min-w-6 items-center justify-center rounded-full bg-black/60 px-1.5 text-[11px] font-semibold tabular-nums">
+                {lesson.lesson_index}
+              </span>
+            </>
+          )}
           <span className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition group-hover:opacity-100">
             <PlayIcon className="h-8 w-8" />
           </span>

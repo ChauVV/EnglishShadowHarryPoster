@@ -1,0 +1,39 @@
+{
+  "topic_number": 15,
+  "topic_title": "Money & Banking",
+  "topic_title_vi": "Tiền bạc & ngân hàng",
+  "lesson_number": 3,
+  "lesson_title": "Checking Your Balance",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Bella", "Michael, do you have a minute? I need help with my banking app.", "Michael, bạn có rảnh một chút không? Mình cần giúp về ứng dụng ngân hàng."],
+    ["Michael", "Sure. What seems to be the problem?", "Được chứ. Có chuyện gì vậy?"],
+    ["Bella", "I want to check my balance, but I cannot find where it is.", "Mình muốn kiểm tra số dư, nhưng không biết nó nằm ở đâu."],
+    ["Michael", "Let me look. First, you need to log in with your password.", "Để mình xem. Đầu tiên, bạn cần đăng nhập bằng mật khẩu."],
+    ["Bella", "I did that already. Now I see a lot of buttons.", "Mình làm rồi. Giờ mình thấy rất nhiều nút."],
+    ["Michael", "Right. Your balance is usually at the top of the screen. Look for the word Accounts.", "Đúng rồi. Số dư thường nằm ở đầu màn hình. Bạn hãy tìm chữ Tài khoản."],
+    ["Bella", "Oh, I see it now. It says two thousand, one hundred and fifty dollars.", "Ồ, giờ mình thấy rồi. Nó ghi là hai nghìn một trăm năm mươi đô la."],
+    ["Michael", "That is your available balance, the money you can spend right now. You can also tap on your account to see recent transactions.", "Đó là số dư khả dụng, tức là số tiền bạn có thể tiêu ngay bây giờ. Bạn cũng có thể chạm vào tài khoản để xem các giao dịch gần đây."],
+    ["Bella", "Let me try. Wow, I spent a lot on coffee this month.", "Để mình thử. Ôi, tháng này mình tiêu nhiều tiền cho cà phê quá."],
+    ["Michael", "Ha, that happens to everyone. Do you see any payment you do not recognize?", "Ha ha, ai cũng vậy mà. Bạn có thấy khoản thanh toán nào lạ không?"],
+    ["Bella", "Hmm, there is a charge of forty dollars from a store I never visited.", "Ừm, có một khoản bốn mươi đô la từ một cửa hàng mà mình chưa từng đến."],
+    ["Michael", "That looks strange. You should call your bank and ask about it.", "Nghe lạ đấy. Bạn nên gọi cho ngân hàng và hỏi về khoản đó."],
+    ["Bella", "Do you think someone used my card?", "Bạn nghĩ có ai đó đã dùng thẻ của mình không?"],
+    ["Michael", "It might be a mistake, but it is better to check quickly.", "Có thể là nhầm lẫn, nhưng tốt hơn là kiểm tra nhanh."],
+    ["Bella", "You are right. Is there another way to check my balance without the app?", "Bạn nói đúng. Có cách nào khác để kiểm tra số dư mà không cần ứng dụng không?"],
+    ["Michael", "Yes. You can check it at an ATM or call the bank's phone line.", "Có. Bạn có thể kiểm tra ở máy ATM hoặc gọi đến đường dây điện thoại của ngân hàng."],
+    ["Bella", "Which one is easier?", "Cách nào dễ hơn?"],
+    ["Michael", "The app is the fastest. You can also turn on a text alert so the bank sends you a message when your balance gets low.", "Ứng dụng là nhanh nhất. Bạn cũng có thể bật cảnh báo tin nhắn để ngân hàng nhắn cho bạn khi số dư xuống thấp."],
+    ["Bella", "That sounds useful. How do I turn it on?", "Nghe hữu ích đấy. Mình bật nó thế nào?"],
+    ["Michael", "Go to Settings, then tap Notifications, and switch on Low Balance Alerts.", "Vào Cài đặt, rồi chạm vào Thông báo, và bật Cảnh báo số dư thấp."],
+    ["Bella", "Okay, I found it. Done!", "Được rồi, mình tìm thấy rồi. Xong!"],
+    ["Michael", "Nice. Now you will never be surprised by your balance again.", "Hay quá. Giờ bạn sẽ không bao giờ bị bất ngờ về số dư nữa."],
+    ["Bella", "One more thing. How often should I check my balance?", "Còn một điều nữa. Mình nên kiểm tra số dư bao lâu một lần?"],
+    ["Michael", "Once or twice a week is enough, but always check after a big purchase.", "Một hai lần mỗi tuần là đủ, nhưng hãy luôn kiểm tra sau một khoản mua sắm lớn."],
+    ["Bella", "Thank you so much. I will call the bank about that charge today.", "Cảm ơn bạn nhiều lắm. Hôm nay mình sẽ gọi cho ngân hàng về khoản phí đó."],
+    ["Michael", "Anytime. Let me know if you need anything else.", "Lúc nào cũng được. Cần gì nữa thì cứ nói với mình nhé."]
+  ]
+}

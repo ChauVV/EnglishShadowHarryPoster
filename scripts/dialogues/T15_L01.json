@@ -1,0 +1,39 @@
+{
+  "topic_number": 15,
+  "topic_title": "Money & Banking",
+  "topic_title_vi": "Tiền bạc & ngân hàng",
+  "lesson_number": 1,
+  "lesson_title": "Opening a Bank Account",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Good morning. How can I help you today?", "Chào buổi sáng. Hôm nay tôi có thể giúp gì cho bạn?"],
+    ["Emma", "Hi. I would like to open a bank account, please.", "Chào anh. Tôi muốn mở một tài khoản ngân hàng."],
+    ["Jack", "Of course. Is this your first account with us?", "Dĩ nhiên rồi. Đây là tài khoản đầu tiên của bạn ở chỗ chúng tôi phải không?"],
+    ["Emma", "Yes, it is. I just moved to the city last week.", "Vâng. Tôi vừa chuyển đến thành phố này tuần trước."],
+    ["Jack", "Welcome! Do you want a savings account or a checking account?", "Chào mừng bạn! Bạn muốn mở tài khoản tiết kiệm hay tài khoản thanh toán?"],
+    ["Emma", "What is the difference? I am not sure which one I need.", "Hai loại khác nhau thế nào? Tôi không chắc mình cần loại nào."],
+    ["Jack", "A checking account is for everyday spending. A savings account is for keeping money safe and earning interest.", "Tài khoản thanh toán dùng cho chi tiêu hằng ngày. Tài khoản tiết kiệm dùng để giữ tiền an toàn và nhận lãi."],
+    ["Emma", "I think I need a checking account first. Can I open a savings account later?", "Tôi nghĩ tôi cần tài khoản thanh toán trước. Sau này tôi mở thêm tài khoản tiết kiệm được không?"],
+    ["Jack", "Yes, you can open both at any time. Do you have your passport or ID card with you?", "Được, bạn có thể mở cả hai bất cứ lúc nào. Bạn có mang theo hộ chiếu hoặc thẻ căn cước không?"],
+    ["Emma", "Yes, here is my passport. Do you also need proof of address?", "Có, đây là hộ chiếu của tôi. Anh có cần giấy tờ chứng minh địa chỉ không?"],
+    ["Jack", "Yes, please. A rental contract or a phone bill is fine.", "Có, làm ơn. Hợp đồng thuê nhà hoặc hóa đơn điện thoại đều được."],
+    ["Emma", "I have my rental contract here. Will this work?", "Tôi có hợp đồng thuê nhà đây. Cái này dùng được không?"],
+    ["Jack", "Perfect, thank you. Let me fill in the form on my computer.", "Hoàn hảo, cảm ơn bạn. Để tôi điền biểu mẫu trên máy tính."],
+    ["Emma", "Sure. Is there a monthly fee for the account?", "Được ạ. Tài khoản này có phí hằng tháng không?"],
+    ["Jack", "There is no fee if you keep two hundred dollars in the account.", "Không có phí nếu bạn giữ hai trăm đô la trong tài khoản."],
+    ["Emma", "Okay. I have cash with me, so I will deposit two hundred dollars today.", "Được rồi. Tôi có mang tiền mặt, nên hôm nay tôi sẽ gửi hai trăm đô la."],
+    ["Jack", "Great. Please sign here and here. Then I will print your account details.", "Tuyệt. Bạn hãy ký ở đây và ở đây. Sau đó tôi sẽ in thông tin tài khoản cho bạn."],
+    ["Emma", "Here you go. When will I get my debit card?", "Của anh đây. Khi nào tôi nhận được thẻ ghi nợ?"],
+    ["Jack", "It will arrive by mail in about five working days.", "Thẻ sẽ được gửi qua bưu điện trong khoảng năm ngày làm việc."],
+    ["Emma", "That is fine. Can I use the mobile app before the card arrives?", "Vậy cũng được. Tôi dùng ứng dụng trên điện thoại trước khi có thẻ được không?"],
+    ["Jack", "Yes, you can. I will send a link to your phone so you can set it up.", "Được chứ. Tôi sẽ gửi một đường dẫn đến điện thoại để bạn cài đặt."],
+    ["Emma", "Thank you. That is very helpful.", "Cảm ơn anh. Như vậy rất hữu ích."],
+    ["Jack", "You're welcome. Is there anything else I can do for you?", "Không có gì. Tôi còn có thể giúp gì khác cho bạn không?"],
+    ["Emma", "No, that is everything. Thanks for your help today.", "Không, vậy là đủ rồi. Cảm ơn anh đã giúp đỡ hôm nay."],
+    ["Jack", "My pleasure. Have a lovely day!", "Rất vui được giúp bạn. Chúc bạn một ngày tốt lành!"],
+    ["Emma", "You too. Goodbye!", "Anh cũng vậy. Tạm biệt!"]
+  ]
+}
