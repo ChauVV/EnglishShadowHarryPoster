@@ -6,7 +6,6 @@ import { formatTime, getSentences } from '../lib/sentences';
 import LanguageSwitch from './LanguageSwitch';
 
 const SPEEDS = [0.75, 0.9, 1, 1.25];
-const BAR_COUNT = 36;
 
 function findActive(sentences, t) {
   let idx = 0;
@@ -154,19 +153,29 @@ export default function ShadowingPlayer({ bookId, bookLabel, chapter, heading, b
               </>
             ) : (
               <>
-                <div className="absolute inset-0 flex items-center justify-center gap-[3px] px-8 opacity-70" aria-hidden="true">
-                  {Array.from({ length: BAR_COUNT }, (_, i) => (
-                    <span
-                      key={i}
-                      className="eq-bar w-1.5 sm:w-2 rounded-full bg-emerald-300"
-                      style={{
-                        animationDuration: `${0.6 + ((i * 7) % 10) / 10}s`,
-                        animationDelay: `${-((i * 3) % 8) / 10}s`,
-                        animationPlayState: playing ? 'running' : 'paused',
-                      }}
-                    />
-                  ))}
-                </div>
+                {/* Nền tĩnh: gradient êm + vài vầng sáng mờ, không chuyển động để dễ tập trung */}
+                <div
+                  className="absolute inset-0"
+                  aria-hidden="true"
+                  style={{
+                    background:
+                      'radial-gradient(60% 70% at 20% 15%, rgba(52,211,153,.22), transparent 60%), radial-gradient(50% 60% at 85% 90%, rgba(99,102,241,.22), transparent 60%)',
+                  }}
+                />
+                <svg
+                  viewBox="0 0 24 24"
+                  className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 text-white/[0.06]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+                  <rect x="3" y="14" width="4" height="6" rx="1.5" />
+                  <rect x="17" y="14" width="4" height="6" rx="1.5" />
+                </svg>
                 <PlayToggle playing={playing} onClick={togglePlay} t={t} />
               </>
             )}

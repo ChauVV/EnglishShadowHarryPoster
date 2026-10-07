@@ -1,0 +1,42 @@
+{
+  "topic_number": 1,
+  "topic_title": "Travel & Airports",
+  "topic_title_vi": "Du lịch & sân bay",
+  "lesson_number": 3,
+  "lesson_title": "Finding Your Gate",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Bella", "Excuse me, can you help me? I can't find my gate.", "Xin lỗi, bạn giúp tôi được không? Tôi không tìm thấy cổng lên máy bay của mình."],
+    ["Michael", "Of course. May I see your boarding pass?", "Dĩ nhiên rồi. Cho tôi xem thẻ lên máy bay của bạn được không?"],
+    ["Bella", "Here it is. My flight is to London.", "Đây ạ. Chuyến bay của tôi đi London."],
+    ["Michael", "Let me look. Your flight leaves from gate twenty-three.", "Để tôi xem. Chuyến bay của bạn khởi hành từ cổng 23."],
+    ["Bella", "Gate twenty-three? Where is that?", "Cổng 23 ạ? Nó ở đâu vậy?"],
+    ["Michael", "It's in Terminal B, on the other side of the airport. You are in Terminal A right now.", "Nó ở Nhà ga B, phía bên kia của sân bay. Hiện bạn đang ở Nhà ga A."],
+    ["Bella", "Oh no. How do I get to Terminal B?", "Ôi không. Làm sao để tôi đến Nhà ga B?"],
+    ["Michael", "You can take the free shuttle train. It's just down the hall, on your left.", "Bạn có thể đi tàu con thoi miễn phí. Nó ở ngay cuối hành lang, bên tay trái bạn."],
+    ["Bella", "How long does the train take?", "Tàu đi mất bao lâu?"],
+    ["Michael", "About five minutes. It leaves every three minutes, so you will not wait long.", "Khoảng năm phút. Cứ ba phút lại có một chuyến, nên bạn sẽ không phải chờ lâu."],
+    ["Bella", "That's good. What time does boarding start?", "Vậy thì tốt. Mấy giờ bắt đầu lên máy bay?"],
+    ["Michael", "Boarding starts at two fifteen. It's one thirty now, so you have plenty of time.", "Bắt đầu lên máy bay lúc hai giờ mười lăm. Bây giờ là một giờ rưỡi, nên bạn còn nhiều thời gian."],
+    ["Bella", "Great. Is there a coffee shop near the gate?", "Tuyệt. Gần cổng có quán cà phê nào không?"],
+    ["Michael", "Yes, there are two cafés and a small bookstore near gate twenty-three.", "Có, gần cổng 23 có hai quán cà phê và một hiệu sách nhỏ."],
+    ["Bella", "I'm also hungry. Which one is better for breakfast?", "Tôi cũng đang đói. Quán nào ăn sáng ngon hơn?"],
+    ["Michael", "The café on the left sells fresh sandwiches and hot soup. The bakery has good pastries.", "Quán cà phê bên trái bán bánh mì kẹp tươi và súp nóng. Tiệm bánh có bánh ngọt ngon."],
+    ["Bella", "Wonderful. Can I also charge my phone there?", "Tuyệt vời. Tôi có thể sạc điện thoại ở đó không?"],
+    ["Michael", "Yes. There are charging stations at every gate.", "Được. Mỗi cổng đều có trạm sạc."],
+    ["Bella", "Perfect. And what if my gate changes?", "Hoàn hảo. Còn nếu cổng của tôi bị đổi thì sao?"],
+    ["Michael", "Good question. Watch the screens in the terminal. They show the latest gate for every flight.", "Câu hỏi hay. Bạn hãy xem các màn hình trong nhà ga. Chúng hiện cổng mới nhất của mọi chuyến bay."],
+    ["Bella", "I will check them. Also, is my flight on time?", "Tôi sẽ xem. Ngoài ra, chuyến bay của tôi có đúng giờ không?"],
+    ["Michael", "Let me check the screen. Yes, it says on time.", "Để tôi xem màn hình. Có, nó ghi là đúng giờ."],
+    ["Bella", "One more thing. Where can I find a restroom?", "Còn một việc nữa. Tôi tìm nhà vệ sinh ở đâu?"],
+    ["Michael", "There is one next to the shuttle train station, and more near your gate.", "Có một nhà vệ sinh cạnh ga tàu con thoi, và còn nhiều cái nữa gần cổng của bạn."],
+    ["Bella", "Thank you so much. You have been very helpful.", "Cảm ơn bạn rất nhiều. Bạn đã giúp tôi rất nhiều."],
+    ["Michael", "You're welcome. Take the shuttle train, then follow the signs for Terminal B.", "Không có gì. Bạn đi tàu con thoi, rồi theo các biển chỉ dẫn đến Nhà ga B."],
+    ["Bella", "Left, then the shuttle, then the signs. Got it!", "Rẽ trái, rồi đi tàu, rồi theo biển chỉ dẫn. Tôi hiểu rồi!"],
+    ["Michael", "Exactly. Have a safe flight!", "Chính xác. Chúc bạn có chuyến bay an toàn!"],
+    ["Bella", "Thanks! Goodbye!", "Cảm ơn! Tạm biệt!"]
+  ]
+}

@@ -11,16 +11,19 @@
 5. Cập nhật file này: thêm 3 dòng vào bảng **LOG**, cập nhật **NEXT**. Chỉ ghi "đã lên Drive" khi lệnh upload đã báo thành công.
 6. Báo người dùng: đã làm bài nào, thời lượng thật, đã lên Drive chưa, NEXT là gì.
 
-Nếu upload thất bại (chưa đăng nhập, mất mạng...): vẫn ghi bài vào LOG với cột Drive = `chưa`, và `NEXT` vẫn tiến lên. Lần sau, **trước khi làm bài mới**, chạy `python scripts/drive_upload.py list` để xem Drive đang có bài nào, so với LOG; bài nào ở LOG là `chưa` mà `generated/` không còn thì phải **làm lại bài đó** (kịch bản vẫn còn trong `scripts/dialogues/`, chạy lại `make_dialogue.py` là ra audio giống hệt, rồi upload).
+Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; nếu vẫn dừng giữa chừng, **chạy lại đúng lệnh** (ghi đè an toàn, không tạo bài trùng). Nếu upload thất bại (chưa đăng nhập, mất mạng...): vẫn ghi bài vào LOG với cột Drive = `chưa`, và `NEXT` vẫn tiến lên. Lần sau, **trước khi làm bài mới**, chạy `python scripts/drive_upload.py list` để xem Drive đang có bài nào, so với LOG; bài nào ở LOG là `chưa` mà `generated/` không còn thì phải **làm lại bài đó** (kịch bản vẫn còn trong `scripts/dialogues/`, chạy lại `make_dialogue.py` là ra audio giống hệt, rồi upload).
 
 ## PROGRESS
 
-**NEXT: `T01-L02`** (Topic 01 Travel & Airports - Going Through Security, mục tiêu 2:10)
+**NEXT: `T01-L05`** (Topic 01 Travel & Airports - Asking for a Window Seat, mục tiêu 2:40)
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
 |---|---|---|---|---|---|
 | T01-L01 | Checking in at the Airport Counter | 2:00 | 1:55 | rồi | 2026-10-07 |
+| T01-L02 | Going Through Security | 2:10 | 2:10 | rồi | 2026-10-07 |
+| T01-L03 | Finding Your Gate | 2:20 | 2:20 | rồi | 2026-10-07 |
+| T01-L04 | Buying a Train Ticket | 2:30 | 2:31 | rồi | 2026-10-07 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 
@@ -35,7 +38,8 @@ Nguồn bài: [CONTENT_PLAN.md](CONTENT_PLAN.md) (danh sách 30 topic x 20 lesso
    - Nội dung: tiếng Anh tự nhiên, đúng tình huống tên bài, không trùng ý các bài khác cùng topic, không nhân vật hay thương hiệu có bản quyền, dịch Việt tự nhiên. Độ khó tăng dần theo số lesson (xem CONTENT_PLAN).
 2. **Audio**: `python scripts/make_dialogue.py scripts/dialogues/T01_L02.json generated`
    - Script in thời lượng thật. Phải nằm trong **±10 giây** so với mục tiêu; lệch thì thêm/bớt câu rồi chạy lại.
-   - Hệ số tham khảo: ~2.1 từ/giây (lượt ngắn ~9 từ) đến ~2.3 từ/giây (lượt dài ~14 từ).
+   - Hệ số tham khảo: ~2.1 từ/giây (lượt ngắn ~9 từ) đến ~2.3 từ/giây (lượt dài ~14 từ). Bản nháp đầu thường bị NGẮN hơn mục tiêu 15-30 giây (lần T01-L02..L04 phải thêm ~40-90 từ): hãy viết dư ngay từ đầu, khoảng `mục tiêu(giây) x 2.15` từ, ưu tiên kéo dài lượt nói thay vì thêm quá nhiều lượt ngắn.
+   - Kiểm tra kịch bản: không để 2 lượt liên tiếp cùng mở bằng một từ (vd "Good."), tên giọng khớp `speakers`.
    - Lần chạy đầu Kokoro tải model nên hơi chậm. Cần sẵn: `pip install kokoro soundfile` và ffmpeg (đã có trên máy này).
 3. Kết quả: `generated/Topic_<NN>_<Tên>/Lesson_<MM>_<Tên>/{audio.mp3, metadata.json}`.
 

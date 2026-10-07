@@ -34,22 +34,8 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Thanh equalizer trên khung audio của trang shadowing */
-@keyframes eq {
-  0%, 100% { height: 12%; }
-  50% { height: 70%; }
-}
-
-.eq-bar {
-  height: 12%;
-  animation: eq 1s ease-in-out infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .eq-bar {
-    animation: none;
   }
 }

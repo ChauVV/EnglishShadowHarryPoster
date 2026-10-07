@@ -24,6 +24,8 @@ import threading
 import urllib.parse
 import webbrowser
 
+import time
+
 import requests
 
 sys.stderr.reconfigure(encoding="utf-8")
@@ -134,9 +136,18 @@ def access_token():
     return _access["t"]
 
 
+def with_retry(send):
+    """Google thỉnh thoảng trả 5xx tạm thời (thao tác thường vẫn thành công) -> thử lại tối đa 4 lần."""
+    for attempt in range(4):
+        r = send()
+        if r.status_code < 500 or attempt == 3:
+            return r
+        time.sleep(2 * (attempt + 1))
+
+
 def api(method, path, **kw):
     headers = {"Authorization": f"Bearer {access_token()}", **kw.pop("headers", {})}
-    r = requests.request(method, path if path.startswith("http") else API + path, headers=headers, timeout=120, **kw)
+    r = with_retry(lambda: requests.request(method, path if path.startswith("http") else API + path, headers=headers, timeout=120, **kw))
     if r.status_code >= 400:
         sys.exit(f"Drive API lỗi {r.status_code} ({method} {path}): {r.text[:300]}")
     return r
@@ -167,7 +178,7 @@ def put_file(parent, name, data: bytes, mime):
     else:
         init = api("POST", f"{UPLOAD}/files", params={"uploadType": "resumable", "fields": "id"},
                    json={"name": name, "parents": [parent]}, headers={"X-Upload-Content-Type": mime})
-    r = requests.put(init.headers["Location"], data=data, headers={"Content-Type": mime}, timeout=600)
+    r = with_retry(lambda: requests.put(init.headers["Location"], data=data, headers={"Content-Type": mime}, timeout=600))
     if r.status_code >= 400:
         sys.exit(f"Upload {name} lỗi {r.status_code}: {r.text[:300]}")
     return r.json()["id"]

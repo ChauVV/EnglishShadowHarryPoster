@@ -42,7 +42,7 @@ export default function LessonClient() {
       key={`${name}/${params.part}`}
       bookLabel={topic.title}
       heading={`${topic.title} · ${lessonLabel(lesson.title)}`}
-      backHref={base}
+      backHref={`/#topic-${encodeURIComponent(name)}`}
       lesson={lesson}
       prevHref={idx > 0 ? href(lessons[idx - 1]) : null}
       nextHref={idx < lessons.length - 1 ? href(lessons[idx + 1]) : null}

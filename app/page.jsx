@@ -1,10 +1,11 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import LanguageSwitch from '../components/LanguageSwitch';
 import { BOOKS } from '../lib/books';
 import { lessonLabel, useI18n } from '../lib/i18n';
-import { topicLessonKey, useTopicProgress } from '../lib/topicProgress';
+import { formatTime } from '../lib/sentences';
+import { markTopicLessonOpened, topicLessonKey, useTopicProgress } from '../lib/topicProgress';
 
 const PROGRESS_KEY = 'hp-shadowing-progress';
 
@@ -302,42 +303,119 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
   );
 }
 
-// Topic miễn phí (Drive: <topic>/lesson_X) -> lưới thẻ, bấm vào mở trang topic liệt kê các lesson
+// Topic miễn phí: mỗi topic là một nhóm có tiêu đề, bên dưới là hàng lesson cuộn ngang (kiểu Corodomo)
 function TopicsSection({ topics }) {
   const { t } = useI18n();
-  const visited = useTopicProgress();
   return (
     <section className="mt-12" aria-labelledby="topics-title">
       <SectionHeading id="topics-title" eyebrow={t.topicsEyebrow} title={t.topicsTitle} note={t.topicsCount(topics.length)} />
-      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {topics.map((topic, i) => {
-          const total = topic.lessons.length;
-          const done = topic.lessons.filter((l) => visited.has(topicLessonKey(topic.topic, l.lesson_index))).length;
-          const totalMin = Math.round(topic.lessons.reduce((sum, l) => sum + l.duration_seconds, 0) / 60);
+      <div className="space-y-10">
+        {topics.map((topic, i) => (
+          <TopicRow key={topic.topic} topic={topic} gradient={COVERS[i % COVERS.length]} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+const SHORT_LESSON_MAX_SECONDS = 210; // bài ngắn 2-3 phút, bài dài 4-5 phút
+
+function TopicRow({ topic, gradient }) {
+  const { t } = useI18n();
+  const visited = useTopicProgress();
+  const scroller = useRef(null);
+  const total = topic.lessons.length;
+  const done = topic.lessons.filter((l) => visited.has(topicLessonKey(topic.topic, l.lesson_index))).length;
+  const scrollBy = (dir) => {
+    const el = scroller.current;
+    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: 'smooth' });
+  };
+
+  return (
+    <div id={`topic-${topic.topic}`} className="scroll-mt-20">
+      <div className="mb-3 flex items-center gap-3">
+        <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white font-display text-sm font-semibold tabular-nums ${gradient}`}>
+          {String(topic.number).padStart(2, '0')}
+        </span>
+        <div className="min-w-0 flex-1">
+          <h3 className="font-display text-lg sm:text-xl font-semibold leading-tight truncate">{topic.title}</h3>
+          <p className="text-xs text-slate-500 truncate">
+            {topic.title_vi && <span>{topic.title_vi} · </span>}
+            {t.topicLessons(done, total)}
+          </p>
+        </div>
+        <div className="hidden sm:flex gap-1.5">
+          <ScrollButton onClick={() => scrollBy(-1)} label="←" flip />
+          <ScrollButton onClick={() => scrollBy(1)} label="→" />
+        </div>
+      </div>
+
+      <ul
+        ref={scroller}
+        className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {topic.lessons.map((lesson) => {
+          const key = topicLessonKey(topic.topic, lesson.lesson_index);
           return (
-            <li key={topic.topic}>
-              <Link
-                href={`/topic/${encodeURIComponent(topic.topic)}`}
-                className="group flex h-full gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-emerald-400 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
-              >
-                <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white ${COVERS[i % COVERS.length]}`}>
-                  <span className="font-display text-xl font-semibold tabular-nums">{String(topic.number ?? i + 1).padStart(2, '0')}</span>
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block font-display text-lg font-semibold truncate">{topic.title}</span>
-                  {topic.title_vi && <span className="block text-xs text-slate-400 truncate">{topic.title_vi}</span>}
-                  <span className="block text-xs text-slate-500">{t.topicSummary(total, totalMin)}</span>
-                  <span className="mt-2 block">
-                    <ProgressBar percent={total ? Math.round((done / total) * 100) : 0} small />
-                  </span>
-                  <span className="mt-1 block text-[11px] text-slate-400">{t.topicLessons(done, total)}</span>
-                </span>
-              </Link>
-            </li>
+            <LessonCard
+              key={lesson.lesson_index}
+              lesson={lesson}
+              gradient={gradient}
+              done={visited.has(key)}
+              href={`/topic/${encodeURIComponent(topic.topic)}/${lesson.lesson_index}`}
+              onOpen={() => markTopicLessonOpened(key)}
+            />
           );
         })}
       </ul>
-    </section>
+    </div>
+  );
+}
+
+function LessonCard({ lesson, gradient, done, href, onOpen }) {
+  const { t } = useI18n();
+  const isShort = lesson.duration_seconds < SHORT_LESSON_MAX_SECONDS;
+  return (
+    <li className="w-44 sm:w-52 shrink-0 snap-start">
+      <Link
+        href={href}
+        onClick={onOpen}
+        className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+      >
+        <span className={`relative flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br text-white shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 ${gradient}`}>
+          <span className="font-display text-5xl font-semibold opacity-90 drop-shadow">{lesson.lesson_index}</span>
+          <span className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition group-hover:opacity-100">
+            <PlayIcon className="h-8 w-8" />
+          </span>
+          <span className="absolute bottom-1.5 right-1.5 inline-flex items-center gap-1 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-medium tabular-nums">
+            <ClockIcon className="h-3 w-3" />
+            {formatTime(lesson.duration_seconds)}
+          </span>
+          {done && (
+            <span className="absolute left-1.5 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-white" title={t.studied}>
+              <CheckIcon className="h-3.5 w-3.5" />
+            </span>
+          )}
+        </span>
+        <span className="mt-2 block text-sm font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lessonLabel(lesson.title)}</span>
+        <span className={`mt-1 inline-block rounded-full px-2 py-0.5 text-[11px] font-medium ${isShort ? 'bg-emerald-50 text-emerald-700' : 'bg-indigo-50 text-indigo-700'}`}>
+          {isShort ? t.shortTag : t.longTag}
+        </span>
+      </Link>
+    </li>
+  );
+}
+
+function ScrollButton({ onClick, label, flip }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={flip ? 'Scroll left' : 'Scroll right'}
+      className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500"
+    >
+      <ArrowIcon className={`h-4 w-4 ${flip ? 'rotate-180' : ''}`} />
+    </button>
   );
 }
 
