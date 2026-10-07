@@ -36,7 +36,7 @@ export async function GET(request, { params }) {
 
   if (driveConfigured()) return streamFromDrive(request, book, folder, file);
 
-  const filePath = path.join(CONTENT_ROOT, book, folder, file);
+  const filePath = path.join(/*turbopackIgnore: true*/ CONTENT_ROOT, book, folder, file);
   let size;
   try {
     size = (await fsp.stat(filePath)).size;
