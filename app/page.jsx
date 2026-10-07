@@ -135,7 +135,7 @@ export default function LibraryPage() {
   const activeId = selectedId ?? firstOpenBook;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
       <TopBar query={query} onQueryChange={setQuery} />
 
       <Hero
@@ -148,7 +148,7 @@ export default function LibraryPage() {
         hasTopics={topics?.length > 0}
       />
 
-      <main className="px-3 pb-20">
+      <main className="flex-1 px-4 pb-10 sm:px-6">
         {error && (
           <p className="mt-8 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
             {t.loadError}
@@ -212,7 +212,7 @@ export default function LibraryPage() {
       </main>
 
       <footer className="border-t border-slate-200 bg-white">
-        <div className="px-3 py-6 text-xs text-slate-500">
+        <div className="px-4 py-6 text-xs text-slate-500 sm:px-6">
           {t.footer}
         </div>
       </footer>
@@ -226,7 +226,7 @@ function TopBar({ query, onQueryChange }) {
   const { t } = useI18n();
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="px-3 h-14 flex items-center gap-3">
+      <div className="px-4 sm:px-6 h-14 flex items-center gap-3">
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-400 text-slate-950">
           <HeadphonesIcon className="h-4 w-4" />
         </span>
@@ -277,7 +277,7 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
             'radial-gradient(60% 120% at 85% 0%, rgba(16,185,129,.35), transparent 60%), radial-gradient(40% 100% at 0% 100%, rgba(245,158,11,.22), transparent 60%)',
         }}
       />
-      <div className="relative px-3 py-4 sm:py-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+      <div className="relative px-4 sm:px-6 py-4 sm:py-5 flex flex-wrap items-center gap-x-6 gap-y-3">
         <div className="min-w-0 flex-1 basis-64">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">{t.eyebrow}</p>
           <h1 className="font-display text-xl sm:text-2xl font-semibold leading-tight tracking-tight">{t.heroLine1}</h1>
@@ -335,12 +335,10 @@ function TopicsSection({ topics, query, onClearQuery }) {
   }, [topics, tag, query]);
 
   return (
-    <section className="mt-4" aria-labelledby="topics-title">
+    <section className="mt-4" aria-label={t.topicsTitle}>
       <TopicTags topics={topics} tag={tag} onSelect={setTag} />
 
-      <div className="mt-6">
-        <SectionHeading id="topics-title" title={t.topicsTitle} note={t.topicsCount(visible.length)} />
-      </div>
+      <div className="mt-4" />
 
       {visible.length === 0 ? (
         <div className="rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-12 text-center">
@@ -358,7 +356,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
           </button>
         </div>
       ) : (
-        <div className="space-y-5">
+        <div className="space-y-3">
           {visible.map(({ topic, lessons }) => (
             <TopicRow key={topic.topic} topic={topic} lessons={lessons} gradient={COVERS[(topic.number - 1) % COVERS.length]} />
           ))}
@@ -396,7 +394,7 @@ function TopicTags({ topics, tag, onSelect }) {
     })),
   ];
   return (
-    <div className="sticky top-14 z-20 -mx-3 border-b border-slate-200/70 bg-slate-50/90 px-3 py-2.5 backdrop-blur">
+    <div className="sticky top-14 z-20 -mx-4 border-b border-slate-200/70 bg-slate-50/90 px-4 py-2.5 sm:-mx-6 sm:px-6 backdrop-blur">
       <ul
         role="group"
         aria-label={t.topicTags}
@@ -456,7 +454,7 @@ function TopicRow({ topic, lessons, gradient }) {
 
       <ul
         ref={scroller}
-        className="-mx-3 flex snap-x gap-3 overflow-x-auto px-3 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-1 sm:-mx-6 sm:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {lessons.map((lesson) => {
           const key = topicLessonKey(topic.topic, lesson.lesson_index);
