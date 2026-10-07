@@ -454,7 +454,7 @@ function TopicRow({ topic, lessons, gradient }) {
 
       <ul
         ref={scroller}
-        className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-1 sm:-mx-6 sm:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="-mx-4 flex snap-x scroll-px-4 gap-3 overflow-x-auto px-4 pb-1 sm:-mx-6 sm:scroll-px-6 sm:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {lessons.map((lesson) => {
           const key = topicLessonKey(topic.topic, lesson.lesson_index);
