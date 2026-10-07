@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import LanguageSwitch from '../components/LanguageSwitch';
+import TopicIcon from '../components/TopicIcon';
 import { BOOKS } from '../lib/books';
 import { lessonLabel, useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
@@ -147,7 +148,7 @@ export default function LibraryPage() {
         hasTopics={topics?.length > 0}
       />
 
-      <main className="max-w-6xl mx-auto px-4 pb-20">
+      <main className="px-3 pb-20">
         {error && (
           <p className="mt-8 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
             {t.loadError}
@@ -211,7 +212,7 @@ export default function LibraryPage() {
       </main>
 
       <footer className="border-t border-slate-200 bg-white">
-        <div className="max-w-6xl mx-auto px-4 py-6 text-xs text-slate-500">
+        <div className="px-3 py-6 text-xs text-slate-500">
           {t.footer}
         </div>
       </footer>
@@ -225,7 +226,7 @@ function TopBar({ query, onQueryChange }) {
   const { t } = useI18n();
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="max-w-6xl mx-auto px-4 h-14 flex items-center gap-3">
+      <div className="px-3 h-14 flex items-center gap-3">
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-400 text-slate-950">
           <HeadphonesIcon className="h-4 w-4" />
         </span>
@@ -276,7 +277,7 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
             'radial-gradient(60% 120% at 85% 0%, rgba(16,185,129,.35), transparent 60%), radial-gradient(40% 100% at 0% 100%, rgba(245,158,11,.22), transparent 60%)',
         }}
       />
-      <div className="relative max-w-6xl mx-auto px-4 py-4 sm:py-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+      <div className="relative px-3 py-4 sm:py-5 flex flex-wrap items-center gap-x-6 gap-y-3">
         <div className="min-w-0 flex-1 basis-64">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">{t.eyebrow}</p>
           <h1 className="font-display text-xl sm:text-2xl font-semibold leading-tight tracking-tight">{t.heroLine1}</h1>
@@ -338,7 +339,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
       <TopicTags topics={topics} tag={tag} onSelect={setTag} />
 
       <div className="mt-6">
-        <SectionHeading id="topics-title" eyebrow={t.topicsEyebrow} title={t.topicsTitle} note={t.topicsCount(visible.length)} />
+        <SectionHeading id="topics-title" title={t.topicsTitle} note={t.topicsCount(visible.length)} />
       </div>
 
       {visible.length === 0 ? (
@@ -357,7 +358,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
           </button>
         </div>
       ) : (
-        <div className="space-y-10">
+        <div className="space-y-5">
           {visible.map(({ topic, lessons }) => (
             <TopicRow key={topic.topic} topic={topic} lessons={lessons} gradient={COVERS[(topic.number - 1) % COVERS.length]} />
           ))}
@@ -367,12 +368,35 @@ function TopicsSection({ topics, query, onClearQuery }) {
   );
 }
 
+// Màu tag: nền pastel + viền nhạt + chữ/icon cùng tông đậm; tag đang chọn đổi sang nền đặc, chữ trắng
+const TAG_COLORS = [
+  { idle: 'border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100', active: 'border-emerald-600 bg-emerald-600' },
+  { idle: 'border-sky-200 bg-sky-50 text-sky-700 hover:bg-sky-100', active: 'border-sky-600 bg-sky-600' },
+  { idle: 'border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100', active: 'border-violet-600 bg-violet-600' },
+  { idle: 'border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100', active: 'border-amber-600 bg-amber-600' },
+  { idle: 'border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100', active: 'border-rose-600 bg-rose-600' },
+  { idle: 'border-teal-200 bg-teal-50 text-teal-700 hover:bg-teal-100', active: 'border-teal-600 bg-teal-600' },
+  { idle: 'border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100', active: 'border-indigo-600 bg-indigo-600' },
+  { idle: 'border-orange-200 bg-orange-50 text-orange-700 hover:bg-orange-100', active: 'border-orange-600 bg-orange-600' },
+  { idle: 'border-pink-200 bg-pink-50 text-pink-700 hover:bg-pink-100', active: 'border-pink-600 bg-pink-600' },
+  { idle: 'border-cyan-200 bg-cyan-50 text-cyan-700 hover:bg-cyan-100', active: 'border-cyan-600 bg-cyan-600' },
+];
+const TAG_ALL_COLOR = { idle: 'border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200', active: 'border-slate-700 bg-slate-700' };
+
 // Hàng tag chủ đề cuộn ngang, dính dưới header khi cuộn trang
 function TopicTags({ topics, tag, onSelect }) {
   const { t } = useI18n();
-  const items = [{ slug: null, label: t.allTopics }, ...topics.map((tp) => ({ slug: tp.topic, label: tp.title }))];
+  const items = [
+    { slug: null, label: t.allTopics, icon: 'all', color: TAG_ALL_COLOR },
+    ...topics.map((tp) => ({
+      slug: tp.topic,
+      label: tp.title,
+      icon: tp.number,
+      color: TAG_COLORS[(tp.number - 1) % TAG_COLORS.length],
+    })),
+  ];
   return (
-    <div className="sticky top-14 z-20 -mx-4 border-b border-slate-200/70 bg-slate-50/90 px-4 py-2.5 backdrop-blur">
+    <div className="sticky top-14 z-20 -mx-3 border-b border-slate-200/70 bg-slate-50/90 px-3 py-2.5 backdrop-blur">
       <ul
         role="group"
         aria-label={t.topicTags}
@@ -386,12 +410,11 @@ function TopicTags({ topics, tag, onSelect }) {
                 type="button"
                 aria-pressed={active}
                 onClick={() => onSelect(item.slug)}
-                className={`inline-flex h-8 items-center rounded-full border px-3.5 text-sm font-medium transition focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500 ${
-                  active
-                    ? 'border-emerald-500 bg-emerald-500 text-white shadow-sm'
-                    : 'border-slate-200 bg-white text-slate-600 hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800'
+                className={`inline-flex h-7 items-center gap-1.5 rounded-full border px-3 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-slate-500 ${
+                  active ? `${item.color.active} font-semibold text-white shadow-sm` : item.color.idle
                 }`}
               >
+                <TopicIcon number={item.icon} className="h-3.5 w-3.5 shrink-0" />
                 {item.label}
               </button>
             </li>
@@ -418,9 +441,6 @@ function TopicRow({ topic, lessons, gradient }) {
   return (
     <div id={`topic-${topic.topic}`} className="scroll-mt-28">
       <div className="mb-3 flex items-center gap-3">
-        <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white font-display text-sm font-semibold tabular-nums ${gradient}`}>
-          {String(topic.number).padStart(2, '0')}
-        </span>
         <div className="min-w-0 flex-1">
           <h3 className="font-display text-lg sm:text-xl font-semibold leading-tight truncate">{topic.title}</h3>
           <p className="text-xs text-slate-500 truncate">
@@ -436,7 +456,7 @@ function TopicRow({ topic, lessons, gradient }) {
 
       <ul
         ref={scroller}
-        className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="-mx-3 flex snap-x gap-3 overflow-x-auto px-3 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {lessons.map((lesson) => {
           const key = topicLessonKey(topic.topic, lesson.lesson_index);
@@ -583,7 +603,7 @@ function SectionHeading({ id, eyebrow, title, note }) {
   return (
     <div className="mb-5 flex flex-wrap items-end justify-between gap-2">
       <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">{eyebrow}</p>
+        {eyebrow && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">{eyebrow}</p>}
         <h2 id={id} className="font-display mt-1 text-2xl sm:text-3xl font-semibold tracking-tight">
           {title}
         </h2>
