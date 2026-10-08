@@ -1,0 +1,36 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 4,
+  "lesson_title": "Asking for Extra Towels",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Good morning, front desk. How can I help you?", "Chào buổi sáng, quầy lễ tân xin nghe. Tôi có thể giúp gì cho chị?"],
+    ["Emma", "Hi. I'm calling from room five oh six. Could I have some extra towels, please?", "Chào anh. Tôi gọi từ phòng 506. Cho tôi xin thêm vài chiếc khăn tắm được không?"],
+    ["Jack", "Of course. How many towels do you need?", "Dĩ nhiên rồi. Chị cần bao nhiêu chiếc?"],
+    ["Emma", "Two large bath towels and two small hand towels, please. My sister arrived last night, so there are two of us in the room now.", "Hai khăn tắm lớn và hai khăn lau tay nhỏ nhé. Em gái tôi mới đến tối qua, nên giờ trong phòng có hai người."],
+    ["Jack", "I see. Is your sister staying with you for the rest of your stay?", "Tôi hiểu rồi. Em gái chị sẽ ở cùng chị đến hết thời gian lưu trú phải không?"],
+    ["Emma", "Yes, until Sunday. Is that a problem? We booked a double room.", "Vâng, đến Chủ nhật. Có vấn đề gì không anh? Chúng tôi đặt phòng đôi mà."],
+    ["Jack", "No problem at all. A double room is for two people. I just need to add her name to the booking for security reasons.", "Hoàn toàn không có vấn đề gì. Phòng đôi dành cho hai người. Tôi chỉ cần thêm tên cô ấy vào đơn đặt phòng vì lý do an ninh."],
+    ["Emma", "Sure. Her name is Lucy Brown. Do you need to see her passport?", "Được. Tên em ấy là Lucy Brown. Anh có cần xem hộ chiếu của em ấy không?"],
+    ["Jack", "Yes, please. She can show it to us at the front desk any time today.", "Vâng, làm ơn. Cô ấy có thể đưa cho chúng tôi xem ở quầy lễ tân bất cứ lúc nào trong hôm nay."],
+    ["Emma", "Okay, I'll tell her. Also, could we have two more pillows? The pillows in the room are quite thin.", "Được, tôi sẽ báo em ấy. Ngoài ra, cho chúng tôi thêm hai cái gối được không? Gối trong phòng khá mỏng."],
+    ["Jack", "Certainly. We have soft pillows and firm pillows. Which do you prefer?", "Được ạ. Chúng tôi có gối mềm và gối cứng. Chị thích loại nào hơn?"],
+    ["Emma", "Firm ones, please. I sleep better with a firm pillow.", "Gối cứng nhé. Tôi ngủ ngon hơn với gối cứng."],
+    ["Jack", "No problem. Is there anything else you need? Shampoo, soap, toothbrushes?", "Không vấn đề gì. Chị có cần gì thêm không? Dầu gội, xà phòng, bàn chải đánh răng?"],
+    ["Emma", "Actually, yes. Could we have another toothbrush and some more shampoo? We used almost all of it this morning.", "Thật ra là có. Cho chúng tôi thêm một bàn chải và ít dầu gội được không? Sáng nay chúng tôi dùng gần hết rồi."],
+    ["Jack", "Of course. And would you like an extra blanket? It can get quite cold at night at this time of year.", "Dĩ nhiên rồi. Chị có muốn thêm một chiếc chăn không? Thời điểm này trong năm, ban đêm có thể khá lạnh."],
+    ["Emma", "That's a good idea, thank you. My sister always feels cold, even in summer. She never goes anywhere without a warm sweater.", "Ý hay đấy, cảm ơn anh. Em gái tôi lúc nào cũng thấy lạnh, kể cả mùa hè. Em ấy đi đâu cũng mang theo một chiếc áo len ấm."],
+    ["Jack", "So that's four towels, two firm pillows, a toothbrush, shampoo, and a blanket. Housekeeping will bring everything in about fifteen minutes.", "Vậy là bốn khăn, hai gối cứng, một bàn chải, dầu gội, và một chiếc chăn. Bộ phận buồng phòng sẽ mang tất cả lên trong khoảng mười lăm phút."],
+    ["Emma", "Great. Is there an extra charge for these things?", "Tuyệt. Những thứ này có tính thêm phí không anh?"],
+    ["Jack", "No, they're all free. Just call us whenever you need anything. We're at the front desk twenty-four hours a day.", "Không, tất cả đều miễn phí. Khi nào cần gì chị cứ gọi chúng tôi. Quầy lễ tân làm việc hai mươi bốn giờ mỗi ngày."],
+    ["Emma", "Wonderful. One more thing. We're going out now. Can housekeeping leave the things in the room while we're out?", "Tuyệt vời. Còn một việc nữa. Bây giờ chúng tôi ra ngoài. Nhân viên buồng phòng có thể để đồ trong phòng khi chúng tôi đi vắng không?"],
+    ["Jack", "Yes, that's fine. They can also clean your room while you're out, if you like.", "Vâng, được ạ. Họ cũng có thể dọn phòng cho chị khi chị đi vắng, nếu chị muốn."],
+    ["Emma", "Oh, please do. That would be great. Thank you for your help.", "Ồ, vâng, làm ơn. Như vậy thì tốt quá. Cảm ơn anh đã giúp đỡ."],
+    ["Jack", "You're welcome. Have a lovely day with your sister.", "Không có gì. Chúc chị có một ngày vui vẻ bên em gái."]
+  ]
+}

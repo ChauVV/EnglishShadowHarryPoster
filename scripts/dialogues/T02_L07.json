@@ -1,0 +1,40 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 7,
+  "lesson_title": "Calling the Reception",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Good evening, reception. This is Jack. How may I help you?", "Chào buổi tối, lễ tân xin nghe. Tôi là Jack. Tôi có thể giúp gì cho chị?"],
+    ["Emma", "Hi, Jack. This is Emma in room four oh nine. I have a few questions, if that's okay.", "Chào anh Jack. Tôi là Emma ở phòng 409. Tôi có vài câu hỏi, nếu được."],
+    ["Jack", "Of course, take your time. What can I do for you?", "Dĩ nhiên rồi, chị cứ thong thả. Tôi có thể làm gì cho chị?"],
+    ["Emma", "First, could I have a wake-up call tomorrow morning? I have an early meeting, and I'm worried I won't hear my phone alarm.", "Trước tiên, sáng mai anh gọi báo thức cho tôi được không? Tôi có cuộc họp sớm, và tôi sợ mình không nghe chuông báo thức điện thoại."],
+    ["Jack", "No problem. What time would you like the call?", "Không vấn đề gì. Chị muốn được gọi lúc mấy giờ?"],
+    ["Emma", "Six fifteen, please. And maybe a second call at six thirty, just in case I fall asleep again.", "Sáu giờ mười lăm nhé. Và có lẽ gọi lần hai lúc sáu giờ rưỡi, phòng khi tôi ngủ quên lần nữa."],
+    ["Jack", "Ha, that's a good idea. Six fifteen and six thirty. I've put them in the system.", "Ha, ý hay đấy. Sáu giờ mười lăm và sáu giờ rưỡi. Tôi đã nhập vào hệ thống rồi."],
+    ["Emma", "Thank you. Second question. Is there an iron in the room? I can't find one, and my shirt for tomorrow is really creased.", "Cảm ơn anh. Câu hỏi thứ hai. Trong phòng có bàn là không? Tôi không tìm thấy, mà chiếc áo sơ mi ngày mai của tôi nhăn lắm."],
+    ["Jack", "The rooms don't have irons, but I can send one up to you. Or, if you prefer, our laundry service can press the shirt for you tonight.", "Phòng không có bàn là, nhưng tôi có thể gửi một cái lên cho chị. Hoặc nếu chị thích, dịch vụ giặt ủi của chúng tôi có thể ủi áo cho chị ngay tối nay."],
+    ["Emma", "How much does the laundry service cost?", "Dịch vụ giặt ủi giá bao nhiêu?"],
+    ["Jack", "Pressing a shirt is five dollars, and it'll be back in your room by ten o'clock tonight.", "Ủi một chiếc áo sơ mi là năm đô, và áo sẽ được trả về phòng chị trước mười giờ tối nay."],
+    ["Emma", "That's easier. I'll put it in the laundry bag outside my door. Is that okay?", "Như vậy dễ hơn. Tôi sẽ cho áo vào túi giặt và để ngoài cửa. Được không anh?"],
+    ["Jack", "Perfect. I'll ask someone to collect it in a few minutes.", "Hoàn hảo. Vài phút nữa tôi sẽ nhờ người lên lấy."],
+    ["Emma", "Great. And one more thing. The tap in the bathroom is dripping. It's not a big problem, but the sound keeps me awake.", "Tuyệt. Còn một việc nữa. Vòi nước trong phòng tắm bị nhỏ giọt. Không phải chuyện lớn, nhưng tiếng nước làm tôi không ngủ được."],
+    ["Jack", "I'm sorry about that. I'll send someone from maintenance to fix it. Is now a good time?", "Tôi xin lỗi về điều đó. Tôi sẽ cử người bên bảo trì lên sửa. Bây giờ có tiện không chị?"],
+    ["Emma", "Now is fine. I'm going to stay in my room tonight anyway.", "Bây giờ thì được. Dù sao tối nay tôi cũng ở trong phòng."],
+    ["Jack", "Okay. Someone will be there within fifteen minutes. Is there anything else?", "Được ạ. Sẽ có người đến trong vòng mười lăm phút. Chị còn cần gì nữa không?"],
+    ["Emma", "Actually, yes. Tomorrow I need a taxi to the conference center at seven fifteen. Could you book one for me?", "Thật ra là có. Sáng mai tôi cần taxi đến trung tâm hội nghị lúc bảy giờ mười lăm. Anh đặt giúp tôi một chiếc được không?"],
+    ["Jack", "Of course. The taxi will wait at the main entrance. The trip takes about twenty minutes in the morning traffic.", "Dĩ nhiên rồi. Taxi sẽ đợi ở lối vào chính. Đi buổi sáng giờ đông xe thì mất khoảng hai mươi phút."],
+    ["Emma", "That's perfect. My meeting starts at eight, so I'll have time for a coffee.", "Vậy là hoàn hảo. Cuộc họp của tôi bắt đầu lúc tám giờ, nên tôi còn kịp uống một ly cà phê."],
+    ["Jack", "Breakfast starts at six thirty, so you'll have time to eat as well.", "Bữa sáng bắt đầu lúc sáu giờ rưỡi, nên chị cũng có thời gian ăn sáng."],
+    ["Emma", "Wonderful. Last question, I promise. Can you recommend a quiet restaurant near the hotel for tomorrow evening? I'm meeting a client.", "Tuyệt vời. Câu hỏi cuối, tôi hứa đấy. Anh có thể giới thiệu một nhà hàng yên tĩnh gần khách sạn cho tối mai không? Tôi gặp một khách hàng."],
+    ["Jack", "There's a lovely Italian restaurant two streets away. It's quiet, and the service is excellent. Would you like me to make a reservation?", "Có một nhà hàng Ý rất dễ thương cách đây hai con phố. Ở đó yên tĩnh, và phục vụ rất tốt. Chị có muốn tôi đặt bàn không?"],
+    ["Emma", "Yes, please. A table for two at seven thirty, if possible.", "Vâng, làm ơn. Một bàn cho hai người lúc bảy giờ rưỡi, nếu được."],
+    ["Jack", "I'll call them now and leave a note under your door to confirm.", "Tôi sẽ gọi cho họ ngay và để lại giấy xác nhận dưới cửa phòng chị."],
+    ["Emma", "You've been incredibly helpful, Jack. Thank you so much.", "Anh đã giúp tôi rất nhiều, Jack. Cảm ơn anh nhiều lắm."],
+    ["Jack", "It's my pleasure. Good luck with your meeting, and sleep well.", "Rất hân hạnh. Chúc chị họp thành công, và ngủ ngon."]
+  ]
+}

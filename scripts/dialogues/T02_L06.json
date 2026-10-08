@@ -1,0 +1,37 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 6,
+  "lesson_title": "Asking About Breakfast Time",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Bella", "Hi, excuse me. Could you tell me what time breakfast is served?", "Chào anh, xin lỗi. Anh cho tôi biết bữa sáng được phục vụ lúc mấy giờ?"],
+    ["Michael", "Of course. On weekdays, breakfast is from six thirty to ten. On weekends, it's from seven to ten thirty.", "Dĩ nhiên rồi. Ngày thường, bữa sáng từ sáu giờ rưỡi đến mười giờ. Cuối tuần thì từ bảy giờ đến mười giờ rưỡi."],
+    ["Bella", "Great. Tomorrow is Saturday, so we can sleep a little longer. Where is the breakfast room?", "Tuyệt. Mai là thứ Bảy, nên chúng tôi có thể ngủ thêm một chút. Phòng ăn sáng ở đâu vậy anh?"],
+    ["Michael", "It's on the ground floor, through the doors on the left, next to the bar. You can't miss it.", "Ở tầng trệt, đi qua cánh cửa bên trái, cạnh quầy bar. Bạn sẽ thấy ngay thôi."],
+    ["Bella", "Is breakfast included in our room price? I'm not sure what we booked.", "Bữa sáng có bao gồm trong giá phòng của chúng tôi không? Tôi không chắc chúng tôi đã đặt loại nào."],
+    ["Michael", "Let me check. What's your room number?", "Để tôi kiểm tra. Số phòng của bạn là gì?"],
+    ["Bella", "We're in room two oh three.", "Chúng tôi ở phòng 203."],
+    ["Michael", "Yes, breakfast is included for two people. Just tell the waiter your room number when you arrive.", "Có, bữa sáng đã bao gồm cho hai người. Bạn chỉ cần báo số phòng với người phục vụ khi đến."],
+    ["Bella", "Wonderful. What kind of breakfast is it? Is it a buffet?", "Tuyệt vời. Bữa sáng kiểu gì vậy anh? Có phải tự chọn không?"],
+    ["Michael", "Yes, it's a buffet. There's bread, cereal, yogurt, fresh fruit, cheese, and eggs. The chef can also cook pancakes or an omelet for you.", "Vâng, là tự chọn. Có bánh mì, ngũ cốc, sữa chua, trái cây tươi, phô mai và trứng. Đầu bếp cũng có thể làm bánh kếp hay trứng tráng cho bạn."],
+    ["Bella", "That sounds delicious. My husband is vegetarian. Are there enough options for him?", "Nghe ngon quá. Chồng tôi ăn chay. Có đủ món cho anh ấy không?"],
+    ["Michael", "Yes, most of the buffet is vegetarian. The sausages and bacon are clearly labeled, so he can easily avoid them.", "Có, phần lớn đồ ăn tự chọn là món chay. Xúc xích và thịt xông khói đều được ghi nhãn rõ ràng, nên anh ấy dễ dàng tránh được."],
+    ["Bella", "Perfect. And do you have coffee? I can't start the day without a good coffee.", "Hoàn hảo. Có cà phê không anh? Tôi không thể bắt đầu ngày mới mà thiếu một ly cà phê ngon."],
+    ["Michael", "Of course. There's a coffee machine on the buffet, or you can ask the waiter for a cappuccino or a latte. It's all included.", "Dĩ nhiên rồi. Có máy pha cà phê ở quầy tự chọn, hoặc bạn có thể gọi cappuccino hay latte từ người phục vụ. Tất cả đều đã bao gồm."],
+    ["Bella", "Lovely. We're going on a day trip on Sunday, and our bus leaves at six. Is there any way to have breakfast before then?", "Tuyệt quá. Chủ nhật chúng tôi đi chơi trong ngày, và xe buýt khởi hành lúc sáu giờ. Có cách nào ăn sáng trước giờ đó không anh?"],
+    ["Michael", "The breakfast room won't be open, but we can prepare a breakfast box for you. It has a sandwich, fruit, a muffin, and juice.", "Phòng ăn sáng sẽ chưa mở, nhưng chúng tôi có thể chuẩn bị hộp ăn sáng cho bạn. Trong đó có bánh mì kẹp, trái cây, bánh nướng xốp và nước ép."],
+    ["Bella", "That's very helpful. Do I need to order it in advance?", "Hữu ích quá. Tôi có cần đặt trước không?"],
+    ["Michael", "Yes, please let us know by eight o'clock the evening before. Should I order two boxes for you now?", "Có, bạn vui lòng báo cho chúng tôi trước tám giờ tối hôm trước. Tôi đặt luôn hai hộp cho bạn bây giờ nhé?"],
+    ["Bella", "That would be great. One of them vegetarian, for my husband.", "Vậy thì tốt quá. Một hộp ăn chay, cho chồng tôi."],
+    ["Michael", "No problem. You can collect them here at reception at a quarter to six on Sunday morning.", "Không vấn đề gì. Bạn có thể lấy hộp ở quầy lễ tân lúc sáu giờ kém mười lăm sáng Chủ nhật."],
+    ["Bella", "Thanks. One more question. Can we take food from the buffet back to our room?", "Cảm ơn anh. Thêm một câu hỏi nữa. Chúng tôi có thể mang đồ ăn từ quầy tự chọn về phòng không?"],
+    ["Michael", "I'm afraid not, but you're welcome to take a piece of fruit with you when you leave. And if you're hungry later, there's a small café in the lobby that's open all day.", "Rất tiếc là không, nhưng bạn có thể lấy một trái cây mang theo khi rời đi. Và nếu lát nữa bạn đói, ở sảnh có một quán cà phê nhỏ mở cửa cả ngày."],
+    ["Bella", "That's fair. Thank you for all the information.", "Hợp lý. Cảm ơn anh vì tất cả thông tin."],
+    ["Michael", "You're welcome. Enjoy your breakfast tomorrow, and have a great weekend.", "Không có gì. Chúc bạn ăn sáng ngon miệng vào ngày mai, và có một cuối tuần tuyệt vời."]
+  ]
+}

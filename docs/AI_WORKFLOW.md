@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T02-L03`** (Topic 02 Hotels & Accommodation - Ordering Room Service, mục tiêu 2:20). Topic 01 và Topic 15 đã xong đủ 20 bài; Topic 02 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T02-L09`** (Topic 02 Hotels & Accommodation - A Noisy Room - Asking to Change, mục tiêu 4:05). Topic 01 và Topic 15 đã xong đủ 20 bài; Topic 02 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -45,6 +45,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T01-L20 | Airport Announcements | 5:00 | 5:44 | rồi | 2026-10-08 |
 | T02-L01 | Checking in at the Front Desk | 2:00 | 2:04 | rồi | 2026-10-08 |
 | T02-L02 | Asking for the Wi-Fi Password | 2:10 | 2:02 | rồi | 2026-10-08 |
+| T02-L03 | Ordering Room Service | 2:20 | 2:33 | rồi | 2026-10-08 |
+| T02-L04 | Asking for Extra Towels | 2:30 | 2:30 | rồi | 2026-10-08 |
+| T02-L05 | Checking Out | 2:40 | 2:42 | rồi | 2026-10-08 |
+| T02-L06 | Asking About Breakfast Time | 2:50 | 2:50 | rồi | 2026-10-08 |
+| T02-L07 | Calling the Reception | 3:00 | 2:58 | rồi | 2026-10-08 |
+| T02-L08 | Booking a Room by Phone | 4:00 | 4:24 | rồi | 2026-10-08 |
 | T15-L01 | Opening a Bank Account | 2:00 | 2:05 | rồi | 2026-10-07 |
 | T15-L02 | Withdrawing Cash | 2:10 | 2:06 | rồi | 2026-10-07 |
 | T15-L03 | Checking Your Balance | 2:20 | 2:20 | rồi | 2026-10-07 |
@@ -82,7 +88,7 @@ Nguồn bài: [CONTENT_PLAN.md](CONTENT_PLAN.md) (danh sách 30 topic x 20 lesso
      - Bài dài L08-L20, Sarah/Adam (`M % 3 == 2`): **2.55 từ/giây** (đọc nhanh nhất)
      - Bài dài, Emma/Jack (`M % 3 == 1`): **2.35 từ/giây**
      - Bài dài, Bella/Michael (`M % 3 == 0`): **2.25 từ/giây** (đọc chậm nhất)
-     - Bài ngắn L01-L07 (lượt nói ngắn, A2): **~2.35 từ/giây** cho mọi cặp giọng (T02-L01: 300 từ = 2:04).
+     - Bài ngắn L01-L07 (lượt nói ngắn, A2): Sarah/Adam **2.5**, Emma/Jack **2.35**, Bella/Michael **2.25** từ/giây (T02-L03..L07 dùng các hệ số này, sai lệch chỉ -2..+13 giây).
      - Độc thoại (M): **~2.45 từ/giây** nếu câu dài nhiều dấu phẩy (T01-L20: 835 từ = 5:44); T15-L20 câu gọn thì 2.75.
      - Lượt nói càng dài, càng nhiều dấu phẩy thì đọc càng chậm (có nghỉ). Ví dụ: 4:50 Bella/Michael -> 295 x 2.25 ≈ 665 từ (T01-L18 viết 730 từ ra 5:25, lố 35 giây).
    - **Đếm số từ TRƯỚC khi tạo audio** (đoạn python ngắn đếm `len(câu.split())`, kiểm tra luôn: không 2 lượt liền cùng người nói, không 2 lượt liền mở bằng cùng một từ, tên khớp `speakers`). Thiếu thì viết thêm ngay, chưa chạy audio.

@@ -1,0 +1,38 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 5,
+  "lesson_title": "Checking Out",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Adam", "Good morning. Are you checking out today?", "Chào buổi sáng. Hôm nay chị trả phòng phải không?"],
+    ["Sarah", "Yes, I am. Room seven two one. Here's my key card.", "Vâng, đúng vậy. Phòng 721. Thẻ phòng của tôi đây."],
+    ["Adam", "Thank you, Ms. Park. Did you enjoy your stay with us?", "Cảm ơn chị Park. Chị có hài lòng với thời gian ở khách sạn chúng tôi không?"],
+    ["Sarah", "Very much. The room was comfortable, and the staff were really friendly. The view of the river was beautiful too.", "Rất hài lòng. Phòng thoải mái, và nhân viên rất thân thiện. Cảnh nhìn ra sông cũng rất đẹp."],
+    ["Adam", "I'm glad to hear that. Let me print your bill. Did you use anything from the minibar last night?", "Tôi rất vui khi nghe vậy. Để tôi in hóa đơn cho chị. Tối qua chị có dùng gì trong tủ lạnh mini không?"],
+    ["Sarah", "Just one bottle of water and a small bag of chips.", "Chỉ một chai nước và một gói khoai tây chiên nhỏ."],
+    ["Adam", "Okay, I'll add those. Here's your bill. Please take a moment to check it.", "Được, tôi sẽ cộng thêm. Hóa đơn của chị đây. Chị vui lòng dành chút thời gian kiểm tra."],
+    ["Sarah", "Let me see. Three nights, that's correct. Room service on Tuesday, correct. But what's this charge for twenty dollars? It says spa.", "Để tôi xem. Ba đêm, đúng rồi. Dịch vụ phòng hôm thứ Ba, đúng. Nhưng khoản hai mươi đô này là gì vậy? Nó ghi là spa."],
+    ["Adam", "One moment, I'll check that for you. Hmm, it was added on Wednesday afternoon. Did you visit the spa?", "Chờ một chút, tôi sẽ kiểm tra giúp chị. Hừm, khoản này được thêm vào chiều thứ Tư. Chị có đến spa không?"],
+    ["Sarah", "No, I didn't. I was at a business meeting all afternoon on Wednesday.", "Không, tôi không đến. Cả chiều thứ Tư tôi họp công việc."],
+    ["Adam", "I'm very sorry about that. It looks like a mistake. The charge belongs to room seven one two, not seven two one. I'll remove it now.", "Tôi rất xin lỗi về chuyện này. Có vẻ là nhầm lẫn. Khoản phí này thuộc về phòng 712, không phải 721. Tôi sẽ xóa nó ngay."],
+    ["Sarah", "Thank you. It's easy to mix up those numbers. I'm glad I checked the bill carefully.", "Cảm ơn anh. Mấy con số đó dễ nhầm lắm. May mà tôi kiểm tra hóa đơn kỹ."],
+    ["Adam", "Here is your new bill. The total is four hundred and twelve dollars. Would you like to pay with the card you used at check-in?", "Đây là hóa đơn mới của chị. Tổng cộng là bốn trăm mười hai đô. Chị có muốn thanh toán bằng thẻ đã dùng lúc nhận phòng không?"],
+    ["Sarah", "Yes, the same card, please. And what about the deposit you took when I arrived?", "Vâng, dùng thẻ đó nhé. Còn khoản tiền cọc anh giữ lúc tôi đến thì sao?"],
+    ["Adam", "We'll release the deposit today. Depending on your bank, it can take three to five days to appear on your account.", "Chúng tôi sẽ giải phóng tiền cọc trong hôm nay. Tùy ngân hàng của chị, có thể mất ba đến năm ngày để tiền hiện lại trong tài khoản."],
+    ["Sarah", "Okay. Could I also have an invoice with my company's name? I need it for my expenses.", "Được. Tôi có thể xin thêm hóa đơn ghi tên công ty không? Tôi cần nó để thanh toán chi phí công tác."],
+    ["Adam", "Of course. What's the company name and address?", "Dĩ nhiên rồi. Tên và địa chỉ công ty là gì ạ?"],
+    ["Sarah", "It's Green Valley Finance, forty-five King Street. I'll write it down for you.", "Là Green Valley Finance, số bốn mươi lăm phố King. Để tôi viết ra cho anh."],
+    ["Adam", "Thank you. I'll email the invoice to you within an hour. Is the email address on your booking still correct?", "Cảm ơn chị. Tôi sẽ gửi hóa đơn qua email cho chị trong vòng một tiếng. Địa chỉ email trong đơn đặt phòng vẫn đúng chứ?"],
+    ["Sarah", "Yes, it is. One last thing. Could you call a taxi for me? I need to go to the airport.", "Vâng, vẫn đúng. Một việc cuối. Anh gọi taxi giúp tôi được không? Tôi cần ra sân bay."],
+    ["Adam", "Certainly. A taxi will be here in about ten minutes. You can wait in the lobby, and I'll let you know when it arrives.", "Được ạ. Khoảng mười phút nữa taxi sẽ tới. Chị có thể đợi ở sảnh, và tôi sẽ báo khi xe đến."],
+    ["Sarah", "Perfect. Can I get a coffee while I wait?", "Hoàn hảo. Trong lúc đợi tôi có thể uống một ly cà phê không?"],
+    ["Adam", "Yes, there's a coffee machine next to the sofas. It's free for guests. And here's your receipt.", "Có, có một máy pha cà phê cạnh mấy chiếc sofa. Miễn phí cho khách. Và đây là biên lai của chị."],
+    ["Sarah", "Thanks for everything, Adam. I'll definitely stay here again next time I'm in town.", "Cảm ơn anh vì mọi thứ, Adam. Lần sau đến thành phố này tôi chắc chắn sẽ ở đây nữa."],
+    ["Adam", "We'd love to see you again. Have a safe flight home!", "Chúng tôi rất mong được gặp lại chị. Chúc chị bay về an toàn!"]
+  ]
+}

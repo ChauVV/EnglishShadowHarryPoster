@@ -1,0 +1,38 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 3,
+  "lesson_title": "Ordering Room Service",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Good evening, room service. This is Michael speaking. How can I help you?", "Chào buổi tối, dịch vụ phòng xin nghe. Tôi là Michael. Tôi có thể giúp gì cho bạn?"],
+    ["Bella", "Hi. This is room three twelve. I'd like to order some dinner, please. Is the kitchen still open?", "Chào anh. Đây là phòng 312. Tôi muốn gọi bữa tối. Bếp vẫn còn mở chứ?"],
+    ["Michael", "Yes, the kitchen is open until eleven. Do you have the menu? It's in the folder on the desk.", "Vâng, bếp mở đến mười một giờ. Bạn có thực đơn không? Nó nằm trong tập hồ sơ trên bàn làm việc."],
+    ["Bella", "Great, I have it here. Could I have the chicken soup to start, please?", "Tốt quá, tôi có đây rồi. Cho tôi món súp gà để khai vị nhé?"],
+    ["Michael", "Of course. And for your main course?", "Dĩ nhiên rồi. Còn món chính thì sao ạ?"],
+    ["Bella", "What do you recommend? I'd like something light, because it's quite late.", "Anh gợi ý món gì? Tôi muốn món gì đó nhẹ nhàng, vì giờ đã khá muộn."],
+    ["Michael", "The grilled fish with salad is very popular, and it's not too heavy. The pasta with vegetables is also good.", "Món cá nướng với salad rất được ưa chuộng, và không quá nặng bụng. Mì Ý với rau củ cũng ngon."],
+    ["Bella", "I'll have the grilled fish, please. Does it come with rice or potatoes?", "Cho tôi món cá nướng nhé. Món đó ăn kèm cơm hay khoai tây?"],
+    ["Michael", "It comes with potatoes, but we can give you rice instead if you prefer.", "Ăn kèm khoai tây, nhưng nếu bạn thích, chúng tôi có thể đổi sang cơm."],
+    ["Bella", "Rice, please. And I don't eat nuts. Is there anything with nuts in the dish?", "Cho tôi cơm nhé. Và tôi không ăn được các loại hạt. Trong món đó có hạt không anh?"],
+    ["Michael", "Thank you for telling me. The salad dressing has a few nuts, so I'll ask the chef to use a different one.", "Cảm ơn bạn đã báo. Nước sốt salad có một ít hạt, nên tôi sẽ nhờ đầu bếp dùng loại sốt khác."],
+    ["Bella", "That's great, thank you. Can I also order something to drink?", "Tuyệt quá, cảm ơn anh. Tôi gọi thêm đồ uống được không?"],
+    ["Michael", "Certainly. We have juice, soft drinks, tea, coffee, and wine. What would you like?", "Được ạ. Chúng tôi có nước ép, nước ngọt, trà, cà phê và rượu vang. Bạn muốn dùng gì?"],
+    ["Bella", "A glass of orange juice and a bottle of sparkling water, please.", "Cho tôi một ly nước cam và một chai nước có ga nhé."],
+    ["Michael", "No problem. Would you like a dessert? Tonight we have chocolate cake and fresh fruit.", "Không vấn đề gì. Bạn có muốn dùng tráng miệng không? Tối nay chúng tôi có bánh sô-cô-la và trái cây tươi."],
+    ["Bella", "The fresh fruit sounds nice. I'll have that.", "Trái cây tươi nghe hay đấy. Cho tôi món đó."],
+    ["Michael", "Let me repeat your order. Chicken soup, grilled fish with rice and no nuts, orange juice, sparkling water, and fresh fruit. Is that right?", "Để tôi nhắc lại đơn của bạn. Súp gà, cá nướng với cơm và không có hạt, nước cam, nước có ga, và trái cây tươi. Đúng không ạ?"],
+    ["Bella", "Yes, that's everything. How long will it take?", "Đúng, vậy là đủ rồi. Mất bao lâu vậy anh?"],
+    ["Michael", "About thirty minutes. We'll bring it to your room on a tray.", "Khoảng ba mươi phút. Chúng tôi sẽ mang lên phòng bạn bằng khay."],
+    ["Bella", "Perfect. How do I pay? Do I pay the waiter?", "Hoàn hảo. Tôi trả tiền thế nào? Tôi trả cho người phục vụ à?"],
+    ["Michael", "No, we'll add it to your room bill, and you can pay when you check out. There is a small service charge for room service.", "Không, chúng tôi sẽ cộng vào hóa đơn phòng, và bạn trả khi trả phòng. Dịch vụ phòng có tính một khoản phí phục vụ nhỏ."],
+    ["Bella", "That's fine. When I finish eating, what should I do with the tray?", "Không sao. Ăn xong thì tôi làm gì với cái khay?"],
+    ["Michael", "Just leave it outside your door, or call us and we'll come and collect it.", "Bạn chỉ cần để ngoài cửa phòng, hoặc gọi chúng tôi và chúng tôi sẽ lên lấy."],
+    ["Bella", "Great. Thank you so much, Michael.", "Tuyệt. Cảm ơn anh rất nhiều, Michael."],
+    ["Michael", "You're welcome. Enjoy your dinner, and have a good night.", "Không có gì. Chúc bạn ngon miệng và ngủ ngon."]
+  ]
+}
