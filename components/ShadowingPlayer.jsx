@@ -131,7 +131,8 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
       <main className="max-w-[1800px] mx-auto p-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_440px] xl:grid-cols-[minmax(0,1fr)_560px] 2xl:grid-cols-[minmax(0,1fr)_680px]">
         <section className="min-w-0 space-y-4">
           {/* Khu vực "video" -> audio */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 aspect-video max-h-[60vh] w-full">
+          {/* Rộng tối đa 60vh x 16/9 để khung luôn đúng 16:9 như ảnh bìa (không hở hai bên khi bị giới hạn chiều cao) */}
+          <div className="relative mx-auto overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 aspect-video max-h-[60vh] max-w-[calc(60vh*16/9)] w-full">
             {hasCover ? (
               <>
                 {/* Ảnh bìa cao bằng khung, giữ nguyên tỉ lệ (không cắt); hai bên là nền mờ từ chính ảnh */}
@@ -210,13 +211,13 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
           />
 
           {/* Câu đang đọc */}
-          <div className="rounded-2xl bg-white border border-slate-200 px-5 py-5 text-center min-h-24 flex flex-col items-center justify-center gap-3">
+          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 px-5 py-4 text-center min-h-24 flex flex-col items-center justify-center gap-2">
             {active?.speaker && (
               <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600">{active.speaker}</p>
             )}
-            <p className={`text-lg sm:text-xl font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
+            <p className={`text-base sm:text-lg font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
             {hasTranslation && showVi && active?.vi && (
-              <p className="text-base sm:text-lg font-medium text-emerald-700 leading-snug">{active.vi}</p>
+              <p className="text-sm sm:text-base font-medium text-emerald-700 leading-snug">{active.vi}</p>
             )}
           </div>
 

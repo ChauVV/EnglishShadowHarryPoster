@@ -27,8 +27,8 @@ export default function LessonSkeleton() {
 
       <main className="mx-auto grid max-w-[1800px] gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_440px] xl:grid-cols-[minmax(0,1fr)_560px] 2xl:grid-cols-[minmax(0,1fr)_680px]">
         <section className="min-w-0 space-y-4">
-          <div className="aspect-video max-h-[60vh] w-full rounded-2xl bg-slate-200" />
-          <div className="flex h-32 flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white">
+          <div className="mx-auto aspect-video max-h-[60vh] max-w-[calc(60vh*16/9)] w-full rounded-2xl bg-slate-200" />
+          <div className="mx-auto flex h-28 w-full max-w-[calc(60vh*16/9)] flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white">
             <div className={`h-3 w-16 ${bar}`} />
             <div className={`h-5 w-64 max-w-[70%] ${bar}`} />
             <div className={`h-4 w-48 max-w-[55%] ${bar}`} />
