@@ -1,0 +1,42 @@
+{
+  "topic_number": 3,
+  "topic_title": "Restaurants & Ordering Food",
+  "topic_title_vi": "Nhà hàng & gọi món",
+  "lesson_number": 7,
+  "lesson_title": "Asking About Today's Special",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Good evening. Here are your menus. Before you decide, would you like to hear about today's specials?", "Chào buổi tối. Thực đơn của chị đây. Trước khi chọn, chị có muốn nghe về các món đặc biệt hôm nay không?"],
+    ["Emma", "Yes, please. I always like to try something special. What do you have today?", "Có chứ. Tôi lúc nào cũng thích thử món gì đó đặc biệt. Hôm nay có những món gì?"],
+    ["Jack", "For a starter, we have a pumpkin soup with fresh cream and roasted seeds. It's very popular in autumn.", "Món khai vị có súp bí đỏ với kem tươi và hạt rang. Món này rất được ưa chuộng vào mùa thu."],
+    ["Emma", "That sounds lovely. Is it spicy?", "Nghe ngon quá. Có cay không anh?"],
+    ["Jack", "Not at all. It's a little sweet, with a bit of ginger. Very warm and comforting.", "Không hề. Hơi ngọt, có một chút gừng. Rất ấm áp và dễ chịu."],
+    ["Emma", "Is it vegetarian? My friend might join me later, and she doesn't eat meat.", "Món đó có chay không? Có thể lát nữa bạn tôi đến, mà cô ấy không ăn thịt."],
+    ["Jack", "Yes, it's completely vegetarian. We make it with vegetable stock, not chicken stock.", "Có, hoàn toàn chay. Chúng tôi nấu bằng nước dùng rau củ, không phải nước dùng gà."],
+    ["Emma", "Good to know. And what about the main courses?", "Biết vậy thì tốt. Còn các món chính thì sao?"],
+    ["Jack", "We have two main specials today. The first is grilled salmon with lemon butter, served with new potatoes and green beans.", "Hôm nay chúng tôi có hai món chính đặc biệt. Món đầu tiên là cá hồi nướng sốt bơ chanh, ăn kèm khoai tây non và đậu que."],
+    ["Emma", "Is the salmon fresh?", "Cá hồi có tươi không?"],
+    ["Jack", "Yes, it arrived from the market this morning. Our chef chooses the fish himself every day.", "Có, sáng nay mới từ chợ về. Đầu bếp của chúng tôi tự tay chọn cá mỗi ngày."],
+    ["Emma", "Great. And the second special?", "Tuyệt. Còn món đặc biệt thứ hai?"],
+    ["Jack", "The second one is a slow-cooked beef stew with red wine, mushrooms, and carrots. It's cooked for six hours, so the meat is very soft. It comes with mashed potatoes.", "Món thứ hai là bò hầm rượu vang đỏ với nấm và cà rốt. Món này được hầm sáu tiếng, nên thịt rất mềm. Ăn kèm khoai tây nghiền."],
+    ["Emma", "Oh, that sounds delicious. How much are the specials?", "Ôi, nghe ngon quá. Các món đặc biệt giá bao nhiêu?"],
+    ["Jack", "The soup is seven dollars. The salmon is twenty-four, and the beef stew is twenty-two.", "Súp là bảy đô. Cá hồi là hai mươi bốn, còn bò hầm là hai mươi hai."],
+    ["Emma", "They're a bit more expensive than the normal menu.", "Đắt hơn thực đơn thường một chút nhỉ."],
+    ["Jack", "That's true, but the portions are bigger, and we use special ingredients. Many guests say the beef stew is the best dish in the restaurant.", "Đúng vậy, nhưng phần ăn lớn hơn, và chúng tôi dùng nguyên liệu đặc biệt. Nhiều khách nói món bò hầm là món ngon nhất của nhà hàng."],
+    ["Emma", "Which one would you recommend? I can't decide.", "Anh gợi ý món nào? Tôi không quyết được."],
+    ["Jack", "If you like rich, warm food, the beef stew. If you'd like something lighter, the salmon. Personally, I love the beef stew.", "Nếu chị thích món đậm đà, ấm nóng thì chọn bò hầm. Nếu chị muốn nhẹ nhàng hơn thì chọn cá hồi. Riêng tôi thì rất thích món bò hầm."],
+    ["Emma", "Then I'll try the beef stew. And the pumpkin soup to start, please.", "Vậy tôi sẽ thử món bò hầm. Và súp bí đỏ để khai vị nhé."],
+    ["Jack", "Excellent choice. We also have a dessert special tonight: warm apple cake with vanilla ice cream. But you can decide about that later.", "Lựa chọn tuyệt vời. Tối nay chúng tôi còn có món tráng miệng đặc biệt: bánh táo nóng với kem vani. Nhưng chị có thể quyết định sau."],
+    ["Emma", "I'll see if I have room after the stew! Is there a drink that goes well with the beef?", "Để xem ăn bò hầm xong tôi còn bụng không! Có đồ uống nào hợp với món bò không anh?"],
+    ["Jack", "A glass of red wine goes very well with it. We have a nice house red for six dollars a glass. Or, if you don't drink alcohol, our homemade ginger beer is great.", "Một ly vang đỏ rất hợp. Chúng tôi có loại vang đỏ của nhà hàng khá ngon, sáu đô một ly. Hoặc nếu chị không uống rượu, bia gừng tự làm của chúng tôi cũng rất tuyệt."],
+    ["Emma", "I'm driving tonight, so I'll have the ginger beer, please.", "Tối nay tôi lái xe, nên cho tôi bia gừng nhé."],
+    ["Jack", "Of course. Just so you know, the stew takes about twenty minutes, because we serve it very hot. Is that okay?", "Dĩ nhiên rồi. Xin báo chị biết, món bò hầm mất khoảng hai mươi phút, vì chúng tôi phục vụ thật nóng. Như vậy có được không?"],
+    ["Emma", "No problem. I'll enjoy the soup while I wait.", "Không sao. Tôi sẽ thưởng thức súp trong lúc chờ."],
+    ["Jack", "Perfect. I'll bring your ginger beer and some bread right away.", "Hoàn hảo. Tôi sẽ mang bia gừng và ít bánh mì ra cho chị ngay."],
+    ["Emma", "Thank you. You explained everything really well.", "Cảm ơn anh. Anh giải thích mọi thứ rất rõ."],
+    ["Jack", "My pleasure. I hope you enjoy it. Let me know what you think of the stew!", "Rất hân hạnh. Mong chị ăn ngon miệng. Ăn xong cho tôi biết chị thấy món bò hầm thế nào nhé!"]
+  ]
+}

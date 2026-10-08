@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T03-L07`** (Topic 03 Restaurants & Ordering Food - Asking About Today's Special, mục tiêu 3:00). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T03-L13`** (Topic 03 Restaurants & Ordering Food - A Birthday Dinner, mục tiêu 4:25). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -89,6 +89,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T15-L18 | Spotting a Scam | 4:50 | 4:50 | rồi | 2026-10-07 |
 | T15-L19 | Money Habits | 4:55 | 4:53 | rồi | 2026-10-07 |
 | T15-L20 | Simple Saving Tips | 5:00 | 4:59 | rồi | 2026-10-07 |
+| T03-L07 | Asking About Today's Special | 3:00 | 3:11 | rồi | 2026-10-08 |
+| T03-L08 | Making a Reservation by Phone | 4:00 | 4:07 | rồi | 2026-10-08 |
+| T03-L09 | Ordering a Full Dinner | 4:05 | 4:20 | rồi | 2026-10-08 |
+| T03-L10 | Food Allergies and Special Requests | 4:10 | 4:18 | rồi | 2026-10-08 |
+| T03-L11 | The Wrong Order | 4:15 | 4:20 | rồi | 2026-10-08 |
+| T03-L12 | Splitting the Bill | 4:20 | 4:36 | rồi | 2026-10-08 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 
