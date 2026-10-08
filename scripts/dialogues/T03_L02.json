@@ -1,0 +1,37 @@
+{
+  "topic_number": 3,
+  "topic_title": "Restaurants & Ordering Food",
+  "topic_title_vi": "Nhà hàng & gọi món",
+  "lesson_number": 2,
+  "lesson_title": "Ordering a Drink",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Adam", "Hi there. Are you ready to order some drinks?", "Chào chị. Chị đã sẵn sàng gọi đồ uống chưa?"],
+    ["Sarah", "Yes, I think so. But first, can I ask what kind of juice you have?", "Vâng, chắc là rồi. Nhưng trước tiên, tôi hỏi bên anh có những loại nước ép nào được không?"],
+    ["Adam", "We have orange, apple, and pineapple juice. All our juices are fresh, so we make them when you order.", "Chúng tôi có nước cam, nước táo và nước dứa. Tất cả nước ép đều tươi, nên chúng tôi ép khi chị gọi."],
+    ["Sarah", "Fresh juice sounds lovely. I'll have a pineapple juice, please, with not too much ice.", "Nước ép tươi nghe ngon quá. Cho tôi một ly nước dứa, đừng cho nhiều đá nhé."],
+    ["Adam", "Sure. Small or large?", "Được ạ. Ly nhỏ hay ly lớn?"],
+    ["Sarah", "Large, please. It's very hot today, and I'm really thirsty.", "Ly lớn nhé. Hôm nay nóng lắm, và tôi khát quá."],
+    ["Adam", "I'm not surprised. It's the hottest day of the year so far. And for your friend?", "Tôi không ngạc nhiên đâu. Đến giờ đây là ngày nóng nhất trong năm. Còn bạn chị dùng gì?"],
+    ["Sarah", "She's just gone to wash her hands, but she asked me to order for her. She'd like an iced coffee.", "Bạn tôi vừa đi rửa tay, nhưng nhờ tôi gọi giúp. Cô ấy muốn một ly cà phê đá."],
+    ["Adam", "With milk or without?", "Có sữa hay không sữa ạ?"],
+    ["Sarah", "Milk, please, but no sugar. Do you have any milk other than cow's milk? She can't drink normal milk.", "Có sữa, nhưng không đường nhé. Bên anh có loại sữa nào khác ngoài sữa bò không? Cô ấy không uống được sữa thường."],
+    ["Adam", "Yes, we have oat milk and almond milk. Oat milk is the most popular with coffee.", "Có, chúng tôi có sữa yến mạch và sữa hạnh nhân. Sữa yến mạch được ưa chuộng nhất khi pha với cà phê."],
+    ["Sarah", "Oat milk, then. Is there an extra charge for that?", "Vậy lấy sữa yến mạch. Có tính thêm tiền không anh?"],
+    ["Adam", "It's fifty cents extra. Would you like anything else? Maybe some water for the table?", "Thêm năm mươi xu. Chị có muốn gọi gì thêm không? Có lẽ ít nước cho bàn?"],
+    ["Sarah", "Is the tap water free?", "Nước máy có miễn phí không?"],
+    ["Adam", "Yes, tap water is always free here. I'll bring you a jug with some glasses.", "Có, ở đây nước máy luôn miễn phí. Tôi sẽ mang cho chị một bình kèm vài cái ly."],
+    ["Sarah", "Perfect, thank you. Oh, and what's this drink on the menu, the 'summer cooler'?", "Hoàn hảo, cảm ơn anh. À, còn đồ uống này trên thực đơn, 'summer cooler' là gì vậy?"],
+    ["Adam", "It's our own recipe: lemonade with fresh mint, cucumber, and a little ginger. It's very refreshing, and there's no alcohol in it.", "Đó là công thức riêng của chúng tôi: nước chanh với bạc hà tươi, dưa leo và một chút gừng. Rất mát, và không có cồn."],
+    ["Sarah", "That sounds amazing. Maybe I'll try it after my juice.", "Nghe tuyệt quá. Có lẽ uống xong nước ép tôi sẽ thử."],
+    ["Adam", "Good choice. Many people order two! So, that's one large pineapple juice with not much ice, one iced coffee with oat milk and no sugar, and a jug of water.", "Lựa chọn hay. Nhiều người gọi hai ly đấy! Vậy là một ly nước dứa lớn ít đá, một cà phê đá sữa yến mạch không đường, và một bình nước."],
+    ["Sarah", "That's right. How long will it take?", "Đúng rồi. Mất bao lâu vậy anh?"],
+    ["Adam", "About five minutes. The juice takes a little longer because we make it fresh.", "Khoảng năm phút. Nước ép lâu hơn một chút vì chúng tôi ép tươi."],
+    ["Sarah", "No problem. We're not in a hurry. We're just going to relax and enjoy the sunshine. Can we pay for the drinks at the end, with the food?", "Không sao. Chúng tôi không vội. Chúng tôi chỉ muốn thư giãn và tận hưởng nắng. Chúng tôi trả tiền đồ uống lúc cuối, cùng với đồ ăn được không?"],
+    ["Adam", "Of course. Everything goes on one bill. I'll bring the drinks and then come back for your food order.", "Dĩ nhiên rồi. Tất cả tính chung một hóa đơn. Tôi sẽ mang đồ uống ra rồi quay lại ghi món ăn."],
+    ["Sarah", "Great. Thanks a lot.", "Tuyệt. Cảm ơn anh nhiều."]
+  ]
+}

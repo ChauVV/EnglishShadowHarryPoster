@@ -1,0 +1,34 @@
+{
+  "topic_number": 3,
+  "topic_title": "Restaurants & Ordering Food",
+  "topic_title_vi": "Nhà hàng & gọi món",
+  "lesson_number": 1,
+  "lesson_title": "A Table for Two",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Good evening, and welcome. Do you have a reservation?", "Chào buổi tối, chào mừng quý khách. Quý khách đã đặt bàn trước chưa?"],
+    ["Emma", "Hi, good evening. No, we don't. We were just walking past and the food smelled so good. Do you have a table for two?", "Chào anh. Chưa, chúng tôi chưa đặt. Chúng tôi vừa đi ngang qua và thấy đồ ăn thơm quá. Anh còn bàn cho hai người không?"],
+    ["Jack", "Let me check. We're quite busy tonight, but I think we have one or two tables free.", "Để tôi xem. Tối nay khá đông khách, nhưng tôi nghĩ vẫn còn một hai bàn trống."],
+    ["Emma", "That's great. Could we sit by the window, please?", "Tuyệt quá. Cho chúng tôi ngồi cạnh cửa sổ được không?"],
+    ["Jack", "I'm sorry, all the window tables are taken. But we have a nice quiet table in the corner, or a table outside on the terrace.", "Xin lỗi, các bàn cạnh cửa sổ đều có khách rồi. Nhưng chúng tôi có một bàn yên tĩnh trong góc, hoặc một bàn ngoài sân hiên."],
+    ["Emma", "Is it cold outside?", "Ngoài trời có lạnh không anh?"],
+    ["Jack", "It's a bit cool, but we have heaters on the terrace, and we can give you blankets too.", "Hơi se lạnh, nhưng ngoài hiên có máy sưởi, và chúng tôi cũng có thể đưa chăn cho quý khách."],
+    ["Emma", "Hmm, I think we'll take the table in the corner. It sounds more comfortable, and my husband always feels cold in the evening.", "Hừm, tôi nghĩ chúng tôi sẽ lấy bàn trong góc. Nghe có vẻ thoải mái hơn, mà chồng tôi buổi tối lúc nào cũng thấy lạnh."],
+    ["Jack", "Of course. Can I take your coats?", "Dĩ nhiên rồi. Tôi cất áo khoác giúp quý khách nhé?"],
+    ["Emma", "Yes, please. Thank you.", "Vâng, làm ơn. Cảm ơn anh."],
+    ["Jack", "Please follow me. Here you are. Is this table okay for you?", "Mời quý khách đi theo tôi. Đây ạ. Bàn này có ổn không ạ?"],
+    ["Emma", "It's perfect. It's nice and quiet here. We can talk without shouting.", "Hoàn hảo. Ở đây yên tĩnh và dễ chịu. Chúng tôi có thể nói chuyện mà không phải hét lên."],
+    ["Jack", "Here are the menus. Today's specials are on the board by the door. Can I get you something to drink while you look at the menu?", "Đây là thực đơn. Các món đặc biệt hôm nay ghi trên bảng cạnh cửa. Tôi lấy đồ uống cho quý khách trong lúc quý khách xem thực đơn nhé?"],
+    ["Emma", "Just some water for now, please. A big bottle of still water.", "Bây giờ cho chúng tôi nước lọc thôi. Một chai lớn nước không ga nhé."],
+    ["Jack", "Of course. I'll bring it right away, with some bread.", "Dĩ nhiên rồi. Tôi sẽ mang ra ngay, kèm ít bánh mì."],
+    ["Emma", "Thank you. Oh, one question. How long do we have the table for? We're going to the cinema later.", "Cảm ơn anh. À, một câu hỏi. Chúng tôi được ngồi bàn này bao lâu? Lát nữa chúng tôi đi xem phim."],
+    ["Jack", "You can stay as long as you like. What time does your film start?", "Quý khách ngồi bao lâu cũng được. Phim của quý khách bắt đầu lúc mấy giờ?"],
+    ["Emma", "At nine o'clock. So we have about an hour and a half.", "Lúc chín giờ. Vậy chúng tôi có khoảng một tiếng rưỡi."],
+    ["Jack", "That's plenty of time. I'll tell the kitchen, so your food comes quickly.", "Như vậy là đủ thời gian. Tôi sẽ báo nhà bếp để món ăn được mang ra nhanh."],
+    ["Emma", "Oh, that's very kind. Thank you so much.", "Ồ, anh tốt quá. Cảm ơn anh rất nhiều."],
+    ["Jack", "You're welcome. I'll be back in a few minutes to take your order. Enjoy your evening!", "Không có gì. Vài phút nữa tôi sẽ quay lại để ghi món. Chúc quý khách buổi tối vui vẻ!"]
+  ]
+}

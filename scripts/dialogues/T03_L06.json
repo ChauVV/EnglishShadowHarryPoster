@@ -1,0 +1,42 @@
+{
+  "topic_number": 3,
+  "topic_title": "Restaurants & Ordering Food",
+  "topic_title_vi": "Nhà hàng & gọi món",
+  "lesson_number": 6,
+  "lesson_title": "Ordering Fast Food",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Hi, welcome! What can I get for you today?", "Chào chị, chào mừng chị! Hôm nay chị muốn gọi gì?"],
+    ["Bella", "Hello. I'd like a chicken burger meal, please.", "Xin chào. Cho tôi một phần combo burger gà."],
+    ["Michael", "Sure. Would you like the regular meal or the large one? The large meal comes with bigger fries and a bigger drink.", "Được ạ. Chị muốn phần thường hay phần lớn? Phần lớn có khoai tây chiên to hơn và đồ uống lớn hơn."],
+    ["Bella", "What's the difference in price?", "Giá chênh nhau bao nhiêu?"],
+    ["Michael", "The regular meal is seven ninety-nine, and the large is eight ninety-nine. So it's only one dollar more.", "Phần thường là bảy đô chín mươi chín, phần lớn là tám đô chín mươi chín. Vậy là chỉ thêm một đô."],
+    ["Bella", "Okay, I'll have the large one. I'm really hungry.", "Được, cho tôi phần lớn. Tôi đói lắm."],
+    ["Michael", "Great. What drink would you like with that? We have cola, lemonade, orange soda, iced tea, or water.", "Tuyệt. Chị muốn uống gì kèm theo? Chúng tôi có cola, nước chanh, soda cam, trà đá, hoặc nước lọc."],
+    ["Bella", "Iced tea, please. With no ice, if possible.", "Trà đá nhé. Nếu được thì không cho đá."],
+    ["Michael", "No problem. And would you like the chicken spicy or regular?", "Không vấn đề gì. Còn gà chị muốn loại cay hay loại thường?"],
+    ["Bella", "Spicy, please. But can you take out the onions? I don't eat onions.", "Loại cay nhé. Nhưng anh bỏ hành ra được không? Tôi không ăn hành."],
+    ["Michael", "Sure, no onions. Any sauce for your fries? Ketchup and mayonnaise are free. Barbecue sauce and cheese sauce are fifty cents.", "Được, không hành. Chị có muốn sốt cho khoai tây chiên không? Tương cà và sốt mayonnaise miễn phí. Sốt thịt nướng và sốt phô mai là năm mươi xu."],
+    ["Bella", "Just ketchup, thanks. Oh, and can I also get some chicken nuggets for my son? He's waiting at the table.", "Chỉ tương cà thôi, cảm ơn anh. À, tôi gọi thêm ít gà viên chiên cho con trai tôi được không? Bé đang đợi ở bàn."],
+    ["Michael", "Of course. We have a kids' meal with six nuggets, small fries, a drink, and a little toy. It's four ninety-nine.", "Dĩ nhiên rồi. Chúng tôi có phần ăn trẻ em gồm sáu miếng gà viên, khoai tây chiên nhỏ, một đồ uống và một món đồ chơi nhỏ. Giá bốn đô chín mươi chín."],
+    ["Bella", "A toy? He'll love that. Yes, the kids' meal, please. Can he have apple juice instead of soda?", "Có đồ chơi à? Bé sẽ thích lắm. Vâng, cho tôi phần ăn trẻ em. Bé có thể uống nước táo thay vì nước ngọt không?"],
+    ["Michael", "Yes, apple juice or milk. Both are healthier choices.", "Được, nước táo hoặc sữa. Cả hai đều là lựa chọn tốt cho sức khỏe hơn."],
+    ["Bella", "Apple juice, then. Is that everything? Let me think. Do you have any desserts?", "Vậy lấy nước táo. Vậy là đủ chưa nhỉ? Để tôi nghĩ. Bên anh có món tráng miệng không?"],
+    ["Michael", "We have ice cream, apple pie, and chocolate cookies. The ice cream is on special today, two for the price of one.", "Chúng tôi có kem, bánh táo và bánh quy sô-cô-la. Hôm nay kem đang khuyến mãi, mua một tặng một."],
+    ["Bella", "Two for one? Then we'll have two vanilla ice creams, but please bring them later, after we eat. Otherwise they'll melt.", "Mua một tặng một à? Vậy cho chúng tôi hai cây kem vani, nhưng làm ơn mang ra sau khi chúng tôi ăn xong. Không thì kem tan mất."],
+    ["Michael", "Good idea. Just come back to the counter with your receipt when you're ready, and we'll make them fresh.", "Ý hay đấy. Khi nào sẵn sàng chị cứ quay lại quầy với biên lai, và chúng tôi sẽ làm kem mới cho chị."],
+    ["Bella", "Perfect. And we're eating here, by the way, not taking it away.", "Hoàn hảo. Nhân tiện, chúng tôi ăn tại đây, không mang đi."],
+    ["Michael", "Thanks, I was just going to ask. Then I'll put everything on a tray for you.", "Cảm ơn chị, tôi vừa định hỏi. Vậy tôi sẽ để tất cả lên khay cho chị."],
+    ["Bella", "Great. How much is everything?", "Tuyệt. Tất cả bao nhiêu tiền?"],
+    ["Michael", "That's one large spicy chicken meal, one kids' meal, and two ice creams. The total is sixteen forty-eight.", "Vậy là một phần combo gà cay lớn, một phần ăn trẻ em, và hai cây kem. Tổng cộng là mười sáu đô bốn mươi tám."],
+    ["Bella", "Can I pay with my phone?", "Tôi trả bằng điện thoại được không?"],
+    ["Michael", "Sure, just tap it on the machine. Here's your receipt. Your order number is forty-two. We'll call it when your food is ready.", "Được ạ, chị chỉ cần chạm điện thoại vào máy. Biên lai của chị đây. Số thứ tự của chị là bốn mươi hai. Khi đồ ăn sẵn sàng chúng tôi sẽ gọi số."],
+    ["Bella", "How long will it take?", "Mất bao lâu vậy anh?"],
+    ["Michael", "About five minutes. The spicy chicken is cooked fresh, so it takes a little longer.", "Khoảng năm phút. Gà cay được chiên mới, nên lâu hơn một chút."],
+    ["Bella", "That's fine. Thank you!", "Không sao. Cảm ơn anh!"],
+    ["Michael", "Enjoy your meal!", "Chúc chị ngon miệng!"]
+  ]
+}

@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T02-L15`** (Topic 02 Hotels & Accommodation - Lost Room Key, mục tiêu 4:35). Topic 01 và Topic 15 đã xong đủ 20 bài; Topic 02 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T03-L07`** (Topic 03 Restaurants & Ordering Food - Asking About Today's Special, mục tiêu 3:00). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -57,6 +57,18 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T02-L12 | Booking Rooms for a Group | 4:20 | 4:26 | rồi | 2026-10-08 |
 | T02-L13 | Asking for a Late Check-out | 4:25 | 4:18 | rồi | 2026-10-08 |
 | T02-L14 | Comparing Hotels Online | 4:30 | 4:37 | rồi | 2026-10-08 |
+| T02-L15 | Lost Room Key | 4:35 | 4:40 | rồi | 2026-10-08 |
+| T02-L16 | Booking a Tour at the Hotel Desk | 4:40 | 4:41 | rồi | 2026-10-08 |
+| T02-L17 | Staying at a Hostel | 4:45 | 4:50 | rồi | 2026-10-08 |
+| T02-L18 | Complaining About a Dirty Room | 4:50 | 4:49 | rồi | 2026-10-08 |
+| T02-L19 | Writing a Hotel Review | 4:55 | 4:48 | rồi | 2026-10-08 |
+| T02-L20 | A Hotel Welcome Speech | 5:00 | 5:14 | rồi | 2026-10-08 |
+| T03-L01 | A Table for Two | 2:00 | 2:01 | rồi | 2026-10-08 |
+| T03-L02 | Ordering a Drink | 2:10 | 2:22 | rồi | 2026-10-08 |
+| T03-L03 | Asking for the Menu | 2:20 | 2:28 | rồi | 2026-10-08 |
+| T03-L04 | Ordering Breakfast | 2:30 | 2:43 | rồi | 2026-10-08 |
+| T03-L05 | Asking for the Bill | 2:40 | 2:41 | rồi | 2026-10-08 |
+| T03-L06 | Ordering Fast Food | 2:50 | 3:02 | rồi | 2026-10-08 |
 | T15-L01 | Opening a Bank Account | 2:00 | 2:05 | rồi | 2026-10-07 |
 | T15-L02 | Withdrawing Cash | 2:10 | 2:06 | rồi | 2026-10-07 |
 | T15-L03 | Checking Your Balance | 2:20 | 2:20 | rồi | 2026-10-07 |
@@ -99,7 +111,8 @@ Nguồn bài: [CONTENT_PLAN.md](CONTENT_PLAN.md) (danh sách 30 topic x 20 lesso
      - Lượt nói càng dài, càng nhiều dấu phẩy thì đọc càng chậm (có nghỉ). Ví dụ: 4:50 Bella/Michael -> 295 x 2.25 ≈ 665 từ (T01-L18 viết 730 từ ra 5:25, lố 35 giây).
    - **Đếm số từ TRƯỚC khi tạo audio** (đoạn python ngắn đếm `len(câu.split())`, kiểm tra luôn: không 2 lượt liền cùng người nói, không 2 lượt liền mở bằng cùng một từ, tên khớp `speakers`). Thiếu thì viết thêm ngay, chưa chạy audio.
    - Ưu tiên kéo dài lượt nói (câu dài, có chi tiết) hơn là thêm nhiều lượt ngắn.
-3. **Audio**: `python scripts/make_dialogue.py scripts/dialogues/T01_L02.json generated` (chạy cả 6 bài trong một lệnh nền, mất ~2 phút/bài).
+3. **Audio**: `python scripts/make_dialogue.py scripts/dialogues/T01_L02.json generated` (~2 phút/bài, chạy nền). Mẹo tiết kiệm thời gian: viết xong 3 bài là cho chạy audio nền ngay (một hàng đợi chạy lần lượt từng bài), trong lúc đó viết 3 bài tiếp theo. Không chạy 2 tiến trình Kokoro song song.
+   - Lưu ý: giọng Bella/Michael dao động nhiều (2.25-2.5 từ/giây giữa các bài), nên viết dư theo mức 2.45 để không bị ngắn.
    - Script in thời lượng thật. **Chấp nhận từ -10 giây trở lên**: dài hơn mục tiêu là được, KHÔNG tạo lại (người dùng chấp nhận bài dài hơn để không phải chạy audio 2 lần). Chỉ tạo lại khi ngắn hơn quá 10 giây.
    - Lần chạy đầu Kokoro tải model nên hơi chậm. Cần sẵn: `pip install kokoro soundfile` và ffmpeg (đã có trên máy này).
 4. Kết quả: `generated/Topic_<NN>_<Tên>/Lesson_<MM>_<Tên>/{audio.mp3, metadata.json}`.

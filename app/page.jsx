@@ -312,16 +312,16 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
   );
 }
 
-// Topic miễn phí: hàng tag chủ đề (lọc) + mỗi topic là một nhóm có tiêu đề, bên dưới là hàng lesson cuộn ngang (kiểu Corodomo)
+// Topic miễn phí: hàng tag chủ đề (bấm để cuộn tới hàng của topic) + mỗi topic là một nhóm có tiêu đề, bên dưới là hàng lesson cuộn ngang (kiểu Corodomo)
 function TopicsSection({ topics, query, onClearQuery }) {
   const { t } = useI18n();
-  const [tag, setTag] = useState(null); // slug topic đang chọn, null = tất cả
+  const sectionRef = useRef(null);
+  const [tag, setTag] = useState(null); // slug topic đang hiển thị trên màn hình (để tô tag), null = đầu danh sách
 
   const visible = useMemo(() => {
     const q = normalizeText(query);
     const result = [];
     for (const topic of topics) {
-      if (tag && topic.topic !== tag) continue;
       if (!q) {
         result.push({ topic, lessons: topic.lessons });
         continue;
@@ -332,11 +332,41 @@ function TopicsSection({ topics, query, onClearQuery }) {
       if (lessons.length > 0) result.push({ topic, lessons });
     }
     return result;
-  }, [topics, tag, query]);
+  }, [topics, query]);
+
+  // Tô tag theo hàng topic đang nằm ngay dưới thanh tag khi cuộn trang
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      let current = null;
+      for (const { topic } of visible) {
+        const el = document.getElementById(`topic-${topic.topic}`);
+        if (el && el.getBoundingClientRect().top <= STICKY_OFFSET + 8) current = topic.topic;
+      }
+      setTag(current);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [visible]);
+
+  const scrollToTopic = (slug) => {
+    const el = slug ? document.getElementById(`topic-${slug}`) : sectionRef.current;
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - STICKY_OFFSET;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  };
 
   return (
-    <section className="mt-4" aria-label={t.topicsTitle}>
-      <TopicTags topics={topics} tag={tag} onSelect={setTag} />
+    <section ref={sectionRef} className="mt-4" aria-label={t.topicsTitle}>
+      <TopicTags topics={visible.map((v) => v.topic)} tag={tag} onSelect={scrollToTopic} />
 
       <div className="mt-4" />
 
@@ -346,10 +376,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
           <p className="mx-auto mt-1 max-w-sm text-sm text-slate-500">{t.noResultsDesc}</p>
           <button
             type="button"
-            onClick={() => {
-              onClearQuery();
-              setTag(null);
-            }}
+            onClick={onClearQuery}
             className="mt-4 inline-flex h-9 items-center rounded-full bg-slate-900 px-4 text-sm font-semibold text-white hover:bg-slate-700 transition"
           >
             {t.clearFilters}
@@ -380,6 +407,9 @@ const TAG_COLORS = [
   { idle: 'border-cyan-200 bg-cyan-50 text-cyan-700 hover:bg-cyan-100', active: 'border-cyan-600 bg-cyan-600' },
 ];
 const TAG_ALL_COLOR = { idle: 'border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200', active: 'border-slate-700 bg-slate-700' };
+
+// Header (h-14) + thanh tag dính: khoảng cần chừa khi cuộn tới một hàng topic
+const STICKY_OFFSET = 112;
 
 // Hàng tag chủ đề cuộn ngang, dính dưới header khi cuộn trang
 function TopicTags({ topics, tag, onSelect }) {

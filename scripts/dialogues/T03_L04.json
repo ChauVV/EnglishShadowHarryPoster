@@ -1,0 +1,40 @@
+{
+  "topic_number": 3,
+  "topic_title": "Restaurants & Ordering Food",
+  "topic_title_vi": "Nhà hàng & gọi món",
+  "lesson_number": 4,
+  "lesson_title": "Ordering Breakfast",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Good morning! Are you ready to order, or would you like a few more minutes?", "Chào buổi sáng! Chị đã sẵn sàng gọi món chưa, hay cần thêm vài phút?"],
+    ["Emma", "Morning! I'm ready, I think. I'm very hungry today. What comes with the big breakfast?", "Chào anh! Chắc là tôi sẵn sàng rồi. Hôm nay tôi đói lắm. Suất ăn sáng lớn gồm những gì vậy?"],
+    ["Jack", "The big breakfast has two eggs, bacon, sausages, mushrooms, grilled tomato, beans, and toast.", "Suất ăn sáng lớn có hai quả trứng, thịt xông khói, xúc xích, nấm, cà chua nướng, đậu và bánh mì nướng."],
+    ["Emma", "Wow, that's a lot of food. Can I have it without the beans? I don't really like them.", "Chà, nhiều đồ ăn thật. Cho tôi suất đó không có đậu được không? Tôi không thích đậu lắm."],
+    ["Jack", "Of course. Would you like something else instead? We can give you extra mushrooms or a hash brown.", "Dĩ nhiên rồi. Chị có muốn đổi sang món khác không? Chúng tôi có thể thêm nấm hoặc một miếng bánh khoai tây chiên."],
+    ["Emma", "A hash brown, please. That sounds great.", "Cho tôi bánh khoai tây chiên nhé. Nghe ngon đấy."],
+    ["Jack", "And how would you like your eggs? Fried, scrambled, or poached?", "Còn trứng chị muốn làm thế nào? Ốp la, bác, hay chần?"],
+    ["Emma", "Scrambled, please. Not too dry.", "Trứng bác nhé. Đừng khô quá."],
+    ["Jack", "Soft scrambled eggs, no problem. What kind of toast would you like? White, brown, or sourdough?", "Trứng bác mềm, không vấn đề gì. Chị muốn bánh mì nướng loại nào? Bánh mì trắng, bánh mì nâu, hay bánh mì men chua?"],
+    ["Emma", "Sourdough, please, with butter.", "Bánh mì men chua nhé, với bơ."],
+    ["Jack", "Great. And would you like something to drink?", "Tuyệt. Chị có muốn uống gì không?"],
+    ["Emma", "A cup of tea, please. Do you have green tea?", "Cho tôi một tách trà. Bên anh có trà xanh không?"],
+    ["Jack", "We have green tea, black tea, and peppermint tea. Would you like a small pot or a cup?", "Chúng tôi có trà xanh, trà đen và trà bạc hà. Chị muốn một ấm nhỏ hay một tách?"],
+    ["Emma", "A small pot of green tea, please. And a glass of orange juice too.", "Một ấm nhỏ trà xanh nhé. Và thêm một ly nước cam."],
+    ["Jack", "Of course. Is that everything for you?", "Dĩ nhiên rồi. Chị gọi vậy là đủ chưa?"],
+    ["Emma", "Actually, my friend will be here in five minutes. She's a vegetarian. Do you have a vegetarian breakfast?", "Thật ra, năm phút nữa bạn tôi sẽ tới. Cô ấy ăn chay. Bên anh có suất ăn sáng chay không?"],
+    ["Jack", "Yes, we do. It has eggs, avocado, mushrooms, spinach, grilled halloumi cheese, and toast. It's very popular.", "Có ạ. Suất đó có trứng, bơ, nấm, rau chân vịt, phô mai halloumi nướng và bánh mì nướng. Món này rất được ưa chuộng."],
+    ["Emma", "That sounds lovely. I think she'll like that. Can I order it for her now, so it comes at the same time?", "Nghe ngon quá. Tôi nghĩ cô ấy sẽ thích. Tôi gọi luôn cho cô ấy bây giờ được không, để món ra cùng lúc?"],
+    ["Jack", "Good idea. How would she like her eggs?", "Ý hay đấy. Cô ấy muốn trứng làm thế nào?"],
+    ["Emma", "Poached, I think. She always has poached eggs. And she drinks coffee, a flat white.", "Trứng chần, chắc vậy. Cô ấy lúc nào cũng ăn trứng chần. Và cô ấy uống cà phê, một ly flat white."],
+    ["Jack", "Perfect. So, one big breakfast with scrambled eggs, no beans, extra hash brown, sourdough toast. One vegetarian breakfast with poached eggs. A pot of green tea, an orange juice, and a flat white.", "Hoàn hảo. Vậy là một suất ăn sáng lớn với trứng bác, không đậu, thêm bánh khoai tây, bánh mì men chua nướng. Một suất ăn sáng chay với trứng chần. Một ấm trà xanh, một ly nước cam và một ly flat white."],
+    ["Emma", "That's right. Could you bring the coffee later, when she arrives? She hates cold coffee.", "Đúng rồi. Anh mang cà phê ra sau, khi cô ấy tới được không? Cô ấy ghét cà phê nguội lắm."],
+    ["Jack", "Good thinking. I'll make it when she sits down, so it's nice and hot.", "Chị chu đáo quá. Khi cô ấy ngồi xuống tôi mới pha, để cà phê còn nóng."],
+    ["Emma", "Thank you. How long will the food take?", "Cảm ơn anh. Đồ ăn mất bao lâu vậy?"],
+    ["Jack", "About fifteen minutes. It's a busy morning, but the kitchen is fast.", "Khoảng mười lăm phút. Sáng nay đông khách, nhưng nhà bếp làm nhanh lắm."],
+    ["Emma", "No problem. That's perfect timing for my friend. She's never on time anyway!", "Không sao. Vừa khéo đúng lúc bạn tôi đến. Dù sao cô ấy cũng chẳng bao giờ đúng giờ!"],
+    ["Jack", "Great. I'll bring your tea and juice right away.", "Tuyệt. Tôi sẽ mang trà và nước cam ra cho chị ngay."]
+  ]
+}

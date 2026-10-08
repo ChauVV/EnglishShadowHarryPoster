@@ -1,0 +1,36 @@
+{
+  "topic_number": 3,
+  "topic_title": "Restaurants & Ordering Food",
+  "topic_title_vi": "Nhà hàng & gọi món",
+  "lesson_number": 3,
+  "lesson_title": "Asking for the Menu",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Bella", "Excuse me. Could we see the menu, please?", "Xin lỗi anh. Cho chúng tôi xem thực đơn được không?"],
+    ["Michael", "Of course. Here you are. This is the food menu, and the drinks menu is on the back.", "Dĩ nhiên rồi. Đây ạ. Đây là thực đơn đồ ăn, còn thực đơn đồ uống ở mặt sau."],
+    ["Bella", "Thank you. Do you have a menu in English? My friend doesn't read Spanish.", "Cảm ơn anh. Bên anh có thực đơn tiếng Anh không? Bạn tôi không đọc được tiếng Tây Ban Nha."],
+    ["Michael", "Yes, we do. Just a moment. Here's an English menu for your friend.", "Có ạ. Chờ một chút. Đây là thực đơn tiếng Anh cho bạn chị."],
+    ["Bella", "Great, thanks. Do you also have a children's menu? My son is with us.", "Tuyệt, cảm ơn anh. Bên anh có thực đơn trẻ em không? Con trai tôi đi cùng."],
+    ["Michael", "Yes, here it is. It comes with crayons too, so he can color the pictures while he waits.", "Có, đây ạ. Có kèm bút sáp màu, để bé tô tranh trong lúc chờ."],
+    ["Bella", "Oh, he'll love that. Thank you. Is there a vegetarian menu as well?", "Ôi, bé sẽ thích lắm. Cảm ơn anh. Có thực đơn chay không anh?"],
+    ["Michael", "We don't have a separate one, but the vegetarian dishes have a small green leaf next to them. There are about ten options.", "Chúng tôi không có thực đơn riêng, nhưng các món chay có biểu tượng chiếc lá nhỏ màu xanh bên cạnh. Có khoảng mười món."],
+    ["Bella", "I see the leaves. That's very clear. And what do these little chili peppers mean?", "Tôi thấy mấy chiếc lá rồi. Rõ ràng lắm. Còn mấy quả ớt nhỏ này nghĩa là gì?"],
+    ["Michael", "They show how spicy the dish is. One chili is a little spicy, and three chilies are very hot.", "Chúng cho biết món ăn cay đến mức nào. Một quả ớt là hơi cay, ba quả ớt là rất cay."],
+    ["Bella", "Good to know. I love spicy food, but my friend doesn't.", "Biết vậy thì tốt. Tôi rất thích đồ cay, nhưng bạn tôi thì không."],
+    ["Michael", "Then she should choose dishes with no chilies. We can also make most dishes less spicy if you ask.", "Vậy cô ấy nên chọn những món không có ớt. Chúng tôi cũng có thể làm hầu hết các món bớt cay nếu chị yêu cầu."],
+    ["Bella", "Perfect. Is there a lunch menu? I heard you have a set lunch.", "Hoàn hảo. Có thực đơn bữa trưa không anh? Tôi nghe nói bên anh có suất trưa cố định."],
+    ["Michael", "Yes, the set lunch is on this card. You get a starter, a main course, and a drink for fifteen euros. It's only available until three o'clock.", "Có, suất trưa ghi trên tấm thẻ này. Chị được một món khai vị, một món chính, và một đồ uống với giá mười lăm euro. Chỉ phục vụ đến ba giờ chiều."],
+    ["Bella", "That's good value. What are today's choices?", "Vậy là hời đấy. Hôm nay có những món gì?"],
+    ["Michael", "Today the starters are tomato soup or a mixed salad. The main courses are chicken with rice, fish with vegetables, or mushroom pasta.", "Hôm nay món khai vị là súp cà chua hoặc salad trộn. Món chính là gà với cơm, cá với rau, hoặc mì Ý nấm."],
+    ["Bella", "They all sound good. Can we have a few minutes to decide?", "Món nào nghe cũng ngon. Cho chúng tôi vài phút để chọn được không?"],
+    ["Michael", "Of course, take your time. Would you like some drinks while you look?", "Dĩ nhiên rồi, chị cứ thong thả. Chị có muốn gọi đồ uống trong lúc xem không?"],
+    ["Bella", "Yes, please. Two glasses of lemonade and an apple juice for my son.", "Vâng, làm ơn. Hai ly nước chanh và một ly nước táo cho con trai tôi."],
+    ["Michael", "No problem. I'll bring the drinks and come back in five minutes to take your order.", "Không vấn đề gì. Tôi sẽ mang đồ uống ra và năm phút nữa quay lại ghi món."],
+    ["Bella", "Thank you. Oh, one more thing. Could we have a high chair? My son is still quite small.", "Cảm ơn anh. À, còn một việc nữa. Cho chúng tôi một chiếc ghế ăn trẻ em được không? Con trai tôi vẫn còn khá nhỏ."],
+    ["Michael", "Certainly. I'll bring one right away.", "Được ạ. Tôi sẽ mang ra ngay."],
+    ["Bella", "You're very helpful. Thanks a lot.", "Anh nhiệt tình quá. Cảm ơn anh nhiều."]
+  ]
+}

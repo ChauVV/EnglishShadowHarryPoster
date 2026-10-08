@@ -211,9 +211,66 @@ T02 = [
 <circle cx="520" cy="110" r="30" fill="#fff" opacity=".9"/><rect x="514" y="140" width="12" height="120" rx="6" fill="#fff" opacity=".9"/>"""),
 ]
 
+# ---------- Restaurants & Ordering Food ----------
+T03 = [
+    # 1 đĩa + dao nĩa
+    ("#fca5a5", "#b91c1c", """
+<ellipse cx="320" cy="300" rx="190" ry="14" fill="#000" opacity=".15"/>
+<circle cx="320" cy="180" r="120" fill="#fff"/>
+<circle cx="320" cy="180" r="92" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="4"/>
+<circle cx="300" cy="170" r="30" fill="#f97316"/><circle cx="345" cy="195" r="22" fill="#84cc16"/><circle cx="335" cy="150" r="16" fill="#facc15"/>
+<g fill="#e5e7eb" stroke="#94a3b8" stroke-width="3">
+  <rect x="150" y="80" width="14" height="200" rx="7"/>
+  <rect x="140" y="70" width="6" height="56" rx="3"/><rect x="154" y="70" width="6" height="56" rx="3"/><rect x="168" y="70" width="6" height="56" rx="3"/>
+  <path d="M476 70 q30 40 0 120 v90 a7 7 0 0 0 14 0 v-210z"/>
+</g>"""),
+    # 2 tách cà phê bốc khói
+    ("#fde68a", "#92400e", """
+<ellipse cx="300" cy="292" rx="170" ry="20" fill="#fff" opacity=".9"/>
+<path d="M190 150 h220 v70 a90 80 0 0 1 -220 0z" fill="#fff"/>
+<path d="M410 170 a40 40 0 0 1 0 80" fill="none" stroke="#fff" stroke-width="18"/>
+<ellipse cx="300" cy="150" rx="110" ry="18" fill="#78350f"/>
+<g fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".8">
+  <path d="M260 120 q-14 -22 0 -44 q14 -22 0 -44"/><path d="M300 116 q-14 -22 0 -44 q14 -22 0 -44"/><path d="M340 120 q-14 -22 0 -44 q14 -22 0 -44"/>
+</g>"""),
+    # 3 thực đơn
+    ("#c4b5fd", "#5b21b6", """
+<g transform="rotate(-6 320 180)">
+  <rect x="200" y="40" width="240" height="290" rx="14" fill="#fff7ed"/>
+  <rect x="200" y="40" width="240" height="56" rx="14" fill="#7c2d12"/>
+  <rect x="200" y="80" width="240" height="16" fill="#7c2d12"/>
+  <text x="320" y="78" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#fde68a" text-anchor="middle">MENU</text>
+  <g fill="#94a3b8"><rect x="226" y="120" width="120" height="10" rx="5"/><rect x="226" y="160" width="140" height="10" rx="5"/><rect x="226" y="200" width="110" height="10" rx="5"/><rect x="226" y="240" width="130" height="10" rx="5"/><rect x="226" y="280" width="100" height="10" rx="5"/></g>
+  <g fill="#f97316"><rect x="380" y="120" width="34" height="10" rx="5"/><rect x="380" y="160" width="34" height="10" rx="5"/><rect x="380" y="200" width="34" height="10" rx="5"/><rect x="380" y="240" width="34" height="10" rx="5"/><rect x="380" y="280" width="34" height="10" rx="5"/></g>
+</g>"""),
+    # 4 burger + khoai chiên
+    ("#fdba74", "#c2410c", """
+<ellipse cx="300" cy="306" rx="200" ry="14" fill="#000" opacity=".15"/>
+<path d="M150 170 a110 80 0 0 1 220 0z" fill="#f59e0b"/>
+<g fill="#fef3c7"><ellipse cx="210" cy="130" rx="6" ry="3"/><ellipse cx="250" cy="115" rx="6" ry="3"/><ellipse cx="290" cy="125" rx="6" ry="3"/><ellipse cx="320" cy="145" rx="6" ry="3"/><ellipse cx="240" cy="148" rx="6" ry="3"/></g>
+<path d="M140 176 h240 l-14 16 l-16 -10 l-16 10 l-16 -10 l-16 10 l-16 -10 l-16 10 l-16 -10 l-16 10 l-16 -10 l-16 10 l-16 -10 l-16 10z" fill="#84cc16"/>
+<rect x="146" y="196" width="228" height="26" rx="10" fill="#fbbf24"/>
+<rect x="150" y="222" width="220" height="30" rx="12" fill="#7c2d12"/>
+<rect x="150" y="256" width="220" height="40" rx="16" fill="#f59e0b"/>
+<path d="M420 140 h100 l-14 160 h-72z" fill="#ef4444"/>
+<g fill="#fde047"><rect x="430" y="96" width="14" height="70" rx="3"/><rect x="450" y="86" width="14" height="80" rx="3"/><rect x="470" y="100" width="14" height="66" rx="3"/><rect x="490" y="90" width="14" height="76" rx="3"/></g>
+<path d="M420 140 h100 l-4 40 h-92z" fill="#dc2626"/>"""),
+    # 5 hóa đơn + đồng xu
+    ("#86efac", "#15803d", """
+<path d="M220 40 h200 v270 l-20 -14 l-20 14 l-20 -14 l-20 14 l-20 -14 l-20 14 l-20 -14 l-20 14 l-20 -14 l-20 14z" fill="#fff"/>
+<rect x="250" y="70" width="140" height="14" rx="7" fill="#334155"/>
+<g fill="#94a3b8"><rect x="250" y="110" width="90" height="10" rx="5"/><rect x="250" y="140" width="100" height="10" rx="5"/><rect x="250" y="170" width="80" height="10" rx="5"/></g>
+<g fill="#cbd5e1"><rect x="360" y="110" width="30" height="10" rx="5"/><rect x="360" y="140" width="30" height="10" rx="5"/><rect x="360" y="170" width="30" height="10" rx="5"/></g>
+<line x1="250" y1="204" x2="390" y2="204" stroke="#334155" stroke-width="3" stroke-dasharray="6 5"/>
+<rect x="250" y="222" width="60" height="14" rx="7" fill="#334155"/><rect x="340" y="222" width="50" height="14" rx="7" fill="#16a34a"/>
+<circle cx="480" cy="270" r="34" fill="#fcd34d" stroke="#b45309" stroke-width="5"/>
+<circle cx="140" cy="250" r="28" fill="#fcd34d" stroke="#b45309" stroke-width="5"/>"""),
+]
+
 SCENES = {
     "travel-and-airports": T01,
     "hotels-and-accommodation": T02,
+    "restaurants-and-ordering-food": T03,
     "money-and-banking": T15,
 }
 

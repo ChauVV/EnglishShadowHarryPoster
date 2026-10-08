@@ -117,10 +117,10 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
             </svg>
           </Link>
           <div className="min-w-0 flex-1">
-            <h1 className="font-bold truncate">
+            <h1 className="text-sm lg:text-base font-bold truncate">
               {heading ?? `Chapter ${chapter.chapter_number}: ${chapter.chapter_title} · ${lessonLabel(lesson.title)}`}
             </h1>
-            <p className="text-xs text-slate-500 truncate">{bookLabel}</p>
+            <p className="text-[11px] lg:text-xs text-slate-500 truncate">{bookLabel}</p>
           </div>
           <LessonLink href={prevHref}>{t.prevLessonLink}</LessonLink>
           <LessonLink href={nextHref}>{t.nextLessonLink}</LessonLink>
@@ -211,18 +211,19 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
           />
 
           {/* Câu đang đọc */}
-          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 px-5 py-4 text-center min-h-24 flex flex-col items-center justify-center gap-2">
+          {/* Điện thoại/tablet: chữ nhỏ, khung gọn để nhường chỗ cho danh sách phụ đề bên dưới */}
+          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 px-4 py-3 lg:px-5 lg:py-4 text-center min-h-16 lg:min-h-24 flex flex-col items-center justify-center gap-1 lg:gap-2">
             {active?.speaker && (
-              <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600">{active.speaker}</p>
+              <p className="text-[10px] lg:text-xs font-semibold uppercase tracking-wider text-emerald-600">{active.speaker}</p>
             )}
-            <p className={`text-base sm:text-lg font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
+            <p className={`text-[13px] lg:text-lg font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
             {hasTranslation && showVi && active?.vi && (
-              <p className="text-sm sm:text-base font-medium text-emerald-700 leading-snug">{active.vi}</p>
+              <p className="text-[11px] lg:text-base font-medium text-emerald-700 leading-snug">{active.vi}</p>
             )}
           </div>
 
           {/* Điều khiển */}
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 lg:gap-2">
             <ControlButton onClick={() => seekTo(activeIndex - 1)} label={t.prevSentence}>
               <SkipIcon flip />
             </ControlButton>
@@ -236,17 +237,17 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
               <SkipIcon />
             </ControlButton>
             <ControlButton onClick={() => setLoop((v) => !v)} label={t.loopLabel} active={loop}>
-              <span className="text-sm font-medium">{t.loopShort}</span>
+              <span className="text-xs lg:text-sm font-medium">{t.loopShort}</span>
             </ControlButton>
             <ControlButton onClick={() => setShowText((v) => !v)} label={t.toggleSubs} active={!showText}>
-              <span className="text-sm font-medium">{showText ? t.hideSubs : t.showSubs}</span>
+              <span className="text-xs lg:text-sm font-medium">{showText ? t.hideSubs : t.showSubs}</span>
             </ControlButton>
             {hasTranslation && (
               <ControlButton onClick={() => setShowVi((v) => !v)} label={showVi ? t.hideTranslation : t.showTranslation} active={!showVi}>
-                <span className="text-sm font-medium">{showVi ? t.hideTranslation : t.showTranslation}</span>
+                <span className="text-xs lg:text-sm font-medium">{showVi ? t.hideTranslation : t.showTranslation}</span>
               </ControlButton>
             )}
-            <label className="flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 h-10 text-sm">
+            <label className="flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 h-8 lg:h-10 text-xs lg:text-sm">
               {t.speed}
               <select
                 value={speed}
@@ -264,9 +265,10 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
         </section>
 
         {/* Phụ đề */}
-        <aside className="rounded-2xl bg-white border border-slate-200 flex flex-col overflow-hidden max-h-[28rem] lg:max-h-none lg:h-[calc(100vh-6.5rem)] lg:sticky lg:top-[4.5rem]">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100">
-            <h2 className="font-semibold">{t.subtitles}</h2>
+        {/* Điện thoại/tablet: cao gần bằng màn hình (trừ header) để cuộn xuống là thấy nhiều câu */}
+        <aside className="rounded-2xl bg-white border border-slate-200 flex flex-col overflow-hidden h-[calc(100dvh-5rem)] scroll-mt-[4.5rem] lg:h-[calc(100vh-6.5rem)] lg:sticky lg:top-[4.5rem]">
+          <div className="flex items-center justify-between px-4 py-2 lg:py-3 border-b border-slate-100">
+            <h2 className="text-sm lg:text-base font-semibold">{t.subtitles}</h2>
             <span className="text-xs text-slate-500">{t.sentenceCount(sentences.length)}</span>
           </div>
           {!hasTimestamps && (
@@ -279,7 +281,7 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
               <li key={i} data-idx={i}>
                 <button
                   onClick={() => seekTo(i)}
-                  className={`group w-full flex items-start gap-3 rounded-xl px-3 py-3 text-left transition ${
+                  className={`group w-full flex items-start gap-2.5 lg:gap-3 rounded-xl px-2.5 py-2 lg:px-3 lg:py-3 text-left transition ${
                     i === activeIndex ? 'bg-emerald-100' : 'hover:bg-slate-50'
                   }`}
                 >
@@ -292,11 +294,11 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
                   </span>
                   <span className="min-w-0">
                     {s.speaker && <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">{s.speaker}</span>}
-                    <span className={`block text-base leading-relaxed ${blur} ${showText ? '' : 'group-hover:blur-none'}`}>
+                    <span className={`block text-[13px] lg:text-base leading-relaxed ${blur} ${showText ? '' : 'group-hover:blur-none'}`}>
                       {s.text}
                     </span>
                     {showVi && s.vi && (
-                      <span className="block text-[15px] leading-relaxed text-slate-600 mt-0.5">{s.vi}</span>
+                      <span className="block text-xs lg:text-[15px] leading-relaxed text-slate-600 mt-0.5">{s.vi}</span>
                     )}
                   </span>
                 </button>
@@ -335,16 +337,16 @@ function LessonLink({ href, children }) {
 
 function ControlButton({ children, onClick, label, primary, active }) {
   const style = primary
-    ? 'bg-emerald-500 text-white hover:bg-emerald-600 w-12'
+    ? 'bg-emerald-500 text-white hover:bg-emerald-600 w-10 lg:w-12'
     : active
-      ? 'bg-emerald-100 text-emerald-800 border border-emerald-300 px-4'
-      : 'bg-white border border-slate-200 hover:bg-slate-50 px-4';
+      ? 'bg-emerald-100 text-emerald-800 border border-emerald-300 px-3 lg:px-4'
+      : 'bg-white border border-slate-200 hover:bg-slate-50 px-3 lg:px-4';
   return (
     <button
       onClick={onClick}
       aria-label={label}
       title={label}
-      className={`flex h-10 items-center justify-center rounded-full transition ${style}`}
+      className={`flex h-8 lg:h-10 items-center justify-center rounded-full transition ${style}`}
     >
       {children}
     </button>

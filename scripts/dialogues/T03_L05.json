@@ -1,0 +1,39 @@
+{
+  "topic_number": 3,
+  "topic_title": "Restaurants & Ordering Food",
+  "topic_title_vi": "Nhà hàng & gọi món",
+  "lesson_number": 5,
+  "lesson_title": "Asking for the Bill",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Sarah", "Excuse me. Could we have the bill, please?", "Xin lỗi anh. Cho chúng tôi xin hóa đơn được không?"],
+    ["Adam", "Of course. Did you enjoy your meal?", "Dĩ nhiên rồi. Chị dùng bữa có ngon miệng không?"],
+    ["Sarah", "Yes, it was delicious. The fish was perfect, and the chocolate cake was amazing.", "Có, ngon lắm. Món cá hoàn hảo, còn bánh sô-cô-la thì tuyệt vời."],
+    ["Adam", "I'm glad to hear that. I'll tell the chef. Would you like anything else before I bring the bill? Maybe a coffee?", "Tôi rất vui khi nghe vậy. Tôi sẽ báo đầu bếp. Chị có muốn gọi thêm gì trước khi tôi mang hóa đơn ra không? Có lẽ một ly cà phê?"],
+    ["Sarah", "No, thank you. We're full. We have to catch a train, so we're in a bit of a hurry.", "Không, cảm ơn anh. Chúng tôi no rồi. Chúng tôi phải bắt tàu, nên hơi vội một chút."],
+    ["Adam", "Sure. I'll bring it right away. Which station are you going to?", "Được ạ. Tôi sẽ mang ra ngay. Chị đi ga nào vậy?"],
+    ["Sarah", "The central station. Our train leaves in forty minutes. Oh, and could we pay separately? My friend and I would like to split the bill.", "Ga trung tâm. Tàu của chúng tôi chạy sau bốn mươi phút nữa. À, chúng tôi trả riêng được không? Tôi và bạn tôi muốn chia hóa đơn."],
+    ["Adam", "Then you have plenty of time, it's only ten minutes away. Would you like to split it in half, or does each person want to pay for what they ordered?", "Vậy chị còn nhiều thời gian, ga cách đây chỉ mười phút. Chị muốn chia đôi, hay mỗi người trả phần mình đã gọi?"],
+    ["Sarah", "Each person pays for their own food, please. I had the fish and the cake, and she had the pasta and a salad.", "Mỗi người trả phần mình nhé. Tôi gọi cá và bánh, còn cô ấy gọi mì Ý và salad."],
+    ["Adam", "And the drinks? I see two lemonades and a bottle of water.", "Còn đồ uống thì sao? Tôi thấy hai ly nước chanh và một chai nước."],
+    ["Sarah", "One lemonade each, and we can share the water. Let's split that in half.", "Mỗi người một ly nước chanh, còn chai nước thì chia đôi."],
+    ["Adam", "Perfect. Here are your two bills. Yours is twenty-eight euros fifty, and your friend's is twenty-four euros.", "Hoàn hảo. Đây là hai hóa đơn. Phần của chị là hai mươi tám euro năm mươi, còn của bạn chị là hai mươi bốn euro."],
+    ["Sarah", "Let me check. Hmm, I think there's a mistake. There are two pieces of chocolate cake on my bill, but I only had one.", "Để tôi xem. Hừm, tôi nghĩ có nhầm lẫn. Hóa đơn của tôi có hai miếng bánh sô-cô-la, nhưng tôi chỉ ăn một miếng."],
+    ["Adam", "Oh, I'm so sorry. You're right. The other cake was for the next table. I'll fix it now.", "Ôi, tôi rất xin lỗi. Chị nói đúng. Miếng bánh kia là của bàn bên cạnh. Tôi sẽ sửa ngay."],
+    ["Sarah", "No problem. It happens.", "Không sao. Chuyện thường thôi."],
+    ["Adam", "Here's the new bill. It's twenty-one euros now. Again, sorry about that.", "Đây là hóa đơn mới. Giờ là hai mươi mốt euro. Một lần nữa, xin lỗi chị."],
+    ["Sarah", "Thank you. Is service included?", "Cảm ơn anh. Đã bao gồm phí phục vụ chưa?"],
+    ["Adam", "No, service isn't included, but it's up to you. Most people leave around ten percent if they're happy.", "Chưa, phí phục vụ chưa bao gồm, nhưng tùy chị. Hầu hết mọi người để lại khoảng mười phần trăm nếu họ hài lòng."],
+    ["Sarah", "We were very happy. Can I pay by card and add the tip on the card machine?", "Chúng tôi rất hài lòng. Tôi có thể trả bằng thẻ và thêm tiền tip trên máy quẹt thẻ không?"],
+    ["Adam", "Yes, of course. I'll bring the card machine. It asks you if you want to add a tip before you pay.", "Vâng, dĩ nhiên rồi. Tôi sẽ mang máy quẹt thẻ ra. Máy sẽ hỏi chị có muốn thêm tiền tip trước khi thanh toán."],
+    ["Sarah", "Great. And my friend wants to pay in cash. Is that okay?", "Tuyệt. Còn bạn tôi muốn trả tiền mặt. Như vậy được không?"],
+    ["Adam", "Of course. Cash is fine. I'll bring her change.", "Dĩ nhiên. Tiền mặt cũng được. Tôi sẽ mang tiền thối cho cô ấy."],
+    ["Sarah", "Here's my card. Could I also have a receipt, please? I'm keeping all my receipts for my travel budget.", "Thẻ của tôi đây. Cho tôi xin biên lai luôn nhé? Tôi giữ tất cả biên lai để theo dõi ngân sách chuyến đi."],
+    ["Adam", "Of course. The machine prints one automatically. Here you are.", "Dĩ nhiên rồi. Máy sẽ tự in biên lai. Đây ạ."],
+    ["Sarah", "Thank you so much. Everything was lovely. We'll definitely come back next time we're in town.", "Cảm ơn anh rất nhiều. Mọi thứ đều tuyệt. Lần sau đến thành phố này chúng tôi chắc chắn sẽ quay lại."],
+    ["Adam", "We'd love to see you again. Have a safe journey, and good luck with your train!", "Chúng tôi rất mong được gặp lại. Chúc chị đi đường an toàn, và kịp chuyến tàu nhé!"]
+  ]
+}
