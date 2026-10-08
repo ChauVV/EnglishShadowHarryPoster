@@ -1,0 +1,35 @@
+{
+  "topic_number": 6,
+  "topic_title": "Family & Friends",
+  "topic_title_vi": "Gia đình & bạn bè",
+  "lesson_number": 3,
+  "lesson_title": "Calling Your Mom",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Hello, Mom? It's Michael. Can you hear me?", "Alô, mẹ à? Con Michael đây. Mẹ nghe con không?"],
+    ["Bella", "Michael! Yes, I can hear you. What a nice surprise. Is everything okay? You don't usually call on a Wednesday.", "Michael! Có, mẹ nghe rõ. Bất ngờ quá. Mọi chuyện ổn chứ? Con thường đâu có gọi vào thứ Tư."],
+    ["Michael", "Everything's fine, don't worry. I just wanted to hear your voice. How are you?", "Mọi chuyện ổn, mẹ đừng lo. Con chỉ muốn nghe giọng mẹ. Mẹ khỏe không?"],
+    ["Bella", "I'm very well, thank you. A bit tired. I spent the whole morning in the garden. The roses look beautiful this year.", "Mẹ khỏe lắm, cảm ơn con. Hơi mệt một chút. Cả buổi sáng mẹ làm vườn. Năm nay hoa hồng đẹp lắm."],
+    ["Michael", "That's great. And how's Dad? Is his back better?", "Tuyệt quá. Còn bố thì sao? Lưng bố đỡ chưa?"],
+    ["Bella", "Much better. He's been doing the exercises the doctor gave him, and he can play golf again. He's out with his friends right now.", "Đỡ nhiều rồi. Bố làm theo các bài tập bác sĩ đưa, và giờ lại chơi golf được rồi. Giờ bố đang đi chơi với bạn."],
+    ["Michael", "I'm glad to hear that. Tell him I said hello.", "Con mừng khi nghe vậy. Mẹ gửi lời chào của con đến bố nhé."],
+    ["Bella", "I will. Now, tell me about you. Are you eating properly? You sounded very tired last time we spoke.", "Mẹ sẽ nói. Giờ kể mẹ nghe về con đi. Con có ăn uống đàng hoàng không? Lần trước nói chuyện nghe con mệt lắm."],
+    ["Michael", "I'm fine, Mom. Work was very busy last month, but it's quieter now. And yes, I'm eating well. I cooked your vegetable soup recipe last night.", "Con ổn mà mẹ. Tháng trước công việc rất bận, nhưng giờ đỡ rồi. Và vâng, con ăn uống tốt. Tối qua con nấu món súp rau theo công thức của mẹ."],
+    ["Bella", "Really? How did it turn out?", "Thật à? Nấu thế nào con?"],
+    ["Michael", "Not as good as yours, but not bad. I think I forgot something. It tasted a bit plain.", "Không ngon bằng mẹ nấu, nhưng cũng được. Con nghĩ con quên gì đó. Vị hơi nhạt."],
+    ["Bella", "Did you add the bay leaves and a little lemon at the end? That's the secret.", "Con có cho lá nguyệt quế và một chút chanh vào cuối không? Đó là bí quyết đấy."],
+    ["Michael", "Lemon! That's what I forgot. Thanks, Mom. I'll try again this weekend.", "Chanh! Đó là thứ con quên. Cảm ơn mẹ. Cuối tuần con sẽ nấu lại."],
+    ["Bella", "Speaking of the weekend, are you coming home for Sunday lunch? Your aunt and uncle are visiting.", "Nói đến cuối tuần, Chủ nhật con có về ăn trưa không? Dì dượng con đến chơi đấy."],
+    ["Michael", "I'd love to. What time should I come?", "Con rất muốn. Mấy giờ con nên về ạ?"],
+    ["Bella", "Lunch is at one, but come earlier if you can. You could help your dad set up the table in the garden.", "Một giờ ăn trưa, nhưng về sớm hơn nếu được. Con có thể giúp bố kê bàn ngoài vườn."],
+    ["Michael", "Okay, I'll be there at about twelve. Should I bring anything?", "Được ạ, khoảng mười hai giờ con sẽ có mặt. Con có nên mang gì không?"],
+    ["Bella", "Just yourself. Oh, and maybe some bread from that bakery near your apartment. Your dad loves it.", "Chỉ cần con thôi. À, và có lẽ ít bánh mì ở tiệm bánh gần căn hộ của con. Bố con thích lắm."],
+    ["Michael", "No problem. I'll buy a big loaf. I have to go now, Mom. I have a meeting in ten minutes.", "Không vấn đề gì. Con sẽ mua một ổ to. Giờ con phải đi rồi mẹ. Mười phút nữa con có cuộc họp."],
+    ["Bella", "Okay, sweetheart. Thank you for calling. It always makes my day.", "Được rồi, con yêu. Cảm ơn con đã gọi. Lần nào con gọi mẹ cũng vui cả ngày."],
+    ["Michael", "Love you, Mom. See you on Sunday.", "Con yêu mẹ. Chủ nhật gặp mẹ nhé."],
+    ["Bella", "I love you too. And don't forget the lemon!", "Mẹ cũng yêu con. Và đừng quên chanh nhé!"]
+  ]
+}

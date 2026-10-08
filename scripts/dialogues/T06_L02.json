@@ -1,0 +1,34 @@
+{
+  "topic_number": 6,
+  "topic_title": "Family & Friends",
+  "topic_title_vi": "Gia đình & bạn bè",
+  "lesson_number": 2,
+  "lesson_title": "Talking About Your Brother",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Sarah", "Adam, you said your brother is coming to visit this weekend. Is he older or younger than you?", "Adam, anh nói cuối tuần này anh trai anh đến chơi. Anh ấy lớn hay nhỏ hơn anh?"],
+    ["Adam", "He's my younger brother, Ben. He's twenty-six, three years younger than me. He lives in the mountains, about four hours away.", "Đó là em trai anh, Ben. Nó hai mươi sáu tuổi, nhỏ hơn anh ba tuổi. Nó sống ở vùng núi, cách đây khoảng bốn tiếng."],
+    ["Sarah", "In the mountains? What does he do there?", "Ở vùng núi à? Anh ấy làm gì ở đó?"],
+    ["Adam", "He's a ski instructor in winter, and in summer he works as a mountain guide. He loves being outside. He hates offices.", "Mùa đông nó làm huấn luyện viên trượt tuyết, còn mùa hè thì làm hướng dẫn viên leo núi. Nó thích ở ngoài trời. Nó ghét văn phòng."],
+    ["Sarah", "That's so different from you! You work in an office every day.", "Khác anh quá! Ngày nào anh cũng làm việc ở văn phòng."],
+    ["Adam", "I know. We're very different. I'm quiet and organized, and Ben is loud and adventurous. But we get on really well.", "Anh biết. Bọn anh rất khác nhau. Anh trầm tính và ngăn nắp, còn Ben thì ồn ào và thích phiêu lưu. Nhưng bọn anh rất hợp nhau."],
+    ["Sarah", "Did you fight a lot when you were children?", "Hồi nhỏ hai anh em có hay đánh nhau không?"],
+    ["Adam", "All the time! We shared a bedroom until I was fifteen. He always borrowed my things without asking, and he never gave them back.", "Suốt ngày! Bọn anh ở chung phòng cho đến khi anh mười lăm tuổi. Nó lúc nào cũng mượn đồ của anh mà không hỏi, và chẳng bao giờ trả lại."],
+    ["Sarah", "Ha! That sounds like my sister. What does he look like? Does he look like you?", "Ha! Nghe giống em gái em quá. Anh ấy trông thế nào? Có giống anh không?"],
+    ["Adam", "People say we have the same eyes and the same smile. But he's taller than me, and he has long, curly hair. And he has a beard now.", "Mọi người nói bọn anh có đôi mắt và nụ cười giống nhau. Nhưng nó cao hơn anh, và có mái tóc dài xoăn. Và giờ nó còn để râu."],
+    ["Sarah", "A beard and long hair? He sounds like a real mountain man.", "Râu và tóc dài à? Nghe như một người đàn ông miền núi thực thụ."],
+    ["Adam", "Exactly! My mom always tells him to get a haircut, but he never listens.", "Chính xác! Mẹ anh lúc nào cũng bảo nó đi cắt tóc, nhưng nó chẳng bao giờ nghe."],
+    ["Sarah", "Is he married?", "Anh ấy đã lập gia đình chưa?"],
+    ["Adam", "No, but he has a girlfriend, Maya. She's also a mountain guide. They met on a hiking trip two years ago.", "Chưa, nhưng nó có bạn gái, Maya. Cô ấy cũng là hướng dẫn viên leo núi. Hai đứa gặp nhau trong một chuyến đi bộ đường dài hai năm trước."],
+    ["Sarah", "That's romantic. Is she coming this weekend too?", "Lãng mạn thật. Cô ấy cũng đến cuối tuần này à?"],
+    ["Adam", "Yes, they're both coming. I want to take them to the new Thai restaurant on Saturday. Would you like to come and meet them?", "Ừ, cả hai đều đến. Anh muốn đưa họ đến nhà hàng Thái mới vào thứ Bảy. Em có muốn đến làm quen với họ không?"],
+    ["Sarah", "I'd love to! What's Ben like as a person? Is he friendly?", "Em rất muốn! Tính cách anh Ben thế nào? Anh ấy có thân thiện không?"],
+    ["Adam", "Very friendly. He talks to everyone, and he's very funny. But be careful. He'll try to convince you to go hiking with him.", "Rất thân thiện. Nó nói chuyện với mọi người, và rất vui tính. Nhưng cẩn thận nhé. Nó sẽ cố thuyết phục em đi leo núi với nó."],
+    ["Sarah", "Hiking sounds fun, actually. As long as it's not too difficult.", "Thật ra leo núi nghe cũng vui. Miễn là đừng quá khó."],
+    ["Adam", "With Ben, it's always difficult. His idea of an easy walk is six hours up a mountain!", "Đi với Ben thì lúc nào cũng khó. Theo nó, đi bộ nhẹ nhàng là leo sáu tiếng lên núi!"],
+    ["Sarah", "Ha! Then maybe I'll just stay for dinner. See you on Saturday.", "Ha! Vậy có lẽ em chỉ ở lại ăn tối thôi. Hẹn anh thứ Bảy."]
+  ]
+}

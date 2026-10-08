@@ -1,0 +1,39 @@
+{
+  "topic_number": 6,
+  "topic_title": "Family & Friends",
+  "topic_title_vi": "Gia đình & bạn bè",
+  "lesson_number": 5,
+  "lesson_title": "Saying Happy Birthday",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Sarah", "Surprise! Happy birthday, Adam!", "Bất ngờ chưa! Chúc mừng sinh nhật, Adam!"],
+    ["Adam", "Oh my goodness! What's all this? I had no idea! I thought we were just having a quiet dinner.", "Trời ơi! Gì thế này? Anh hoàn toàn không biết! Anh tưởng mình chỉ ăn tối yên tĩnh thôi."],
+    ["Sarah", "That was the plan. We wanted to surprise you. Everyone from the office is here, and your sister came too.", "Đó chính là kế hoạch. Mọi người muốn tạo bất ngờ cho anh. Cả văn phòng đều ở đây, và chị gái anh cũng đến."],
+    ["Adam", "My sister? She lives three hours away! Thank you so much. This is amazing.", "Chị anh à? Chị ấy sống cách đây ba tiếng mà! Cảm ơn em nhiều lắm. Tuyệt vời quá."],
+    ["Sarah", "Happy thirtieth! How does it feel to be thirty?", "Chúc mừng sinh nhật ba mươi! Cảm giác tuổi ba mươi thế nào?"],
+    ["Adam", "Ha, ask me tomorrow! Right now, I'm just in shock. How long have you been planning this?", "Ha, mai hỏi anh nhé! Giờ anh chỉ thấy choáng thôi. Em lên kế hoạch việc này bao lâu rồi?"],
+    ["Sarah", "About three weeks. It was very hard to keep it a secret. I almost told you twice!", "Khoảng ba tuần. Giữ bí mật khó lắm. Em suýt nói với anh hai lần!"],
+    ["Adam", "I really didn't suspect anything. Now I understand why everyone was acting strangely at work today.", "Anh thật sự chẳng nghi ngờ gì. Giờ anh hiểu sao hôm nay ở chỗ làm ai cũng cư xử lạ lạ."],
+    ["Sarah", "We had to hide the cake in the kitchen fridge. And when you came in looking for milk, we all panicked!", "Mọi người phải giấu bánh trong tủ lạnh ở bếp. Lúc anh vào tìm sữa, ai cũng hoảng!"],
+    ["Adam", "Ha! That explains it. Who organized all of this?", "Ha! Thảo nào. Ai tổ chức tất cả chuyện này vậy?"],
+    ["Sarah", "It was a team effort. I booked the restaurant, Tom made the playlist, and your sister helped with the guest list.", "Đó là công sức của cả đội. Em đặt nhà hàng, Tom làm danh sách nhạc, và chị gái anh giúp lập danh sách khách mời."],
+    ["Adam", "You're all wonderful. Thank you, really. I feel very lucky.", "Mọi người tuyệt quá. Cảm ơn mọi người, thật đấy. Anh thấy mình thật may mắn."],
+    ["Sarah", "Your sister wants to say hello. She's over there, next to the window. And she brought your favorite photo from when you were five.", "Chị gái anh muốn chào anh. Chị ấy ở đằng kia, cạnh cửa sổ. Và chị ấy mang theo bức ảnh anh thích nhất hồi năm tuổi."],
+    ["Adam", "Oh no, not the photo with the funny haircut! Everyone is going to laugh at me.", "Ôi không, đừng là bức ảnh với kiểu tóc buồn cười đó! Mọi người sẽ cười anh mất."],
+    ["Sarah", "Too late, it's already on the table! Here, this is from me. Open it!", "Muộn rồi, nó đã ở trên bàn rồi! Đây, quà của em. Mở ra đi!"],
+    ["Adam", "You didn't have to get me anything. Oh, wow. Concert tickets! For my favorite band? How did you know?", "Em không cần mua gì cho anh đâu. Ôi, chà. Vé xem hòa nhạc! Của ban nhạc anh thích nhất à? Sao em biết?"],
+    ["Sarah", "Because you talk about them every day! You even sang their songs at the office party last month. There are two tickets, so you can bring someone with you.", "Vì ngày nào anh cũng nói về họ! Tháng trước anh còn hát bài của họ ở tiệc công ty. Có hai vé, nên anh có thể dẫn theo một người."],
+    ["Adam", "Then you're coming with me, of course. Thank you so much. This is the best present.", "Vậy dĩ nhiên em sẽ đi cùng anh. Cảm ơn em rất nhiều. Đây là món quà tuyệt nhất."],
+    ["Sarah", "I'm so glad you like it. Now, are you ready for the cake? Everyone's waiting.", "Em vui vì anh thích. Giờ anh sẵn sàng cắt bánh chưa? Mọi người đang đợi."],
+    ["Adam", "Chocolate cake? You know me too well.", "Bánh sô-cô-la à? Em hiểu anh quá."],
+    ["Sarah", "Of course. Okay, everyone, one, two, three! Happy birthday to you, happy birthday to you!", "Dĩ nhiên rồi. Được rồi, mọi người, một, hai, ba! Chúc mừng sinh nhật anh, chúc mừng sinh nhật anh!"],
+    ["Adam", "Thank you, everyone! Should I make a wish now?", "Cảm ơn mọi người! Giờ anh ước được chưa?"],
+    ["Sarah", "Yes, close your eyes, make a wish, and blow out all thirty candles. In one breath!", "Rồi, nhắm mắt lại, ước một điều, và thổi tắt cả ba mươi ngọn nến. Trong một hơi!"],
+    ["Adam", "Thirty candles in one breath? That's a challenge. Okay, here I go!", "Ba mươi ngọn nến trong một hơi à? Thử thách đấy. Được rồi, anh thổi đây!"],
+    ["Sarah", "You did it! What did you wish for?", "Anh làm được rồi! Anh ước gì vậy?"],
+    ["Adam", "I can't tell you, or it won't come true. But I can tell you this: it's the best birthday I've ever had.", "Anh không nói được, không thì nó sẽ không thành hiện thực. Nhưng anh có thể nói thế này: đây là sinh nhật tuyệt nhất từ trước đến giờ của anh."]
+  ]
+}

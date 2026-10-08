@@ -1,0 +1,34 @@
+{
+  "topic_number": 6,
+  "topic_title": "Family & Friends",
+  "topic_title_vi": "Gia đình & bạn bè",
+  "lesson_number": 4,
+  "lesson_title": "Meeting a Friend's Parents",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Hello, you must be Emma! Come in, come in. I'm Jack, Lucy's dad. It's so nice to finally meet you.", "Xin chào, cháu chắc là Emma! Vào đi, vào đi cháu. Bác là Jack, bố của Lucy. Thật vui vì cuối cùng cũng được gặp cháu."],
+    ["Emma", "Nice to meet you too, Mr. Taylor. Thank you for inviting me. Lucy talks about you and her mom all the time.", "Cháu cũng rất vui được gặp bác, bác Taylor. Cảm ơn bác đã mời cháu. Lucy lúc nào cũng kể về bác và bác gái."],
+    ["Jack", "Please, call me Jack. Mr. Taylor makes me feel old! Lucy is just finishing a phone call upstairs. Can I take your coat?", "Cháu cứ gọi bác là Jack. Gọi bác Taylor làm bác thấy mình già quá! Lucy đang nghe nốt cuộc điện thoại trên lầu. Bác cất áo khoác cho cháu nhé?"],
+    ["Emma", "Thank you. Oh, and these flowers are for you and your wife. I hope she likes tulips.", "Cảm ơn bác. À, bó hoa này là tặng bác và bác gái. Cháu mong bác gái thích hoa tulip."],
+    ["Jack", "That's very kind of you. She loves tulips. She's in the kitchen. She's been cooking all afternoon. Let's go and say hello.", "Cháu thật chu đáo. Bác gái rất thích tulip. Bác ấy đang ở trong bếp. Cả buổi chiều bác ấy nấu nướng. Mình vào chào bác ấy nhé."],
+    ["Emma", "Something smells delicious. What is it?", "Có mùi gì thơm quá. Món gì vậy bác?"],
+    ["Jack", "It's her famous lasagna. It's Lucy's favorite, and she said you like Italian food too.", "Đó là món lasagna nổi tiếng của bác gái. Món Lucy thích nhất, và con bé nói cháu cũng thích đồ ăn Ý."],
+    ["Emma", "I love Italian food. That's very kind of her to make it.", "Cháu rất thích đồ ăn Ý. Bác gái thật tử tế khi làm món này."],
+    ["Jack", "So, Lucy tells us you two met at university. What are you studying?", "Lucy kể bọn cháu quen nhau ở trường đại học. Cháu học ngành gì?"],
+    ["Emma", "I'm studying economics. I'm in my second year. Lucy and I live in the same building, and we met in the kitchen on the first day.", "Cháu học kinh tế. Cháu đang học năm hai. Cháu và Lucy ở cùng tòa nhà, và gặp nhau trong bếp ngay ngày đầu tiên."],
+    ["Jack", "Economics? That's interesting. What would you like to do after you graduate?", "Kinh tế à? Thú vị đấy. Sau khi tốt nghiệp cháu muốn làm gì?"],
+    ["Emma", "I'm not completely sure yet. Maybe work in a bank, or for a company that helps small businesses with finance. I'm doing an internship next summer.", "Cháu vẫn chưa chắc lắm. Có lẽ làm ở ngân hàng, hoặc ở công ty giúp các doanh nghiệp nhỏ về tài chính. Mùa hè tới cháu đi thực tập."],
+    ["Jack", "That sounds like a great plan. I worked in a bank for thirty years before I retired, so if you ever have any questions, just ask.", "Nghe là một kế hoạch tuyệt vời. Bác đã làm ngân hàng ba mươi năm trước khi nghỉ hưu, nên nếu cháu có câu hỏi gì, cứ hỏi bác."],
+    ["Emma", "Really? I didn't know that. I'd love to hear about it. What did you do there?", "Thật ạ? Cháu không biết đấy. Cháu rất muốn nghe bác kể. Bác làm gì ở đó?"],
+    ["Jack", "I started as a cashier when I was nineteen, and I finished as a branch manager. A lot has changed since then. Everything is online now.", "Bác bắt đầu làm thu ngân lúc mười chín tuổi, và kết thúc ở vị trí giám đốc chi nhánh. Từ đó đến giờ nhiều thứ đã thay đổi. Giờ cái gì cũng trực tuyến."],
+    ["Emma", "That's amazing. Lucy never told me!", "Tuyệt quá ạ. Lucy chưa bao giờ kể với cháu!"],
+    ["Jack", "She thinks banking is boring. Ah, here she is. Lucy, your friend is lovely. She brought your mom flowers!", "Con bé nghĩ ngân hàng thật nhàm chán. À, nó đây rồi. Lucy, bạn con dễ thương quá. Cô bé mang hoa tặng mẹ con đấy!"],
+    ["Emma", "Hi, Lucy! Your dad has been telling me about his job at the bank. Why didn't you tell me?", "Chào Lucy! Bố cậu vừa kể cho tớ về công việc ở ngân hàng. Sao cậu không kể với tớ?"],
+    ["Jack", "Ha, she's rolling her eyes. Come on, girls, dinner is ready. Emma, please sit next to my wife. She has lots of questions for you.", "Ha, con bé đang đảo mắt kìa. Nào các cháu, bữa tối xong rồi. Emma, cháu ngồi cạnh bác gái nhé. Bác ấy có cả đống câu hỏi cho cháu."],
+    ["Emma", "Thank you. This all looks wonderful. I feel very welcome here.", "Cảm ơn bác. Mọi thứ trông tuyệt quá. Cháu thấy rất được chào đón ở đây."],
+    ["Jack", "You're welcome anytime, Emma. Lucy's friends are always part of the family.", "Lúc nào cháu cũng được chào đón, Emma. Bạn của Lucy luôn là người trong nhà."]
+  ]
+}

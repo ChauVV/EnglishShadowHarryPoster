@@ -1,0 +1,40 @@
+{
+  "topic_number": 6,
+  "topic_title": "Family & Friends",
+  "topic_title_vi": "Gia đình & bạn bè",
+  "lesson_number": 7,
+  "lesson_title": "Inviting a Friend Over",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Hi, Jack! It's Emma. Do you have a minute? I wanted to ask you something.", "Chào Jack! Emma đây. Cậu có rảnh một phút không? Tớ muốn hỏi cậu chuyện này."],
+    ["Jack", "Oh, hi, Emma! Sure, I'm just walking home from work. What's up?", "Ồ, chào Emma! Được chứ, tớ đang đi bộ từ chỗ làm về. Có chuyện gì vậy?"],
+    ["Emma", "Are you free on Saturday evening? I'm having a few friends over for dinner, and I'd love you to come.", "Tối thứ Bảy cậu có rảnh không? Tớ mời vài người bạn đến nhà ăn tối, và tớ rất muốn cậu đến."],
+    ["Jack", "That sounds great! Let me check. Saturday evening. Yes, I'm free. What time?", "Nghe hay đấy! Để tớ xem. Tối thứ Bảy. Ừ, tớ rảnh. Mấy giờ?"],
+    ["Emma", "Around seven o'clock. Nothing fancy, just a relaxed evening. I'm making a big pot of chili, and there'll be some games after dinner.", "Khoảng bảy giờ. Không có gì cầu kỳ đâu, chỉ là một buổi tối thoải mái. Tớ sẽ nấu một nồi chili lớn, và sau bữa tối sẽ có vài trò chơi."],
+    ["Jack", "Chili and games? Perfect. Who else is coming?", "Chili và trò chơi à? Hoàn hảo. Còn ai đến nữa?"],
+    ["Emma", "My sister Anna, Tom and his girlfriend, and two friends from my yoga class. So about seven people in total.", "Em gái tớ Anna, Tom và bạn gái anh ấy, và hai người bạn ở lớp yoga. Vậy tổng cộng khoảng bảy người."],
+    ["Jack", "Great, I haven't seen Tom for ages. Can I bring anything? Drinks or a dessert?", "Tuyệt, lâu lắm rồi tớ không gặp Tom. Tớ mang gì đến được không? Đồ uống hay món tráng miệng?"],
+    ["Emma", "You don't have to bring anything. But if you want to, a dessert would be lovely. I'm not very good at baking.", "Cậu không cần mang gì đâu. Nhưng nếu cậu muốn, một món tráng miệng thì tuyệt lắm. Tớ không giỏi làm bánh."],
+    ["Jack", "No problem. I'll make my apple crumble. Everyone always asks for the recipe.", "Không vấn đề gì. Tớ sẽ làm bánh táo crumble. Ai ăn cũng hỏi công thức."],
+    ["Emma", "Oh, yes, please! I remember it from your birthday. It was amazing.", "Ôi, có, làm đi! Tớ nhớ món đó từ sinh nhật cậu. Ngon tuyệt."],
+    ["Jack", "Do any of your guests have allergies, or any foods they don't eat?", "Khách của cậu có ai bị dị ứng, hay kiêng món gì không?"],
+    ["Emma", "Good question. One of my yoga friends is vegetarian, so I'm making a vegetarian chili as well. I don't think anyone has allergies.", "Câu hỏi hay. Một người bạn ở lớp yoga ăn chay, nên tớ cũng sẽ nấu thêm chili chay. Tớ không nghĩ có ai bị dị ứng."],
+    ["Jack", "Okay. My crumble has no nuts, so that's fine. Should I bring some cream or ice cream with it?", "Được. Bánh crumble của tớ không có hạt, nên ổn. Tớ có nên mang kèm kem tươi hay kem lạnh không?"],
+    ["Emma", "Ice cream, definitely. Vanilla is everyone's favorite.", "Kem lạnh, chắc chắn rồi. Vani là vị ai cũng thích."],
+    ["Jack", "What kind of games are you planning? I'm terrible at quizzes.", "Cậu định chơi trò gì? Tớ dở tệ khoản đố vui."],
+    ["Emma", "Don't worry, nothing too serious. Maybe a card game or charades. Everyone laughs a lot, and nobody really cares who wins.", "Đừng lo, không có gì quá nghiêm túc. Có lẽ đánh bài hoặc đoán chữ qua hành động. Ai cũng cười nhiều, và chẳng ai quan tâm ai thắng."],
+    ["Jack", "Got it. What's your address again? I've only been to your old apartment.", "Hiểu rồi. Địa chỉ của cậu là gì ấy nhỉ? Tớ mới chỉ đến căn hộ cũ của cậu."],
+    ["Emma", "Oh, right, I moved in March. It's forty-two Park Lane, apartment five. It's the blue building next to the bakery.", "À, đúng rồi, tớ chuyển nhà hồi tháng Ba. Số bốn mươi hai Park Lane, căn hộ số năm. Đó là tòa nhà màu xanh cạnh tiệm bánh."],
+    ["Jack", "Is there parking nearby, or should I take the bus?", "Gần đó có chỗ đậu xe không, hay tớ nên đi xe buýt?"],
+    ["Emma", "Parking is difficult on Saturday evenings. The number nine bus stops right outside, so that's probably easier.", "Tối thứ Bảy khó đậu xe lắm. Xe buýt số chín dừng ngay trước cửa, nên có lẽ như vậy dễ hơn."],
+    ["Jack", "Perfect. I'll take the bus. Then I can have a glass of wine too!", "Hoàn hảo. Tớ sẽ đi xe buýt. Vậy tớ còn uống được một ly rượu!"],
+    ["Emma", "Exactly. And when you arrive, press the button for apartment five. The door downstairs is always locked.", "Chính xác. Và khi đến nơi, cậu bấm chuông căn hộ số năm. Cửa dưới tầng trệt lúc nào cũng khóa."],
+    ["Jack", "Okay. Is there anything else I can help with? I could come a bit earlier and help you set the table.", "Được. Tớ còn giúp được gì khác không? Tớ có thể đến sớm một chút và giúp cậu dọn bàn."],
+    ["Emma", "That's so kind. If you can come at six thirty, that would be a big help. I always get stressed before guests arrive.", "Cậu tốt quá. Nếu cậu đến được lúc sáu giờ rưỡi, thì giúp tớ được nhiều lắm. Tớ lúc nào cũng căng thẳng trước khi khách đến."],
+    ["Jack", "No problem. Six thirty, with apple crumble and ice cream. See you on Saturday!", "Không vấn đề gì. Sáu giờ rưỡi, với bánh táo crumble và kem. Hẹn gặp cậu thứ Bảy!"],
+    ["Emma", "Thanks, Jack. I'm really looking forward to it. See you then!", "Cảm ơn cậu, Jack. Tớ rất mong đến hôm đó. Hẹn gặp lại!"]
+  ]
+}

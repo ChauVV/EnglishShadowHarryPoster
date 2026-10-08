@@ -1,0 +1,37 @@
+{
+  "topic_number": 6,
+  "topic_title": "Family & Friends",
+  "topic_title_vi": "Gia đình & bạn bè",
+  "lesson_number": 6,
+  "lesson_title": "Asking About Someone's Weekend",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Morning, Bella! How was your weekend? Did you do anything fun?", "Chào buổi sáng, Bella! Cuối tuần của chị thế nào? Chị có làm gì vui không?"],
+    ["Bella", "Good morning! It was lovely, thanks. Quite busy, but in a good way. How about yours?", "Chào em! Tuyệt lắm, cảm ơn em. Khá bận, nhưng theo hướng tích cực. Còn em thì sao?"],
+    ["Michael", "Mine was very quiet. I'll tell you later. First, tell me about yours. What did you do?", "Của em thì rất yên ả. Lát em kể. Chị kể trước đi. Chị đã làm gì?"],
+    ["Bella", "On Saturday morning, I went to my niece's football match. She's eight, and she scored her first goal! The whole family was screaming.", "Sáng thứ Bảy, chị đi xem trận bóng đá của cháu gái. Con bé tám tuổi, và nó ghi bàn đầu tiên! Cả nhà hét ầm lên."],
+    ["Michael", "That's fantastic! She must have been so proud.", "Tuyệt quá! Chắc con bé tự hào lắm."],
+    ["Bella", "She was. She talked about it all day. Then in the afternoon, my sister and I went shopping in town. I finally bought a new winter coat.", "Đúng vậy. Con bé nói về nó cả ngày. Rồi buổi chiều, chị và chị gái đi mua sắm trong thị trấn. Cuối cùng chị cũng mua được áo khoác mùa đông mới."],
+    ["Michael", "Good timing. It's getting really cold. Did you find a good one?", "Đúng lúc đấy. Trời đang lạnh dần. Chị có tìm được chiếc nào đẹp không?"],
+    ["Bella", "Yes, a long dark green one. It was on sale, thirty percent off. I'm very happy with it.", "Có, một chiếc dài màu xanh lá đậm. Đang giảm giá ba mươi phần trăm. Chị rất hài lòng."],
+    ["Michael", "Nice. And what about Saturday evening?", "Hay đấy. Còn tối thứ Bảy thì sao?"],
+    ["Bella", "We had dinner at a new Korean restaurant near the station. Have you been there yet? The food was excellent, especially the barbecue.", "Cả nhà ăn tối ở một nhà hàng Hàn Quốc mới gần ga. Em đến đó chưa? Đồ ăn tuyệt lắm, nhất là món nướng."],
+    ["Michael", "Not yet, but I've heard good things about it. Is it expensive?", "Chưa, nhưng em nghe khen nhiều lắm. Có đắt không chị?"],
+    ["Bella", "It wasn't, actually. It was about twenty-five dollars each, including drinks. And the portions are huge. We took some food home.", "Thật ra là không. Khoảng hai mươi lăm đô mỗi người, gồm cả đồ uống. Mà phần ăn rất nhiều. Cả nhà còn mang đồ ăn về."],
+    ["Michael", "I'll definitely try it. What about Sunday? Did you rest?", "Em nhất định sẽ thử. Còn Chủ nhật? Chị có nghỉ ngơi không?"],
+    ["Bella", "A little. I slept late, and then I went for a long walk by the lake with my husband. In the afternoon, we cleaned the house and did some cooking for the week.", "Một chút. Chị ngủ muộn, rồi đi dạo lâu bên hồ với chồng. Buổi chiều, hai vợ chồng dọn nhà và nấu sẵn đồ ăn cho cả tuần."],
+    ["Michael", "That's very organized. I never cook for the week. I always plan to, but it never happens.", "Chị ngăn nắp thật. Em chưa bao giờ nấu sẵn cho cả tuần. Lúc nào em cũng định làm, mà chẳng bao giờ làm."],
+    ["Bella", "It saves so much time and money. Okay, your turn. You said your weekend was quiet?", "Nó tiết kiệm được bao nhiêu thời gian và tiền bạc. Được rồi, đến lượt em. Em nói cuối tuần của em yên ả à?"],
+    ["Michael", "Very quiet. I had a bad cold, so I stayed at home the whole weekend. I watched films and drank lots of tea.", "Rất yên ả. Em bị cảm nặng, nên ở nhà cả cuối tuần. Em xem phim và uống thật nhiều trà."],
+    ["Bella", "Oh no, I'm sorry. Are you feeling better now?", "Ôi không, chị rất tiếc. Giờ em thấy khỏe hơn chưa?"],
+    ["Michael", "Much better, thanks. I still have a bit of a sore throat, but I'm okay to work.", "Đỡ nhiều rồi, cảm ơn chị. Em vẫn còn hơi đau họng, nhưng đi làm thì được."],
+    ["Bella", "You should take it easy today. Do you want some of my ginger tea? I always keep some in my desk.", "Hôm nay em nên làm việc nhẹ nhàng thôi. Em có muốn ít trà gừng của chị không? Chị lúc nào cũng để sẵn trong bàn."],
+    ["Michael", "That would be great, thank you. Did you watch anything good? I need some recommendations.", "Vậy thì tuyệt quá, cảm ơn chị. À mà chị có xem gì hay không? Em cần vài gợi ý."],
+    ["Bella", "We started a new detective series on Sunday night. It's set in Scotland, and it's really good. I'll send you the name.", "Tối Chủ nhật hai vợ chồng bắt đầu xem một bộ phim trinh thám mới. Lấy bối cảnh ở Scotland, và hay lắm. Chị sẽ gửi tên phim cho em."],
+    ["Michael", "Perfect. Next weekend, I hope I'm healthy enough to do something more interesting!", "Hoàn hảo. Cuối tuần tới, mong là em đủ khỏe để làm gì đó thú vị hơn!"],
+    ["Bella", "I'm sure you will. Maybe try that Korean restaurant.", "Chị chắc là được. Có lẽ em thử nhà hàng Hàn Quốc đó đi."]
+  ]
+}

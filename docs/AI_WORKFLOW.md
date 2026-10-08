@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T05-L15`** (Topic 05 Daily Routines - A Lazy Sunday, mục tiêu 4:35). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T06-L01`** (Topic 06 Family & Friends - Introducing Your Family, mục tiêu 2:00). **Việc dở dang từ lần trước (làm trước khi viết bài mới):** (1) Kịch bản `T06_L01`..`T06_L20` ĐÃ VIẾT XONG và đã kiểm tra độ dài trong `scripts/dialogues/` (ảnh bìa Topic 06 cũng đã có), chỉ cần chạy audio, upload, ghi LOG; không viết lại. (2) `T04_L14` và `T04_L16` đã được viết dài thêm vì audio cũ ngắn hơn mục tiêu 15-19 giây: chạy lại audio hai bài này, upload đè lên Drive, rồi sửa cột Thật trong LOG. Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -137,6 +137,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T05-L12 | Staying Up Too Late | 4:20 | 4:17 | rồi | 2026-10-08 |
 | T05-L13 | Trying to Wake Up Early | 4:25 | 4:15 | rồi | 2026-10-08 |
 | T05-L14 | Cooking Dinner Together | 4:30 | 4:35 | rồi | 2026-10-08 |
+| T05-L15 | A Lazy Sunday | 4:35 | 4:43 | rồi | 2026-10-08 |
+| T05-L16 | Changing Your Routine | 4:40 | 4:32 | rồi | 2026-10-08 |
+| T05-L17 | Dealing With a Bad Day | 4:45 | 4:42 | rồi | 2026-10-08 |
+| T05-L18 | Evening Walk and Chat | 4:50 | 4:48 | rồi | 2026-10-08 |
+| T05-L19 | Morning Habits That Help | 4:55 | 4:49 | rồi | 2026-10-08 |
+| T05-L20 | My Typical Day | 5:00 | 4:52 | rồi | 2026-10-08 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 

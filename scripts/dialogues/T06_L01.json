@@ -1,0 +1,35 @@
+{
+  "topic_number": 6,
+  "topic_title": "Family & Friends",
+  "topic_title_vi": "Gia đình & bạn bè",
+  "lesson_number": 1,
+  "lesson_title": "Introducing Your Family",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Is that a photo of your family on your desk, Emma? Can I have a look?", "Đó có phải ảnh gia đình chị trên bàn làm việc không, Emma? Em xem được không?"],
+    ["Emma", "Sure. It was taken last summer at my grandmother's eightieth birthday. It's the only photo where everyone is together.", "Được chứ. Ảnh chụp mùa hè năm ngoái vào sinh nhật tám mươi tuổi của bà ngoại chị. Đó là tấm ảnh duy nhất có đủ cả nhà."],
+    ["Jack", "It's a big family! Who's the tall man in the middle?", "Gia đình đông quá! Người đàn ông cao ở giữa là ai vậy?"],
+    ["Emma", "That's my dad. He's a teacher at a high school. He teaches history, and he loves telling long stories at dinner.", "Đó là bố chị. Bố là giáo viên ở một trường cấp ba. Bố dạy lịch sử, và rất thích kể chuyện dài trong bữa tối."],
+    ["Jack", "And the woman next to him, with the red dress?", "Còn người phụ nữ bên cạnh, mặc váy đỏ?"],
+    ["Emma", "That's my mom. She's a nurse. She works at the hospital near our house. She's very kind, but she's also quite strict!", "Đó là mẹ chị. Mẹ là y tá. Mẹ làm ở bệnh viện gần nhà. Mẹ rất hiền, nhưng cũng khá nghiêm khắc!"],
+    ["Jack", "Do you have any brothers or sisters?", "Chị có anh chị em không?"],
+    ["Emma", "Yes, I have one brother and one sister. My brother, Tom, is the one with glasses. He's two years older than me, and he's an engineer.", "Có, chị có một anh trai và một em gái. Anh trai chị, Tom, là người đeo kính. Anh ấy lớn hơn chị hai tuổi, và là kỹ sư."],
+    ["Jack", "And your sister? Is she the girl with the long hair?", "Còn em gái chị? Có phải cô gái tóc dài không?"],
+    ["Emma", "Yes, that's Lily. She's the youngest. She's twenty-two, and she's studying music at university. She plays the piano beautifully.", "Đúng rồi, đó là Lily. Em ấy là út. Em ấy hai mươi hai tuổi, và đang học âm nhạc ở đại học. Em ấy chơi piano rất hay."],
+    ["Jack", "And who are the two small children at the front?", "Còn hai đứa trẻ nhỏ ở phía trước là ai?"],
+    ["Emma", "They're my brother's kids, my niece and nephew. Sophie is six and Max is four. They're very sweet, but very noisy!", "Đó là con của anh trai chị, cháu gái và cháu trai chị. Sophie sáu tuổi còn Max bốn tuổi. Chúng rất dễ thương, nhưng rất ồn ào!"],
+    ["Jack", "Ha! And this must be your grandmother, in the chair.", "Ha! Còn đây chắc là bà của chị, ngồi trên ghế."],
+    ["Emma", "That's right. She's eighty, but she still walks every day and works in her garden. She's amazing.", "Đúng vậy. Bà tám mươi tuổi, nhưng ngày nào cũng đi bộ và làm vườn. Bà tuyệt lắm."],
+    ["Jack", "You all look very happy. Do you see your family often?", "Trông cả nhà ai cũng vui. Chị có hay gặp gia đình không?"],
+    ["Emma", "My parents live about an hour away, so I visit them every two or three weeks. We all meet at Grandma's house for big holidays.", "Bố mẹ chị sống cách đây khoảng một tiếng, nên hai ba tuần chị về thăm một lần. Vào những dịp lễ lớn, cả nhà gặp nhau ở nhà bà."],
+    ["Jack", "That's nice. My family is much smaller. It's just me, my mom, and my older sister.", "Hay thật. Gia đình em nhỏ hơn nhiều. Chỉ có em, mẹ em, và chị gái em."],
+    ["Emma", "Where do they live?", "Họ sống ở đâu?"],
+    ["Jack", "My mom lives in the same city as me, and my sister lives in Canada with her husband. We video call every Sunday.", "Mẹ em sống cùng thành phố với em, còn chị em sống ở Canada với chồng. Chủ nhật nào cả nhà cũng gọi video."],
+    ["Emma", "Canada! That's far. Do you visit her?", "Canada à! Xa thật. Em có sang thăm chị ấy không?"],
+    ["Jack", "Once a year, usually in summer. Maybe next time I'll bring a photo like yours. Then you can meet my family too.", "Mỗi năm một lần, thường vào mùa hè. Có lẽ lần sau em sẽ mang một tấm ảnh như của chị. Rồi chị cũng có thể làm quen với gia đình em."],
+    ["Emma", "I'd love that. Family photos tell you so much about a person.", "Chị rất muốn. Ảnh gia đình nói lên rất nhiều điều về một con người."]
+  ]
+}
