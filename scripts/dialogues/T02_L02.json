@@ -1,0 +1,33 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 2,
+  "lesson_title": "Asking for the Wi-Fi Password",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Sarah", "Hello, excuse me. I'm in room two oh eight. Could you tell me the Wi-Fi password, please?", "Xin chào, xin lỗi. Tôi ở phòng 208. Anh cho tôi xin mật khẩu Wi-Fi được không?"],
+    ["Adam", "Of course. The network name is Hotel Guest, and the password is your room number and your last name.", "Dĩ nhiên rồi. Tên mạng là Hotel Guest, và mật khẩu là số phòng cộng với họ của chị."],
+    ["Sarah", "My room number and last name? So, two oh eight Lee?", "Số phòng và họ của tôi à? Vậy là 208 Lee?"],
+    ["Adam", "That's right, with no space between them. And the first letter of your name should be a capital letter.", "Đúng rồi, viết liền không có dấu cách. Và chữ cái đầu của họ phải viết hoa."],
+    ["Sarah", "Okay, let me try. Hmm, it says the password is wrong.", "Được, để tôi thử. Hừm, nó báo mật khẩu sai."],
+    ["Adam", "Can I see your phone? Ah, I think you chose the wrong network. This one is Hotel Staff. You need Hotel Guest.", "Cho tôi xem điện thoại của chị được không? À, tôi nghĩ chị chọn nhầm mạng. Mạng này là Hotel Staff. Chị cần chọn Hotel Guest."],
+    ["Sarah", "Oh, how silly of me. They look almost the same. Let me try again.", "Ôi, tôi ngớ ngẩn quá. Hai cái trông gần giống nhau. Để tôi thử lại."],
+    ["Adam", "No problem, it happens all the time. Is it working now?", "Không sao đâu, chuyện này xảy ra suốt. Giờ được chưa chị?"],
+    ["Sarah", "Yes, it's connected now. Thank you! Does the Wi-Fi work everywhere in the hotel?", "Được rồi, kết nối rồi. Cảm ơn anh! Wi-Fi có dùng được ở mọi nơi trong khách sạn không?"],
+    ["Adam", "It works in all the rooms, the lobby and the restaurant.", "Nó dùng được ở tất cả các phòng, sảnh và nhà hàng."],
+    ["Sarah", "Is it free, or do I have to pay for it?", "Nó miễn phí, hay tôi phải trả tiền?"],
+    ["Adam", "The normal Wi-Fi is free. We also have a faster connection for ten dollars a day, if you need to watch videos or join video calls.", "Wi-Fi thường thì miễn phí. Chúng tôi còn có kết nối nhanh hơn với giá mười đô một ngày, nếu chị cần xem video hay họp trực tuyến."],
+    ["Sarah", "I have some work calls tomorrow. Do you think the free Wi-Fi is fast enough?", "Ngày mai tôi có vài cuộc gọi công việc. Anh nghĩ Wi-Fi miễn phí có đủ nhanh không?"],
+    ["Adam", "For most calls, yes. But in the evening, when many guests are online, it can be a bit slow. In the morning, it's usually fine.", "Với hầu hết các cuộc gọi thì đủ. Nhưng buổi tối, khi nhiều khách lên mạng, nó có thể hơi chậm. Buổi sáng thường thì ổn."],
+    ["Sarah", "My calls are at nine and ten in the morning, so I'll try the free one first.", "Các cuộc gọi của tôi lúc chín giờ và mười giờ sáng, nên tôi sẽ thử loại miễn phí trước."],
+    ["Adam", "Good idea. Mornings are usually quiet.", "Ý hay đấy. Buổi sáng thường vắng người dùng."],
+    ["Sarah", "Great. And if the Wi-Fi stops working in my room, what should I do?", "Tuyệt. Còn nếu Wi-Fi trong phòng tôi bị mất thì tôi nên làm gì?"],
+    ["Adam", "First, turn the Wi-Fi on your phone off and on again. If it still doesn't work, call reception and we'll restart the router for you.", "Trước tiên, chị tắt Wi-Fi trên điện thoại rồi bật lại. Nếu vẫn không được, chị gọi lễ tân và chúng tôi sẽ khởi động lại bộ phát cho chị."],
+    ["Sarah", "Thank you very much. You've been very helpful.", "Cảm ơn anh rất nhiều. Anh đã giúp tôi rất nhiều."],
+    ["Adam", "You're welcome. Good luck with your calls tomorrow!", "Không có gì. Chúc chị gọi điện suôn sẻ vào ngày mai!"]
+  ]
+}

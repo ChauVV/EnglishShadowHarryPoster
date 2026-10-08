@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T01-L17`** (Topic 01 Travel & Airports - A Long Train Journey, mục tiêu 4:45). Sau T01-L20 thì sang Topic 02. Topic 15 đã xong đủ 20 bài. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T02-L03`** (Topic 02 Hotels & Accommodation - Ordering Room Service, mục tiêu 2:20). Topic 01 và Topic 15 đã xong đủ 20 bài; Topic 02 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -39,6 +39,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T01-L14 | Changing Money at the Airport | 4:30 | 4:24 | rồi | 2026-10-08 |
 | T01-L15 | Missing a Connecting Flight | 4:35 | 4:30 | rồi | 2026-10-08 |
 | T01-L16 | Taking a Taxi From the Airport | 4:40 | 4:42 | rồi | 2026-10-08 |
+| T01-L17 | A Long Train Journey | 4:45 | 4:42 | rồi | 2026-10-08 |
+| T01-L18 | Buying Travel Insurance | 4:50 | 5:25 | rồi | 2026-10-08 |
+| T01-L19 | Packing for a Two-Week Trip | 4:55 | 5:21 | rồi | 2026-10-08 |
+| T01-L20 | Airport Announcements | 5:00 | 5:44 | rồi | 2026-10-08 |
+| T02-L01 | Checking in at the Front Desk | 2:00 | 2:04 | rồi | 2026-10-08 |
+| T02-L02 | Asking for the Wi-Fi Password | 2:10 | 2:02 | rồi | 2026-10-08 |
 | T15-L01 | Opening a Bank Account | 2:00 | 2:05 | rồi | 2026-10-07 |
 | T15-L02 | Withdrawing Cash | 2:10 | 2:06 | rồi | 2026-10-07 |
 | T15-L03 | Checking Your Balance | 2:20 | 2:20 | rồi | 2026-10-07 |
@@ -72,15 +78,17 @@ Nguồn bài: [CONTENT_PLAN.md](CONTENT_PLAN.md) (danh sách 30 topic x 20 lesso
    - `lines`: `[người nói, câu tiếng Anh, bản dịch tiếng Việt]`. Mỗi dòng 1 lượt nói (1-3 câu ngắn).
    - Nội dung: tiếng Anh tự nhiên, đúng tình huống tên bài, không trùng ý các bài khác cùng topic, không nhân vật hay thương hiệu có bản quyền, dịch Việt tự nhiên. Độ khó tăng dần theo số lesson (xem CONTENT_PLAN).
 2. **VIẾT ĐỦ DÀI NGAY TỪ ĐẦU, chỉ tạo audio 1 lần** (người dùng yêu cầu: tạo audio -> thấy ngắn -> thêm câu -> tạo lại tốn gấp đôi thời gian).
-   - Số từ cần viết = `(mục tiêu giây + 10) x hệ số của cặp giọng`. Hệ số đo thực tế (T01-L05..L16):
-     - Sarah/Adam (`M % 3 == 2`): **2.55 từ/giây** (đọc nhanh nhất)
-     - Emma/Jack (`M % 3 == 1`): **2.45 từ/giây**
-     - Bella/Michael (`M % 3 == 0`): **2.35 từ/giây** (đọc chậm nhất)
-     - Ví dụ: 4:15 Sarah/Adam -> (255+10) x 2.55 ≈ 675 từ; 2:40 Bella/Michael -> 170 x 2.35 ≈ 400 từ.
+   - Số từ cần viết = `(mục tiêu giây + 5) x hệ số`. Hệ số đo thực tế (T01-L05..L20, T02-L01..L02):
+     - Bài dài L08-L20, Sarah/Adam (`M % 3 == 2`): **2.55 từ/giây** (đọc nhanh nhất)
+     - Bài dài, Emma/Jack (`M % 3 == 1`): **2.35 từ/giây**
+     - Bài dài, Bella/Michael (`M % 3 == 0`): **2.25 từ/giây** (đọc chậm nhất)
+     - Bài ngắn L01-L07 (lượt nói ngắn, A2): **~2.35 từ/giây** cho mọi cặp giọng (T02-L01: 300 từ = 2:04).
+     - Độc thoại (M): **~2.45 từ/giây** nếu câu dài nhiều dấu phẩy (T01-L20: 835 từ = 5:44); T15-L20 câu gọn thì 2.75.
+     - Lượt nói càng dài, càng nhiều dấu phẩy thì đọc càng chậm (có nghỉ). Ví dụ: 4:50 Bella/Michael -> 295 x 2.25 ≈ 665 từ (T01-L18 viết 730 từ ra 5:25, lố 35 giây).
    - **Đếm số từ TRƯỚC khi tạo audio** (đoạn python ngắn đếm `len(câu.split())`, kiểm tra luôn: không 2 lượt liền cùng người nói, không 2 lượt liền mở bằng cùng một từ, tên khớp `speakers`). Thiếu thì viết thêm ngay, chưa chạy audio.
    - Ưu tiên kéo dài lượt nói (câu dài, có chi tiết) hơn là thêm nhiều lượt ngắn.
 3. **Audio**: `python scripts/make_dialogue.py scripts/dialogues/T01_L02.json generated` (chạy cả 6 bài trong một lệnh nền, mất ~2 phút/bài).
-   - Script in thời lượng thật. **Chấp nhận từ -10 đến +20 giây** so với mục tiêu: dài hơn một chút là được, KHÔNG tạo lại. Chỉ tạo lại khi ngắn hơn quá 10 giây hoặc dài hơn quá 20 giây.
+   - Script in thời lượng thật. **Chấp nhận từ -10 giây trở lên**: dài hơn mục tiêu là được, KHÔNG tạo lại (người dùng chấp nhận bài dài hơn để không phải chạy audio 2 lần). Chỉ tạo lại khi ngắn hơn quá 10 giây.
    - Lần chạy đầu Kokoro tải model nên hơi chậm. Cần sẵn: `pip install kokoro soundfile` và ffmpeg (đã có trên máy này).
 4. Kết quả: `generated/Topic_<NN>_<Tên>/Lesson_<MM>_<Tên>/{audio.mp3, metadata.json}`.
 

@@ -1,0 +1,32 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 1,
+  "lesson_title": "Checking in at the Front Desk",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Good evening, and welcome to the Park Hotel. Are you checking in?", "Chào buổi tối, chào mừng bạn đến khách sạn Park. Bạn nhận phòng phải không?"],
+    ["Emma", "Yes, please. I have a reservation for three nights. My name is Emma Wilson.", "Vâng. Tôi đã đặt phòng ba đêm. Tôi tên là Emma Wilson."],
+    ["Jack", "Thank you, Ms. Wilson. Let me find your booking. Yes, here it is. A single room with a shower, from tonight until Friday.", "Cảm ơn chị Wilson. Để tôi tìm đơn đặt phòng của chị. À, đây rồi. Một phòng đơn có vòi sen, từ tối nay đến thứ Sáu."],
+    ["Emma", "That's right. Do you need my passport?", "Đúng rồi. Anh có cần hộ chiếu của tôi không?"],
+    ["Jack", "Yes, please. I need to make a copy. And could you fill in this short form with your address and phone number?", "Vâng, làm ơn. Tôi cần sao chụp một bản. Và chị điền giúp tôi tờ đơn ngắn này với địa chỉ và số điện thoại nhé?"],
+    ["Emma", "Of course. Here you are. Do I need to pay now or when I leave?", "Dĩ nhiên. Đây ạ. Tôi cần trả tiền bây giờ hay khi trả phòng?"],
+    ["Jack", "You can pay when you check out. But we need a credit card now for a small deposit, just in case you use the minibar.", "Chị có thể trả khi trả phòng. Nhưng bây giờ chúng tôi cần thẻ tín dụng để giữ một khoản cọc nhỏ, phòng khi chị dùng đồ trong tủ lạnh mini."],
+    ["Emma", "No problem. Here's my card. How much is the deposit?", "Không vấn đề gì. Thẻ của tôi đây. Tiền cọc là bao nhiêu?"],
+    ["Jack", "It's fifty dollars, and we give it back when you leave. Okay, everything is ready. You're in room four one five, on the fourth floor.", "Năm mươi đô, và chúng tôi sẽ trả lại khi chị rời đi. Được rồi, mọi thứ đã xong. Phòng của chị là 415, ở tầng bốn."],
+    ["Emma", "Great. Where is the elevator?", "Tuyệt. Thang máy ở đâu vậy anh?"],
+    ["Jack", "It's just behind you, on the left. Here is your key card. You need it to use the elevator, too.", "Ngay phía sau chị, bên trái. Đây là thẻ chìa khóa của chị. Chị cũng cần nó để đi thang máy."],
+    ["Emma", "Thank you. What time is breakfast?", "Cảm ơn anh. Bữa sáng lúc mấy giờ?"],
+    ["Jack", "Breakfast is from six thirty to ten in the restaurant on the ground floor. It's included in your room price.", "Bữa sáng từ sáu giờ rưỡi đến mười giờ ở nhà hàng tầng trệt. Đã bao gồm trong giá phòng của chị."],
+    ["Emma", "Wonderful. And what time do I have to check out on Friday?", "Tuyệt vời. Còn thứ Sáu tôi phải trả phòng lúc mấy giờ?"],
+    ["Jack", "Check-out is at eleven. If you need more time, just ask us. Sometimes we can give you an extra hour or two.", "Giờ trả phòng là mười một giờ. Nếu chị cần thêm thời gian, cứ hỏi chúng tôi. Đôi khi chúng tôi có thể cho thêm một hai tiếng."],
+    ["Emma", "Good to know. My flight is in the evening, so can I leave my suitcase here after I check out?", "Biết vậy thì tốt. Chuyến bay của tôi vào buổi tối, vậy sau khi trả phòng tôi có thể gửi vali ở đây không?"],
+    ["Jack", "Of course. We have a luggage room next to the front desk. It's free for our guests.", "Dĩ nhiên rồi. Chúng tôi có phòng giữ hành lý cạnh quầy lễ tân. Miễn phí cho khách của khách sạn."],
+    ["Emma", "Perfect. Thank you for your help.", "Hoàn hảo. Cảm ơn anh đã giúp đỡ."],
+    ["Jack", "You're welcome. If you need anything, just call reception by pressing zero on your room phone. Enjoy your stay!", "Không có gì. Nếu chị cần gì, cứ gọi lễ tân bằng cách bấm số không trên điện thoại trong phòng. Chúc chị có kỳ nghỉ vui vẻ!"]
+  ]
+}

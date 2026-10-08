@@ -148,8 +148,72 @@ T15 = [
 <text x="540" y="128" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="700" fill="#b45309" text-anchor="middle">$</text>"""),
 ]
 
+# ---------- Hotels & Accommodation ----------
+T02 = [
+    # 1 tòa khách sạn
+    ("#fcd34d", "#c2410c", cloud(110, 80, .9) + cloud(540, 110, 1.1) + """
+<rect y="300" width="640" height="60" fill="#7c2d12" opacity=".35"/>
+<rect x="200" y="70" width="240" height="240" rx="10" fill="#fff7ed"/>
+<rect x="190" y="58" width="260" height="22" rx="6" fill="#9a3412"/>
+<rect x="262" y="34" width="116" height="30" rx="6" fill="#9a3412"/>
+<text x="320" y="56" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#fde68a" text-anchor="middle">HOTEL</text>
+<g fill="#38bdf8" opacity=".85">
+  <rect x="222" y="100" width="40" height="34" rx="4"/><rect x="300" y="100" width="40" height="34" rx="4"/><rect x="378" y="100" width="40" height="34" rx="4"/>
+  <rect x="222" y="152" width="40" height="34" rx="4"/><rect x="300" y="152" width="40" height="34" rx="4"/><rect x="378" y="152" width="40" height="34" rx="4"/>
+  <rect x="222" y="204" width="40" height="34" rx="4"/><rect x="378" y="204" width="40" height="34" rx="4"/>
+</g>
+<rect x="300" y="204" width="40" height="34" rx="4" fill="#fde047"/>
+<rect x="290" y="252" width="60" height="58" rx="6" fill="#7c2d12"/>
+<rect x="276" y="244" width="88" height="12" rx="4" fill="#c2410c"/>"""),
+    # 2 thẻ phòng + khóa cửa
+    ("#a5b4fc", "#4338ca", """
+<rect x="120" y="50" width="200" height="270" rx="12" fill="#78350f"/>
+<rect x="136" y="66" width="168" height="238" rx="8" fill="#92400e"/>
+<rect x="254" y="150" width="34" height="70" rx="8" fill="#e5e7eb"/>
+<rect x="262" y="164" width="18" height="10" rx="3" fill="#22c55e"/>
+<rect x="246" y="196" width="50" height="10" rx="5" fill="#cbd5e1"/>
+<g transform="rotate(-14 440 200)">
+  <rect x="350" y="130" width="200" height="126" rx="16" fill="#fff"/>
+  <rect x="350" y="130" width="200" height="40" rx="16" fill="#f59e0b"/>
+  <rect x="350" y="152" width="200" height="18" fill="#f59e0b"/>
+  <rect x="372" y="192" width="40" height="30" rx="6" fill="#fcd34d"/>
+  <rect x="426" y="196" width="100" height="10" rx="5" fill="#94a3b8"/>
+  <rect x="426" y="214" width="70" height="10" rx="5" fill="#cbd5e1"/>
+</g>"""),
+    # 3 giường
+    ("#bae6fd", "#0e7490", """
+<ellipse cx="320" cy="312" rx="230" ry="14" fill="#000" opacity=".15"/>
+<rect x="110" y="96" width="420" height="130" rx="20" fill="#7c2d12"/>
+<rect x="100" y="200" width="440" height="80" rx="16" fill="#fff"/>
+<rect x="100" y="230" width="440" height="56" rx="16" fill="#38bdf8"/>
+<rect x="100" y="230" width="440" height="14" fill="#7dd3fc"/>
+<rect x="150" y="150" width="140" height="64" rx="26" fill="#f8fafc" stroke="#e2e8f0" stroke-width="4"/>
+<rect x="350" y="150" width="140" height="64" rx="26" fill="#f8fafc" stroke="#e2e8f0" stroke-width="4"/>
+<rect x="112" y="286" width="20" height="24" rx="4" fill="#7c2d12"/><rect x="508" y="286" width="20" height="24" rx="4" fill="#7c2d12"/>"""),
+    # 4 chuông lễ tân
+    ("#fde68a", "#b45309", """
+<rect y="250" width="640" height="110" fill="#78350f" opacity=".45"/>
+<ellipse cx="320" cy="262" rx="150" ry="16" fill="#000" opacity=".2"/>
+<rect x="190" y="238" width="260" height="26" rx="10" fill="#1f2937"/>
+<path d="M210 238 a110 110 0 0 1 220 0z" fill="#fbbf24" stroke="#b45309" stroke-width="5"/>
+<path d="M250 200 a70 70 0 0 1 50 -36" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".7"/>
+<rect x="310" y="112" width="20" height="20" rx="4" fill="#b45309"/>
+<rect x="296" y="98" width="48" height="16" rx="8" fill="#fbbf24" stroke="#b45309" stroke-width="4"/>
+<g stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".9"><line x1="200" y1="110" x2="226" y2="132"/><line x1="440" y1="110" x2="414" y2="132"/><line x1="320" y1="54" x2="320" y2="80"/></g>"""),
+    # 5 khay phục vụ phòng (nắp chuông)
+    ("#fecdd3", "#be123c", """
+<ellipse cx="320" cy="288" rx="210" ry="22" fill="#000" opacity=".15"/>
+<ellipse cx="320" cy="270" rx="210" ry="24" fill="#e2e8f0"/>
+<ellipse cx="320" cy="264" rx="200" ry="18" fill="#f8fafc"/>
+<path d="M150 262 a170 150 0 0 1 340 0z" fill="#e5e7eb" stroke="#94a3b8" stroke-width="5"/>
+<path d="M200 220 a120 110 0 0 1 80 -82" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity=".8"/>
+<circle cx="320" cy="104" r="16" fill="#94a3b8"/>
+<circle cx="520" cy="110" r="30" fill="#fff" opacity=".9"/><rect x="514" y="140" width="12" height="120" rx="6" fill="#fff" opacity=".9"/>"""),
+]
+
 SCENES = {
     "travel-and-airports": T01,
+    "hotels-and-accommodation": T02,
     "money-and-banking": T15,
 }
 
