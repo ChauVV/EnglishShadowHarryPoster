@@ -1,0 +1,31 @@
+{
+  "topic_number": 5,
+  "topic_title": "Daily Routines",
+  "topic_title_vi": "Thói quen hằng ngày",
+  "lesson_number": 1,
+  "lesson_title": "Waking Up Late",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Jack! Jack, wake up! It's eight fifteen!", "Jack! Jack, dậy đi! Tám giờ mười lăm rồi!"],
+    ["Jack", "What? Eight fifteen? That's impossible. My alarm didn't ring.", "Gì cơ? Tám giờ mười lăm à? Không thể nào. Chuông báo thức của anh không reo."],
+    ["Emma", "Maybe you forgot to set it. Your meeting starts at nine, doesn't it?", "Có khi anh quên đặt. Cuộc họp của anh bắt đầu lúc chín giờ, đúng không?"],
+    ["Jack", "Yes, at nine o'clock, with my new manager. Oh no. I can't be late on my second week.", "Ừ, lúc chín giờ, với quản lý mới. Ôi không. Anh không thể đi trễ vào tuần thứ hai được."],
+    ["Emma", "Okay, don't panic. You have forty-five minutes. How long does it take to get to the office? Can you take a taxi today, just this once?", "Được rồi, đừng hoảng. Anh còn bốn mươi lăm phút. Đến văn phòng mất bao lâu? Hôm nay anh đi taxi được không, chỉ lần này thôi?"],
+    ["Jack", "About thirty minutes by bus. So I have fifteen minutes to get ready. Fifteen minutes! And a taxi is too expensive in the morning traffic. The bus is faster, because it has its own lane.", "Khoảng ba mươi phút đi xe buýt. Vậy anh có mười lăm phút để chuẩn bị. Mười lăm phút! Mà buổi sáng kẹt xe, đi taxi đắt lắm. Xe buýt còn nhanh hơn, vì có làn đường riêng."],
+    ["Emma", "Then go and have a quick shower. I'll make you some coffee and toast.", "Vậy anh đi tắm nhanh đi. Em sẽ pha cà phê và nướng bánh mì cho anh."],
+    ["Jack", "Thank you, you're a lifesaver. Where's my blue shirt? I wanted to wear it today.", "Cảm ơn em, em là cứu tinh của anh. Áo sơ mi xanh của anh đâu? Hôm nay anh muốn mặc nó."],
+    ["Emma", "It's in the washing machine. Wear the white one. It's clean and ironed, in the wardrobe.", "Nó đang ở trong máy giặt. Mặc chiếc trắng đi. Nó sạch và đã ủi rồi, trong tủ quần áo."],
+    ["Jack", "Okay, the white one. Have you seen my keys and my wallet?", "Được, chiếc trắng. Em có thấy chìa khóa và ví của anh không?"],
+    ["Emma", "Your keys are on the kitchen table, and your wallet is in your jacket pocket, like always.", "Chìa khóa trên bàn bếp, còn ví trong túi áo khoác của anh, như mọi khi."],
+    ["Jack", "Right. And my phone? Oh, here it is, under the pillow. And look, the alarm is set for eight fifteen p.m., not a.m.!", "Đúng rồi. Còn điện thoại? Ồ, đây rồi, dưới gối. Và nhìn này, chuông báo thức đặt tám giờ mười lăm tối, không phải sáng!"],
+    ["Emma", "Ha! That explains it. Here's your coffee. It's not too hot, so you can drink it quickly.", "Ha! Vậy là rõ rồi. Cà phê của anh đây. Không nóng lắm, nên anh uống nhanh được."],
+    ["Jack", "Thanks. I'll eat the toast on the way to the bus stop. It's not very elegant, but there's no time.", "Cảm ơn em. Anh sẽ ăn bánh mì trên đường ra trạm xe buýt. Không lịch sự lắm, nhưng không còn thời gian."],
+    ["Emma", "Don't forget your umbrella. It's raining today.", "Đừng quên ô. Hôm nay trời mưa."],
+    ["Jack", "Good idea. Okay, I'm ready. Eight thirty-two. If the bus is on time, I'll be there at five to nine.", "Ý hay. Được rồi, anh xong rồi. Tám giờ ba mươi hai. Nếu xe buýt đúng giờ, anh sẽ đến lúc chín giờ kém năm."],
+    ["Emma", "Perfect. Send me a message when you arrive. And tonight, let's check your alarm together!", "Hoàn hảo. Đến nơi thì nhắn em nhé. Và tối nay, mình cùng kiểm tra chuông báo thức của anh!"],
+    ["Jack", "Definitely. Thank you for waking me up. See you tonight!", "Chắc chắn rồi. Cảm ơn em đã đánh thức anh. Tối gặp nhé!"]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "topic_number": 5,
+  "topic_title": "Daily Routines",
+  "topic_title_vi": "Thói quen hằng ngày",
+  "lesson_number": 2,
+  "lesson_title": "Making Breakfast",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Adam", "Good morning! You're up early on a Saturday.", "Chào buổi sáng! Thứ Bảy mà em dậy sớm thế."],
+    ["Sarah", "Morning! I couldn't sleep anymore, and I'm really hungry. Shall we make a big breakfast today?", "Chào anh! Em không ngủ thêm được nữa, mà em đói lắm. Hôm nay mình làm một bữa sáng thật thịnh soạn nhé?"],
+    ["Adam", "Great idea. We usually just have toast during the week. What do you feel like?", "Ý hay đấy. Trong tuần mình thường chỉ ăn bánh mì nướng. Em muốn ăn gì?"],
+    ["Sarah", "How about pancakes? We have flour, milk, and eggs. And there are some blueberries in the fridge.", "Bánh kếp thì sao? Mình có bột mì, sữa và trứng. Và trong tủ lạnh có ít việt quất."],
+    ["Adam", "Pancakes sound perfect. Do you know the recipe?", "Bánh kếp nghe tuyệt đấy. Em có biết công thức không?"],
+    ["Sarah", "Yes, it's easy. One cup of flour, one cup of milk, one egg, a spoon of sugar, and a little salt. Can you get me a big bowl?", "Có, dễ lắm. Một cốc bột mì, một cốc sữa, một quả trứng, một thìa đường, và một chút muối. Anh lấy giúp em một cái tô lớn được không?"],
+    ["Adam", "Here you are. What else can I do?", "Đây. Anh còn làm được gì nữa?"],
+    ["Sarah", "Can you make the coffee? And maybe cut some fruit. There are bananas and a melon.", "Anh pha cà phê được không? Và có lẽ cắt ít trái cây. Có chuối và một quả dưa lưới."],
+    ["Adam", "Sure. Should I make the coffee strong or normal?", "Được. Anh pha cà phê đậm hay bình thường?"],
+    ["Sarah", "Normal, please. And with milk for me, but no sugar.", "Bình thường nhé. Và có sữa cho em, nhưng không đường."],
+    ["Adam", "Okay. How's the pancake mix going?", "Được. Bột bánh kếp thế nào rồi?"],
+    ["Sarah", "Almost ready. I just need to mix it until there are no lumps. Can you pass me the frying pan, please?", "Sắp xong rồi. Em chỉ cần trộn đến khi hết vón cục. Anh đưa em cái chảo được không?"],
+    ["Adam", "Here. Do you need oil or butter?", "Đây. Em cần dầu hay bơ?"],
+    ["Sarah", "A little butter. Not too much, or the pancakes will be greasy. Okay, the pan is hot. Here's the first one.", "Một chút bơ. Đừng nhiều quá, không thì bánh sẽ ngấy. Được rồi, chảo nóng rồi. Đây là chiếc đầu tiên."],
+    ["Adam", "It smells amazing. When do you turn it over?", "Thơm quá. Khi nào thì lật bánh?"],
+    ["Sarah", "When you see small bubbles on top. Look, there they are. Now I turn it. Perfect!", "Khi thấy những bọt khí nhỏ ở mặt trên. Nhìn kìa, đây rồi. Giờ em lật. Hoàn hảo!"],
+    ["Adam", "Wow, it's golden brown. You're a professional. Can I try the next one?", "Chà, vàng ruộm luôn. Em chuyên nghiệp thật. Anh thử chiếc tiếp theo được không?"],
+    ["Sarah", "Of course. Put some blueberries on top before you turn it.", "Dĩ nhiên rồi. Rắc ít việt quất lên trên trước khi lật."],
+    ["Adam", "Okay. Oh no, it broke in half! But I think it will still taste good.", "Được. Ôi không, nó gãy làm đôi rồi! Nhưng anh nghĩ vẫn ngon."],
+    ["Sarah", "Ha, the first try is always difficult. The broken ones are for you!", "Ha, lần đầu lúc nào cũng khó. Mấy chiếc gãy là của anh nhé!"],
+    ["Adam", "That's fair. The coffee is ready, and the fruit is on the table. Shall we eat on the balcony? It's sunny.", "Công bằng thôi. Cà phê xong rồi, và trái cây đã ở trên bàn. Mình ăn ngoài ban công nhé? Trời nắng đẹp."],
+    ["Sarah", "Lovely idea. Can you bring the honey and the plates? I'll bring the pancakes.", "Ý hay đấy. Anh mang mật ong và đĩa ra được không? Em mang bánh kếp."],
+    ["Adam", "This is the best way to start a weekend. Let's do this every Saturday.", "Đây là cách tuyệt nhất để bắt đầu cuối tuần. Mình làm vậy mỗi thứ Bảy nhé."],
+    ["Sarah", "Deal. But next Saturday, you're making the pancakes! I'll just sit here and drink my coffee.", "Chốt vậy. Nhưng thứ Bảy tới, anh làm bánh kếp nhé! Em sẽ chỉ ngồi đây uống cà phê thôi."]
+  ]
+}

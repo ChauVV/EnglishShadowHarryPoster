@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T04-L17`** (Topic 04 Shopping & Clothes - Self-Checkout Problems, mục tiêu 4:45). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T05-L03`** (Topic 05 Daily Routines - Getting Ready for Work, mục tiêu 2:20). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -119,6 +119,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T04-L14 | The Big Sale | 4:30 | 4:14 | rồi | 2026-10-08 |
 | T04-L15 | Comparing Two Phones in a Store | 4:35 | 4:39 | rồi | 2026-10-08 |
 | T04-L16 | Shopping for a Wedding Outfit | 4:40 | 4:21 | rồi | 2026-10-08 |
+| T04-L17 | Self-Checkout Problems | 4:45 | 4:36 | rồi | 2026-10-08 |
+| T04-L18 | Exchanging an Item Without a Receipt | 4:50 | 4:38 | rồi | 2026-10-08 |
+| T04-L19 | Choosing a Present for Mom | 4:55 | 4:51 | rồi | 2026-10-08 |
+| T04-L20 | Shopping Tips for Sale Season | 5:00 | 4:50 | rồi | 2026-10-08 |
+| T05-L01 | Waking Up Late | 2:00 | 2:02 | rồi | 2026-10-08 |
+| T05-L02 | Making Breakfast | 2:10 | 2:16 | rồi | 2026-10-08 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 

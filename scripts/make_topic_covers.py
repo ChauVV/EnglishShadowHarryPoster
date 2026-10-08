@@ -356,7 +356,51 @@ T05 = [
 <g fill="#cbd5e1"><rect x="270" y="168" width="160" height="14" rx="7"/><rect x="270" y="223" width="130" height="14" rx="7"/><rect x="270" y="273" width="150" height="14" rx="7"/></g>"""),
 ]
 
+# ---------- Family & Friends ----------
+def person(x, y, s, shirt, skin="#fcd34d", hair="#78350f"):
+    return (f'<circle cx="{x}" cy="{y}" r="{28*s}" fill="{skin}"/>'
+            f'<path d="M{x-28*s} {y-4*s} a{28*s} {28*s} 0 0 1 {56*s} 0 q-28 {-14*s} {-56*s} 0z" fill="{hair}"/>'
+            f'<path d="M{x-42*s} {y+110*s} v{-40*s} a{42*s} {42*s} 0 0 1 {84*s} 0 v{40*s}z" fill="{shirt}"/>')
+
+T06 = [
+    # 1 gia đình bốn người
+    ("#fecaca", "#be123c", '<rect y="300" width="640" height="60" fill="#9f1239" opacity=".3"/>'
+     + person(200, 140, 1.2, "#2563eb") + person(320, 150, 1.1, "#f59e0b", hair="#1e293b")
+     + person(430, 200, .8, "#16a34a") + person(510, 210, .7, "#a855f7", hair="#1e293b")),
+    # 2 trái tim + ngôi nhà
+    ("#fbcfe8", "#db2777", """
+<polygon points="320,70 470,180 170,180" fill="#fff"/>
+<rect x="200" y="180" width="240" height="140" fill="#fff"/>
+<rect x="290" y="240" width="60" height="80" rx="6" fill="#9d174d"/>
+<path d="M320 150 c-20 -30 -60 -10 -40 20 l40 36 l40 -36 c20 -30 -20 -50 -40 -20z" fill="#e11d48"/>
+<rect x="225" y="205" width="44" height="40" rx="4" fill="#fbcfe8"/><rect x="371" y="205" width="44" height="40" rx="4" fill="#fbcfe8"/>"""),
+    # 3 bánh sinh nhật
+    ("#fde68a", "#db2777", """
+<ellipse cx="320" cy="300" rx="190" ry="16" fill="#000" opacity=".15"/>
+<rect x="170" y="200" width="300" height="100" rx="14" fill="#f9a8d4"/>
+<rect x="210" y="140" width="220" height="70" rx="12" fill="#fff"/>
+<path d="M170 220 q25 20 50 0 q25 20 50 0 q25 20 50 0 q25 20 50 0 q25 20 50 0 q25 20 50 0" fill="none" stroke="#fff" stroke-width="10"/>
+<g fill="#60a5fa"><rect x="260" y="100" width="12" height="44" rx="4"/><rect x="314" y="96" width="12" height="48" rx="4"/><rect x="368" y="100" width="12" height="44" rx="4"/></g>
+<g fill="#f97316"><ellipse cx="266" cy="88" rx="8" ry="13"/><ellipse cx="320" cy="84" rx="8" ry="13"/><ellipse cx="374" cy="88" rx="8" ry="13"/></g>"""),
+    # 4 hai bong bóng thoại (trò chuyện)
+    ("#a7f3d0", "#047857", """
+<path d="M120 80 h240 a24 24 0 0 1 24 24 v100 a24 24 0 0 1 -24 24 h-160 l-50 40 v-40 h-30 a24 24 0 0 1 -24 -24 v-100 a24 24 0 0 1 24 -24z" fill="#fff"/>
+<path d="M300 170 h220 a24 24 0 0 1 24 24 v90 a24 24 0 0 1 -24 24 h-20 v36 l-44 -36 h-156 a24 24 0 0 1 -24 -24 v-90 a24 24 0 0 1 24 -24z" fill="#fde047"/>
+<g fill="#94a3b8"><rect x="150" y="120" width="170" height="14" rx="7"/><rect x="150" y="150" width="120" height="14" rx="7"/></g>
+<g fill="#a16207"><rect x="330" y="210" width="160" height="14" rx="7"/><rect x="330" y="240" width="110" height="14" rx="7"/></g>"""),
+    # 5 khung ảnh gia đình
+    ("#c7d2fe", "#4f46e5", """
+<g transform="rotate(-6 320 180)">
+<rect x="150" y="60" width="340" height="240" rx="12" fill="#92400e"/>
+<rect x="170" y="80" width="300" height="200" fill="#e0f2fe"/>
+<circle cx="420" cy="120" r="22" fill="#fde047"/>
+<path d="M170 280 l80 -80 l60 50 l60 -40 l100 70z" fill="#86efac"/>
+</g>
+""" + person(260, 190, .55, "#ef4444") + person(320, 195, .5, "#2563eb", hair="#1e293b") + person(370, 205, .4, "#f59e0b")),
+]
+
 SCENES = {
+    "family-and-friends": T06,
     "travel-and-airports": T01,
     "hotels-and-accommodation": T02,
     "restaurants-and-ordering-food": T03,
