@@ -96,7 +96,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T03-L11 | The Wrong Order | 4:15 | 4:20 | rồi | 2026-10-08 |
 | T03-L12 | Splitting the Bill | 4:20 | 4:36 | rồi | 2026-10-08 |
 | T03-L13 | A Birthday Dinner | 4:25 | 4:18 | rồi | 2026-10-08 |
-| T03-L14 | Trying Local Food With a Friend | 4:30 | 4:16 | rồi | 2026-10-08 |
+| T03-L14 | Trying Local Food With a Friend | 4:30 | 4:34 | rồi | 2026-10-08 |
 | T03-L15 | Ordering Takeaway by Phone | 4:35 | 4:46 | rồi | 2026-10-08 |
 | T03-L16 | Choosing a Wine | 4:40 | 4:39 | rồi | 2026-10-08 |
 | T03-L17 | A Business Lunch | 4:45 | 4:37 | rồi | 2026-10-08 |
