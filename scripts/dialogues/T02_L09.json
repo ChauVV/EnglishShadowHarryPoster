@@ -1,0 +1,42 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 9,
+  "lesson_title": "A Noisy Room - Asking to Change",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Good morning. How can I help you today?", "Chào buổi sáng. Hôm nay tôi có thể giúp gì cho bạn?"],
+    ["Bella", "Hi, good morning. I'm in room one oh four, and I'm afraid I need to ask for a different room. I hardly slept at all last night.", "Chào anh, chào buổi sáng. Tôi ở phòng 104, và e là tôi phải xin đổi phòng khác. Đêm qua tôi gần như không ngủ được chút nào."],
+    ["Michael", "I'm really sorry to hear that. What was the problem?", "Tôi thật sự rất tiếc khi nghe vậy. Đã có chuyện gì vậy?"],
+    ["Bella", "It was very noisy. The room is right next to the elevator, so I could hear it going up and down all night. And people were talking loudly in the corridor until after midnight.", "Ồn lắm. Phòng nằm ngay cạnh thang máy, nên tôi nghe tiếng nó lên xuống suốt đêm. Và người ta nói chuyện to ngoài hành lang đến tận quá nửa đêm."],
+    ["Michael", "That sounds awful. I apologize. There was a wedding party staying on the first floor last night, so it was busier than usual.", "Nghe thật tệ. Tôi xin lỗi. Tối qua có một đoàn khách dự đám cưới ở tầng một, nên ồn ào hơn bình thường."],
+    ["Bella", "Ah, that explains it. And this morning, at about seven, a delivery truck started unloading right under my window. The window doesn't close very well, either.", "À, thảo nào. Và sáng nay, khoảng bảy giờ, một chiếc xe tải giao hàng bắt đầu dỡ hàng ngay dưới cửa sổ phòng tôi. Cửa sổ cũng không đóng kín lắm."],
+    ["Michael", "I see. The first-floor rooms at the front are the noisiest, unfortunately. Let me see what we have available on a higher floor, at the back of the building.", "Tôi hiểu rồi. Tiếc là các phòng tầng một ở phía trước là ồn nhất. Để tôi xem chúng tôi còn phòng nào ở tầng cao hơn, phía sau tòa nhà."],
+    ["Bella", "That would be great. I'm here for four more nights, and I'm working during the day, so I really need to sleep well.", "Vậy thì tốt quá. Tôi còn ở đây bốn đêm nữa, và ban ngày tôi phải làm việc, nên tôi thật sự cần ngủ ngon."],
+    ["Michael", "Of course. Okay, I have a room on the sixth floor, room six two eight. It faces the garden, and it's at the end of the corridor, far from the elevator.", "Dĩ nhiên rồi. Được rồi, tôi có một phòng ở tầng sáu, phòng 628. Phòng nhìn ra vườn, và nằm ở cuối hành lang, cách xa thang máy."],
+    ["Bella", "That sounds much better. Is it the same type of room as mine?", "Nghe tốt hơn nhiều. Đó có cùng loại phòng với phòng của tôi không?"],
+    ["Michael", "It's actually a little bigger, with a small balcony. Normally it costs more, but because of the trouble last night, we won't charge you the difference.", "Thật ra nó rộng hơn một chút, có một ban công nhỏ. Bình thường phòng đó đắt hơn, nhưng vì phiền phức đêm qua, chúng tôi sẽ không tính tiền chênh lệch."],
+    ["Bella", "That's very kind of you. Thank you. Is the room ready now?", "Anh tốt quá. Cảm ơn anh. Phòng đã sẵn sàng chưa?"],
+    ["Michael", "Housekeeping is cleaning it at the moment. It should be ready in about an hour. Is that okay?", "Bộ phận buồng phòng đang dọn. Khoảng một tiếng nữa sẽ xong. Như vậy có được không?"],
+    ["Bella", "That's fine, but I have to leave for a meeting in twenty minutes, and my things are still all over the old room.", "Được, nhưng hai mươi phút nữa tôi phải đi họp, mà đồ đạc của tôi vẫn còn bừa bộn khắp phòng cũ."],
+    ["Michael", "Don't worry about that. Just pack your suitcase before you go, and leave it in the room. Our staff will move it to the new room for you.", "Bạn đừng lo chuyện đó. Chỉ cần xếp đồ vào vali trước khi đi, và để nó trong phòng. Nhân viên chúng tôi sẽ chuyển sang phòng mới cho bạn."],
+    ["Bella", "Really? That would save me a lot of time. What about the things in the bathroom and the wardrobe?", "Thật sao? Như vậy đỡ cho tôi bao nhiêu thời gian. Còn đồ trong phòng tắm và tủ quần áo thì sao?"],
+    ["Michael", "If you don't have time to pack everything, that's okay too. Housekeeping can carefully move the clothes on hangers and your toiletries. Many guests prefer that.", "Nếu bạn không kịp xếp hết cũng không sao. Nhân viên buồng phòng có thể cẩn thận chuyển quần áo trên móc và đồ vệ sinh cá nhân của bạn. Nhiều khách thích như vậy."],
+    ["Bella", "I'd feel better packing the valuables myself, like my laptop and jewelry. But they can move the clothes.", "Tôi sẽ thấy yên tâm hơn nếu tự cất đồ quý giá, như laptop và trang sức. Nhưng họ có thể chuyển quần áo."],
+    ["Michael", "That's a good idea. You can also leave your valuables in our safe here at reception until this evening.", "Ý hay đấy. Bạn cũng có thể gửi đồ quý giá vào két an toàn ở quầy lễ tân này đến tối nay."],
+    ["Bella", "Perfect, I'll bring my laptop down before I leave. When I come back tonight, do I just pick up the new key here?", "Hoàn hảo, tôi sẽ mang laptop xuống trước khi đi. Tối nay về, tôi chỉ cần lấy chìa khóa mới ở đây phải không?"],
+    ["Michael", "Exactly. Your new key card will be ready, and your old card will stop working at noon.", "Chính xác. Thẻ phòng mới của bạn sẽ được chuẩn bị sẵn, và thẻ cũ sẽ ngừng hoạt động lúc mười hai giờ trưa."],
+    ["Bella", "Great. Just one more question. Is the sixth floor quiet at night, or are there any events up there?", "Tuyệt. Thêm một câu hỏi nữa. Tầng sáu ban đêm có yên tĩnh không, hay có sự kiện gì ở trên đó?"],
+    ["Michael", "It's our quietest floor. There are no events, and the wedding party is leaving today. I'll also put a note on your booking so we don't give you a noisy room again.", "Đó là tầng yên tĩnh nhất của chúng tôi. Không có sự kiện nào, và đoàn khách đám cưới hôm nay trả phòng. Tôi cũng sẽ ghi chú vào đặt phòng của bạn để lần sau không xếp bạn vào phòng ồn nữa."],
+    ["Bella", "Thank you. You've been very understanding. I was worried you'd tell me the hotel was full.", "Cảm ơn anh. Anh rất thông cảm. Tôi đã lo anh sẽ nói khách sạn hết phòng."],
+    ["Michael", "Not at all. A good night's sleep is the most important thing in a hotel. If anything else bothers you, please tell us right away.", "Không có gì. Một giấc ngủ ngon là điều quan trọng nhất ở khách sạn. Nếu có gì khác làm phiền bạn, xin hãy báo ngay cho chúng tôi."],
+    ["Bella", "I will. And would it be possible to have earplugs, just in case?", "Tôi sẽ báo. Và tôi có thể xin một đôi nút bịt tai không, để phòng hờ?"],
+    ["Michael", "Of course. I'll put a pair in your new room, along with a small welcome gift to say sorry.", "Dĩ nhiên rồi. Tôi sẽ để một đôi trong phòng mới của bạn, kèm một món quà chào đón nhỏ thay lời xin lỗi."],
+    ["Bella", "That's so thoughtful. Thank you, Michael.", "Thật chu đáo. Cảm ơn anh, Michael."],
+    ["Michael", "You're welcome. Good luck with your meeting, and I hope you sleep much better tonight.", "Không có gì. Chúc bạn họp suôn sẻ, và mong là tối nay bạn ngủ ngon hơn nhiều."]
+  ]
+}

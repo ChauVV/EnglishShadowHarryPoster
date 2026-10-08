@@ -1,0 +1,42 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 10,
+  "lesson_title": "The Air Conditioner Is Broken",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Good evening, front desk. How can I help?", "Chào buổi tối, quầy lễ tân xin nghe. Tôi có thể giúp gì?"],
+    ["Emma", "Hi, this is room eight one seven. I'm sorry to bother you, but I think the air conditioner in my room is broken. It's incredibly hot in here.", "Chào anh, đây là phòng 817. Xin lỗi đã làm phiền, nhưng tôi nghĩ máy lạnh trong phòng tôi bị hỏng. Trong này nóng kinh khủng."],
+    ["Jack", "Oh no, I'm sorry about that. It's thirty-five degrees outside today. Can you tell me what's happening with it?", "Ôi không, tôi xin lỗi về điều đó. Hôm nay ngoài trời ba mươi lăm độ. Chị có thể cho tôi biết nó bị sao không?"],
+    ["Emma", "The fan is running, and I can hear it, but the air coming out is warm. I've set it to eighteen degrees, but the room is still about thirty.", "Quạt vẫn chạy, và tôi nghe được tiếng, nhưng hơi thổi ra lại ấm. Tôi đã chỉnh mười tám độ, mà phòng vẫn khoảng ba mươi độ."],
+    ["Jack", "I see. Before I send someone, could you check one thing for me? Is the mode on the remote control set to 'cool'? Sometimes it gets switched to 'fan' or 'heat' by mistake.", "Tôi hiểu rồi. Trước khi cử người lên, chị kiểm tra giúp tôi một việc nhé? Chế độ trên điều khiển có để ở 'làm lạnh' không? Đôi khi nó bị chuyển nhầm sang 'quạt' hoặc 'sưởi'."],
+    ["Emma", "Let me look. It shows a little snowflake, so I think that's 'cool'. Yes, it says 'cool' on the screen.", "Để tôi xem. Nó hiện hình bông tuyết nhỏ, nên tôi nghĩ là 'làm lạnh'. Đúng rồi, trên màn hình ghi 'làm lạnh'."],
+    ["Jack", "Okay, then it's not the settings. And are the windows and the balcony door completely closed? The system turns itself off if a door is open.", "Được rồi, vậy không phải do cài đặt. Còn cửa sổ và cửa ban công đã đóng hẳn chưa? Hệ thống sẽ tự tắt nếu có cửa đang mở."],
+    ["Emma", "Everything is closed. I closed the curtains too, to keep the sun out, but it hasn't helped.", "Đóng hết rồi. Tôi cũng kéo rèm lại để che nắng, nhưng chẳng ăn thua."],
+    ["Jack", "Thank you for checking. I'll send our maintenance technician to your room straight away. He should be there in about ten minutes.", "Cảm ơn chị đã kiểm tra. Tôi sẽ cử kỹ thuật viên bảo trì lên phòng chị ngay. Khoảng mười phút nữa anh ấy sẽ tới."],
+    ["Emma", "Great. Do you think he'll be able to fix it tonight?", "Tốt quá. Anh nghĩ tối nay anh ấy có sửa được không?"],
+    ["Jack", "If it's a simple problem, like a dirty filter, yes. But if a part needs replacing, it might have to wait until tomorrow.", "Nếu là lỗi đơn giản, như bộ lọc bị bẩn, thì được. Nhưng nếu cần thay linh kiện, có thể phải đợi đến mai."],
+    ["Emma", "I really hope it's simple. I don't think I can sleep in this heat, and I have an early start tomorrow.", "Tôi thật sự mong là lỗi đơn giản. Tôi không nghĩ mình ngủ được trong cái nóng này, mà mai tôi lại phải dậy sớm."],
+    ["Jack", "Of course, I understand. While you wait, would you like me to send up some cold water and a portable fan?", "Dĩ nhiên, tôi hiểu. Trong lúc chờ, chị có muốn tôi gửi lên ít nước lạnh và một chiếc quạt di động không?"],
+    ["Emma", "Yes, please. That would help a lot.", "Vâng, làm ơn. Như vậy sẽ đỡ nhiều lắm."],
+    ["Jack", "Hello again, Ms. Clarke. I've just spoken to the technician. Unfortunately, the problem is more serious than we thought. The compressor isn't working, and the part won't arrive until tomorrow afternoon.", "Chào chị Clarke lần nữa. Tôi vừa nói chuyện với kỹ thuật viên. Tiếc là lỗi nghiêm trọng hơn chúng tôi nghĩ. Máy nén không hoạt động, và linh kiện phải đến chiều mai mới về."],
+    ["Emma", "Oh dear. So what can I do tonight? The fan helps a little, but it's still very uncomfortable. I even tried a cold shower, but it only helped for ten minutes.", "Trời ơi. Vậy tối nay tôi phải làm sao? Quạt đỡ được một chút, nhưng vẫn rất khó chịu. Tôi còn thử tắm nước lạnh, nhưng chỉ đỡ được mười phút."],
+    ["Jack", "We'd like to move you to another room for tonight. We have a room on the tenth floor, and I've checked that the air conditioning is working perfectly.", "Chúng tôi muốn chuyển chị sang phòng khác cho tối nay. Chúng tôi có một phòng ở tầng mười, và tôi đã kiểm tra là máy lạnh chạy hoàn toàn tốt."],
+    ["Emma", "That's a relief. Is it a similar room?", "Thế thì nhẹ nhõm rồi. Có phải là phòng tương tự không?"],
+    ["Jack", "It's actually a junior suite, with a separate living area and a bigger bathroom. There's no extra charge, of course.", "Thật ra đó là phòng suite nhỏ, có khu tiếp khách riêng và phòng tắm rộng hơn. Dĩ nhiên là không tính thêm phí."],
+    ["Emma", "Wow, that's very generous. Should I stay there for the rest of my trip, or come back to this room tomorrow?", "Chà, thật hào phóng. Tôi nên ở đó đến hết chuyến đi, hay mai quay lại phòng này?"],
+    ["Jack", "It's up to you. The suite is available until you check out on Sunday, so you're welcome to stay there and avoid moving twice.", "Tùy chị. Phòng suite còn trống đến khi chị trả phòng vào Chủ nhật, nên chị cứ ở đó để khỏi phải chuyển hai lần."],
+    ["Emma", "In that case, I'll stay there. Moving once is enough! Do I need to pack everything now?", "Vậy thì tôi sẽ ở đó. Chuyển một lần là đủ rồi! Bây giờ tôi có cần xếp hết đồ không?"],
+    ["Jack", "Just pack what you can, and a porter will come up with a luggage trolley in five minutes. He'll bring your new key cards too.", "Chị cứ xếp những gì có thể, và năm phút nữa một nhân viên khuân vác sẽ mang xe đẩy hành lý lên. Anh ấy cũng mang theo thẻ phòng mới cho chị."],
+    ["Emma", "Perfect. I left a few things in the room safe. Should I take them out myself?", "Hoàn hảo. Tôi có để vài thứ trong két sắt của phòng. Tôi có nên tự lấy ra không?"],
+    ["Jack", "Yes, please take everything out of the safe and leave it open. And check the drawers and the bathroom too, so nothing gets left behind.", "Vâng, chị hãy lấy hết đồ trong két ra và để cửa két mở. Và kiểm tra cả ngăn kéo lẫn phòng tắm, để không bỏ quên gì."],
+    ["Emma", "Good tip. I always forget my phone charger in hotel rooms.", "Mẹo hay. Tôi lúc nào cũng để quên sạc điện thoại trong phòng khách sạn."],
+    ["Jack", "You're not the only one! We have a whole box of them at reception. Again, I'm very sorry for the inconvenience tonight.", "Chị không phải người duy nhất đâu! Ở quầy lễ tân chúng tôi có cả một hộp sạc bỏ quên. Một lần nữa, tôi rất xin lỗi vì sự bất tiện tối nay."],
+    ["Emma", "Honestly, these things happen. You've handled it really well, and a suite is a nice surprise.", "Thật ra chuyện này cũng bình thường. Anh đã xử lý rất tốt, và một phòng suite là một bất ngờ thú vị."],
+    ["Jack", "Thank you for being so patient. Enjoy the cool air, and have a good night's sleep.", "Cảm ơn chị đã rất kiên nhẫn. Chúc chị tận hưởng không khí mát mẻ, và ngủ thật ngon."]
+  ]
+}

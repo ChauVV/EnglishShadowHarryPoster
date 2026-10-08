@@ -1,0 +1,43 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 13,
+  "lesson_title": "Asking for a Late Check-out",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Good morning. I'm checking out tomorrow, and I wanted to ask about something. Would it be possible to have a late check-out?", "Chào buổi sáng. Mai tôi trả phòng, và tôi muốn hỏi một việc. Tôi có thể trả phòng muộn được không?"],
+    ["Jack", "Hello, good morning. Let me take a look. What's your room number, please?", "Xin chào, chào buổi sáng. Để tôi xem. Số phòng của chị là gì ạ?"],
+    ["Emma", "It's three oh five. My name is Emma Johnson.", "Phòng 305. Tôi tên là Emma Johnson."],
+    ["Jack", "Thank you, Ms. Johnson. Our normal check-out time is eleven o'clock. What time were you thinking of?", "Cảm ơn chị Johnson. Giờ trả phòng thông thường của chúng tôi là mười một giờ. Chị đang tính mấy giờ?"],
+    ["Emma", "My flight isn't until nine in the evening, so I'd love to keep the room until about four, if possible. I'd like to rest and have a shower before the long flight.", "Chuyến bay của tôi chín giờ tối mới cất cánh, nên tôi rất muốn giữ phòng đến khoảng bốn giờ, nếu được. Tôi muốn nghỉ ngơi và tắm trước chuyến bay dài."],
+    ["Jack", "That makes sense. A late check-out until one o'clock is free of charge, and I can confirm that right now. For a later time, it depends on how busy we are.", "Hợp lý. Trả phòng muộn đến một giờ chiều thì miễn phí, và tôi có thể xác nhận ngay bây giờ. Muộn hơn nữa thì còn tùy khách sạn đông hay vắng."],
+    ["Emma", "And how busy are you tomorrow?", "Vậy mai khách sạn có đông không anh?"],
+    ["Jack", "Unfortunately, tomorrow is quite full, because there's a conference starting in the afternoon. Your room is already booked for a new guest arriving at three.", "Tiếc là mai khá kín phòng, vì có một hội nghị bắt đầu vào buổi chiều. Phòng của chị đã có khách mới đặt, đến lúc ba giờ."],
+    ["Emma", "Oh, I see. So four o'clock isn't possible in my room?", "Ồ, tôi hiểu. Vậy là không thể ở phòng của tôi đến bốn giờ?"],
+    ["Jack", "Not in that room, I'm afraid. But let me look at some other options for you. I don't want you to spend the whole afternoon in the lobby.", "E là ở phòng đó thì không. Nhưng để tôi xem vài phương án khác cho chị. Tôi không muốn chị phải ngồi cả buổi chiều ở sảnh."],
+    ["Emma", "That's kind of you. What are the options?", "Anh tốt quá. Có những phương án nào?"],
+    ["Jack", "The first option is to check out at one, and leave your luggage with us. You're welcome to use the gym changing rooms to shower before you leave for the airport. They have towels and toiletries.", "Phương án thứ nhất là trả phòng lúc một giờ, và gửi hành lý ở chỗ chúng tôi. Chị có thể dùng phòng thay đồ của phòng tập để tắm trước khi ra sân bay. Ở đó có khăn và đồ vệ sinh cá nhân."],
+    ["Emma", "Oh, I didn't know that was possible. That's already quite helpful. At least I wouldn't get on the plane feeling hot and tired.", "Ồ, tôi không biết là được như vậy. Thế cũng khá hữu ích rồi. Ít ra tôi sẽ không lên máy bay trong tình trạng nóng nực và mệt mỏi."],
+    ["Jack", "The second option is to move you to a different room for the afternoon. We have a small room on the second floor that's free until the evening. We'd charge half the daily rate for that.", "Phương án thứ hai là chuyển chị sang một phòng khác cho buổi chiều. Chúng tôi có một phòng nhỏ ở tầng hai trống đến tối. Với phòng đó chúng tôi sẽ tính nửa giá một ngày."],
+    ["Emma", "How much would that be?", "Như vậy là bao nhiêu tiền?"],
+    ["Jack", "Sixty dollars. You could stay there until six, which gives you plenty of time to rest, pack, and have a shower in private.", "Sáu mươi đô. Chị có thể ở đó đến sáu giờ, đủ thời gian để nghỉ ngơi, xếp đồ, và tắm riêng tư."],
+    ["Emma", "Hmm. Sixty dollars just for a few hours feels like a lot. Let me think about it. Is there a third option?", "Hừm. Sáu mươi đô chỉ cho vài tiếng nghe có vẻ nhiều. Để tôi suy nghĩ đã. Có phương án thứ ba không?"],
+    ["Jack", "Actually, there is. I see that you're a member of our loyalty program. Members at your level get one free late check-out per year, until four o'clock, in any available room.", "Thật ra là có. Tôi thấy chị là thành viên chương trình khách hàng thân thiết của chúng tôi. Thành viên ở hạng của chị được một lần trả phòng muộn miễn phí mỗi năm, đến bốn giờ, ở bất kỳ phòng trống nào."],
+    ["Emma", "Really? I signed up last year, but I never read the details. So I could use the small room for free?", "Thật sao? Tôi đăng ký từ năm ngoái, nhưng chưa bao giờ đọc kỹ quyền lợi. Vậy là tôi được dùng phòng nhỏ đó miễn phí?"],
+    ["Jack", "Exactly, until four o'clock. If you'd like to stay until six, you'd only pay twenty dollars for the extra two hours.", "Chính xác, đến bốn giờ. Nếu chị muốn ở đến sáu giờ, chị chỉ trả thêm hai mươi đô cho hai tiếng đó."],
+    ["Emma", "Four o'clock is perfect, so I'll take the free option. When do I need to move to the other room?", "Bốn giờ là hoàn hảo, nên tôi chọn phương án miễn phí. Khi nào tôi cần chuyển sang phòng kia?"],
+    ["Jack", "Any time after eleven. Just pack your things, come down to reception, and I'll give you the new key. A porter can carry your bags.", "Bất cứ lúc nào sau mười một giờ. Chị chỉ cần xếp đồ, xuống quầy lễ tân, và tôi sẽ đưa chị chìa khóa mới. Nhân viên khuân vác có thể mang hành lý giúp chị."],
+    ["Emma", "Great. And when I leave at four, can I still leave my suitcase here for a couple of hours? I'd like to have dinner in town before going to the airport.", "Tuyệt. Và khi tôi rời phòng lúc bốn giờ, tôi vẫn có thể gửi vali ở đây vài tiếng không? Tôi muốn ăn tối trong thành phố trước khi ra sân bay."],
+    ["Jack", "Of course. The luggage room is open twenty-four hours. Would you also like me to book a taxi to the airport for, say, six thirty?", "Dĩ nhiên rồi. Phòng giữ hành lý mở cửa hai mươi bốn giờ. Chị có muốn tôi đặt taxi ra sân bay luôn không, chẳng hạn lúc sáu giờ rưỡi?"],
+    ["Emma", "Six thirty sounds good. It takes about forty-five minutes, doesn't it?", "Sáu giờ rưỡi nghe được đấy. Đi mất khoảng bốn mươi lăm phút, đúng không?"],
+    ["Jack", "Usually, yes, but traffic can be heavy in the evening. For an international flight at nine, six thirty is about right, but I wouldn't leave any later.", "Thường là vậy, nhưng buổi tối có thể kẹt xe. Với chuyến bay quốc tế lúc chín giờ, sáu giờ rưỡi là vừa, nhưng tôi sẽ không đi muộn hơn."],
+    ["Emma", "Then let's say six fifteen, just to be safe. I hate rushing at the airport.", "Vậy để sáu giờ mười lăm cho chắc. Tôi ghét phải vội vàng ở sân bay."],
+    ["Jack", "Six fifteen it is. I've added everything to your booking: late check-out until four in room two one two, luggage storage, and a taxi at six fifteen.", "Vậy sáu giờ mười lăm nhé. Tôi đã ghi tất cả vào đặt phòng của chị: trả phòng muộn đến bốn giờ ở phòng 212, gửi hành lý, và taxi lúc sáu giờ mười lăm."],
+    ["Emma", "Thank you so much. You've turned a long, boring afternoon into a relaxing one.", "Cảm ơn anh rất nhiều. Anh đã biến một buổi chiều dài lê thê, chán ngắt thành một buổi chiều thư thái."],
+    ["Jack", "That's what we're here for. And next time, remember to check your loyalty benefits. You might be surprised.", "Chúng tôi ở đây là để làm vậy mà. Và lần sau, chị nhớ xem lại quyền lợi thành viên nhé. Có khi chị sẽ bất ngờ đấy."]
+  ]
+}

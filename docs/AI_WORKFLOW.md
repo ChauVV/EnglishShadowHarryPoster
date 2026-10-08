@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T02-L09`** (Topic 02 Hotels & Accommodation - A Noisy Room - Asking to Change, mục tiêu 4:05). Topic 01 và Topic 15 đã xong đủ 20 bài; Topic 02 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T02-L15`** (Topic 02 Hotels & Accommodation - Lost Room Key, mục tiêu 4:35). Topic 01 và Topic 15 đã xong đủ 20 bài; Topic 02 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -51,6 +51,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T02-L06 | Asking About Breakfast Time | 2:50 | 2:50 | rồi | 2026-10-08 |
 | T02-L07 | Calling the Reception | 3:00 | 2:58 | rồi | 2026-10-08 |
 | T02-L08 | Booking a Room by Phone | 4:00 | 4:24 | rồi | 2026-10-08 |
+| T02-L09 | A Noisy Room - Asking to Change | 4:05 | 4:03 | rồi | 2026-10-08 |
+| T02-L10 | The Air Conditioner Is Broken | 4:10 | 3:59 | rồi | 2026-10-08 |
+| T02-L11 | A Tour of the Hotel Facilities | 4:15 | 4:19 | rồi | 2026-10-08 |
+| T02-L12 | Booking Rooms for a Group | 4:20 | 4:26 | rồi | 2026-10-08 |
+| T02-L13 | Asking for a Late Check-out | 4:25 | 4:18 | rồi | 2026-10-08 |
+| T02-L14 | Comparing Hotels Online | 4:30 | 4:37 | rồi | 2026-10-08 |
 | T15-L01 | Opening a Bank Account | 2:00 | 2:05 | rồi | 2026-10-07 |
 | T15-L02 | Withdrawing Cash | 2:10 | 2:06 | rồi | 2026-10-07 |
 | T15-L03 | Checking Your Balance | 2:20 | 2:20 | rồi | 2026-10-07 |

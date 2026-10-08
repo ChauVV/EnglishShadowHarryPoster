@@ -1,0 +1,40 @@
+{
+  "topic_number": 2,
+  "topic_title": "Hotels & Accommodation",
+  "topic_title_vi": "Khách sạn & chỗ ở",
+  "lesson_number": 12,
+  "lesson_title": "Booking Rooms for a Group",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Good morning, this is Michael from the group sales team. Thanks for your email. You mentioned you're organizing a company event?", "Chào buổi sáng, tôi là Michael bên bộ phận đặt phòng đoàn. Cảm ơn email của chị. Chị có nói là chị đang tổ chức một sự kiện công ty?"],
+    ["Bella", "Yes, that's right. I work for a finance company, and we're planning a two-day team retreat in March. There will be about twenty people.", "Vâng, đúng vậy. Tôi làm cho một công ty tài chính, và chúng tôi đang lên kế hoạch cho chuyến đi gắn kết đội ngũ hai ngày vào tháng Ba. Sẽ có khoảng hai mươi người."],
+    ["Michael", "Wonderful. Do you have exact dates in mind?", "Tuyệt vời. Chị đã có ngày cụ thể chưa?"],
+    ["Bella", "We'd like to arrive on Thursday the twelfth and leave on Saturday the fourteenth, so two nights. But we can be flexible by a week if that helps with the price.", "Chúng tôi muốn đến vào thứ Năm ngày mười hai và đi vào thứ Bảy ngày mười bốn, vậy là hai đêm. Nhưng chúng tôi có thể linh động lùi tiến một tuần nếu giá tốt hơn."],
+    ["Michael", "That's helpful to know. For the twelfth to the fourteenth, we have enough rooms. How many people will share rooms?", "Biết vậy rất hữu ích. Từ ngày mười hai đến mười bốn, chúng tôi có đủ phòng. Bao nhiêu người sẽ ở chung phòng?"],
+    ["Bella", "Most of the team would prefer single rooms, but a few people are happy to share. Let's say sixteen single rooms and two twin rooms.", "Phần lớn mọi người muốn ở phòng đơn, nhưng vài người sẵn lòng ở chung. Tạm tính là mười sáu phòng đơn và hai phòng hai giường."],
+    ["Michael", "So eighteen rooms in total. For groups of more than ten rooms, we offer a special group rate. For those dates, it would be one hundred and twenty dollars per room per night, including breakfast.", "Vậy tổng cộng là mười tám phòng. Với đoàn trên mười phòng, chúng tôi có giá đoàn đặc biệt. Cho những ngày đó, giá là một trăm hai mươi đô mỗi phòng mỗi đêm, đã bao gồm bữa sáng."],
+    ["Bella", "What's your normal rate, just so I can compare?", "Giá thông thường của khách sạn là bao nhiêu, để tôi so sánh?"],
+    ["Michael", "The standard rate is around one hundred and fifty, so you're saving about twenty percent. If you moved the dates one week later, I could offer one hundred and ten, because it's a quieter period.", "Giá tiêu chuẩn khoảng một trăm năm mươi, nên chị tiết kiệm được khoảng hai mươi phần trăm. Nếu chị lùi lịch một tuần, tôi có thể đưa ra giá một trăm mười, vì đó là thời gian vắng khách hơn."],
+    ["Bella", "That's tempting. Ten dollars times eighteen rooms times two nights is three hundred and sixty dollars. I'll check with my manager. We'll also need a meeting room. Do you have one for twenty people?", "Hấp dẫn đấy. Mười đô nhân mười tám phòng nhân hai đêm là ba trăm sáu mươi đô. Tôi sẽ hỏi ý quản lý. Chúng tôi cũng cần một phòng họp. Khách sạn có phòng cho hai mươi người không?"],
+    ["Michael", "Yes, our Garden Room is perfect for that size. It has a projector, a whiteboard, and good natural light. For a full day, it's five hundred dollars, but for groups staying with us, we offer it at half price.", "Có, phòng Garden của chúng tôi rất hợp với quy mô đó. Có máy chiếu, bảng trắng, và ánh sáng tự nhiên tốt. Thuê cả ngày là năm trăm đô, nhưng với đoàn lưu trú tại khách sạn, chúng tôi giảm nửa giá."],
+    ["Bella", "Great. Does that include coffee breaks?", "Tuyệt. Giá đó có bao gồm giờ giải lao uống cà phê không?"],
+    ["Michael", "We have a day meeting package at forty-five dollars per person. It includes the room, two coffee breaks with snacks, a buffet lunch, and water throughout the day.", "Chúng tôi có gói hội họp trong ngày giá bốn mươi lăm đô mỗi người. Gói gồm phòng họp, hai lần giải lao có đồ ăn nhẹ, bữa trưa tự chọn, và nước uống cả ngày."],
+    ["Bella", "That sounds much simpler than paying for everything separately. Can you cater for special diets? We have two vegetarians and one person with a gluten allergy.", "Nghe đơn giản hơn nhiều so với trả riêng từng thứ. Khách sạn có phục vụ chế độ ăn đặc biệt không? Chúng tôi có hai người ăn chay và một người dị ứng gluten."],
+    ["Michael", "Absolutely. Just send us the details at least a week before, and the chef will prepare separate dishes for them.", "Hoàn toàn được. Chị chỉ cần gửi thông tin cho chúng tôi trước ít nhất một tuần, và đầu bếp sẽ chuẩn bị món riêng cho họ."],
+    ["Bella", "Okay. Now, the important part for my finance team. What are the payment terms, and what happens if some people cancel?", "Được rồi. Giờ đến phần quan trọng với bộ phận tài chính của tôi. Điều khoản thanh toán thế nào, và nếu vài người hủy thì sao?"],
+    ["Michael", "We ask for a deposit of twenty percent when you sign the contract. The balance is due thirty days before arrival. We can send an invoice to your company, so you don't need to pay by card.", "Chúng tôi yêu cầu đặt cọc hai mươi phần trăm khi ký hợp đồng. Số còn lại thanh toán ba mươi ngày trước ngày đến. Chúng tôi có thể gửi hóa đơn cho công ty chị, nên chị không cần trả bằng thẻ."],
+    ["Bella", "Good. And cancellations?", "Tốt. Còn việc hủy thì sao?"],
+    ["Michael", "You can reduce the number of rooms by up to ten percent without any charge until thirty days before arrival. After that, any cancelled rooms are charged in full.", "Chị có thể giảm tối đa mười phần trăm số phòng mà không mất phí cho đến ba mươi ngày trước ngày đến. Sau thời điểm đó, phòng nào bị hủy sẽ bị tính tiền đầy đủ."],
+    ["Bella", "Ten percent of eighteen rooms is less than two rooms. Could we make it fifteen percent? People's plans change a lot in our company.", "Mười phần trăm của mười tám phòng là chưa đến hai phòng. Có thể nâng lên mười lăm phần trăm không? Kế hoạch của mọi người ở công ty tôi thay đổi nhiều lắm."],
+    ["Michael", "Let me speak to my manager, but I think we can agree to fifteen percent if you confirm the booking this month.", "Để tôi hỏi ý quản lý, nhưng tôi nghĩ chúng tôi có thể đồng ý mười lăm phần trăm nếu chị xác nhận đặt phòng trong tháng này."],
+    ["Bella", "That's fair. When do you need the names of the guests?", "Hợp lý. Khi nào anh cần danh sách tên khách?"],
+    ["Michael", "We'll need a rooming list, with each guest's name and room type, two weeks before arrival. Each guest can check in individually, and any extras, like drinks from the bar, they pay themselves.", "Chúng tôi cần danh sách phân phòng, có tên từng khách và loại phòng, hai tuần trước ngày đến. Mỗi khách có thể tự nhận phòng, và các chi phí phát sinh, như đồ uống ở quầy bar, họ tự trả."],
+    ["Bella", "Good, that keeps the company bill clean. Can you put all of this in a written proposal?", "Tốt, như vậy hóa đơn công ty sẽ gọn gàng. Anh có thể gửi tất cả những điều này trong một bản đề xuất bằng văn bản không?"],
+    ["Michael", "Of course. I'll send you a proposal with both date options by tomorrow, so you can compare them. I'll hold the rooms for you for seven days.", "Dĩ nhiên rồi. Trước ngày mai tôi sẽ gửi chị bản đề xuất với cả hai phương án ngày, để chị so sánh. Tôi sẽ giữ phòng cho chị trong bảy ngày."],
+    ["Bella", "Excellent. Thank you, Michael. This has been really helpful.", "Tuyệt vời. Cảm ơn anh, Michael. Thật sự rất hữu ích."],
+    ["Michael", "My pleasure. I look forward to hosting your team. Feel free to call me directly if you have any more questions.", "Rất hân hạnh. Tôi mong được đón tiếp đội của chị. Nếu có câu hỏi gì thêm, chị cứ gọi thẳng cho tôi."]
+  ]
+}
