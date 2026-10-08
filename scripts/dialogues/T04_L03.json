@@ -1,0 +1,37 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 3,
+  "lesson_title": "Trying on a Shirt",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Hi, Bella. I need your help. I have a job interview on Monday, and I need a new shirt. Can you come with me and give me your opinion?", "Chào Bella. Anh cần em giúp. Thứ Hai anh có buổi phỏng vấn xin việc, và anh cần một chiếc áo sơ mi mới. Em đi cùng anh và cho anh ý kiến được không?"],
+    ["Bella", "Of course! I love shopping for other people. What kind of job is it?", "Dĩ nhiên rồi! Em thích đi mua sắm cho người khác lắm. Công việc gì vậy anh?"],
+    ["Michael", "It's at a bank, so I think I need something smart and simple.", "Ở một ngân hàng, nên anh nghĩ anh cần thứ gì đó lịch sự và đơn giản."],
+    ["Bella", "Then a white or light blue shirt is perfect. Look, these ones are nice. What size are you?", "Vậy áo sơ mi trắng hoặc xanh nhạt là hoàn hảo. Nhìn này, mấy chiếc này đẹp đấy. Anh mặc cỡ nào?"],
+    ["Michael", "I think I'm a medium, but I'm never sure. Sometimes medium is too small around the shoulders.", "Anh nghĩ anh mặc cỡ vừa, nhưng anh không bao giờ chắc. Đôi khi cỡ vừa bị chật ở vai."],
+    ["Bella", "Then take a medium and a large, and try both. The fitting room is over there.", "Vậy lấy một cỡ vừa và một cỡ lớn, rồi thử cả hai. Phòng thử đồ ở đằng kia."],
+    ["Michael", "Okay, I'm wearing the white one in medium. What do you think?", "Được rồi, anh đang mặc chiếc trắng cỡ vừa. Em thấy sao?"],
+    ["Bella", "Hmm, turn around. It looks a bit tight across your back. Can you lift your arms?", "Hừm, anh quay lại xem. Trông hơi chật ở lưng. Anh giơ tay lên được không?"],
+    ["Michael", "Not really. It feels tight when I move my arms, and the sleeves are a little short.", "Không hẳn. Cảm giác chật khi anh cử động tay, và tay áo hơi ngắn."],
+    ["Bella", "Then it's too small. Try the large one.", "Vậy là nhỏ quá rồi. Thử chiếc cỡ lớn đi."],
+    ["Michael", "Okay, this is the large. It's much more comfortable.", "Được rồi, đây là cỡ lớn. Thoải mái hơn nhiều."],
+    ["Bella", "That looks much better. The shoulders fit well, and the sleeves are the right length. But is the collar okay? Can you close the top button?", "Trông đẹp hơn nhiều. Vai vừa vặn, và tay áo đúng độ dài. Nhưng cổ áo có ổn không? Anh cài được nút trên cùng không?"],
+    ["Michael", "Yes, I can, and it's not too tight. I can still breathe!", "Được, và không quá chật. Anh vẫn thở được!"],
+    ["Bella", "Perfect. With a tie, you'll look very professional. Do you want to try the light blue one too?", "Hoàn hảo. Đeo thêm cà vạt, anh sẽ trông rất chuyên nghiệp. Anh có muốn thử luôn chiếc xanh nhạt không?"],
+    ["Michael", "Sure. Here it is, in large. What do you think about the color?", "Được. Đây, cỡ lớn. Em thấy màu này thế nào?"],
+    ["Bella", "I really like it. Blue is a good color for you. It looks friendly, but still serious.", "Em rất thích. Màu xanh hợp với anh. Trông thân thiện, nhưng vẫn nghiêm túc."],
+    ["Michael", "Me too. But which one is better for an interview?", "Anh cũng vậy. Nhưng chiếc nào hợp đi phỏng vấn hơn?"],
+    ["Bella", "Both are good. White is more classic. Blue is a bit more modern. Why not buy both? You'll need shirts for the new job anyway.", "Cả hai đều tốt. Trắng thì cổ điển hơn. Xanh thì hiện đại hơn một chút. Sao không mua cả hai? Dù sao anh cũng cần áo cho công việc mới mà."],
+    ["Michael", "If I get the job! But you're right. How much are they?", "Nếu anh được nhận! Nhưng em nói đúng. Chúng giá bao nhiêu?"],
+    ["Bella", "The sign says thirty-five dollars each, or two for sixty.", "Biển ghi ba mươi lăm đô một chiếc, hoặc sáu mươi đô hai chiếc."],
+    ["Michael", "Two for sixty is a good deal. Okay, I'll take both. Do they need ironing?", "Hai chiếc sáu mươi đô là hời. Được rồi, anh lấy cả hai. Có cần ủi không?"],
+    ["Bella", "The label says 'easy care', so they don't need much ironing. Just hang them up after washing.", "Nhãn ghi 'dễ chăm sóc', nên không cần ủi nhiều. Giặt xong chỉ cần treo lên."],
+    ["Michael", "Even better. Thank you, Bella. You're a great shopping assistant.", "Càng tốt. Cảm ơn em, Bella. Em là trợ lý mua sắm tuyệt vời."],
+    ["Bella", "Anytime. Good luck on Monday! You'll look great.", "Lúc nào cũng được. Chúc anh may mắn vào thứ Hai! Anh sẽ trông rất tuyệt."]
+  ]
+}

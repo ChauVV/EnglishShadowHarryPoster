@@ -1,0 +1,35 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 2,
+  "lesson_title": "Looking for a Size",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Adam", "Hi there. Can I help you find anything?", "Chào chị. Tôi có thể giúp chị tìm gì không?"],
+    ["Sarah", "Yes, please. I really like these jeans, but I can only see small sizes on the shelf. Do you have them in a medium?", "Vâng, làm ơn. Tôi rất thích chiếc quần jean này, nhưng trên kệ tôi chỉ thấy cỡ nhỏ. Anh có cỡ vừa không?"],
+    ["Adam", "Let me check for you. What size do you usually wear?", "Để tôi kiểm tra cho chị. Chị thường mặc cỡ nào?"],
+    ["Sarah", "Usually a medium, or a size ten. But it depends on the brand. Sometimes I need a large.", "Thường là cỡ vừa, hoặc cỡ mười. Nhưng còn tùy hãng. Đôi khi tôi cần cỡ lớn."],
+    ["Adam", "These jeans are quite tight, so many customers choose one size bigger than normal. I'll check the storeroom for a medium and a large.", "Chiếc quần jean này khá ôm, nên nhiều khách chọn lớn hơn một cỡ so với bình thường. Tôi sẽ kiểm tra kho xem có cỡ vừa và cỡ lớn không."],
+    ["Sarah", "That's a good idea. Thank you.", "Ý hay đấy. Cảm ơn anh."],
+    ["Adam", "Good news. I found one medium and one large. Would you like to try both?", "Tin tốt đây. Tôi tìm được một chiếc cỡ vừa và một chiếc cỡ lớn. Chị có muốn thử cả hai không?"],
+    ["Sarah", "Yes, please. And do you have them in black? I see only blue here.", "Vâng, làm ơn. Và anh có màu đen không? Ở đây tôi chỉ thấy màu xanh."],
+    ["Adam", "We have black, but only in small and large at the moment. The medium in black is sold out.", "Chúng tôi có màu đen, nhưng hiện chỉ còn cỡ nhỏ và cỡ lớn. Cỡ vừa màu đen đã bán hết."],
+    ["Sarah", "Oh, that's a shame. Will you get more soon?", "Ôi, tiếc quá. Sắp tới có thêm hàng không anh?"],
+    ["Adam", "We get new deliveries every Tuesday. I can't promise, but I can check online for you. Our other store might have it.", "Thứ Ba hằng tuần chúng tôi nhận hàng mới. Tôi không hứa được, nhưng tôi có thể kiểm tra trên mạng cho chị. Cửa hàng khác của chúng tôi có thể còn."],
+    ["Sarah", "Let me try the blue ones first. If the medium fits, I'll think about the black.", "Để tôi thử màu xanh trước. Nếu cỡ vừa vừa người, tôi sẽ tính đến màu đen."],
+    ["Adam", "Sure. The fitting rooms are at the back, next to the shoes.", "Được ạ. Phòng thử đồ ở phía sau, cạnh khu giày."],
+    ["Sarah", "Okay, I've tried them. The medium is a little too tight around the waist, but the large fits perfectly.", "Được rồi, tôi thử xong rồi. Cỡ vừa hơi chật ở eo, nhưng cỡ lớn thì vừa khít."],
+    ["Adam", "That's very common with this style. Are they long enough?", "Kiểu này thường như vậy. Chiều dài có đủ không chị?"],
+    ["Sarah", "They're actually a bit too long. Can you shorten them?", "Thật ra hơi dài một chút. Anh có thể cắt ngắn lại không?"],
+    ["Adam", "Yes, we have a tailor service. It costs eight dollars, and they're ready in two days.", "Có, chúng tôi có dịch vụ sửa đồ. Giá tám đô, và hai ngày là xong."],
+    ["Sarah", "Great. And the large in black, you have that one, right?", "Tuyệt. Còn cỡ lớn màu đen, anh còn hàng đúng không?"],
+    ["Adam", "Yes, we do. Would you like both pairs?", "Vâng, còn ạ. Chị có muốn lấy cả hai chiếc không?"],
+    ["Sarah", "I think so, yes. I wear jeans almost every day. One blue and one black, both in large, and both shortened, please.", "Chắc vậy. Tôi mặc quần jean gần như mỗi ngày. Một xanh một đen, cả hai cỡ lớn, và cắt ngắn cả hai nhé."],
+    ["Adam", "No problem. I'll measure the length for you now. Please stand here with your shoes on.", "Không vấn đề gì. Tôi sẽ đo chiều dài cho chị ngay. Chị đứng đây và mang giày vào nhé."],
+    ["Sarah", "Thank you so much. You've been really helpful. I'll come back on Thursday to pick them up.", "Cảm ơn anh rất nhiều. Anh đã giúp tôi rất nhiều. Thứ Năm tôi sẽ quay lại lấy."]
+  ]
+}

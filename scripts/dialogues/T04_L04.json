@@ -1,0 +1,38 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 4,
+  "lesson_title": "Paying at the Cash Register",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "Hello! Did you find everything you were looking for today?", "Xin chào! Hôm nay chị có tìm được mọi thứ mình cần không?"],
+    ["Emma", "Yes, thank you. I have a sweater, a pair of socks, and this belt.", "Có, cảm ơn anh. Tôi lấy một áo len, một đôi tất và chiếc thắt lưng này."],
+    ["Jack", "Great. Let me scan them for you. Do you have a membership card with us?", "Tuyệt. Để tôi quét mã cho chị. Chị có thẻ thành viên của cửa hàng không?"],
+    ["Emma", "No, I don't. What are the benefits?", "Không, tôi không có. Thẻ đó có lợi ích gì?"],
+    ["Jack", "It's free to join. You get ten percent off today, and you collect points every time you shop. Then you can use the points for discounts later.", "Đăng ký miễn phí. Hôm nay chị được giảm mười phần trăm, và mỗi lần mua sắm chị được tích điểm. Sau đó chị có thể dùng điểm để được giảm giá."],
+    ["Emma", "Ten percent off today? That sounds good. What do I need to do?", "Hôm nay giảm mười phần trăm à? Nghe được đấy. Tôi cần làm gì?"],
+    ["Jack", "Just your name, email address, and phone number. It takes about one minute. You can do it here on this tablet.", "Chỉ cần tên, địa chỉ email và số điện thoại. Mất khoảng một phút. Chị có thể làm ngay trên máy tính bảng này."],
+    ["Emma", "Do you send a lot of emails? I don't want to get too many messages.", "Cửa hàng có gửi nhiều email không? Tôi không muốn nhận quá nhiều tin nhắn."],
+    ["Jack", "You can choose. If you don't tick the box for news and offers, we only send your receipts.", "Chị có thể chọn. Nếu chị không đánh dấu ô nhận tin tức và ưu đãi, chúng tôi chỉ gửi hóa đơn."],
+    ["Emma", "Okay, I'll do it. There, done.", "Được, tôi sẽ đăng ký. Đây, xong rồi."],
+    ["Jack", "Thank you. So, the sweater is forty-five dollars, the socks are eight, and the belt is twenty-two. That's seventy-five dollars. With your ten percent discount, it's sixty-seven fifty.", "Cảm ơn chị. Vậy áo len là bốn mươi lăm đô, tất là tám đô, và thắt lưng là hai mươi hai đô. Tổng cộng bảy mươi lăm đô. Giảm mười phần trăm cho chị, còn sáu mươi bảy đô năm mươi."],
+    ["Emma", "Wait, I think the sweater was on sale. The sign said thirty-five dollars.", "Khoan, tôi nghĩ áo len đang giảm giá. Biển ghi ba mươi lăm đô."],
+    ["Jack", "Oh, let me check. You're right, it's on sale this week. The system didn't change the price. I'm sorry about that.", "Ồ, để tôi kiểm tra. Chị nói đúng, tuần này áo đang giảm giá. Hệ thống chưa cập nhật giá. Tôi xin lỗi về điều đó."],
+    ["Emma", "No problem. I'm glad I noticed.", "Không sao. May mà tôi để ý."],
+    ["Jack", "So the new total is sixty-five dollars, and with your discount it's fifty-eight fifty. How would you like to pay?", "Vậy tổng mới là sáu mươi lăm đô, và giảm cho chị còn năm mươi tám đô năm mươi. Chị muốn thanh toán bằng gì?"],
+    ["Emma", "By card, please. Can I tap it?", "Bằng thẻ nhé. Tôi chạm thẻ được không?"],
+    ["Jack", "Yes, just tap it on the machine. Oh, it says 'please insert card'. Sometimes it asks for your PIN for amounts over fifty dollars.", "Được, chị chỉ cần chạm thẻ vào máy. Ồ, máy báo 'vui lòng đưa thẻ vào'. Đôi khi máy yêu cầu mã PIN với số tiền trên năm mươi đô."],
+    ["Emma", "Okay, I'll put it in and enter my PIN. Is it working?", "Được, tôi sẽ đưa thẻ vào và nhập mã PIN. Được chưa anh?"],
+    ["Jack", "Yes, the payment is approved. Would you like a bag? Paper bags are twenty cents.", "Rồi, thanh toán đã được chấp nhận. Chị có cần túi không? Túi giấy là hai mươi xu."],
+    ["Emma", "No, thanks. I brought my own bag. I always keep one in my handbag.", "Không, cảm ơn anh. Tôi mang túi riêng rồi. Tôi luôn để sẵn một chiếc trong túi xách."],
+    ["Jack", "Great. Would you like your receipt printed, or sent by email?", "Tuyệt. Chị muốn in hóa đơn, hay gửi qua email?"],
+    ["Emma", "Email is fine. I always lose paper receipts.", "Gửi email là được. Tôi lúc nào cũng làm mất hóa đơn giấy."],
+    ["Jack", "Me too! It's on its way. And remember, you can return anything within thirty days if it doesn't fit.", "Tôi cũng vậy! Hóa đơn đang được gửi. Và nhớ là chị có thể trả lại bất cứ món nào trong ba mươi ngày nếu không vừa."],
+    ["Emma", "Good to know. Thank you very much.", "Biết vậy thì tốt. Cảm ơn anh rất nhiều."],
+    ["Jack", "You're welcome. Have a nice day!", "Không có gì. Chúc chị một ngày tốt lành!"]
+  ]
+}

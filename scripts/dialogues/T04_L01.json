@@ -1,0 +1,33 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 1,
+  "lesson_title": "Asking for the Price",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Excuse me. How much is this scarf? I can't find a price tag on it.", "Xin lỗi anh. Chiếc khăn quàng này giá bao nhiêu? Tôi không tìm thấy nhãn giá."],
+    ["Jack", "Let me have a look. Ah, the tag is inside, on the edge. It's twenty-five dollars.", "Để tôi xem. À, nhãn nằm ở bên trong, trên mép khăn. Giá hai mươi lăm đô."],
+    ["Emma", "Twenty-five? That's a bit more than I wanted to spend. Is it on sale?", "Hai mươi lăm à? Hơi nhiều hơn số tiền tôi định tiêu. Nó có đang giảm giá không?"],
+    ["Jack", "Not this one, I'm sorry. It's from our new collection. But the scarves on that table over there are thirty percent off.", "Cái này thì không, tôi xin lỗi. Nó thuộc bộ sưu tập mới. Nhưng các khăn trên bàn đằng kia đang giảm ba mươi phần trăm."],
+    ["Emma", "Oh, great. Let me look. How much is this blue one, then?", "Ồ, tuyệt. Để tôi xem. Vậy chiếc màu xanh này giá bao nhiêu?"],
+    ["Jack", "The original price was twenty dollars. With thirty percent off, it's fourteen dollars.", "Giá gốc là hai mươi đô. Giảm ba mươi phần trăm thì còn mười bốn đô."],
+    ["Emma", "That's much better. Is it made of wool?", "Vậy tốt hơn nhiều. Nó làm bằng len à?"],
+    ["Jack", "It's a mix of wool and cotton, so it's warm, but it's not itchy.", "Đó là len pha cotton, nên ấm, nhưng không bị ngứa."],
+    ["Emma", "I like it. Do you have it in other colors?", "Tôi thích nó. Anh có màu khác không?"],
+    ["Jack", "Yes, we have it in red, gray, and dark green as well. They're all the same price.", "Có, chúng tôi còn có màu đỏ, xám và xanh lá đậm. Giá đều như nhau."],
+    ["Emma", "Hmm, the gray one is nice too. If I buy two, can I get a better price?", "Hừm, chiếc màu xám cũng đẹp. Nếu tôi mua hai chiếc, có được giá tốt hơn không?"],
+    ["Jack", "I'm afraid the price is fixed, because they're already on sale. But if you buy two, I can give you a free gift bag.", "E là giá cố định, vì chúng đã được giảm rồi. Nhưng nếu chị mua hai chiếc, tôi có thể tặng chị một túi quà."],
+    ["Emma", "That's nice. One of them is a present for my sister, so a gift bag is useful.", "Hay đấy. Một chiếc là quà cho em gái tôi, nên túi quà rất có ích."],
+    ["Jack", "Perfect. So that's two scarves, the blue one and the gray one. That's twenty-eight dollars in total.", "Hoàn hảo. Vậy là hai chiếc khăn, một màu xanh và một màu xám. Tổng cộng hai mươi tám đô."],
+    ["Emma", "And if my sister doesn't like the color, can she change it?", "Và nếu em gái tôi không thích màu, em ấy có thể đổi không?"],
+    ["Jack", "Yes, she can exchange it within thirty days. She just needs the receipt. I'll put a gift receipt in the bag, so she can't see the price.", "Có, em ấy có thể đổi trong vòng ba mươi ngày. Chỉ cần mang hóa đơn. Tôi sẽ để hóa đơn quà tặng trong túi, để em ấy không thấy giá."],
+    ["Emma", "That's very thoughtful. Thank you. Can I pay by card?", "Anh chu đáo quá. Cảm ơn anh. Tôi trả bằng thẻ được không?"],
+    ["Jack", "Of course. The card machine is over here at the counter.", "Dĩ nhiên rồi. Máy quẹt thẻ ở ngay quầy này."],
+    ["Emma", "Great. Thank you for your help. I'm really happy with the price.", "Tuyệt. Cảm ơn anh đã giúp đỡ. Tôi rất hài lòng với giá này."],
+    ["Jack", "You're welcome. I hope your sister likes it!", "Không có gì. Mong là em gái chị sẽ thích!"]
+  ]
+}

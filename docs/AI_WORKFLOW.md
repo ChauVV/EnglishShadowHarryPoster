@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T03-L19`** (Topic 03 Restaurants & Ordering Food - Recommending a Restaurant, mục tiêu 4:55). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T04-L05`** (Topic 04 Shopping & Clothes - Finding the Fitting Room, mục tiêu 2:40). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -101,6 +101,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T03-L16 | Choosing a Wine | 4:40 | 4:39 | rồi | 2026-10-08 |
 | T03-L17 | A Business Lunch | 4:45 | 4:37 | rồi | 2026-10-08 |
 | T03-L18 | At a Street Food Market | 4:50 | 4:53 | rồi | 2026-10-08 |
+| T03-L19 | Recommending a Restaurant | 4:55 | 4:43 | rồi | 2026-10-08 |
+| T03-L20 | Reviewing a Restaurant | 5:00 | 5:07 | rồi | 2026-10-08 |
+| T04-L01 | Asking for the Price | 2:00 | 2:00 | rồi | 2026-10-08 |
+| T04-L02 | Looking for a Size | 2:10 | 2:10 | rồi | 2026-10-08 |
+| T04-L03 | Trying on a Shirt | 2:20 | 2:31 | rồi | 2026-10-08 |
+| T04-L04 | Paying at the Cash Register | 2:30 | 2:36 | rồi | 2026-10-08 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 

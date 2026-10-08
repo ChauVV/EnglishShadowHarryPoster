@@ -267,10 +267,101 @@ T03 = [
 <circle cx="140" cy="250" r="28" fill="#fcd34d" stroke="#b45309" stroke-width="5"/>"""),
 ]
 
+# ---------- Shopping & Clothes ----------
+T04 = [
+    # 1 túi mua sắm
+    ("#f9a8d4", "#be185d", """
+<ellipse cx="320" cy="312" rx="190" ry="14" fill="#000" opacity=".15"/>
+<path d="M270 110 a50 50 0 0 1 100 0" fill="none" stroke="#831843" stroke-width="12"/>
+<path d="M200 110 h240 l20 200 h-280z" fill="#fff"/>
+<path d="M200 110 h240 l4 40 h-248z" fill="#fbcfe8"/>
+<circle cx="270" cy="140" r="8" fill="#831843"/><circle cx="370" cy="140" r="8" fill="#831843"/>
+<path d="M140 150 h120 l14 160 h-148z" fill="#fde047" transform="rotate(-8 200 230)"/>
+<path d="M175 150 a25 25 0 0 1 50 0" fill="none" stroke="#a16207" stroke-width="9" transform="rotate(-8 200 230)"/>"""),
+    # 2 áo phông trên móc
+    ("#a5f3fc", "#0e7490", """
+<path d="M320 40 a18 18 0 1 1 18 18 v14" fill="none" stroke="#475569" stroke-width="7" stroke-linecap="round"/>
+<path d="M200 110 l120 -38 l120 38" fill="none" stroke="#475569" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 100 l50 -14 q40 30 80 0 l50 14 l60 50 l-36 44 l-34 -24 v150 h-160 v-150 l-34 24 l-36 -44z" fill="#f97316"/>
+<path d="M280 86 q40 30 80 0" fill="none" stroke="#c2410c" stroke-width="6"/>
+<rect x="270" y="190" width="100" height="14" rx="7" fill="#fff" opacity=".8"/>"""),
+    # 3 nhãn giá
+    ("#fde68a", "#ca8a04", """
+<g transform="rotate(-18 320 190)">
+  <path d="M200 120 h200 l70 70 l-70 70 h-200z" fill="#fff"/>
+  <circle cx="420" cy="190" r="14" fill="#ca8a04"/>
+  <text x="300" y="214" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="700" fill="#b91c1c" text-anchor="middle">-30%</text>
+</g>
+<path d="M480 160 q60 -60 100 -20" fill="none" stroke="#713f12" stroke-width="5"/>"""),
+    # 4 giày thể thao
+    ("#c7d2fe", "#4338ca", """
+<ellipse cx="320" cy="292" rx="210" ry="16" fill="#000" opacity=".15"/>
+<path d="M130 270 v-50 q0 -70 60 -90 l60 -20 q30 50 90 60 l120 30 q50 14 50 60 v10z" fill="#fff"/>
+<rect x="124" y="262" width="392" height="26" rx="13" fill="#1e293b"/>
+<path d="M250 110 q30 50 90 60" fill="none" stroke="#6366f1" stroke-width="10"/>
+<g stroke="#6366f1" stroke-width="6" stroke-linecap="round"><line x1="270" y1="150" x2="300" y2="132"/><line x1="292" y1="164" x2="322" y2="146"/><line x1="314" y1="174" x2="344" y2="156"/></g>
+<path d="M380 196 q60 10 100 50" fill="none" stroke="#f43f5e" stroke-width="12" stroke-linecap="round"/>"""),
+    # 5 xe đẩy siêu thị
+    ("#bbf7d0", "#15803d", """
+<path d="M110 80 h50 l40 160 h220 l40 -120 h-250" fill="none" stroke="#1e293b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#ef4444"><rect x="220" y="100" width="60" height="70" rx="8"/></g>
+<g fill="#facc15"><circle cx="320" cy="140" r="32"/></g>
+<g fill="#22c55e"><rect x="370" y="110" width="50" height="60" rx="8"/></g>
+<line x1="200" y1="240" x2="420" y2="240" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
+<circle cx="230" cy="290" r="18" fill="#1e293b"/><circle cx="400" cy="290" r="18" fill="#1e293b"/>"""),
+]
+
+# ---------- Daily Routines ----------
+T05 = [
+    # 1 đồng hồ báo thức
+    ("#fde68a", "#ea580c", """
+<ellipse cx="320" cy="310" rx="150" ry="12" fill="#000" opacity=".15"/>
+<circle cx="230" cy="80" r="34" fill="#dc2626"/><circle cx="410" cy="80" r="34" fill="#dc2626"/>
+<circle cx="320" cy="180" r="120" fill="#ef4444"/>
+<circle cx="320" cy="180" r="98" fill="#fff"/>
+<g stroke="#334155" stroke-width="10" stroke-linecap="round"><line x1="320" y1="180" x2="320" y2="112"/><line x1="320" y1="180" x2="370" y2="200"/></g>
+<circle cx="320" cy="180" r="10" fill="#334155"/>
+<line x1="240" y1="290" x2="220" y2="312" stroke="#991b1b" stroke-width="12" stroke-linecap="round"/><line x1="400" y1="290" x2="420" y2="312" stroke="#991b1b" stroke-width="12" stroke-linecap="round"/>"""),
+    # 2 mặt trời mọc + cốc cà phê
+    ("#fed7aa", "#f472b6", """
+<circle cx="460" cy="250" r="90" fill="#fbbf24"/>
+<rect y="250" width="640" height="110" fill="#fb923c" opacity=".6"/>
+<path d="M180 160 h150 v90 a75 70 0 0 1 -150 0z" fill="#fff"/>
+<path d="M330 180 a32 32 0 0 1 0 64" fill="none" stroke="#fff" stroke-width="14"/>
+<ellipse cx="255" cy="160" rx="75" ry="12" fill="#78350f"/>
+<g fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".85"><path d="M230 130 q-12 -20 0 -40 q12 -20 0 -40"/><path d="M280 130 q-12 -20 0 -40 q12 -20 0 -40"/></g>"""),
+    # 3 bàn chải + cốc
+    ("#bae6fd", "#0369a1", """
+<rect x="250" y="150" width="140" height="160" rx="20" fill="#fff"/>
+<rect x="250" y="150" width="140" height="30" rx="10" fill="#e0f2fe"/>
+<g transform="rotate(-18 300 120)"><rect x="290" y="40" width="20" height="200" rx="10" fill="#22c55e"/><rect x="284" y="40" width="32" height="50" rx="8" fill="#fff" stroke="#16a34a" stroke-width="4"/></g>
+<g transform="rotate(14 350 120)"><rect x="340" y="50" width="20" height="190" rx="10" fill="#f43f5e"/><rect x="334" y="50" width="32" height="50" rx="8" fill="#fff" stroke="#e11d48" stroke-width="4"/></g>
+<circle cx="180" cy="110" r="14" fill="#fff" opacity=".7"/><circle cx="460" cy="90" r="10" fill="#fff" opacity=".7"/><circle cx="480" cy="140" r="16" fill="#fff" opacity=".6"/>"""),
+    # 4 giường + trăng sao
+    ("#a5b4fc", "#312e81", """
+<path d="M520 60 a50 50 0 1 0 40 80 a40 40 0 1 1 -40 -80z" fill="#fde68a"/>
+<g fill="#fff"><circle cx="120" cy="60" r="4"/><circle cx="200" cy="100" r="3"/><circle cx="420" cy="50" r="3"/><circle cx="300" cy="40" r="4"/></g>
+<rect x="110" y="170" width="420" height="80" rx="16" fill="#fff"/>
+<rect x="110" y="200" width="420" height="60" rx="16" fill="#818cf8"/>
+<rect x="140" y="150" width="120" height="50" rx="20" fill="#f8fafc"/>
+<rect x="100" y="120" width="26" height="170" rx="8" fill="#7c2d12"/><rect x="514" y="160" width="26" height="130" rx="8" fill="#7c2d12"/>"""),
+    # 5 lịch + danh sách việc
+    ("#86efac", "#0f766e", """
+<rect x="170" y="70" width="300" height="240" rx="20" fill="#fff"/>
+<rect x="170" y="70" width="300" height="60" rx="20" fill="#14b8a6"/>
+<rect x="170" y="110" width="300" height="20" fill="#14b8a6"/>
+<rect x="220" y="50" width="16" height="44" rx="8" fill="#334155"/><rect x="404" y="50" width="16" height="44" rx="8" fill="#334155"/>
+<g fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M210 170 l14 14 l24 -28"/><path d="M210 225 l14 14 l24 -28"/></g>
+<rect x="210" y="270" width="36" height="20" rx="4" fill="none" stroke="#94a3b8" stroke-width="5"/>
+<g fill="#cbd5e1"><rect x="270" y="168" width="160" height="14" rx="7"/><rect x="270" y="223" width="130" height="14" rx="7"/><rect x="270" y="273" width="150" height="14" rx="7"/></g>"""),
+]
+
 SCENES = {
     "travel-and-airports": T01,
     "hotels-and-accommodation": T02,
     "restaurants-and-ordering-food": T03,
+    "shopping-and-clothes": T04,
+    "daily-routines": T05,
     "money-and-banking": T15,
 }
 
