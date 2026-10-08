@@ -1,0 +1,35 @@
+{
+  "topic_number": 5,
+  "topic_title": "Daily Routines",
+  "topic_title_vi": "Thói quen hằng ngày",
+  "lesson_number": 4,
+  "lesson_title": "Taking the Bus to School",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Hi, Jack! Are you waiting for the number twelve bus too?", "Chào Jack! Cậu cũng đang đợi xe buýt số mười hai à?"],
+    ["Jack", "Oh, hi, Emma! Yes, I take it every morning. But it's late again today. It should be here at seven forty.", "Ồ, chào Emma! Ừ, sáng nào tớ cũng đi chuyến này. Nhưng hôm nay nó lại trễ nữa rồi. Lẽ ra bảy giờ bốn mươi phải đến."],
+    ["Emma", "It's seven forty-five now. I hope it comes soon. We have a math test in the first lesson.", "Bây giờ là bảy giờ bốn mươi lăm rồi. Mong là nó đến sớm. Tiết đầu mình có bài kiểm tra toán."],
+    ["Jack", "Don't remind me! I studied last night, but I'm still nervous. Did you study?", "Đừng nhắc tớ! Tối qua tớ có học, nhưng vẫn lo. Cậu có học không?"],
+    ["Emma", "A little. I practiced the questions from the book for about an hour. Look, I can see the bus at the traffic lights.", "Một chút. Tớ làm bài tập trong sách khoảng một tiếng. Nhìn kìa, tớ thấy xe buýt ở chỗ đèn giao thông rồi."],
+    ["Jack", "Finally. Do you have your bus card? Last week I forgot mine and had to pay with cash.", "Cuối cùng cũng đến. Cậu có mang thẻ xe buýt không? Tuần trước tớ quên thẻ và phải trả tiền mặt."],
+    ["Emma", "Yes, it's in my phone case. How much is it with cash?", "Có, nó ở trong ốp điện thoại của tớ. Trả tiền mặt thì bao nhiêu?"],
+    ["Jack", "Two dollars fifty. With the student card, it's only one dollar. And the driver doesn't give change, so you need the exact money.", "Hai đô năm mươi. Có thẻ học sinh thì chỉ một đô. Mà tài xế không thối tiền, nên phải đưa đúng số tiền."],
+    ["Emma", "That's expensive. I'm glad my mom bought me a monthly pass. It's much cheaper if you take the bus every day. Good morning! Two students, please.", "Đắt thật. May mà mẹ mua cho tớ vé tháng. Đi xe buýt hằng ngày thì rẻ hơn nhiều. Chào bác! Hai học sinh ạ."],
+    ["Jack", "The driver says to tap our cards on the reader. There are two free seats at the back. Let's sit there.", "Tài xế bảo chạm thẻ vào máy đọc. Ở phía sau có hai ghế trống. Mình ngồi đó đi."],
+    ["Emma", "Good. It's so crowded this morning. How long does the trip take?", "Tốt quá. Sáng nay đông thật. Chuyến đi mất bao lâu nhỉ?"],
+    ["Jack", "Usually about twenty minutes, but with this traffic, maybe twenty-five. We'll still be on time, if we're lucky.", "Thường khoảng hai mươi phút, nhưng kẹt xe thế này thì có lẽ hai mươi lăm. Nếu may mắn thì mình vẫn đến kịp."],
+    ["Emma", "Can we use the time to practice for the test? You can ask me questions, and I can ask you.", "Mình tận dụng thời gian ôn bài kiểm tra được không? Cậu hỏi tớ, rồi tớ hỏi cậu."],
+    ["Jack", "Good idea. Okay, question one. What is twenty-five percent of eighty?", "Ý hay. Được rồi, câu một. Hai mươi lăm phần trăm của tám mươi là bao nhiêu?"],
+    ["Emma", "That's easy. Twenty. Now you. If a shirt costs forty dollars and there's a ten percent discount, what's the new price?", "Dễ mà. Hai mươi. Giờ đến cậu. Nếu một chiếc áo giá bốn mươi đô và được giảm mười phần trăm, giá mới là bao nhiêu?"],
+    ["Jack", "Ten percent of forty is four, so thirty-six dollars.", "Mười phần trăm của bốn mươi là bốn, vậy là ba mươi sáu đô."],
+    ["Emma", "Correct! See? You're ready.", "Đúng rồi! Thấy chưa? Cậu sẵn sàng rồi."],
+    ["Jack", "Thanks. Oh, wait. Our stop is next. Can you press the button, please? You're closer.", "Cảm ơn cậu. Ồ, khoan. Trạm của mình là trạm kế tiếp. Cậu bấm nút giúp tớ được không? Cậu ngồi gần hơn."],
+    ["Emma", "Done. It's eight o'clock. We have ten minutes before the bell.", "Xong. Tám giờ rồi. Mình còn mười phút trước khi chuông reo."],
+    ["Jack", "Perfect. Enough time to buy a hot chocolate at the shop by the school gate.", "Hoàn hảo. Đủ thời gian để mua một ly sô-cô-la nóng ở cửa hàng cạnh cổng trường."],
+    ["Emma", "Good idea. Chocolate helps you think, right?", "Ý hay. Sô-cô-la giúp đầu óc minh mẫn, đúng không?"],
+    ["Jack", "That's what I always tell my mom! Come on, the doors are opening. Thank you, driver! Have a nice day!", "Tớ lúc nào cũng nói với mẹ như vậy! Đi thôi, cửa mở rồi. Cảm ơn bác tài! Chúc bác một ngày tốt lành!"]
+  ]
+}

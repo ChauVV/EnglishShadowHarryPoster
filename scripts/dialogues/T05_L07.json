@@ -1,0 +1,40 @@
+{
+  "topic_number": 5,
+  "topic_title": "Daily Routines",
+  "topic_title_vi": "Thói quen hằng ngày",
+  "lesson_number": 7,
+  "lesson_title": "Going to Bed",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Jack, it's almost eleven. Are you coming to bed soon?", "Jack, gần mười một giờ rồi. Anh có đi ngủ sớm không?"],
+    ["Jack", "In a minute. I just want to finish this episode. There are only ten minutes left.", "Một chút nữa. Anh chỉ muốn xem nốt tập này. Chỉ còn mười phút."],
+    ["Emma", "That's what you said an hour ago, before the last episode! You have to get up at six thirty tomorrow.", "Một tiếng trước anh cũng nói vậy, trước tập vừa rồi! Mai anh phải dậy lúc sáu giờ rưỡi đấy."],
+    ["Jack", "I know, I know. You're right. Okay, I'll turn it off now. I can watch the end tomorrow.", "Anh biết, anh biết. Em nói đúng. Được rồi, anh tắt bây giờ. Mai anh xem đoạn cuối."],
+    ["Emma", "Good. Did you lock the front door?", "Tốt. Anh khóa cửa trước chưa?"],
+    ["Jack", "Yes, I locked it when I came in. And I closed the kitchen window. Is the back door locked?", "Rồi, anh khóa khi vào nhà. Và anh đóng cửa sổ bếp rồi. Cửa sau đã khóa chưa?"],
+    ["Emma", "I'll check. Yes, it's locked. And I turned off the oven and the lights downstairs.", "Để em kiểm tra. Rồi, khóa rồi. Và em đã tắt lò nướng và đèn tầng dưới."],
+    ["Jack", "Great. Did you check the kids? Is Sam asleep?", "Tuyệt. Em kiểm tra bọn trẻ chưa? Sam ngủ chưa?"],
+    ["Emma", "He's asleep, but he kicked his blanket off again. I put it back on him. And Lily was reading with a torch under the covers, so I took it away.", "Nó ngủ rồi, nhưng lại đạp chăn ra. Em đắp lại cho nó rồi. Còn Lily thì đang đọc sách bằng đèn pin trong chăn, nên em lấy đèn đi rồi."],
+    ["Jack", "Ha, just like her father. Did you put the rubbish out? Tomorrow is collection day.", "Ha, y hệt bố nó. Em đã mang rác ra ngoài chưa? Mai là ngày thu gom rác."],
+    ["Emma", "Oh no, I forgot. Can you do it, please? I'm already in my pajamas.", "Ôi không, em quên. Anh làm giúp em được không? Em đã mặc đồ ngủ rồi."],
+    ["Jack", "Sure. The recycling too? Yes, both bins. Okay, done. It's cold outside tonight.", "Được. Cả rác tái chế nữa à? Ừ, cả hai thùng. Được rồi, xong. Tối nay ngoài trời lạnh."],
+    ["Emma", "Thanks. I'm going to brush my teeth and wash my face.", "Cảm ơn anh. Em đi đánh răng và rửa mặt."],
+    ["Jack", "I'll set the alarm. Six thirty for me. What about you?", "Anh sẽ đặt báo thức. Sáu giờ rưỡi cho anh. Còn em?"],
+    ["Emma", "I don't need to get up until seven fifteen. My first meeting is at nine. But please don't press snooze five times like you did this morning!", "Em không cần dậy trước bảy giờ mười lăm. Cuộc họp đầu tiên của em lúc chín giờ. Nhưng làm ơn đừng bấm báo lại năm lần như sáng nay!"],
+    ["Jack", "Sorry about that. I'll put my phone on the other side of the room. Then I have to get up to turn it off.", "Xin lỗi em. Anh sẽ để điện thoại ở đầu bên kia phòng. Như vậy anh phải đứng dậy để tắt nó."],
+    ["Emma", "Good idea. And no phone in bed tonight. You always say 'just five minutes', and then you're scrolling for an hour.", "Ý hay. Và tối nay không dùng điện thoại trên giường. Anh lúc nào cũng nói 'chỉ năm phút thôi', rồi lướt suốt một tiếng."],
+    ["Jack", "That's true. I read that the light from screens makes it harder to fall asleep. I'll read my book instead.", "Đúng vậy. Anh đọc thấy ánh sáng từ màn hình làm khó ngủ hơn. Anh sẽ đọc sách thay vào đó."],
+    ["Emma", "Which book are you reading at the moment?", "Dạo này anh đang đọc cuốn gì?"],
+    ["Jack", "A detective story. It's really good, but it's a bit scary. Maybe not the best thing to read before sleeping!", "Một truyện trinh thám. Hay lắm, nhưng hơi đáng sợ. Có lẽ không phải thứ tốt nhất để đọc trước khi ngủ!"],
+    ["Emma", "Ha! Maybe read something boring instead. That always helps me.", "Ha! Có lẽ anh nên đọc thứ gì đó chán chán. Với em lúc nào cũng có tác dụng."],
+    ["Jack", "Is the window open? It feels a bit warm in here.", "Cửa sổ có mở không em? Trong này hơi ấm."],
+    ["Emma", "I'll open it a little. Fresh air helps me sleep better. Can you turn off the big light? I'll use the small lamp.", "Em sẽ mở hé một chút. Không khí trong lành giúp em ngủ ngon hơn. Anh tắt đèn lớn được không? Em dùng đèn ngủ nhỏ."],
+    ["Jack", "Done. Oh, before I forget, can you remind me to call my mother tomorrow? It's her birthday on Friday.", "Xong. À, trước khi anh quên, mai em nhắc anh gọi cho mẹ được không? Thứ Sáu là sinh nhật mẹ."],
+    ["Emma", "I'll write it on the fridge in the morning. Now, sleep. You'll be tired tomorrow.", "Sáng mai em sẽ ghi lên tủ lạnh. Giờ ngủ đi. Mai anh sẽ mệt đấy."],
+    ["Jack", "You're right. Good night, Emma. Sleep well.", "Em nói đúng. Chúc ngủ ngon, Emma. Ngủ ngon nhé."],
+    ["Emma", "Good night. And no more episodes!", "Chúc ngủ ngon. Và không xem thêm tập nào nữa nhé!"]
+  ]
+}

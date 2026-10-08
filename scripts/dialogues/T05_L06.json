@@ -1,0 +1,36 @@
+{
+  "topic_number": 5,
+  "topic_title": "Daily Routines",
+  "topic_title_vi": "Thói quen hằng ngày",
+  "lesson_number": 6,
+  "lesson_title": "Coming Home",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Bella", "Hi, I'm home! Sorry I'm late. The traffic was terrible tonight.", "Anh ơi, em về rồi! Xin lỗi em về muộn. Tối nay kẹt xe kinh khủng."],
+    ["Michael", "Welcome home! Don't worry. Was there an accident?", "Em về rồi à! Đừng lo. Có tai nạn à?"],
+    ["Bella", "Yes, on the main road near the bridge. It took me fifty minutes instead of twenty. I'm so tired.", "Ừ, trên đường chính gần cầu. Em mất năm mươi phút thay vì hai mươi. Em mệt quá."],
+    ["Michael", "Sit down and relax. Can I get you something to drink? Tea, or maybe a glass of juice?", "Ngồi xuống thư giãn đi. Anh lấy gì cho em uống nhé? Trà, hay có lẽ một ly nước ép?"],
+    ["Bella", "A cup of tea would be lovely, thank you. How was your day?", "Một tách trà thì tuyệt quá, cảm ơn anh. Hôm nay của anh thế nào?"],
+    ["Michael", "Not bad. I finished work early, so I went to the supermarket and did the shopping. Then I picked up the kids from school.", "Không tệ. Anh xong việc sớm, nên anh đi siêu thị mua đồ. Rồi anh đón bọn trẻ ở trường."],
+    ["Bella", "Thank you so much. That's a big help. Where are the children now?", "Cảm ơn anh nhiều lắm. Giúp em được nhiều đấy. Giờ bọn trẻ đâu rồi?"],
+    ["Michael", "Lucy is doing her homework in her room, and Tom is playing football in the garden with the neighbor's son.", "Lucy đang làm bài tập trong phòng, còn Tom đang đá bóng ngoài vườn với con trai nhà hàng xóm."],
+    ["Bella", "Has Lucy finished her math homework? She said it was difficult.", "Lucy làm xong bài tập toán chưa? Con bé nói khó lắm."],
+    ["Michael", "Almost. I helped her with two questions. She's much better at fractions than I am!", "Gần xong rồi. Anh giúp con bé hai câu. Con bé giỏi phân số hơn anh nhiều!"],
+    ["Bella", "Ha! That's not difficult. Here, let me take off these shoes. My feet hurt after standing all day.", "Ha! Chuyện đó đâu có khó. Đây, để em cởi đôi giày này ra. Đứng cả ngày chân em đau quá."],
+    ["Michael", "Here's your tea. What would you like for dinner? I bought some fresh fish and vegetables.", "Trà của em đây. Tối nay em muốn ăn gì? Anh có mua cá tươi và rau."],
+    ["Bella", "Fish sounds good. Maybe grilled fish with rice and a salad? Something quick and healthy. I don't want anything heavy tonight, and the kids need more vegetables anyway.", "Cá nghe được đấy. Có lẽ cá nướng với cơm và salad? Món gì đó nhanh và tốt cho sức khỏe. Tối nay em không muốn ăn món nặng bụng, mà bọn trẻ cũng cần ăn thêm rau."],
+    ["Michael", "Perfect. I'll start cooking at six thirty. You can have a shower and rest first.", "Hoàn hảo. Sáu giờ rưỡi anh sẽ bắt đầu nấu. Em có thể tắm và nghỉ ngơi trước."],
+    ["Bella", "You're the best. Did anyone call? I was expecting a delivery today.", "Anh là nhất. Có ai gọi không? Hôm nay em đang đợi một đơn hàng."],
+    ["Michael", "Yes, the delivery came at four. It's a big box. I put it in the hallway. What is it?", "Có, hàng giao lúc bốn giờ. Một cái hộp to. Anh để ở hành lang. Cái gì vậy em?"],
+    ["Bella", "It's the new lamp for the living room. The old one stopped working last week, remember?", "Đó là cây đèn mới cho phòng khách. Cái cũ hỏng từ tuần trước, anh nhớ không?"],
+    ["Michael", "Oh, right. We can put it together after dinner. Tom wants to help. He loves building things.", "À, đúng rồi. Ăn tối xong mình lắp nó. Tom muốn giúp. Nó thích lắp ráp đồ lắm."],
+    ["Bella", "Great. And then, an early night for me. I have to leave early again tomorrow.", "Tuyệt. Rồi sau đó em đi ngủ sớm. Mai em lại phải đi sớm."],
+    ["Michael", "What time do you start tomorrow?", "Mai mấy giờ em bắt đầu làm?"],
+    ["Bella", "Eight o'clock. But I'll take the train tomorrow, not the car. I don't want to sit in traffic again. And I can read on the train.", "Tám giờ. Nhưng mai em sẽ đi tàu, không lái xe. Em không muốn ngồi kẹt xe nữa. Mà trên tàu em còn đọc sách được."],
+    ["Michael", "Good idea. Oh, I can hear Tom. He's coming in from the garden, and I'm sure he's covered in mud.", "Ý hay. Ồ, anh nghe tiếng Tom. Nó đang từ vườn vào, và anh chắc nó lấm lem bùn đất."],
+    ["Bella", "Tom! Shoes off at the door, please, and go straight to the bathroom! Ah, it's good to be home.", "Tom! Cởi giày ở cửa nhé, rồi vào thẳng phòng tắm! À, về nhà thật dễ chịu."]
+  ]
+}

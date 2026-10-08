@@ -1,0 +1,38 @@
+{
+  "topic_number": 5,
+  "topic_title": "Daily Routines",
+  "topic_title_vi": "Thói quen hằng ngày",
+  "lesson_number": 5,
+  "lesson_title": "Having Lunch",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Adam", "Sarah, it's half past twelve. Are you going to have lunch, or are you working through it again?", "Sarah, mười hai giờ rưỡi rồi. Em có đi ăn trưa không, hay lại làm việc xuyên trưa nữa?"],
+    ["Sarah", "I was going to eat at my desk, to finish this report. But you're right, I should take a proper break. My eyes are tired.", "Em định ăn ở bàn làm việc, để làm xong bản báo cáo này. Nhưng anh nói đúng, em nên nghỉ ngơi đàng hoàng. Mắt em mỏi lắm."],
+    ["Adam", "Exactly. It's not healthy to eat in front of a computer every day. Let's go to the park. It's sunny today.", "Chính xác. Ngày nào cũng ăn trước máy tính không tốt cho sức khỏe. Mình ra công viên đi. Hôm nay trời nắng."],
+    ["Sarah", "Good idea. I brought my lunch from home, but I need to buy a drink. What about you?", "Ý hay. Em mang cơm trưa từ nhà, nhưng em cần mua đồ uống. Còn anh?"],
+    ["Adam", "I didn't have time to make lunch this morning, so I'll buy something at the café on the corner. They have good soup.", "Sáng nay anh không có thời gian làm cơm trưa, nên anh sẽ mua gì đó ở quán cà phê ở góc đường. Ở đó súp ngon lắm."],
+    ["Sarah", "What did you have yesterday? You said it was delicious.", "Hôm qua anh ăn gì? Anh nói ngon lắm mà."],
+    ["Adam", "The chicken and vegetable soup with fresh bread. It's only six dollars, and it's very filling.", "Súp gà rau củ với bánh mì tươi. Chỉ có sáu đô, mà ăn rất no."],
+    ["Sarah", "That's not bad. Most places around here charge at least twelve dollars for lunch. That's why I bring food from home. It saves me about fifty dollars a week.", "Không tệ. Hầu hết các chỗ quanh đây bán bữa trưa ít nhất mười hai đô. Thế nên em mang đồ ăn từ nhà. Mỗi tuần em tiết kiệm được khoảng năm mươi đô."],
+    ["Adam", "Fifty dollars a week? That's over two thousand dollars a year! Maybe I should start doing that too.", "Năm mươi đô một tuần à? Vậy là hơn hai nghìn đô một năm! Có lẽ anh cũng nên bắt đầu làm vậy."],
+    ["Sarah", "It's easy. I just cook a bit more for dinner and take the leftovers the next day. Today I have pasta with vegetables.", "Dễ lắm. Em chỉ nấu nhiều hơn một chút cho bữa tối rồi mang phần thừa đi vào hôm sau. Hôm nay em có mì Ý với rau củ."],
+    ["Adam", "Smart. Okay, here's the café. I'll have the soup of the day, please, and a bottle of water.", "Thông minh. Được rồi, quán đây rồi. Cho tôi súp trong ngày, và một chai nước."],
+    ["Sarah", "And an orange juice for me, please. Can we pay separately?", "Và cho tôi một ly nước cam. Chúng tôi trả riêng được không?"],
+    ["Adam", "Of course. Let's find a bench in the shade. It's quite hot in the sun.", "Dĩ nhiên rồi. Mình tìm một băng ghế trong bóng râm đi. Ngoài nắng khá nóng."],
+    ["Sarah", "There's one under that big tree. Perfect. This is so much better than the office.", "Có một cái dưới cái cây lớn kia. Hoàn hảo. Thế này dễ chịu hơn văn phòng nhiều."],
+    ["Adam", "I agree. Fresh air and a bit of sunshine. How long is our lunch break, officially?", "Anh đồng ý. Không khí trong lành và chút nắng. Chính thức thì giờ nghỉ trưa của mình là bao lâu?"],
+    ["Sarah", "One hour, but most people only take twenty minutes. I think that's a mistake. After a real break, I work much better in the afternoon.", "Một tiếng, nhưng hầu hết mọi người chỉ nghỉ hai mươi phút. Em nghĩ như vậy là sai. Sau khi nghỉ ngơi thật sự, buổi chiều em làm việc hiệu quả hơn nhiều."],
+    ["Adam", "Me too. If I eat at my desk, I always feel sleepy at three o'clock.", "Anh cũng vậy. Nếu ăn ở bàn làm việc, ba giờ chiều anh lúc nào cũng buồn ngủ."],
+    ["Sarah", "How's the soup?", "Súp thế nào anh?"],
+    ["Adam", "Delicious, as always. How's your pasta?", "Ngon, như mọi khi. Mì Ý của em thế nào?"],
+    ["Sarah", "Good, but it's a bit cold. I forgot to heat it up in the microwave before we left.", "Ngon, nhưng hơi nguội. Em quên hâm lại bằng lò vi sóng trước khi đi."],
+    ["Adam", "Cold pasta in the park is still better than hot pasta in front of a computer.", "Mì Ý nguội ở công viên vẫn hơn mì Ý nóng trước màn hình máy tính."],
+    ["Sarah", "True! Shall we make this a habit? Lunch in the park every day, when the weather is good?", "Đúng thật! Mình biến việc này thành thói quen nhé? Ngày nào thời tiết đẹp cũng ăn trưa ở công viên?"],
+    ["Adam", "Deal. And tomorrow, I'll bring my own lunch too. Can you teach me some easy recipes?", "Chốt vậy. Và mai anh cũng sẽ mang cơm trưa. Em dạy anh vài món dễ làm được không?"],
+    ["Sarah", "Of course. Let's start with something simple: rice, vegetables, and eggs. Even you can't get that wrong!", "Dĩ nhiên rồi. Bắt đầu với món đơn giản: cơm, rau và trứng. Kể cả anh cũng không làm hỏng được!"],
+    ["Adam", "We'll see about that. Come on, it's ten past one. Let's walk back slowly.", "Để xem đã. Đi thôi, một giờ mười rồi. Mình đi bộ về thong thả."]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "topic_number": 5,
+  "topic_title": "Daily Routines",
+  "topic_title_vi": "Thói quen hằng ngày",
+  "lesson_number": 3,
+  "lesson_title": "Getting Ready for Work",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Morning, Bella. Are you using the bathroom? I need to have a shower before work.", "Chào buổi sáng, Bella. Em đang dùng phòng tắm à? Anh cần tắm trước khi đi làm."],
+    ["Bella", "Yes, sorry. I'm just brushing my teeth. I'll be out in two minutes.", "Vâng, xin lỗi anh. Em đang đánh răng. Hai phút nữa em ra."],
+    ["Michael", "No problem. I'll make the coffee while I wait. Do you want one?", "Không sao. Trong lúc đợi anh sẽ pha cà phê. Em có muốn một ly không?"],
+    ["Bella", "Yes, please. A big one. I have a long day today, with three meetings in the afternoon.", "Có, làm ơn. Một ly lớn. Hôm nay em có một ngày dài, chiều có ba cuộc họp."],
+    ["Michael", "Three meetings? That sounds tiring. Okay, the bathroom is free now. Thanks!", "Ba cuộc họp à? Nghe mệt thật. Được rồi, phòng tắm trống rồi. Cảm ơn em!"],
+    ["Bella", "Your coffee is on the table. What time do you leave today?", "Cà phê của anh ở trên bàn. Hôm nay mấy giờ anh đi?"],
+    ["Michael", "At eight o'clock, like always. I take the train at eight fifteen. What about you?", "Tám giờ, như mọi khi. Anh đi chuyến tàu tám giờ mười lăm. Còn em?"],
+    ["Bella", "I'm driving today, because I have to visit a client after the meetings. So I can leave a bit later, around eight twenty.", "Hôm nay em lái xe, vì sau các cuộc họp em phải đi gặp một khách hàng. Nên em có thể đi muộn hơn chút, khoảng tám giờ hai mươi."],
+    ["Michael", "Lucky you. Hmm, which tie should I wear? The red one or the blue one?", "Sướng thật. Hừm, anh nên đeo cà vạt nào? Cái đỏ hay cái xanh?"],
+    ["Bella", "The blue one. It goes better with your gray suit. The red one is a bit too bright for a Monday.", "Cái xanh. Nó hợp với bộ vest xám của anh hơn. Cái đỏ hơi chói quá cho ngày thứ Hai."],
+    ["Michael", "You're right. Thanks. Have you seen my glasses? I can't find them anywhere.", "Em nói đúng. Cảm ơn em. Em có thấy kính của anh không? Anh tìm khắp nơi không thấy."],
+    ["Bella", "They're on the bookshelf in the living room, next to your book.", "Kính ở trên giá sách trong phòng khách, cạnh cuốn sách của anh."],
+    ["Michael", "Got them. What would I do without you? Are you having breakfast?", "Thấy rồi. Không có em anh biết làm sao? Em có ăn sáng không?"],
+    ["Bella", "Just a yogurt and a banana. I'm not very hungry in the mornings. But I'm making a sandwich for lunch. Do you want one too?", "Chỉ một hộp sữa chua và một quả chuối. Buổi sáng em không đói lắm. Nhưng em đang làm bánh mì kẹp cho bữa trưa. Anh có muốn một cái không?"],
+    ["Michael", "Yes, please, that would be great. Then I don't have to buy lunch near the office. It's so expensive there.", "Có, làm ơn, vậy thì tuyệt quá. Như vậy anh không phải mua đồ ăn trưa gần văn phòng. Ở đó đắt lắm."],
+    ["Bella", "Cheese and tomato okay?", "Phô mai và cà chua được không?"],
+    ["Michael", "Perfect. Oh no, it's seven fifty-five already. I need to go in five minutes.", "Hoàn hảo. Ôi không, đã bảy giờ năm mươi lăm rồi. Năm phút nữa anh phải đi."],
+    ["Bella", "Here's your sandwich. Don't forget your umbrella. The weather forecast says it will rain this afternoon.", "Bánh mì kẹp của anh đây. Đừng quên ô. Dự báo thời tiết nói chiều nay sẽ mưa."],
+    ["Michael", "Thanks. Keys, wallet, phone, glasses, sandwich, umbrella. I think I have everything.", "Cảm ơn em. Chìa khóa, ví, điện thoại, kính, bánh mì, ô. Anh nghĩ anh có đủ hết rồi."],
+    ["Bella", "And your work badge? You forgot it last Friday.", "Còn thẻ nhân viên của anh? Thứ Sáu tuần trước anh quên đấy."],
+    ["Michael", "Oh, good thinking. It's in my bag. Okay, I'm off. Have a good day, and good luck with your meetings!", "Ồ, em chu đáo quá. Nó ở trong túi rồi. Được rồi, anh đi đây. Chúc em một ngày tốt lành, và họp suôn sẻ nhé!"],
+    ["Bella", "Thanks. See you this evening! I'll cook dinner tonight, so don't be late.", "Cảm ơn anh. Tối gặp nhé! Tối nay em nấu cơm, nên anh đừng về muộn."]
+  ]
+}
