@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T03-L13`** (Topic 03 Restaurants & Ordering Food - A Birthday Dinner, mục tiêu 4:25). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T03-L19`** (Topic 03 Restaurants & Ordering Food - Recommending a Restaurant, mục tiêu 4:55). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -95,6 +95,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T03-L10 | Food Allergies and Special Requests | 4:10 | 4:18 | rồi | 2026-10-08 |
 | T03-L11 | The Wrong Order | 4:15 | 4:20 | rồi | 2026-10-08 |
 | T03-L12 | Splitting the Bill | 4:20 | 4:36 | rồi | 2026-10-08 |
+| T03-L13 | A Birthday Dinner | 4:25 | 4:18 | rồi | 2026-10-08 |
+| T03-L14 | Trying Local Food With a Friend | 4:30 | 4:16 | rồi | 2026-10-08 |
+| T03-L15 | Ordering Takeaway by Phone | 4:35 | 4:46 | rồi | 2026-10-08 |
+| T03-L16 | Choosing a Wine | 4:40 | 4:39 | rồi | 2026-10-08 |
+| T03-L17 | A Business Lunch | 4:45 | 4:37 | rồi | 2026-10-08 |
+| T03-L18 | At a Street Food Market | 4:50 | 4:53 | rồi | 2026-10-08 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 
