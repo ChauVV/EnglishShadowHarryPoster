@@ -5,10 +5,10 @@
 
 ## Nhiệm vụ mỗi lần chạy
 1. Đọc mục **PROGRESS** bên dưới -> biết bài tiếp theo (`NEXT`).
-2. Làm **3 lesson liên tiếp** bắt đầu từ `NEXT` (nếu hết topic thì sang topic kế, vẫn đủ 3 bài), theo danh sách trong [CONTENT_PLAN.md](CONTENT_PLAN.md).
+2. Làm **6 lesson liên tiếp** bắt đầu từ `NEXT` (nếu hết topic thì sang topic kế, vẫn đủ 6 bài), theo danh sách trong [CONTENT_PLAN.md](CONTENT_PLAN.md).
 3. Với mỗi lesson: viết kịch bản -> tạo audio -> kiểm tra thời lượng (xem "Làm một lesson").
-4. Sau khi cả 3 bài xong: **upload lên Drive** (xem "Upload lên Drive") và kiểm tra.
-5. Cập nhật file này: thêm 3 dòng vào bảng **LOG**, cập nhật **NEXT**. Chỉ ghi "đã lên Drive" khi lệnh upload đã báo thành công.
+4. Sau khi cả 6 bài xong: **upload lên Drive** (xem "Upload lên Drive") và kiểm tra.
+5. Cập nhật file này: thêm 6 dòng vào bảng **LOG**, cập nhật **NEXT**. Chỉ ghi "đã lên Drive" khi lệnh upload đã báo thành công.
 6. **Commit và push code** lên git (kịch bản `scripts/dialogues/*.json`, file này, và mọi thay đổi code đi kèm; không commit `generated/` hay `.english-shadowing/`). Người dùng đã yêu cầu luôn push sau mỗi lần làm xong lesson.
 7. Báo người dùng: đã làm bài nào, thời lượng thật, đã lên Drive chưa, NEXT là gì.
 
@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T01-L05`** (Topic 01 Travel & Airports - Asking for a Window Seat, mục tiêu 2:40). Topic 15 đã xong đủ 20 bài. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T01-L11`** (Topic 01 Travel & Airports - Going Through Customs, mục tiêu 4:15). Topic 15 đã xong đủ 20 bài. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -27,6 +27,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T01-L02 | Going Through Security | 2:10 | 2:10 | rồi | 2026-10-07 |
 | T01-L03 | Finding Your Gate | 2:20 | 2:20 | rồi | 2026-10-07 |
 | T01-L04 | Buying a Train Ticket | 2:30 | 2:31 | rồi | 2026-10-07 |
+| T01-L05 | Asking for a Window Seat | 2:40 | 2:33 | rồi | 2026-10-08 |
+| T01-L06 | Boarding the Plane | 2:50 | 2:56 | rồi | 2026-10-08 |
+| T01-L07 | Collecting Your Luggage | 3:00 | 2:56 | rồi | 2026-10-08 |
+| T01-L08 | Booking a Flight Online | 4:00 | 4:06 | rồi | 2026-10-08 |
+| T01-L09 | Lost Luggage at the Airport | 4:05 | 4:11 | rồi | 2026-10-08 |
+| T01-L10 | Flight Delayed - What Now? | 4:10 | 4:05 | rồi | 2026-10-08 |
 | T15-L01 | Opening a Bank Account | 2:00 | 2:05 | rồi | 2026-10-07 |
 | T15-L02 | Withdrawing Cash | 2:10 | 2:06 | rồi | 2026-10-07 |
 | T15-L03 | Checking Your Balance | 2:20 | 2:20 | rồi | 2026-10-07 |
@@ -61,7 +67,7 @@ Nguồn bài: [CONTENT_PLAN.md](CONTENT_PLAN.md) (danh sách 30 topic x 20 lesso
    - Nội dung: tiếng Anh tự nhiên, đúng tình huống tên bài, không trùng ý các bài khác cùng topic, không nhân vật hay thương hiệu có bản quyền, dịch Việt tự nhiên. Độ khó tăng dần theo số lesson (xem CONTENT_PLAN).
 2. **Audio**: `python scripts/make_dialogue.py scripts/dialogues/T01_L02.json generated`
    - Script in thời lượng thật. Phải nằm trong **±10 giây** so với mục tiêu; lệch thì thêm/bớt câu rồi chạy lại.
-   - Hệ số tham khảo: ~2.1 từ/giây (lượt ngắn ~9 từ) đến ~2.3 từ/giây (lượt dài ~14 từ). Bản nháp đầu thường bị NGẮN hơn mục tiêu 15-30 giây (lần T01-L02..L04 phải thêm ~40-90 từ): hãy viết dư ngay từ đầu, khoảng `mục tiêu(giây) x 2.15` từ, ưu tiên kéo dài lượt nói thay vì thêm quá nhiều lượt ngắn.
+   - Hệ số đo thực tế (T01-L05..L10, T15): **~2.3-2.45 từ/giây**, bài dài nhiều lượt dài ở mức cao. Viết ngay từ đầu khoảng `mục tiêu(giây) x 2.4` từ (vd 2:40 ≈ 385 từ, 4:00 ≈ 580 từ), ưu tiên kéo dài lượt nói thay vì thêm quá nhiều lượt ngắn. Viết theo hệ số cũ 2.15 thì bài bị ngắn 20-30 giây.
    - Kiểm tra kịch bản: không để 2 lượt liên tiếp cùng mở bằng một từ (vd "Good."), tên giọng khớp `speakers`.
    - Lần chạy đầu Kokoro tải model nên hơi chậm. Cần sẵn: `pip install kokoro soundfile` và ffmpeg (đã có trên máy này).
 3. Kết quả: `generated/Topic_<NN>_<Tên>/Lesson_<MM>_<Tên>/{audio.mp3, metadata.json}`.

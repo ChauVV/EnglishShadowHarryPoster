@@ -1,0 +1,39 @@
+{
+  "topic_number": 1,
+  "topic_title": "Travel & Airports",
+  "topic_title_vi": "Du lịch & sân bay",
+  "lesson_number": 5,
+  "lesson_title": "Asking for a Window Seat",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Sarah", "Excuse me. Is this the desk for the flight to Rome?", "Xin lỗi. Đây có phải quầy của chuyến bay đi Rome không?"],
+    ["Adam", "Yes, it is. Boarding starts in about forty minutes. How can I help?", "Đúng rồi. Khoảng bốn mươi phút nữa sẽ bắt đầu lên máy bay. Tôi có thể giúp gì?"],
+    ["Sarah", "I checked in online, but the website gave me a middle seat. I'd really like a window seat, if possible.", "Tôi đã làm thủ tục trực tuyến, nhưng trang web xếp cho tôi ghế giữa. Tôi rất muốn ghế cạnh cửa sổ, nếu được."],
+    ["Adam", "Sure, let me have a look. Can I see your boarding pass and passport, please?", "Được, để tôi xem. Cho tôi xem thẻ lên máy bay và hộ chiếu của bạn nhé?"],
+    ["Sarah", "Here you are. My seat is twenty-two B. I tried to change it on the app, but it didn't let me choose.", "Đây ạ. Ghế của tôi là 22B. Tôi đã thử đổi trên ứng dụng, nhưng nó không cho tôi chọn."],
+    ["Adam", "Yes, on this fare the app only lets you choose a seat if you pay. Here at the desk, we have a few more options.", "Vâng, với loại vé này, ứng dụng chỉ cho chọn ghế nếu trả phí. Ở quầy này, chúng tôi có thêm vài lựa chọn."],
+    ["Sarah", "That's good to know. I'll remember that for next time.", "Biết vậy thì tốt quá. Lần sau tôi sẽ nhớ."],
+    ["Adam", "Okay, let me see. Hmm, the flight is very full today. Most of the window seats are already taken.", "Được rồi, để tôi xem. Hừm, hôm nay chuyến bay rất đông. Hầu hết ghế cạnh cửa sổ đã có người rồi."],
+    ["Sarah", "Oh no. Is there anything at all? I don't mind sitting at the back of the plane. I just really love looking out of the window.", "Ôi không. Còn chỗ nào không ạ? Tôi không ngại ngồi ở cuối máy bay đâu. Tôi chỉ rất thích nhìn ra ngoài cửa sổ."],
+    ["Adam", "Let me check the back rows. Yes, there is one window seat left in row thirty-one.", "Để tôi kiểm tra các hàng cuối. Có, còn một ghế cạnh cửa sổ ở hàng ba mươi mốt."],
+    ["Sarah", "That's great! Is it next to the toilets?", "Tuyệt quá! Ghế đó có gần nhà vệ sinh không?"],
+    ["Adam", "It's two rows in front of them, so it might be a little busy. Also, the seat doesn't recline very much.", "Nó cách nhà vệ sinh hai hàng, nên có thể hơi đông người qua lại. Ngoài ra, ghế đó không ngả ra sau được nhiều."],
+    ["Sarah", "That's okay. It's only a two-hour flight. I just want to see the mountains when we fly over the Alps.", "Không sao đâu. Chuyến bay chỉ có hai tiếng. Tôi chỉ muốn ngắm núi khi bay qua dãy Alps."],
+    ["Adam", "I understand. The view is beautiful on a clear day, and the weather looks good today.", "Tôi hiểu. Vào ngày trời quang thì cảnh rất đẹp, và hôm nay thời tiết có vẻ tốt."],
+    ["Sarah", "Wonderful. Is there an extra charge for changing seats?", "Tuyệt vời. Đổi ghế có mất thêm phí không ạ?"],
+    ["Adam", "No, not for this one. Seats with extra legroom cost more, but this is a standard seat.", "Không, ghế này thì không. Ghế có thêm chỗ để chân thì đắt hơn, nhưng đây là ghế thường."],
+    ["Sarah", "Perfect. Then please change it for me.", "Hoàn hảo. Vậy anh đổi giúp tôi nhé."],
+    ["Adam", "All done. Your new seat is thirty-one F. Here is your new boarding pass.", "Xong rồi. Ghế mới của bạn là 31F. Đây là thẻ lên máy bay mới của bạn."],
+    ["Sarah", "Thank you so much. Should I throw away the old one?", "Cảm ơn anh rất nhiều. Tôi có nên vứt cái cũ đi không?"],
+    ["Adam", "Yes, please don't use it. The old seat is no longer yours, and the scanner will reject it.", "Vâng, xin đừng dùng nó nữa. Ghế cũ không còn là của bạn, và máy quét sẽ không chấp nhận nó."],
+    ["Sarah", "Got it. And since I'm at the back, will I board first?", "Tôi hiểu rồi. Vì tôi ngồi ở cuối, tôi có được lên máy bay trước không?"],
+    ["Adam", "Yes. We board from the back today, so you'll be in group two. Listen for the announcement.", "Có. Hôm nay chúng tôi cho lên từ cuối máy bay, nên bạn ở nhóm hai. Hãy chú ý nghe thông báo."],
+    ["Sarah", "Great. That means I'll have space for my bag in the overhead bin.", "Tuyệt. Vậy là tôi sẽ có chỗ để túi trên khoang hành lý phía trên."],
+    ["Adam", "Exactly. Is there anything else I can do for you?", "Chính xác. Tôi có thể giúp bạn gì thêm không?"],
+    ["Sarah", "No, that's everything. You've made my day!", "Không, vậy là đủ rồi. Anh làm tôi vui cả ngày đấy!"],
+    ["Adam", "You're welcome. Enjoy the view, and have a good flight.", "Không có gì. Chúc bạn ngắm cảnh vui và có chuyến bay tốt đẹp."]
+  ]
+}

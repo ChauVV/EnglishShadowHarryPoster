@@ -1,0 +1,43 @@
+{
+  "topic_number": 1,
+  "topic_title": "Travel & Airports",
+  "topic_title_vi": "Du lịch & sân bay",
+  "lesson_number": 7,
+  "lesson_title": "Collecting Your Luggage",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Finally, we're here! That was a long flight. Where do we get our bags?", "Cuối cùng cũng tới nơi! Chuyến bay dài thật. Mình lấy hành lý ở đâu nhỉ?"],
+    ["Jack", "We follow the signs for baggage claim. I think it's downstairs, after passport control.", "Mình đi theo biển chỉ dẫn đến khu nhận hành lý. Anh nghĩ nó ở tầng dưới, sau quầy kiểm tra hộ chiếu."],
+    ["Emma", "Okay. Let's go before the crowd gets there. I don't want to wait in a long line again.", "Được. Mình đi thôi trước khi mọi người kéo tới đông. Em không muốn xếp hàng dài thêm lần nữa."],
+    ["Jack", "Passport control was quick, so we should be fine. Do you have your passport back in your bag?", "Kiểm tra hộ chiếu nhanh mà, nên chắc ổn thôi. Em đã cất hộ chiếu vào túi chưa?"],
+    ["Emma", "Yes, it's safe in the front pocket. I always check twice.", "Rồi, nó nằm an toàn trong ngăn trước. Em luôn kiểm tra hai lần."],
+    ["Jack", "Look, there's a big screen. It shows the flight numbers and the carousels.", "Nhìn kìa, có một màn hình lớn. Nó hiển thị số chuyến bay và các băng chuyền."],
+    ["Emma", "Our flight number is BA two six eight. I can see it. Carousel number five.", "Số hiệu chuyến bay của mình là BA 268. Em thấy rồi. Băng chuyền số năm."],
+    ["Jack", "Great. Should we get a trolley? Our suitcases are quite heavy.", "Tuyệt. Mình có nên lấy xe đẩy không? Vali của mình khá nặng."],
+    ["Emma", "Yes, good idea. Do we need a coin for it?", "Có, ý hay đấy. Mình có cần đồng xu để lấy xe không?"],
+    ["Jack", "No, the trolleys here are free. I'll get one from over there.", "Không, xe đẩy ở đây miễn phí. Anh sẽ lấy một cái ở đằng kia."],
+    ["Emma", "The carousel isn't moving yet. How long do you think we'll wait?", "Băng chuyền vẫn chưa chạy. Anh nghĩ mình phải chờ bao lâu?"],
+    ["Jack", "Usually ten or fifteen minutes. The screen says the bags will arrive soon. They have to unload the whole plane first.", "Thường là mười hoặc mười lăm phút. Màn hình ghi là hành lý sắp ra rồi. Họ phải dỡ hết hàng trên máy bay trước."],
+    ["Emma", "Oh, it's starting now. Let's stand near the front so we can see the bags.", "Ồ, bắt đầu chạy rồi. Mình đứng gần phía đầu để nhìn thấy hành lý nhé."],
+    ["Jack", "What does your suitcase look like again? Black, right?", "Vali của em trông thế nào ấy nhỉ? Màu đen, đúng không?"],
+    ["Emma", "Yes, but almost every suitcase is black! Mine has a red ribbon on the handle.", "Đúng, nhưng gần như vali nào cũng màu đen! Vali của em có một dải ruy băng đỏ ở tay cầm."],
+    ["Jack", "Smart. Mine is the big blue one with a sticker from our last trip.", "Thông minh đấy. Vali của anh là cái màu xanh lớn có miếng dán từ chuyến đi lần trước."],
+    ["Emma", "There's a black one with a red ribbon. Wait, no, that's not mine. The ribbon is different.", "Có một cái màu đen với ruy băng đỏ kìa. Khoan, không, không phải của em. Ruy băng khác."],
+    ["Jack", "Always check the name tag before you take one. Someone else may have the same bag.", "Luôn kiểm tra thẻ tên trước khi lấy. Người khác có thể có cái túi giống hệt."],
+    ["Emma", "You're right. Oh, here comes your blue suitcase!", "Anh nói đúng. Ồ, vali xanh của anh tới kìa!"],
+    ["Jack", "Got it. It's heavy! Can you hold the trolley still for me?", "Lấy được rồi. Nặng quá! Em giữ chặt xe đẩy giúp anh được không?"],
+    ["Emma", "Sure. And now I see mine. Red ribbon, and my name is on the tag. Perfect.", "Được. Giờ em thấy vali của em rồi. Ruy băng đỏ, và tên em ở trên thẻ. Hoàn hảo."],
+    ["Jack", "Is everything okay with it? Check that nothing is broken.", "Nó có ổn không? Kiểm tra xem có gì bị hỏng không nhé."],
+    ["Emma", "One wheel looks a bit damaged, but it still works. I think it's fine.", "Một bánh xe trông hơi bị hỏng, nhưng vẫn chạy được. Em nghĩ là ổn."],
+    ["Jack", "If there's a big problem, you have to report it here, before you leave the airport.", "Nếu có vấn đề lớn, em phải báo ngay ở đây, trước khi rời sân bay."],
+    ["Emma", "Good to know. I'll take a photo of the wheel anyway, just in case. What about your guitar? It didn't come on the carousel.", "Tốt khi biết vậy. Dù sao em cũng sẽ chụp ảnh bánh xe lại, để phòng khi cần. Còn cây đàn guitar của anh thì sao? Nó không ra trên băng chuyền."],
+    ["Jack", "Large items go to a special counter called oversized baggage. It's next to carousel eight.", "Đồ cỡ lớn được chuyển đến một quầy riêng gọi là hành lý quá khổ. Nó nằm cạnh băng chuyền số tám."],
+    ["Emma", "Let's go there together. Then we can walk through customs.", "Mình cùng đến đó đi. Rồi mình đi qua hải quan."],
+    ["Jack", "There it is, and the case looks fine. Now we have everything.", "Nó đây rồi, và hộp đàn trông vẫn ổn. Giờ mình có đủ mọi thứ rồi."],
+    ["Emma", "Great. Let's find a taxi and go to the hotel. I'm so tired.", "Tuyệt. Mình tìm taxi rồi về khách sạn thôi. Em mệt quá."],
+    ["Jack", "Me too. But first, coffee. I can't think without coffee!", "Anh cũng vậy. Nhưng trước hết là cà phê. Không có cà phê anh không suy nghĩ được!"]
+  ]
+}
