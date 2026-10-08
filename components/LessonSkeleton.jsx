@@ -7,7 +7,8 @@ const bar = 'rounded-full bg-slate-200';
 export default function LessonSkeleton() {
   const { t } = useI18n();
   return (
-    <div className="min-h-screen animate-pulse bg-slate-50" role="status" aria-busy="true">
+    // Nền giữ đặc (không pulse), nếu không nền tối của body lộ ra khi pulse mờ đi
+    <div className="min-h-screen bg-slate-50 [&>header]:animate-pulse [&>main]:animate-pulse" role="status" aria-busy="true">
       <span className="sr-only">{t.loadingLesson}</span>
 
       <header className="border-b border-slate-200 bg-white/90">

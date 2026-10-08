@@ -356,7 +356,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
           </button>
         </div>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-2">
           {visible.map(({ topic, lessons }) => (
             <TopicRow key={topic.topic} topic={topic} lessons={lessons} gradient={COVERS[(topic.number - 1) % COVERS.length]} />
           ))}
@@ -423,8 +423,6 @@ function TopicTags({ topics, tag, onSelect }) {
   );
 }
 
-const SHORT_LESSON_MAX_SECONDS = 210; // bài ngắn 2-3 phút, bài dài 4-5 phút
-
 function TopicRow({ topic, lessons, gradient }) {
   const { t } = useI18n();
   const visited = useTopicProgress();
@@ -438,7 +436,7 @@ function TopicRow({ topic, lessons, gradient }) {
 
   return (
     <div id={`topic-${topic.topic}`} className="scroll-mt-28">
-      <div className="mb-3 flex items-center gap-3">
+      <div className="mb-2 flex items-center gap-3">
         <div className="min-w-0 flex-1">
           <h3 className="font-display text-lg sm:text-xl font-semibold leading-tight truncate">{topic.title}</h3>
           <p className="text-xs text-slate-500 truncate">
@@ -478,7 +476,6 @@ function TopicRow({ topic, lessons, gradient }) {
 function LessonCard({ lesson, gradient, coverSrc, done, href, onOpen }) {
   const { t } = useI18n();
   const [coverFailed, setCoverFailed] = useState(false); // topic chưa có ảnh bìa -> dùng ô gradient + số bài
-  const isShort = lesson.duration_seconds < SHORT_LESSON_MAX_SECONDS;
   return (
     <li className="w-44 sm:w-52 shrink-0 snap-start">
       <Link
@@ -512,9 +509,6 @@ function LessonCard({ lesson, gradient, coverSrc, done, href, onOpen }) {
           )}
         </span>
         <span className="mt-2 block text-sm font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lessonLabel(lesson.title)}</span>
-        <span className={`mt-1 inline-block rounded-full px-2 py-0.5 text-[11px] font-medium ${isShort ? 'bg-emerald-50 text-emerald-700' : 'bg-indigo-50 text-indigo-700'}`}>
-          {isShort ? t.shortTag : t.longTag}
-        </span>
       </Link>
     </li>
   );

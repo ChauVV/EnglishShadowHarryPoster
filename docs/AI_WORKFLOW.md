@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T01-L11`** (Topic 01 Travel & Airports - Going Through Customs, mục tiêu 4:15). Topic 15 đã xong đủ 20 bài. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T01-L17`** (Topic 01 Travel & Airports - A Long Train Journey, mục tiêu 4:45). Sau T01-L20 thì sang Topic 02. Topic 15 đã xong đủ 20 bài. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -33,6 +33,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T01-L08 | Booking a Flight Online | 4:00 | 4:06 | rồi | 2026-10-08 |
 | T01-L09 | Lost Luggage at the Airport | 4:05 | 4:11 | rồi | 2026-10-08 |
 | T01-L10 | Flight Delayed - What Now? | 4:10 | 4:05 | rồi | 2026-10-08 |
+| T01-L11 | Going Through Customs | 4:15 | 4:08 | rồi | 2026-10-08 |
+| T01-L12 | Renting a Car Abroad | 4:20 | 4:26 | rồi | 2026-10-08 |
+| T01-L13 | Planning a Week in Japan | 4:25 | 4:17 | rồi | 2026-10-08 |
+| T01-L14 | Changing Money at the Airport | 4:30 | 4:24 | rồi | 2026-10-08 |
+| T01-L15 | Missing a Connecting Flight | 4:35 | 4:30 | rồi | 2026-10-08 |
+| T01-L16 | Taking a Taxi From the Airport | 4:40 | 4:42 | rồi | 2026-10-08 |
 | T15-L01 | Opening a Bank Account | 2:00 | 2:05 | rồi | 2026-10-07 |
 | T15-L02 | Withdrawing Cash | 2:10 | 2:06 | rồi | 2026-10-07 |
 | T15-L03 | Checking Your Balance | 2:20 | 2:20 | rồi | 2026-10-07 |
@@ -65,12 +71,18 @@ Nguồn bài: [CONTENT_PLAN.md](CONTENT_PLAN.md) (danh sách 30 topic x 20 lesso
    - `speakers`: tên -> giọng Kokoro. Đa dạng giọng theo số lesson M: `M % 3 == 1`: Emma `af_heart` + Jack `am_michael`; `== 2`: Sarah `af_sarah` + Adam `am_adam`; `== 0`: Bella `af_bella` + Michael `am_michael`. Hội thoại (D) = 2 người 1 nam 1 nữ; độc thoại (M) = 1 người. Giọng nào lỗi thì đổi `af_heart`/`am_michael`.
    - `lines`: `[người nói, câu tiếng Anh, bản dịch tiếng Việt]`. Mỗi dòng 1 lượt nói (1-3 câu ngắn).
    - Nội dung: tiếng Anh tự nhiên, đúng tình huống tên bài, không trùng ý các bài khác cùng topic, không nhân vật hay thương hiệu có bản quyền, dịch Việt tự nhiên. Độ khó tăng dần theo số lesson (xem CONTENT_PLAN).
-2. **Audio**: `python scripts/make_dialogue.py scripts/dialogues/T01_L02.json generated`
-   - Script in thời lượng thật. Phải nằm trong **±10 giây** so với mục tiêu; lệch thì thêm/bớt câu rồi chạy lại.
-   - Hệ số đo thực tế (T01-L05..L10, T15): **~2.3-2.45 từ/giây**, bài dài nhiều lượt dài ở mức cao. Viết ngay từ đầu khoảng `mục tiêu(giây) x 2.4` từ (vd 2:40 ≈ 385 từ, 4:00 ≈ 580 từ), ưu tiên kéo dài lượt nói thay vì thêm quá nhiều lượt ngắn. Viết theo hệ số cũ 2.15 thì bài bị ngắn 20-30 giây.
-   - Kiểm tra kịch bản: không để 2 lượt liên tiếp cùng mở bằng một từ (vd "Good."), tên giọng khớp `speakers`.
+2. **VIẾT ĐỦ DÀI NGAY TỪ ĐẦU, chỉ tạo audio 1 lần** (người dùng yêu cầu: tạo audio -> thấy ngắn -> thêm câu -> tạo lại tốn gấp đôi thời gian).
+   - Số từ cần viết = `(mục tiêu giây + 10) x hệ số của cặp giọng`. Hệ số đo thực tế (T01-L05..L16):
+     - Sarah/Adam (`M % 3 == 2`): **2.55 từ/giây** (đọc nhanh nhất)
+     - Emma/Jack (`M % 3 == 1`): **2.45 từ/giây**
+     - Bella/Michael (`M % 3 == 0`): **2.35 từ/giây** (đọc chậm nhất)
+     - Ví dụ: 4:15 Sarah/Adam -> (255+10) x 2.55 ≈ 675 từ; 2:40 Bella/Michael -> 170 x 2.35 ≈ 400 từ.
+   - **Đếm số từ TRƯỚC khi tạo audio** (đoạn python ngắn đếm `len(câu.split())`, kiểm tra luôn: không 2 lượt liền cùng người nói, không 2 lượt liền mở bằng cùng một từ, tên khớp `speakers`). Thiếu thì viết thêm ngay, chưa chạy audio.
+   - Ưu tiên kéo dài lượt nói (câu dài, có chi tiết) hơn là thêm nhiều lượt ngắn.
+3. **Audio**: `python scripts/make_dialogue.py scripts/dialogues/T01_L02.json generated` (chạy cả 6 bài trong một lệnh nền, mất ~2 phút/bài).
+   - Script in thời lượng thật. **Chấp nhận từ -10 đến +20 giây** so với mục tiêu: dài hơn một chút là được, KHÔNG tạo lại. Chỉ tạo lại khi ngắn hơn quá 10 giây hoặc dài hơn quá 20 giây.
    - Lần chạy đầu Kokoro tải model nên hơi chậm. Cần sẵn: `pip install kokoro soundfile` và ffmpeg (đã có trên máy này).
-3. Kết quả: `generated/Topic_<NN>_<Tên>/Lesson_<MM>_<Tên>/{audio.mp3, metadata.json}`.
+4. Kết quả: `generated/Topic_<NN>_<Tên>/Lesson_<MM>_<Tên>/{audio.mp3, metadata.json}`.
 
 ## Upload lên Drive
 
@@ -108,5 +120,4 @@ Web: trang chủ liệt kê topic từ `catalog.json`; mở một bài mới t�
 ## Ghi chú kỹ thuật
 - Mã nguồn liên quan: `lib/topics.js`, `app/api/topics/route.js`, `app/api/topic-audio/[topic]/[lesson]/route.js`, `app/topic/...`.
 - Slug URL tạo từ `topic_title` (ví dụ `travel-and-airports`), bài là số thứ tự: `/topic/travel-and-airports/2`.
-- Bài ngắn / dài trên web tách theo thời lượng 3:30 (210 giây).
 - Giọng đọc: Kokoro (Apache 2.0, miễn phí, dùng thương mại được).
