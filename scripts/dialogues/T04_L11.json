@@ -1,0 +1,40 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 11,
+  "lesson_title": "Buying a Gift",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Adam", "Good afternoon. You look a little lost. Can I help you find something?", "Chào buổi chiều. Trông chị có vẻ hơi bối rối. Tôi có thể giúp chị tìm gì không?"],
+    ["Sarah", "Yes, please. I'm looking for a birthday present for my father, and I have no idea what to buy. He always says he doesn't need anything, which makes it really difficult.", "Vâng, làm ơn. Tôi đang tìm quà sinh nhật cho bố, và tôi không biết mua gì. Bố tôi lúc nào cũng nói ông không cần gì, nên khó chọn lắm."],
+    ["Adam", "Ah, that's a very common problem with fathers! Let's think together. How old is he, and what does he enjoy doing in his free time?", "À, đó là vấn đề rất phổ biến với các ông bố! Mình cùng suy nghĩ nhé. Bác bao nhiêu tuổi, và lúc rảnh bác thích làm gì?"],
+    ["Sarah", "He's turning sixty-five, and he's just retired. He loves gardening, reading history books, and going for long walks with the dog. Oh, and he's started cooking since he retired, which surprised all of us.", "Bố tôi sắp sáu mươi lăm tuổi, và vừa nghỉ hưu. Ông thích làm vườn, đọc sách lịch sử, và đi dạo đường dài với con chó. À, và từ khi nghỉ hưu ông bắt đầu nấu ăn, điều làm cả nhà bất ngờ."],
+    ["Adam", "That gives us some good ideas. Do you have a budget in mind?", "Vậy là có vài ý hay rồi. Chị đã có ngân sách dự tính chưa?"],
+    ["Sarah", "Around one hundred dollars, maybe a little more if it's something really special. It's a big birthday, after all.", "Khoảng một trăm đô, có thể hơn một chút nếu là món thật đặc biệt. Dù sao cũng là sinh nhật lớn mà."],
+    ["Adam", "Okay. For someone who walks a lot, a good waterproof jacket is always useful. We have a lovely one in our outdoor section for ninety-five dollars. It's light, warm, and has lots of pockets.", "Được ạ. Với người đi bộ nhiều, một chiếc áo khoác chống nước tốt luôn hữu ích. Chúng tôi có một chiếc rất đẹp ở khu đồ dã ngoại giá chín mươi lăm đô. Nhẹ, ấm, và có nhiều túi."],
+    ["Sarah", "That's practical, but he already has three jackets. My mother would kill me if I bought another one!", "Thiết thực đấy, nhưng bố tôi đã có ba chiếc áo khoác rồi. Mẹ tôi sẽ giết tôi nếu tôi mua thêm một chiếc nữa!"],
+    ["Adam", "Fair enough, we don't want any family arguments! What about a history book? We have a beautiful illustrated book about ancient Rome for forty-five dollars. Or what about his garden? We have a beautiful set of gardening tools with wooden handles, in a leather bag. They're made to last a lifetime.", "Cũng phải, mình không muốn gia đình cãi nhau! Thế còn một cuốn sách lịch sử thì sao? Chúng tôi có một cuốn sách minh họa rất đẹp về La Mã cổ đại giá bốn mươi lăm đô. Hoặc còn khu vườn của bác thì sao? Chúng tôi có một bộ dụng cụ làm vườn rất đẹp với cán gỗ, đựng trong túi da. Chúng được làm để dùng cả đời."],
+    ["Sarah", "He has more history books than he can read, honestly. But the garden idea is interesting. Oh, those tools are lovely. How much is the set?", "Thật ra bố tôi có nhiều sách lịch sử đến mức đọc không hết. Nhưng ý tưởng về khu vườn thì hay đấy. Ồ, bộ dụng cụ đó đẹp quá. Bộ đó giá bao nhiêu?"],
+    ["Adam", "It's one hundred and ten dollars. It includes a small spade, a fork, pruning scissors, and a pair of leather gloves.", "Một trăm mười đô. Gồm một xẻng nhỏ, một chĩa xới, kéo tỉa cây, và một đôi găng tay da."],
+    ["Sarah", "I really like that. His old tools are falling apart, and he keeps saying he'll buy new ones, but he never does.", "Tôi rất thích bộ này. Đồ làm vườn cũ của bố đã hỏng gần hết, và ông cứ nói sẽ mua mới, nhưng chẳng bao giờ mua."],
+    ["Adam", "Then it's perfect. People often don't buy things for themselves, even when they need them. That's what makes a gift special.", "Vậy thì hoàn hảo. Người ta thường không tự mua đồ cho mình, kể cả khi cần. Đó chính là điều làm nên một món quà đặc biệt."],
+    ["Sarah", "Is the quality really good? I don't want them to break after one summer.", "Chất lượng có thật sự tốt không anh? Tôi không muốn chúng hỏng sau một mùa hè."],
+    ["Adam", "They're made by a small company that's been making garden tools for over a hundred years. They come with a ten-year guarantee, so if anything breaks, they'll replace it for free.", "Chúng được làm bởi một công ty nhỏ đã sản xuất dụng cụ làm vườn hơn một trăm năm. Có bảo hành mười năm, nên nếu có gì hỏng, họ sẽ thay miễn phí."],
+    ["Sarah", "Ten years, that's impressive. Can I see the gloves? I'm worried about the size. He has quite big hands.", "Mười năm, ấn tượng thật. Cho tôi xem đôi găng tay được không? Tôi lo về cỡ. Tay bố tôi khá to."],
+    ["Adam", "These are size large. If they don't fit, he can exchange just the gloves for a different size. He doesn't have to return the whole set.", "Đây là cỡ lớn. Nếu không vừa, bác có thể đổi riêng đôi găng sang cỡ khác. Không cần trả lại cả bộ."],
+    ["Sarah", "That's good to know. I'll take it. Do you offer gift wrapping?", "Biết vậy thì tốt. Tôi lấy bộ này. Ở đây có dịch vụ gói quà không?"],
+    ["Adam", "Yes, we do. It's three dollars, and you can choose the paper. We have green, gold, or this one with little birds on it.", "Có ạ. Giá ba đô, và chị có thể chọn giấy. Chúng tôi có màu xanh lá, vàng kim, hoặc loại có hình mấy chú chim nhỏ này."],
+    ["Sarah", "The birds are perfect for a gardener. And could you add a card? I'd like to write a message.", "Hình chim hợp với người làm vườn lắm. Và anh thêm một tấm thiệp được không? Tôi muốn viết lời chúc."],
+    ["Adam", "Of course. Here's a card and a pen. Take your time. Would you also like a gift receipt, in case he wants to exchange anything?", "Dĩ nhiên rồi. Đây là thiệp và bút. Chị cứ thong thả. Chị có muốn thêm hóa đơn quà tặng, phòng khi bác muốn đổi gì không?"],
+    ["Sarah", "Yes, please, but without the price on it. My father hates it when we spend money on him, so it's better if he doesn't know.", "Vâng, làm ơn, nhưng đừng ghi giá. Bố tôi ghét việc chúng tôi tiêu tiền cho ông, nên tốt hơn là ông không biết."],
+    ["Adam", "That's exactly what a gift receipt is. It shows the items, but not the price. I'll put it inside the box.", "Hóa đơn quà tặng đúng là như vậy. Nó ghi các món, nhưng không ghi giá. Tôi sẽ để nó trong hộp."],
+    ["Sarah", "Perfect. I've written the card. 'Happy sixty-fifth birthday, Dad. Now you have time for the garden, and the right tools too!'", "Hoàn hảo. Tôi viết thiệp xong rồi. 'Chúc mừng sinh nhật sáu mươi lăm tuổi, bố. Giờ bố có thời gian cho khu vườn, và có cả đồ nghề xịn nữa!'"],
+    ["Adam", "That's lovely. I'm sure he'll be very touched. So, that's one hundred and ten for the set, and three for the wrapping. One hundred and thirteen dollars, please.", "Hay quá. Tôi chắc bác sẽ rất xúc động. Vậy là một trăm mười tiền bộ dụng cụ, và ba đô tiền gói quà. Tổng cộng một trăm mười ba đô."],
+    ["Sarah", "Here's my card. And thank you for your patience. I came in with no ideas, and I'm leaving with the perfect present. I'll definitely come back for my mother's birthday in March.", "Thẻ của tôi đây. Và cảm ơn anh đã kiên nhẫn. Tôi vào đây không có ý tưởng gì, và ra về với món quà hoàn hảo. Tháng Ba sinh nhật mẹ tôi, tôi chắc chắn sẽ quay lại."],
+    ["Adam", "That's my favorite kind of customer. I hope your father has a wonderful birthday.", "Đó là kiểu khách hàng tôi thích nhất. Chúc bác có một sinh nhật thật tuyệt vời."]
+  ]
+}

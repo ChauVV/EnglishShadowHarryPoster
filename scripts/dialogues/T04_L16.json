@@ -1,0 +1,43 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 16,
+  "lesson_title": "Shopping for a Wedding Outfit",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Emma", "Jack, thank you for coming with me. My cousin's wedding is in three weeks, and I still have nothing to wear. I'm starting to panic.", "Jack, cảm ơn anh đã đi cùng em. Ba tuần nữa là đám cưới em họ em, mà em vẫn chưa có gì để mặc. Em bắt đầu hoảng rồi."],
+    ["Jack", "Don't panic, we have plenty of time. And I need a new suit anyway, so we can help each other. What did the invitation say about the dress code?", "Đừng hoảng, mình còn nhiều thời gian. Mà dù sao anh cũng cần một bộ vest mới, nên mình giúp nhau. Thiệp mời ghi gì về quy định trang phục?"],
+    ["Emma", "It says 'smart and colorful'. The wedding is in a garden in the afternoon, and then dinner and dancing in the evening.", "Thiệp ghi 'lịch sự và nhiều màu sắc'. Đám cưới tổ chức ở một khu vườn vào buổi chiều, rồi ăn tối và khiêu vũ vào buổi tối."],
+    ["Jack", "Colorful, so no black. And in a garden, you'll want shoes you can walk on grass with. High heels will sink into the ground.", "Nhiều màu sắc, vậy là không mặc đen. Và ở khu vườn, em nên chọn giày đi được trên cỏ. Giày cao gót sẽ lún xuống đất."],
+    ["Emma", "Good point. I hadn't thought of that. Let's look at dresses first. What do you think of this blue one?", "Ý hay. Em chưa nghĩ đến điều đó. Mình xem váy trước nhé. Anh thấy chiếc màu xanh này thế nào?"],
+    ["Jack", "It's pretty, but isn't it a bit too similar to the bridesmaids? You said they're wearing light blue.", "Đẹp đấy, nhưng có hơi giống phù dâu quá không? Em nói họ mặc màu xanh nhạt mà."],
+    ["Emma", "Oh no, you're right. I don't want to look like I'm part of the wedding party. What about this one, the green with small yellow flowers?", "Ôi không, anh nói đúng. Em không muốn trông như mình là người trong đoàn đám cưới. Còn chiếc này thì sao, màu xanh lá có hoa vàng nhỏ?"],
+    ["Jack", "Now that's perfect for a garden wedding. It's colorful, but not too bright. And the most important rule: it's definitely not white.", "Giờ thì hoàn hảo cho một đám cưới ngoài vườn. Nhiều màu sắc, nhưng không quá chói. Và quy tắc quan trọng nhất: chắc chắn không phải màu trắng."],
+    ["Emma", "Ha! Never wear white to someone else's wedding. Let me try it on.", "Ha! Đừng bao giờ mặc màu trắng đến đám cưới người khác. Để em mặc thử."],
+    ["Jack", "Take your time. I'll look at the suits while you're in the fitting room. Call me if you need a different size, and I'll ask the assistant.", "Em cứ thong thả. Anh sẽ xem vest trong lúc em ở phòng thử đồ. Cần cỡ khác thì gọi anh, anh sẽ nhờ nhân viên."],
+    ["Emma", "Okay, what do you think? Be honest.", "Được rồi, anh thấy sao? Nói thật nhé."],
+    ["Jack", "Honestly? It looks beautiful. The color really suits you. How does it feel? Can you sit down and dance in it?", "Thật lòng à? Đẹp lắm. Màu đó rất hợp với em. Em cảm thấy thế nào? Em ngồi và khiêu vũ được không?"],
+    ["Emma", "Good question. Let me try. Sitting is fine, and the skirt moves well when I turn around. But it's a bit long. It touches the floor.", "Câu hỏi hay. Để em thử. Ngồi thì ổn, và chân váy xòe đẹp khi em xoay người. Nhưng hơi dài. Chạm cả xuống sàn."],
+    ["Jack", "With heels, it might be okay, but you need flat shoes for the garden. You could ask the shop to shorten it.", "Mang giày cao gót thì có thể ổn, nhưng em cần giày đế bằng cho khu vườn. Em có thể nhờ cửa hàng sửa ngắn lại."],
+    ["Emma", "Let me ask the assistant. She says they can shorten it in one week, for fifteen dollars. The dress is one hundred and forty, so the total is one hundred and fifty-five.", "Để em hỏi nhân viên. Cô ấy nói họ có thể sửa ngắn trong một tuần, với giá mười lăm đô. Váy giá một trăm bốn mươi, vậy tổng là một trăm năm mươi lăm."],
+    ["Jack", "That's reasonable for a dress you'll wear again. You could wear it to summer parties too.", "Hợp lý cho một chiếc váy em sẽ mặc lại. Em có thể mặc nó đi tiệc mùa hè nữa."],
+    ["Emma", "Exactly, that's what I like about it. I hate buying something expensive that I only wear once. Now, your turn. Did you find a suit?", "Chính xác, đó là điều em thích ở nó. Em ghét mua món đắt tiền mà chỉ mặc một lần. Giờ đến lượt anh. Anh tìm được vest chưa?"],
+    ["Jack", "I found two I like. A navy one and a light gray one. Which do you think is better for a summer wedding?", "Anh tìm được hai bộ anh thích. Một bộ xanh navy và một bộ xám nhạt. Em nghĩ bộ nào hợp với đám cưới mùa hè hơn?"],
+    ["Emma", "Light gray, definitely. Navy is a bit serious, like going to an office. Gray feels more relaxed and summery. What's it made of?", "Xám nhạt, chắc chắn. Xanh navy hơi nghiêm, như đi làm văn phòng. Xám thì thoải mái và đậm chất mùa hè hơn. Nó làm bằng chất liệu gì?"],
+    ["Jack", "It's a mix of wool and linen, so it's light, and it won't be too hot in the sun.", "Len pha vải lanh, nên nhẹ, và sẽ không quá nóng dưới nắng."],
+    ["Emma", "Perfect. Try it on. And you'll need a tie. Something with a bit of color, to match the dress code.", "Hoàn hảo. Anh mặc thử đi. Và anh sẽ cần một chiếc cà vạt. Thứ gì đó có chút màu sắc, cho hợp với quy định trang phục."],
+    ["Jack", "How about this one? It's dark green, so it matches your dress. We'd look like a team.", "Chiếc này thì sao? Màu xanh lá đậm, nên hợp với váy của em. Mình sẽ trông như một đội."],
+    ["Emma", "Ha, maybe a bit too matching! But it does look good. Okay, the suit fits you well. Are the trousers the right length?", "Ha, có lẽ hơi hợp quá! Nhưng đúng là đẹp. Được rồi, bộ vest vừa với anh đấy. Quần có đúng độ dài không?"],
+    ["Jack", "They're perfect. And the jacket is comfortable across the shoulders. The suit is two hundred and twenty, and the tie is thirty-five. It's more than I wanted to spend, but I'll wear the suit to work events too.", "Hoàn hảo. Và áo vest thoải mái ở vai. Bộ vest giá hai trăm hai mươi, còn cà vạt ba mươi lăm. Nhiều hơn số anh định tiêu, nhưng anh sẽ mặc bộ vest này đi cả các sự kiện công việc."],
+    ["Emma", "Now shoes. For you, brown leather shoes would look great with gray. For me, something flat and comfortable, maybe in yellow, to match the flowers.", "Giờ đến giày. Với anh, giày da nâu sẽ rất hợp với màu xám. Với em, thứ gì đó đế bằng và thoải mái, có lẽ màu vàng, cho hợp với hoa."],
+    ["Jack", "The shoe department is downstairs. And after that, we should buy the wedding present. Did your cousin make a gift list?", "Khu giày ở tầng dưới. Và sau đó, mình nên mua quà cưới. Em họ em có lập danh sách quà không?"],
+    ["Emma", "Yes, but most of the gifts are already taken. They also said that a contribution to their honeymoon would be very welcome.", "Có, nhưng hầu hết quà đã có người chọn rồi. Họ cũng nói rằng góp tiền cho tuần trăng mật sẽ rất được hoan nghênh."],
+    ["Jack", "That's easy, and probably more useful than another set of glasses. Let's do that, and write them a nice card.", "Vậy thì dễ, mà có lẽ còn hữu ích hơn một bộ ly nữa. Mình làm vậy đi, và viết cho họ một tấm thiệp thật hay."],
+    ["Emma", "Agreed. Thank you, Jack. I came in panicking, and now I'm actually excited about the wedding. I can't wait to see my cousin's face when she sees us all dressed up.", "Đồng ý. Cảm ơn anh, Jack. Em đến đây trong hoảng loạn, và giờ em thật sự háo hức với đám cưới. Em nóng lòng muốn thấy vẻ mặt em họ khi thấy cả nhà diện đồ đẹp."],
+    ["Jack", "That's what friends are for. Now, let's find you some shoes you can dance in all night.", "Bạn bè là để làm vậy mà. Giờ mình đi tìm cho em một đôi giày có thể khiêu vũ suốt đêm."]
+  ]
+}

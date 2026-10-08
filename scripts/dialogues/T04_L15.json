@@ -1,0 +1,42 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 15,
+  "lesson_title": "Comparing Two Phones in a Store",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Hi there. Are you looking for a new phone today?", "Chào chị. Hôm nay chị đang tìm điện thoại mới à?"],
+    ["Bella", "Yes. My old phone is four years old, and the battery dies by lunchtime. I've narrowed it down to these two, but I can't decide.", "Vâng. Điện thoại cũ của tôi đã bốn năm, và đến giờ trưa là hết pin. Tôi đã thu hẹp còn hai chiếc này, nhưng không quyết được."],
+    ["Michael", "Good choices. Both are very popular. The first one is the newest model, and the second one came out last year. Before I explain the differences, what do you mainly use your phone for?", "Lựa chọn tốt. Cả hai đều rất được ưa chuộng. Chiếc thứ nhất là mẫu mới nhất, còn chiếc thứ hai ra mắt năm ngoái. Trước khi tôi giải thích sự khác nhau, chị chủ yếu dùng điện thoại để làm gì?"],
+    ["Bella", "Messages, emails, a bit of social media, and lots of photos of my kids. I also use banking apps a lot for work.", "Nhắn tin, email, một chút mạng xã hội, và chụp thật nhiều ảnh các con. Tôi cũng dùng ứng dụng ngân hàng rất nhiều cho công việc."],
+    ["Michael", "Okay. Then the camera and the battery are probably the most important things for you. Let's compare those first, and then we can talk about price and payment options.", "Được ạ. Vậy có lẽ máy ảnh và pin là quan trọng nhất với chị. Mình so sánh hai thứ đó trước, rồi nói đến giá và các cách thanh toán."],
+    ["Bella", "Please. How long does the battery last on each one?", "Vâng. Pin của mỗi chiếc dùng được bao lâu?"],
+    ["Michael", "With normal use, the new model lasts about a day and a half. The older model lasts about one full day. Both are much better than your current phone.", "Dùng bình thường, mẫu mới dùng được khoảng một ngày rưỡi. Mẫu cũ hơn dùng được khoảng trọn một ngày. Cả hai đều tốt hơn nhiều so với điện thoại hiện tại của chị."],
+    ["Bella", "And the cameras? I take a lot of photos indoors, and my kids never stay still.", "Còn máy ảnh? Tôi chụp nhiều ảnh trong nhà, mà bọn trẻ thì không bao giờ ngồi yên."],
+    ["Michael", "The new one has a better camera in low light, and it's faster at taking photos of moving things. But honestly, for most people, the difference is quite small. Here, try them both. Take a photo of that display over there.", "Mẫu mới có máy ảnh tốt hơn trong điều kiện thiếu sáng, và chụp vật chuyển động nhanh hơn. Nhưng thật lòng, với phần lớn mọi người, sự khác biệt khá nhỏ. Đây, chị thử cả hai. Chụp quầy trưng bày đằng kia xem."],
+    ["Bella", "Hmm. The new one is a little brighter, but I can't see a big difference. What about the price?", "Hừm. Mẫu mới sáng hơn một chút, nhưng tôi không thấy khác biệt lớn. Còn giá thì sao?"],
+    ["Michael", "The new model is one thousand and fifty dollars. The older model is seven hundred and fifty, because the price dropped when the new one came out.", "Mẫu mới giá một nghìn không trăm năm mươi đô. Mẫu cũ hơn là bảy trăm năm mươi, vì giá đã giảm khi mẫu mới ra mắt."],
+    ["Bella", "That's a three-hundred-dollar difference. For a slightly better camera and half a day of battery, that seems like a lot.", "Chênh lệch ba trăm đô. Chỉ vì máy ảnh tốt hơn chút và thêm nửa ngày pin, có vẻ nhiều quá."],
+    ["Michael", "Many customers feel the same. Another thing to consider is storage. Both have one hundred and twenty-eight gigabytes. With lots of photos, you might want more, or you could use cloud storage.", "Nhiều khách cũng nghĩ vậy. Một điều nữa cần cân nhắc là dung lượng lưu trữ. Cả hai đều có một trăm hai mươi tám gigabyte. Chụp nhiều ảnh thì chị có thể cần nhiều hơn, hoặc chị có thể dùng lưu trữ đám mây."],
+    ["Bella", "I already pay for cloud storage, so that's fine. How long will each phone get security updates? That's important for my banking apps.", "Tôi đã trả tiền lưu trữ đám mây rồi, nên không sao. Mỗi chiếc được cập nhật bảo mật trong bao lâu? Điều đó quan trọng với các ứng dụng ngân hàng của tôi."],
+    ["Michael", "That's a very smart question. The new model will get updates for about seven years, and the older one for about six. So both are safe for a long time.", "Đó là câu hỏi rất thông minh. Mẫu mới sẽ được cập nhật khoảng bảy năm, còn mẫu cũ hơn khoảng sáu năm. Nên cả hai đều an toàn trong thời gian dài."],
+    ["Bella", "Good. Now, I saw a sign saying I can pay monthly. How does that work?", "Tốt. Tôi thấy biển ghi có thể trả góp hàng tháng. Cách đó hoạt động thế nào?"],
+    ["Michael", "You can pay over twenty-four months. For the older model, that's about thirty-four dollars a month, with zero percent interest.", "Chị có thể trả trong hai mươi bốn tháng. Với mẫu cũ hơn, khoảng ba mươi bốn đô mỗi tháng, lãi suất không phần trăm."],
+    ["Bella", "Zero percent? Is there really no extra cost? Thirty-four times twenty-four is about eight hundred and sixteen, not seven hundred and fifty.", "Không phần trăm à? Thật sự không có chi phí thêm sao? Ba mươi bốn nhân hai mươi bốn là khoảng tám trăm mười sáu, không phải bảy trăm năm mươi."],
+    ["Michael", "You're right to check. There's no interest, but there's a set-up fee of sixty-six dollars, which is added to the monthly payments. That's why the total is higher.", "Chị kiểm tra là đúng. Không có lãi, nhưng có phí khởi tạo sáu mươi sáu đô, được cộng vào các khoản trả hàng tháng. Thế nên tổng cộng cao hơn."],
+    ["Bella", "So it's not really free. That's almost nine percent more. I'd rather pay the full amount now. I have the money saved.", "Vậy thực ra không miễn phí. Như vậy là cao hơn gần chín phần trăm. Tôi thà trả hết ngay bây giờ. Tôi có tiền để dành sẵn."],
+    ["Michael", "That's definitely the cheapest option. If you pay in full today, I can also include a case and a screen protector for free.", "Đó chắc chắn là lựa chọn rẻ nhất. Nếu chị trả hết hôm nay, tôi cũng có thể tặng kèm ốp lưng và miếng dán màn hình."],
+    ["Bella", "Nice, that's a good deal. And can you help me move my photos and contacts from my old phone?", "Tốt quá, hời đấy. Và anh có thể giúp tôi chuyển ảnh và danh bạ từ điện thoại cũ không?"],
+    ["Michael", "Of course. It takes about thirty minutes. You can wait here, or come back later.", "Dĩ nhiên rồi. Mất khoảng ba mươi phút. Chị có thể đợi ở đây, hoặc quay lại sau."],
+    ["Bella", "I'll get a coffee and come back. And what should I do with my old phone? It still works, but I don't want to keep it in a drawer forever.", "Tôi đi uống cà phê rồi quay lại. Còn điện thoại cũ thì tôi nên làm gì? Nó vẫn chạy, nhưng tôi không muốn để nó mãi trong ngăn kéo."],
+    ["Michael", "We have a trade-in program. Your old phone is worth about sixty dollars, so I can take that off the price, after we've moved your data and erased everything.", "Chúng tôi có chương trình thu cũ đổi mới. Điện thoại cũ của chị trị giá khoảng sáu mươi đô, nên tôi có thể trừ vào giá, sau khi đã chuyển dữ liệu và xóa sạch mọi thứ."],
+    ["Bella", "Even better. So that's seven hundred and fifty, minus sixty, which is six hundred and ninety dollars. That's much better than I expected when I walked in.", "Càng tốt. Vậy là bảy trăm năm mươi trừ sáu mươi, còn sáu trăm chín mươi đô. Tốt hơn nhiều so với tôi nghĩ lúc bước vào."],
+    ["Michael", "Exactly. You've made a very sensible choice.", "Chính xác. Chị đã có lựa chọn rất hợp lý."],
+    ["Bella", "Thanks for being honest about the differences. A lot of salespeople just push the most expensive one.", "Cảm ơn anh đã nói thật về sự khác nhau. Nhiều người bán hàng chỉ cố đẩy chiếc đắt nhất."],
+    ["Michael", "I'd rather you were happy with your phone and came back next time. See you in thirty minutes!", "Tôi muốn chị hài lòng với điện thoại và lần sau quay lại. Hẹn gặp chị sau ba mươi phút!"]
+  ]
+}
