@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T04-L05`** (Topic 04 Shopping & Clothes - Finding the Fitting Room, mục tiêu 2:40). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T04-L11`** (Topic 04 Shopping & Clothes - Buying a Gift, mục tiêu 4:15). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -107,6 +107,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T04-L02 | Looking for a Size | 2:10 | 2:10 | rồi | 2026-10-08 |
 | T04-L03 | Trying on a Shirt | 2:20 | 2:31 | rồi | 2026-10-08 |
 | T04-L04 | Paying at the Cash Register | 2:30 | 2:36 | rồi | 2026-10-08 |
+| T04-L05 | Finding the Fitting Room | 2:40 | 2:35 | rồi | 2026-10-08 |
+| T04-L06 | Buying Groceries | 2:50 | 2:50 | rồi | 2026-10-08 |
+| T04-L07 | Asking for a Bag | 3:00 | 2:54 | rồi | 2026-10-08 |
+| T04-L08 | Returning a Product | 4:00 | 4:01 | rồi | 2026-10-08 |
+| T04-L09 | Bargaining at a Market | 4:05 | 4:10 | rồi | 2026-10-08 |
+| T04-L10 | Shopping for Shoes | 4:10 | 4:03 | rồi | 2026-10-08 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 

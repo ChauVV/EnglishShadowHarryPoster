@@ -1,0 +1,37 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 5,
+  "lesson_title": "Finding the Fitting Room",
+  "speakers": {
+    "Sarah": "af_sarah",
+    "Adam": "am_adam"
+  },
+  "lines": [
+    ["Sarah", "Excuse me. I'd like to try on these clothes. Where are the fitting rooms, please?", "Xin lỗi anh. Tôi muốn thử mấy bộ đồ này. Phòng thử đồ ở đâu vậy?"],
+    ["Adam", "The women's fitting rooms are on the second floor, at the back, next to the coats. You can take the escalator or the stairs.", "Phòng thử đồ nữ ở tầng hai, phía sau, cạnh khu áo khoác. Chị có thể đi thang cuốn hoặc cầu thang bộ."],
+    ["Sarah", "Oh, upstairs? Isn't there one on this floor? I'm carrying quite a lot of things.", "Ồ, ở tầng trên à? Ở tầng này không có sao? Tôi đang cầm khá nhiều đồ."],
+    ["Adam", "There is one on this floor, but it's closed today for repairs. I'm sorry about that. Would you like a basket for your clothes?", "Ở tầng này có một phòng, nhưng hôm nay đóng cửa để sửa chữa. Tôi xin lỗi về điều đó. Chị có muốn một cái giỏ để đựng quần áo không?"],
+    ["Sarah", "Yes, please, that would help a lot. Thank you.", "Vâng, làm ơn, như vậy sẽ đỡ nhiều lắm. Cảm ơn anh."],
+    ["Adam", "Here you are. How many items do you have? There's a limit of six items per person in the fitting room.", "Đây ạ. Chị có bao nhiêu món? Mỗi người được mang tối đa sáu món vào phòng thử đồ."],
+    ["Sarah", "Let me count. Two dresses, three tops, a skirt, and a jacket. That's seven.", "Để tôi đếm. Hai chiếc váy liền, ba áo, một chân váy, và một áo khoác. Vậy là bảy món."],
+    ["Adam", "That's okay. You can leave one item with the assistant outside the fitting room and swap it later.", "Không sao ạ. Chị có thể gửi một món cho nhân viên ở ngoài phòng thử đồ và đổi sau."],
+    ["Sarah", "Good idea. I'll leave the jacket. I'm not sure about it anyway.", "Ý hay đấy. Tôi sẽ gửi chiếc áo khoác. Dù sao tôi cũng chưa chắc về nó."],
+    ["Adam", "Okay. When you get there, the assistant will give you a card with a number on it. It shows how many items you're taking in.", "Được ạ. Khi đến đó, nhân viên sẽ đưa chị một tấm thẻ có ghi số. Nó cho biết chị mang bao nhiêu món vào."],
+    ["Sarah", "And is there usually a long queue? I don't have much time.", "Ở đó thường có xếp hàng dài không anh? Tôi không có nhiều thời gian."],
+    ["Adam", "At lunchtime it's often busy, but right now it should be quiet. There are ten rooms upstairs.", "Giờ ăn trưa thường đông, nhưng bây giờ chắc vắng. Ở trên có mười phòng."],
+    ["Sarah", "That's good. Is there a mirror inside the rooms, or only outside?", "Tốt quá. Trong phòng có gương không, hay chỉ có ở bên ngoài?"],
+    ["Adam", "There's a mirror inside each room, and a big three-way mirror outside, so you can see the back as well.", "Trong mỗi phòng đều có gương, và bên ngoài có một tấm gương ba mặt lớn, nên chị có thể nhìn cả phía sau."],
+    ["Sarah", "Can I bring my shopping bags inside the fitting room? I bought some shoes in another shop, and I don't want to leave them outside.", "Tôi có thể mang túi đồ vào phòng thử không? Tôi có mua giày ở cửa hàng khác, và không muốn để chúng ở ngoài."],
+    ["Adam", "Yes, of course. Personal bags are fine. There's also a small hook and a seat in each room, so you can put your things down.", "Dĩ nhiên là được. Túi cá nhân thì không sao. Trong mỗi phòng còn có một cái móc nhỏ và một chiếc ghế, nên chị có thể để đồ xuống."],
+    ["Sarah", "Good. And if something doesn't fit, what do I do with it?", "Tốt quá. Và nếu món nào không vừa, tôi làm gì với nó?"],
+    ["Adam", "Just give it back to the assistant at the fitting room. She can also bring you a different size, so you don't have to come back down.", "Chị chỉ cần trả lại cho nhân viên ở phòng thử đồ. Cô ấy cũng có thể mang cỡ khác cho chị, để chị không phải xuống lại."],
+    ["Sarah", "That's really helpful. Can I pay upstairs too?", "Vậy hữu ích quá. Tôi có thể thanh toán ở trên luôn không?"],
+    ["Adam", "Yes, there's a cash register next to the fitting rooms. You don't need to come back to the ground floor.", "Có, có một quầy thu ngân cạnh phòng thử đồ. Chị không cần quay lại tầng trệt."],
+    ["Sarah", "Great. Is the escalator just over there?", "Tuyệt. Thang cuốn ở ngay đằng kia phải không?"],
+    ["Adam", "Yes, behind the shoe section. Go up, turn left, and you'll see the sign for the fitting rooms.", "Vâng, phía sau khu giày. Chị đi lên, rẽ trái, và sẽ thấy biển chỉ dẫn phòng thử đồ."],
+    ["Sarah", "Thank you so much. You've been very kind. I'll come back down if I have any problems.", "Cảm ơn anh rất nhiều. Anh tốt quá. Nếu có vấn đề gì tôi sẽ xuống lại."],
+    ["Adam", "You're welcome. I hope everything fits!", "Không có gì. Mong là mọi thứ đều vừa!"]
+  ]
+}

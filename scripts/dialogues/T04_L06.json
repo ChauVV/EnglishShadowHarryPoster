@@ -1,0 +1,38 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 6,
+  "lesson_title": "Buying Groceries",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Bella", "Okay, I've got the shopping list. Can you get a trolley? We need quite a lot this week.", "Được rồi, em có danh sách đi chợ rồi. Anh lấy xe đẩy được không? Tuần này mình cần mua khá nhiều."],
+    ["Michael", "Sure. What's first on the list?", "Được. Đầu danh sách là gì?"],
+    ["Bella", "Fruit and vegetables. We need apples, bananas, tomatoes, onions, carrots, and some spinach.", "Trái cây và rau củ. Mình cần táo, chuối, cà chua, hành, cà rốt, và ít rau chân vịt."],
+    ["Michael", "The apples are on special today. Two kilos for five dollars. Should we get two kilos?", "Hôm nay táo đang khuyến mãi. Hai ký năm đô. Mình mua hai ký nhé?"],
+    ["Bella", "Yes, the kids eat a lot of apples. And get the bananas that are still a bit green, so they last all week.", "Ừ, bọn trẻ ăn táo nhiều lắm. Và lấy chuối còn hơi xanh, để để được cả tuần."],
+    ["Michael", "Good thinking. Do we need to weigh the vegetables here, or at the checkout?", "Nghĩ chu đáo đấy. Mình cần cân rau ở đây, hay ở quầy thanh toán?"],
+    ["Bella", "At the checkout. Just put them in these paper bags. Next, the dairy section. We need milk, butter, yogurt, and cheese.", "Ở quầy thanh toán. Cứ cho vào mấy túi giấy này. Tiếp theo là khu sản phẩm từ sữa. Mình cần sữa, bơ, sữa chua và phô mai."],
+    ["Michael", "How much milk? Two bottles?", "Bao nhiêu sữa? Hai chai à?"],
+    ["Bella", "Three, please. And check the dates. Take the ones at the back, because they're usually fresher.", "Ba chai nhé. Và xem hạn sử dụng. Lấy mấy chai phía sau, vì thường mới hơn."],
+    ["Michael", "Ha, you know all the tricks. This one is good until the twentieth. What kind of yogurt?", "Ha, em biết hết mọi mẹo. Chai này hạn đến ngày hai mươi. Sữa chua loại nào?"],
+    ["Bella", "The big pot of plain yogurt. It's cheaper than the small ones, and it's healthier, with no added sugar.", "Hộp sữa chua không đường loại lớn. Rẻ hơn mấy hộp nhỏ, và tốt cho sức khỏe hơn, không thêm đường."],
+    ["Michael", "Okay. What's next? Meat or fish?", "Được. Tiếp theo là gì? Thịt hay cá?"],
+    ["Bella", "Both. Chicken breasts for Tuesday, and salmon for Friday. Let's go to the fish counter. The fish is fresher there than in the packets.", "Cả hai. Ức gà cho thứ Ba, và cá hồi cho thứ Sáu. Mình qua quầy cá đi. Cá ở đó tươi hơn cá đóng gói."],
+    ["Michael", "Hi. Could we have four salmon fillets, please? About this size.", "Chào anh. Cho chúng tôi bốn miếng phi lê cá hồi nhé. Cỡ khoảng thế này."],
+    ["Bella", "And could you take the skin off, please? The kids don't like it.", "Và anh lột da giúp được không? Bọn trẻ không thích da cá."],
+    ["Michael", "He says no problem. Now, what about bread?", "Anh ấy nói không vấn đề gì. Giờ còn bánh mì thì sao?"],
+    ["Bella", "We need a loaf of brown bread and some rolls for lunch boxes. And don't forget eggs, a dozen, please.", "Mình cần một ổ bánh mì nâu và ít bánh mì tròn cho hộp cơm trưa. Và đừng quên trứng, một tá nhé."],
+    ["Michael", "Got them. These eggs are free range, but they're two dollars more. Is that okay?", "Lấy rồi. Trứng này là trứng gà thả vườn, nhưng đắt hơn hai đô. Có được không?"],
+    ["Bella", "Yes, I prefer free range. Is that everything? Let me check the list. Oh, we need rice, pasta, and coffee too.", "Được, em thích trứng gà thả vườn hơn. Đủ hết chưa nhỉ? Để em xem danh sách. À, mình cần cả gạo, mì Ý và cà phê nữa."],
+    ["Michael", "They're in aisle seven. I'll get them. You go and find the cleaning products.", "Mấy thứ đó ở dãy số bảy. Anh đi lấy. Em đi tìm đồ lau dọn đi."],
+    ["Bella", "Okay. I think we're done. The trolley is very full! I hope we haven't spent too much. Our budget this week is one hundred and twenty dollars.", "Được. Em nghĩ mình xong rồi. Xe đẩy đầy ắp rồi! Mong là mình không tiêu quá nhiều. Ngân sách tuần này của mình là một trăm hai mươi đô."],
+    ["Michael", "Let's use the normal checkout, not the self-checkout. With this much shopping, it's faster. And I think we're just under budget, because we bought the apples on special.", "Mình ra quầy thu ngân bình thường, đừng dùng quầy tự thanh toán. Mua nhiều thế này thì như vậy nhanh hơn. Và anh nghĩ mình vừa đủ ngân sách, vì mua được táo khuyến mãi."],
+    ["Bella", "Agreed. And did you bring the shopping bags from the car?", "Đồng ý. Mà anh có mang túi mua sắm từ xe vào không?"],
+    ["Michael", "Oh no, they're still in the car. I'll go and get them while you wait in the queue.", "Ôi không, vẫn còn trong xe. Anh sẽ ra lấy trong lúc em xếp hàng."],
+    ["Bella", "Perfect teamwork!", "Phối hợp hoàn hảo!"]
+  ]
+}

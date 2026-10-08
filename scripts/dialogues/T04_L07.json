@@ -1,0 +1,37 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 7,
+  "lesson_title": "Asking for a Bag",
+  "speakers": {
+    "Emma": "af_heart",
+    "Jack": "am_michael"
+  },
+  "lines": [
+    ["Jack", "That's thirty-two dollars and forty cents, please. Would you like a bag?", "Của chị là ba mươi hai đô bốn mươi xu. Chị có cần túi không?"],
+    ["Emma", "Yes, please. I forgot to bring my own bag today. How much are they?", "Có, làm ơn. Hôm nay tôi quên mang túi riêng. Túi giá bao nhiêu vậy?"],
+    ["Jack", "We have paper bags for twenty cents, and strong reusable bags for one dollar fifty. We don't have plastic bags anymore.", "Chúng tôi có túi giấy giá hai mươi xu, và túi bền dùng nhiều lần giá một đô năm mươi. Chúng tôi không còn túi nilon nữa."],
+    ["Emma", "Oh, good. That's better for the environment. Is the paper bag strong enough for all these things?", "Ồ, tốt quá. Như vậy tốt cho môi trường hơn. Túi giấy có đủ chắc để đựng hết mấy thứ này không?"],
+    ["Jack", "Probably not for everything. The bottles of juice are quite heavy, and paper bags can break if they get wet. I'd suggest two paper bags, or one reusable bag.", "Có lẽ không đựng hết được. Mấy chai nước ép khá nặng, và túi giấy có thể rách nếu bị ướt. Tôi gợi ý hai túi giấy, hoặc một túi dùng nhiều lần."],
+    ["Emma", "Then I'll take a reusable bag. I can use it again next time, and it's better than buying paper bags every week.", "Vậy tôi lấy túi dùng nhiều lần. Lần sau tôi có thể dùng lại, và như vậy tốt hơn là tuần nào cũng mua túi giấy."],
+    ["Jack", "Good choice. These ones are very strong. They can hold up to fifteen kilos. What color would you like? We have green, blue, or this one with the flower pattern.", "Lựa chọn hay. Mấy túi này rất chắc. Chúng đựng được tới mười lăm ký. Chị thích màu nào? Chúng tôi có xanh lá, xanh dương, hoặc chiếc có họa tiết hoa này."],
+    ["Emma", "The flower one is pretty. I'll take that.", "Chiếc họa tiết hoa đẹp đấy. Tôi lấy chiếc đó."],
+    ["Jack", "Here you are. I'll put the heavy things at the bottom and the bread on top, so it doesn't get squashed.", "Đây ạ. Tôi sẽ để đồ nặng ở dưới và bánh mì ở trên, để bánh không bị đè bẹp."],
+    ["Emma", "Thank you. Oh, and could I have a small separate bag for the cleaning products? I don't want them next to the food.", "Cảm ơn anh. À, cho tôi xin một túi nhỏ riêng cho đồ lau dọn được không? Tôi không muốn để chúng cạnh đồ ăn."],
+    ["Jack", "Of course. That's a good idea. I'll give you a small paper bag for those, free of charge.", "Dĩ nhiên rồi. Ý hay đấy. Tôi sẽ đưa chị một túi giấy nhỏ để đựng mấy thứ đó, miễn phí."],
+    ["Emma", "That's kind of you. And these flowers are a present for my friend. Do you have any wrapping paper?", "Anh tốt quá. Còn bó hoa này là quà cho bạn tôi. Ở đây có giấy gói không?"],
+    ["Jack", "We can wrap them for you at the flower counter, next to the entrance. It's free, and they'll add a ribbon too.", "Chúng tôi có thể gói giúp chị ở quầy hoa, cạnh lối vào. Miễn phí, và họ còn thắt thêm ruy băng."],
+    ["Emma", "Lovely. So, what's the total now, with the bag?", "Tuyệt quá. Vậy giờ tổng cộng bao nhiêu, tính cả túi?"],
+    ["Jack", "Thirty-two forty plus one fifty for the bag. That's thirty-three ninety.", "Ba mươi hai đô bốn mươi cộng một đô năm mươi tiền túi. Vậy là ba mươi ba đô chín mươi."],
+    ["Emma", "Here's forty dollars.", "Đây là bốn mươi đô."],
+    ["Jack", "Thank you. Six dollars and ten cents is your change. And here's your receipt.", "Cảm ơn chị. Đây là sáu đô mười xu tiền thối. Và đây là hóa đơn của chị."],
+    ["Emma", "Thanks. Can I leave the bag here for a minute while I go to the flower counter? It's quite heavy.", "Cảm ơn anh. Tôi để túi ở đây một chút trong lúc ra quầy hoa được không? Nó khá nặng."],
+    ["Jack", "Sure, I'll keep it behind the counter for you. Just come back when you're ready.", "Được ạ, tôi sẽ giữ phía sau quầy cho chị. Khi nào xong chị quay lại lấy."],
+    ["Emma", "Great. By the way, if this bag breaks one day, can I bring it back?", "Tuyệt. Nhân tiện, nếu một ngày túi này bị rách, tôi có mang trả lại được không?"],
+    ["Jack", "Yes, actually. If it breaks, we'll give you a new one for free. Just bring the old one with you.", "Thật ra là được. Nếu túi rách, chúng tôi sẽ đổi cho chị túi mới miễn phí. Chỉ cần mang túi cũ đến."],
+    ["Emma", "Really? That's a great idea. I'll definitely remember my bag next time, then.", "Thật sao? Ý tưởng hay quá. Vậy lần sau tôi chắc chắn sẽ nhớ mang túi."],
+    ["Jack", "Most people keep one in their car or by the front door, so they don't forget. Some people even fold a small one and keep it in their handbag or jacket pocket. Have a nice day!", "Hầu hết mọi người để sẵn một chiếc trong xe hoặc cạnh cửa ra vào, để không quên. Có người còn gấp một chiếc nhỏ để trong túi xách hay túi áo khoác. Chúc chị một ngày tốt lành!"],
+    ["Emma", "You too. I'll put it by my front door as soon as I get home. Thanks for your help.", "Anh cũng vậy. Về đến nhà tôi sẽ để nó ngay cạnh cửa. Cảm ơn anh đã giúp đỡ."]
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "topic_number": 4,
+  "topic_title": "Shopping & Clothes",
+  "topic_title_vi": "Mua sắm & quần áo",
+  "lesson_number": 9,
+  "lesson_title": "Bargaining at a Market",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Michael", "Hello, hello! Welcome! Come and have a look. Everything is handmade. Beautiful bags, real leather!", "Xin chào, xin chào! Chào mừng chị! Lại xem đi chị. Mọi thứ đều làm thủ công. Túi đẹp, da thật!"],
+    ["Bella", "Hi. These bags are lovely. How much is this brown one?", "Chào anh. Mấy chiếc túi này đẹp quá. Chiếc màu nâu này bao nhiêu tiền?"],
+    ["Michael", "Ah, you have good taste. That's one of my best bags. For you, eighty dollars.", "À, chị có mắt thẩm mỹ đấy. Đó là một trong những chiếc túi đẹp nhất của tôi. Với chị, tám mươi đô."],
+    ["Bella", "Eighty dollars? That's quite expensive. I saw a similar bag at the stall over there for fifty.", "Tám mươi đô à? Khá đắt đấy. Tôi thấy một chiếc túi tương tự ở quầy đằng kia giá năm mươi."],
+    ["Michael", "Similar, maybe, but not the same quality. Feel this leather. It's soft, and look at the stitching. My brother makes these bags by hand, in our workshop just outside the city.", "Tương tự thì có thể, nhưng không cùng chất lượng. Chị sờ thử da này xem. Mềm lắm, và nhìn đường khâu kìa. Anh trai tôi tự tay làm những chiếc túi này, trong xưởng của chúng tôi ngay ngoài thành phố."],
+    ["Bella", "Your brother makes them? How long does it take to make one bag?", "Anh trai anh làm à? Làm một chiếc túi mất bao lâu?"],
+    ["Michael", "About two days for a bag like this. First he cuts the leather, then he sews everything by hand, and finally he polishes it. No machines, no factory.", "Khoảng hai ngày cho một chiếc túi như thế này. Đầu tiên anh ấy cắt da, rồi khâu tất cả bằng tay, và cuối cùng là đánh bóng. Không máy móc, không nhà máy."],
+    ["Bella", "That's impressive, and it is very nice, I have to admit. But eighty is more than I want to spend. Would you take forty?", "Ấn tượng thật, và phải công nhận là rất đẹp. Nhưng tám mươi là nhiều hơn số tôi muốn tiêu. Anh bán bốn mươi được không?"],
+    ["Michael", "Forty? Oh no, I'm sorry, that's impossible. The leather alone costs me more than that. I can do seventy, because you're my first customer this morning. It's good luck.", "Bốn mươi à? Ôi không, xin lỗi, không thể được. Riêng tiền da đã tốn hơn thế rồi. Tôi bán bảy mươi, vì chị là khách mở hàng sáng nay. Lấy may mà."],
+    ["Bella", "Seventy is still too much for me. How about fifty?", "Bảy mươi vẫn còn quá nhiều với tôi. Năm mươi được không?"],
+    ["Michael", "Fifty? You're breaking my heart! Sixty-five, and that's a very good price.", "Năm mươi à? Chị làm tôi đau lòng quá! Sáu mươi lăm, và đó là giá rất tốt rồi."],
+    ["Bella", "Hmm. I'm not sure. I think I'll have a look around the market first and maybe come back later. It's my first day here, and I want to see what else is available before I spend all my money.", "Hừm. Tôi không chắc. Tôi nghĩ tôi sẽ đi xem quanh chợ trước, rồi có thể quay lại sau. Hôm nay là ngày đầu tôi ở đây, và tôi muốn xem còn gì khác trước khi tiêu hết tiền."],
+    ["Michael", "Wait, wait. Don't go yet. The market is very big, and you'll get tired, and then you'll come back anyway! What's your best price? Tell me honestly.", "Khoan, khoan. Đừng đi vội. Chợ rộng lắm, chị sẽ mệt, rồi kiểu gì chị cũng quay lại thôi! Giá tốt nhất của chị là bao nhiêu? Nói thật với tôi đi."],
+    ["Bella", "Honestly? I could pay fifty-five. That's my limit.", "Thật lòng à? Tôi có thể trả năm mươi lăm. Đó là mức tối đa của tôi."],
+    ["Michael", "Fifty-five. Okay, let me think. What if you buy two things? This small purse matches the bag perfectly. Bag and purse together, seventy-five dollars.", "Năm mươi lăm. Được, để tôi tính. Thế nếu chị mua hai món thì sao? Chiếc ví nhỏ này hợp với túi hoàn hảo. Túi và ví cùng nhau, bảy mươi lăm đô."],
+    ["Bella", "How much is the purse on its own?", "Riêng chiếc ví thì bao nhiêu?"],
+    ["Michael", "Normally, thirty dollars. So you're saving a lot.", "Bình thường là ba mươi đô. Vậy là chị tiết kiệm được nhiều lắm."],
+    ["Bella", "It is pretty, and I do need a new purse. My old one is falling apart. But seventy-five is still a bit high. Seventy for both?", "Nó đẹp thật, và tôi cũng đang cần ví mới. Cái cũ của tôi sắp rách hết rồi. Nhưng bảy mươi lăm vẫn hơi cao. Bảy mươi cho cả hai nhé?"],
+    ["Michael", "Seventy for both. You're a tough negotiator! Okay, okay. Seventy dollars, and I'll give you a small cloth bag to keep the leather clean.", "Bảy mươi cho cả hai. Chị trả giá cứng thật! Thôi được, được. Bảy mươi đô, và tôi tặng chị một túi vải nhỏ để giữ cho da sạch."],
+    ["Bella", "Deal! Can I check the bag carefully before I pay? I want to make sure the zip works properly. Okay, it's perfect. Can I pay by card?", "Chốt! Tôi kiểm tra kỹ chiếc túi trước khi trả tiền được không? Tôi muốn chắc là khóa kéo hoạt động tốt. Được rồi, hoàn hảo. Tôi trả bằng thẻ được không?"],
+    ["Michael", "Cash is better for me, if you have it. If you pay by card, I have to pay a fee to the bank, so the price would be seventy-three.", "Tiền mặt thì tốt cho tôi hơn, nếu chị có. Nếu chị trả bằng thẻ, tôi phải trả phí cho ngân hàng, nên giá sẽ là bảy mươi ba."],
+    ["Bella", "I understand. I have cash. Here's seventy dollars. I always bring cash to markets, because many small sellers don't take cards.", "Tôi hiểu. Tôi có tiền mặt. Đây là bảy mươi đô. Tôi luôn mang tiền mặt khi đi chợ, vì nhiều người bán nhỏ không nhận thẻ."],
+    ["Michael", "Thank you very much. You know, you're very good at bargaining. Have you done this before?", "Cảm ơn chị rất nhiều. Chị biết không, chị trả giá giỏi lắm. Chị từng làm thế này rồi à?"],
+    ["Bella", "A little. My mother taught me. She always said: smile, be polite, and always be ready to walk away. And never show the seller how much you love something!", "Một chút. Mẹ tôi dạy tôi. Bà luôn nói: hãy mỉm cười, lịch sự, và luôn sẵn sàng bỏ đi. Và đừng bao giờ để người bán thấy mình thích món đồ đến mức nào!"],
+    ["Michael", "Your mother is a wise woman. That's exactly what makes it difficult for us sellers! But I could see in your eyes that you loved this bag from the beginning.", "Mẹ chị là người khôn ngoan. Đó chính là điều làm người bán như chúng tôi khó xử! Nhưng tôi thấy trong mắt chị là chị đã thích chiếc túi này ngay từ đầu."],
+    ["Bella", "Ha! But I think we both got a fair price. And I really love the bag.", "Ha! Nhưng tôi nghĩ cả hai ta đều được giá hợp lý. Và tôi thật sự rất thích chiếc túi."],
+    ["Michael", "I'm happy if you're happy. Take care of the leather. Put a little cream on it every few months, and it will last for twenty years.", "Chị vui thì tôi vui. Nhớ chăm sóc da nhé. Vài tháng bôi một chút kem dưỡng, và nó sẽ bền đến hai mươi năm."],
+    ["Bella", "Twenty years? Then it's a very good investment. Thank you, and good luck with your sales today.", "Hai mươi năm à? Vậy là khoản đầu tư rất tốt rồi. Cảm ơn anh, và chúc anh hôm nay bán đắt hàng."],
+    ["Michael", "Thank you! Tell your friends about my stall. Same place every Saturday!", "Cảm ơn chị! Kể với bạn bè về quầy của tôi nhé. Thứ Bảy nào cũng ở chỗ này!"]
+  ]
+}
