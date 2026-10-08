@@ -1,0 +1,41 @@
+{
+  "topic_number": 5,
+  "topic_title": "Daily Routines",
+  "topic_title_vi": "Thói quen hằng ngày",
+  "lesson_number": 9,
+  "lesson_title": "Sharing Housework",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Bella", "Michael, can we talk for a minute? I've been thinking about the housework. I feel like I'm doing most of it, and I'm getting really tired.", "Michael, mình nói chuyện một chút được không? Em đang nghĩ về chuyện việc nhà. Em cảm thấy em đang làm gần hết, và em thật sự mệt rồi."],
+    ["Michael", "Oh. I'm sorry, I didn't realize. I thought we were sharing it quite fairly. What do you think I'm not doing?", "Ồ. Anh xin lỗi, anh không nhận ra. Anh tưởng mình đang chia khá công bằng. Em nghĩ anh còn chưa làm những việc gì?"],
+    ["Bella", "It's not that you do nothing. You always cook on weekends, and you take out the rubbish. But I do the washing, the cleaning, the shopping, and most of the cooking during the week.", "Không phải anh không làm gì. Cuối tuần anh luôn nấu ăn, và anh đổ rác. Nhưng em giặt giũ, dọn dẹp, đi chợ, và nấu gần hết các bữa trong tuần."],
+    ["Michael", "When you say it like that, you're right. That's much more than me. I guess I don't notice when the clothes get washed. They just appear in the wardrobe!", "Em nói vậy thì em đúng. Nhiều hơn anh nhiều. Chắc anh không để ý khi quần áo được giặt. Chúng cứ thế xuất hiện trong tủ!"],
+    ["Bella", "Exactly! They don't wash themselves. So, I had an idea. Why don't we make a list of all the jobs and divide them clearly?", "Chính xác! Chúng đâu có tự giặt. Nên em có một ý. Sao mình không lập danh sách tất cả các việc rồi chia rõ ràng?"],
+    ["Michael", "That's a good idea. Then we both know what we're responsible for, and nobody has to ask or remind the other person.", "Ý hay đấy. Như vậy cả hai đều biết mình phụ trách việc gì, và không ai phải nhờ hay nhắc người kia."],
+    ["Bella", "Okay, let's start with the daily jobs. Cooking dinner, washing the dishes, and tidying the kitchen.", "Được, mình bắt đầu với việc hằng ngày. Nấu bữa tối, rửa bát, và dọn dẹp bếp."],
+    ["Michael", "What if the person who cooks doesn't wash the dishes? So if you cook, I wash up, and if I cook, you wash up.", "Hay là người nấu thì không rửa bát? Vậy nếu em nấu, anh rửa, và nếu anh nấu, em rửa."],
+    ["Bella", "I like that. That's fair. And how about cooking? Could you cook two evenings a week, as well as the weekends?", "Em thích vậy. Công bằng đấy. Còn nấu ăn thì sao? Ngoài cuối tuần, anh có thể nấu thêm hai tối trong tuần không?"],
+    ["Michael", "Yes, I can do Tuesdays and Thursdays. I finish work earlier on those days. But I can only cook about five dishes, so we'll eat a lot of pasta!", "Được, anh làm thứ Ba và thứ Năm. Những hôm đó anh tan làm sớm hơn. Nhưng anh chỉ biết nấu khoảng năm món, nên mình sẽ ăn mì Ý nhiều đấy!"],
+    ["Bella", "That's fine. I'll teach you some new recipes. Next, the weekly jobs. Vacuuming, cleaning the bathroom, changing the sheets, and doing the laundry.", "Không sao. Em sẽ dạy anh vài món mới. Tiếp theo là việc hằng tuần. Hút bụi, dọn phòng tắm, thay ga giường, và giặt quần áo."],
+    ["Michael", "I don't mind vacuuming. I actually find it quite relaxing. And I can clean the bathroom, even though it's not my favorite job.", "Anh không ngại hút bụi. Thật ra anh thấy khá thư giãn. Và anh có thể dọn phòng tắm, dù đó không phải việc anh thích."],
+    ["Bella", "Nobody likes cleaning the bathroom! Thank you. Then I'll do the laundry and change the sheets. What about the shopping?", "Có ai thích dọn phòng tắm đâu! Cảm ơn anh. Vậy em sẽ giặt đồ và thay ga giường. Còn đi chợ thì sao?"],
+    ["Michael", "Let's do it together on Saturday mornings. It's faster with two people, and we can plan the meals for the week at the same time.", "Mình cùng đi vào sáng thứ Bảy. Hai người thì nhanh hơn, và mình có thể lên thực đơn cho cả tuần cùng lúc."],
+    ["Bella", "Great idea. Planning the meals will save money too. We waste so much food when we don't plan. Last month I threw away vegetables almost every week.", "Ý hay. Lên thực đơn còn giúp tiết kiệm tiền nữa. Không lên kế hoạch thì mình phí đồ ăn nhiều lắm. Tháng trước gần như tuần nào em cũng phải bỏ rau đi."],
+    ["Michael", "What about the garden? The grass needs cutting every two weeks in summer.", "Còn khu vườn? Mùa hè cứ hai tuần phải cắt cỏ một lần."],
+    ["Bella", "You usually do that, and I water the plants. Let's keep it that way.", "Anh thường làm việc đó, còn em tưới cây. Cứ giữ như vậy đi."],
+    ["Michael", "Okay. And what about the bills and paperwork? You always pay the bills online and check our bank statements.", "Được. Còn hóa đơn và giấy tờ thì sao? Em lúc nào cũng thanh toán hóa đơn trực tuyến và kiểm tra sao kê ngân hàng."],
+    ["Bella", "That's true. That's housework too, even if it's invisible. I'm happy to keep doing it, because I'm good with numbers, but it takes time.", "Đúng vậy. Đó cũng là việc nhà, dù không ai nhìn thấy. Em vui lòng tiếp tục làm, vì em giỏi con số, nhưng nó tốn thời gian."],
+    ["Michael", "I didn't think of that as a job, but you're right. Then I'll take the car to the garage and organize repairs in the house. That's fair.", "Anh không nghĩ đó là một việc, nhưng em nói đúng. Vậy anh sẽ mang xe đi bảo dưỡng và lo việc sửa chữa trong nhà. Vậy là công bằng."],
+    ["Bella", "What about when one of us is very busy at work? Last month I had that big project, and I was home late every night.", "Còn khi một trong hai người bận việc ở công ty thì sao? Tháng trước em có dự án lớn, và tối nào em cũng về muộn."],
+    ["Michael", "Then the other person helps more that week, and we swap back later. The list is a guide, not a prison.", "Thì người kia giúp nhiều hơn trong tuần đó, rồi sau mình đổi lại. Danh sách chỉ là hướng dẫn, không phải nhà tù."],
+    ["Bella", "I like that. I'll write everything on a chart and put it on the fridge. Then we can see who's doing what.", "Em thích vậy. Em sẽ ghi tất cả lên một bảng và dán lên tủ lạnh. Như vậy mình thấy được ai làm việc gì."],
+    ["Michael", "And let's try it for one month. If something isn't working, we can talk again and change it.", "Và mình thử trong một tháng. Nếu có gì không ổn, mình nói chuyện lại và thay đổi."],
+    ["Bella", "That's very reasonable. Thank you for listening, and for not getting defensive. I was a bit nervous about bringing it up.", "Rất hợp lý. Cảm ơn anh đã lắng nghe, và không phản ứng gay gắt. Em đã hơi lo khi nói ra chuyện này."],
+    ["Michael", "I'm glad you told me. I don't want you to feel tired and unhappy because of something we can easily fix. Next time, please tell me sooner. So, it's Thursday. Who's cooking tonight?", "Anh vui vì em đã nói. Anh không muốn em mệt mỏi và không vui vì một chuyện mình có thể dễ dàng giải quyết. Lần sau em cứ nói sớm hơn nhé. Vậy, hôm nay thứ Năm. Tối nay ai nấu?"],
+    ["Bella", "According to our new plan, you are!", "Theo kế hoạch mới của mình, là anh đấy!"],
+    ["Michael", "Already? Okay. Pasta it is, then. And you can wash up!", "Ngay hôm nay à? Được rồi. Vậy thì mì Ý. Và em rửa bát nhé!"]
+  ]
+}

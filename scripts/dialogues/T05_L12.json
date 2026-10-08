@@ -1,0 +1,43 @@
+{
+  "topic_number": 5,
+  "topic_title": "Daily Routines",
+  "topic_title_vi": "Thói quen hằng ngày",
+  "lesson_number": 12,
+  "lesson_title": "Staying Up Too Late",
+  "speakers": {
+    "Bella": "af_bella",
+    "Michael": "am_michael"
+  },
+  "lines": [
+    ["Bella", "Michael, you look exhausted. Are you okay? You've got dark circles under your eyes.", "Michael, trông anh kiệt sức quá. Anh ổn chứ? Mắt anh thâm quầng rồi."],
+    ["Michael", "Honestly, I'm really tired. I went to bed at two o'clock this morning, and I had to get up at seven for work.", "Thật lòng, anh mệt lắm. Hai giờ sáng nay anh mới đi ngủ, mà bảy giờ đã phải dậy đi làm."],
+    ["Bella", "Two o'clock? What were you doing so late? Were you working?", "Hai giờ à? Anh làm gì mà muộn thế? Anh làm việc à?"],
+    ["Michael", "I wish I could say yes, but no. I started watching a new series at ten, and I just couldn't stop. Every episode ends with a mystery, so you have to watch the next one.", "Anh ước gì có thể nói có, nhưng không. Mười giờ anh bắt đầu xem một bộ phim mới, và cứ thế không dừng được. Tập nào cũng kết thúc bằng một bí ẩn, nên phải xem tập tiếp theo."],
+    ["Bella", "Ha, I know that feeling. That's exactly how they make those shows. How many episodes did you watch?", "Ha, em hiểu cảm giác đó. Mấy bộ phim đó được làm đúng kiểu như vậy. Anh đã xem bao nhiêu tập?"],
+    ["Michael", "Five. Or maybe six. I lost count after midnight. And then, when I finally went to bed, I couldn't fall asleep. My brain was still thinking about the story.", "Năm tập. Hoặc có lẽ sáu. Sau nửa đêm anh không đếm nữa. Rồi khi cuối cùng cũng đi ngủ, anh lại không ngủ được. Đầu óc anh vẫn nghĩ về câu chuyện."],
+    ["Bella", "Is this the first time this week?", "Đây là lần đầu trong tuần này à?"],
+    ["Michael", "To be honest, no. It's the third night this week. On Monday I was playing games online with my friends until one, and on Tuesday I was reading the news on my phone.", "Thật lòng thì không. Đây là đêm thứ ba trong tuần. Thứ Hai anh chơi game trực tuyến với bạn bè đến một giờ, còn thứ Ba thì đọc tin tức trên điện thoại."],
+    ["Bella", "Michael, that's not good. Three short nights in a row really affects your health. How do you feel at work?", "Michael, như vậy không tốt đâu. Ba đêm ngủ ít liên tiếp thật sự ảnh hưởng đến sức khỏe. Ở chỗ làm anh thấy thế nào?"],
+    ["Michael", "Terrible. I can't concentrate, I make silly mistakes, and I drink about five cups of coffee a day just to stay awake. Yesterday I almost fell asleep in a meeting.", "Tệ lắm. Anh không tập trung được, mắc những lỗi ngớ ngẩn, và uống khoảng năm ly cà phê một ngày chỉ để tỉnh táo. Hôm qua anh suýt ngủ gật trong cuộc họp."],
+    ["Bella", "And all that coffee makes it even harder to sleep at night. It's a vicious circle.", "Mà chừng đó cà phê càng làm anh khó ngủ ban đêm. Đó là một vòng luẩn quẩn."],
+    ["Michael", "You're right. I need to break the cycle. But how? When I'm in bed, I always pick up my phone, and then an hour goes by.", "Em nói đúng. Anh cần phá vỡ vòng luẩn quẩn này. Nhưng bằng cách nào? Khi nằm trên giường, anh lúc nào cũng cầm điện thoại lên, rồi một tiếng trôi qua."],
+    ["Bella", "Can I tell you what helped me? Last year I had exactly the same problem. I was sleeping about five hours a night, and I got sick three times in two months.", "Em kể anh nghe điều gì đã giúp em nhé? Năm ngoái em gặp đúng vấn đề này. Mỗi đêm em chỉ ngủ khoảng năm tiếng, và em bị ốm ba lần trong hai tháng."],
+    ["Michael", "Really? I didn't know that. You always seem so organized.", "Thật à? Anh không biết đấy. Em lúc nào trông cũng ngăn nắp."],
+    ["Bella", "I am now, but it took some effort. My doctor told me that adults need seven to nine hours of sleep, and that sleep is when the body repairs itself. So, here's what I changed. First, I set a fixed bedtime, eleven o'clock, even on weekends. My body got used to it after about two weeks.", "Bây giờ thì vậy, nhưng phải cố gắng mới được. Bác sĩ nói với em người lớn cần ngủ bảy đến chín tiếng, và giấc ngủ là lúc cơ thể tự phục hồi. Vậy đây là những gì em đã thay đổi. Đầu tiên, em đặt giờ đi ngủ cố định, mười một giờ, kể cả cuối tuần. Khoảng hai tuần sau là cơ thể em quen."],
+    ["Michael", "Even on weekends? That sounds hard.", "Kể cả cuối tuần à? Nghe khó đấy."],
+    ["Bella", "It is at first, but it really works. Second, I charge my phone in the kitchen, not in the bedroom. I bought a cheap alarm clock instead.", "Lúc đầu thì khó, nhưng thật sự hiệu quả. Thứ hai, em sạc điện thoại trong bếp, không phải trong phòng ngủ. Em mua một chiếc đồng hồ báo thức rẻ tiền để thay."],
+    ["Michael", "That's clever. If the phone isn't there, I can't scroll. What else?", "Thông minh đấy. Điện thoại không ở đó thì anh không lướt được. Còn gì nữa?"],
+    ["Bella", "No coffee after two in the afternoon. And about an hour before bed, I turn off all the screens and do something calm, like reading a paper book or listening to quiet music.", "Không uống cà phê sau hai giờ chiều. Và khoảng một tiếng trước khi ngủ, em tắt hết màn hình và làm gì đó nhẹ nhàng, như đọc sách giấy hay nghe nhạc êm."],
+    ["Michael", "Wait, no coffee after two? That's going to be the hardest part for me. But I'll try.", "Khoan, không cà phê sau hai giờ à? Đó sẽ là phần khó nhất với anh. Nhưng anh sẽ thử."],
+    ["Bella", "And what about the series? You can still watch it, just one episode a night, and finish by ten thirty.", "Còn bộ phim thì sao? Anh vẫn có thể xem, chỉ một tập mỗi tối, và xem xong trước mười giờ rưỡi."],
+    ["Michael", "One episode a night. That's going to take forever. There are forty episodes!", "Một tập mỗi tối. Như vậy thì xem đến bao giờ. Có bốn mươi tập lận!"],
+    ["Bella", "Then you'll have something to look forward to every evening for more than a month. That's not a bad thing.", "Vậy anh sẽ có thứ để mong chờ mỗi tối trong hơn một tháng. Đó đâu phải điều xấu."],
+    ["Michael", "When you put it like that, it sounds quite nice. Okay, starting tonight: bed at eleven, phone in the kitchen.", "Em nói vậy thì nghe cũng hay. Được rồi, bắt đầu từ tối nay: mười một giờ đi ngủ, điện thoại để trong bếp."],
+    ["Bella", "And maybe a short walk at lunchtime today. Some daylight will help you feel more awake, and it'll help you sleep better tonight too.", "Và có lẽ đi bộ một chút vào giờ trưa hôm nay. Chút ánh sáng ban ngày sẽ giúp anh tỉnh táo hơn, và cũng giúp tối nay ngủ ngon hơn."],
+    ["Michael", "Is a nap a good idea? Sometimes I want to sleep for an hour when I get home from work.", "Ngủ trưa có tốt không? Đôi khi đi làm về anh muốn ngủ một tiếng."],
+    ["Bella", "A short nap, twenty minutes maximum, before four o'clock is fine. But an hour in the evening will make it impossible to sleep at eleven.", "Ngủ ngắn, tối đa hai mươi phút, trước bốn giờ chiều thì được. Nhưng ngủ một tiếng vào buổi tối sẽ khiến anh không thể ngủ lúc mười một giờ."],
+    ["Michael", "Okay, no long naps. Do you want to come with me? We could get a sandwich and walk to the park.", "Được, không ngủ trưa lâu. Em có muốn đi cùng anh không? Mình có thể mua bánh mì kẹp rồi đi bộ ra công viên."],
+    ["Bella", "Sure. But no coffee on the way back!", "Được. Nhưng trên đường về không cà phê nhé!"],
+    ["Michael", "Fine. Maybe just a tea. A very small one.", "Được rồi. Có lẽ chỉ một tách trà. Một tách thật nhỏ thôi."]
+  ]
+}

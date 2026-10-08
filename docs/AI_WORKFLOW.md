@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T05-L09`** (Topic 05 Daily Routines - Sharing Housework, mục tiêu 4:05). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T05-L15`** (Topic 05 Daily Routines - A Lazy Sunday, mục tiêu 4:35). Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -131,6 +131,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T05-L06 | Coming Home | 2:50 | 2:39 | rồi | 2026-10-08 |
 | T05-L07 | Going to Bed | 3:00 | 2:50 | rồi | 2026-10-08 |
 | T05-L08 | A Busy Morning | 4:00 | 3:59 | rồi | 2026-10-08 |
+| T05-L09 | Sharing Housework | 4:05 | 4:10 | rồi | 2026-10-08 |
+| T05-L10 | Planning the Weekend | 4:10 | 4:18 | rồi | 2026-10-08 |
+| T05-L11 | A Day Off at Home | 4:15 | 4:17 | rồi | 2026-10-08 |
+| T05-L12 | Staying Up Too Late | 4:20 | 4:17 | rồi | 2026-10-08 |
+| T05-L13 | Trying to Wake Up Early | 4:25 | 4:15 | rồi | 2026-10-08 |
+| T05-L14 | Cooking Dinner Together | 4:30 | 4:35 | rồi | 2026-10-08 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 
