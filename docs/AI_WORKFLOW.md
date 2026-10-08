@@ -18,7 +18,7 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 
 ## PROGRESS
 
-**NEXT: `T06-L01`** (Topic 06 Family & Friends - Introducing Your Family, mục tiêu 2:00). **Việc dở dang từ lần trước (làm trước khi viết bài mới):** (1) Kịch bản `T06_L01`..`T06_L20` ĐÃ VIẾT XONG và đã kiểm tra độ dài trong `scripts/dialogues/` (ảnh bìa Topic 06 cũng đã có), chỉ cần chạy audio, upload, ghi LOG; không viết lại. (2) `T04_L14` và `T04_L16` đã được viết dài thêm vì audio cũ ngắn hơn mục tiêu 15-19 giây: chạy lại audio hai bài này, upload đè lên Drive, rồi sửa cột Thật trong LOG. Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
+**NEXT: `T06-L07`** (Topic 06 Family & Friends - Inviting a Friend Over, mục tiêu 3:00). **Việc dở dang:** Kịch bản `T06_L07`..`T06_L20` ĐÃ VIẾT XONG và đã kiểm tra độ dài trong `scripts/dialogues/` (ảnh bìa Topic 06 đã có), chỉ cần chạy audio, upload, ghi LOG; không viết lại. Làm 6 bài T06-L07..L12 theo đó. T04_L14 và T04_L16 đã chạy lại audio dài hơn và upload đè xong. Topic 01, 02, 15 đã xong đủ 20 bài; Topic 03 đã có ảnh bìa. Tiếp tục theo thứ tự topic còn dang dở, không cần hỏi lại. Lưu ý: T15-L04..L09 đã được đổi sang hướng tài chính cho vay (xem CONTENT_PLAN). Người dùng làm trong ngành tài chính cho vay (non-bank), nên các topic liên quan tiền bạc/nhà ở nên ưu tiên góc nhìn vay, tiết kiệm, thế chấp.
 
 ### LOG
 | Bài | Tên lesson | Mục tiêu | Thật | Drive | Ngày |
@@ -116,9 +116,9 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T04-L11 | Buying a Gift | 4:15 | 4:05 | rồi | 2026-10-08 |
 | T04-L12 | Online Shopping Problems | 4:20 | 4:32 | rồi | 2026-10-08 |
 | T04-L13 | Looking for a Winter Coat | 4:25 | 4:19 | rồi | 2026-10-08 |
-| T04-L14 | The Big Sale | 4:30 | 4:14 | rồi | 2026-10-08 |
+| T04-L14 | The Big Sale | 4:30 | 4:33 | rồi | 2026-10-08 |
 | T04-L15 | Comparing Two Phones in a Store | 4:35 | 4:39 | rồi | 2026-10-08 |
-| T04-L16 | Shopping for a Wedding Outfit | 4:40 | 4:21 | rồi | 2026-10-08 |
+| T04-L16 | Shopping for a Wedding Outfit | 4:40 | 4:41 | rồi | 2026-10-08 |
 | T04-L17 | Self-Checkout Problems | 4:45 | 4:36 | rồi | 2026-10-08 |
 | T04-L18 | Exchanging an Item Without a Receipt | 4:50 | 4:38 | rồi | 2026-10-08 |
 | T04-L19 | Choosing a Present for Mom | 4:55 | 4:51 | rồi | 2026-10-08 |
@@ -143,6 +143,12 @@ Script upload đã tự thử lại khi Google trả lỗi 5xx tạm thời; n�
 | T05-L18 | Evening Walk and Chat | 4:50 | 4:48 | rồi | 2026-10-08 |
 | T05-L19 | Morning Habits That Help | 4:55 | 4:49 | rồi | 2026-10-08 |
 | T05-L20 | My Typical Day | 5:00 | 4:52 | rồi | 2026-10-08 |
+| T06-L01 | Introducing Your Family | 2:00 | 2:23 | rồi | 2026-10-08 |
+| T06-L02 | Talking About Your Brother | 2:10 | 2:16 | rồi | 2026-10-08 |
+| T06-L03 | Calling Your Mom | 2:20 | 2:21 | rồi | 2026-10-08 |
+| T06-L04 | Meeting a Friend's Parents | 2:30 | 2:38 | rồi | 2026-10-08 |
+| T06-L05 | Saying Happy Birthday | 2:40 | 2:39 | rồi | 2026-10-08 |
+| T06-L06 | Asking About Someone's Weekend | 2:50 | 2:52 | rồi | 2026-10-08 |
 
 (Cột Drive: `rồi` = đã upload và kiểm tra, `chưa` = chưa upload.)
 
