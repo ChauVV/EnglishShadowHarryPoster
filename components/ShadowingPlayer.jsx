@@ -34,6 +34,7 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
   const [duration, setDuration] = useState(lesson.duration_seconds);
   const [playing, setPlaying] = useState(false);
   const [loop, setLoop] = useState(false);
+  const [loopSentence, setLoopSentence] = useState(false);
   const [showText, setShowText] = useState(true);
   const [showVi, setShowVi] = useState(true);
   const hasTranslation = sentences.some((s) => s.vi);
@@ -66,20 +67,24 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
     else audio.pause();
   }, [play]);
 
-  // Cập nhật thời gian ~60fps khi đang phát để câu đang đọc được tô sáng chính xác (timeupdate chỉ ~4Hz)
+  // Cập nhật thời gian ~60fps khi đang phát để tô sáng câu và lặp câu chính xác (timeupdate chỉ ~4Hz)
   useEffect(() => {
     if (!playing) return;
     let raf;
     const tick = () => {
       const audio = audioRef.current;
       if (audio) {
+        if (loopSentence) {
+          const current = sentences[findActive(sentences, audio.currentTime)];
+          if (current && audio.currentTime >= current.end - 0.03) audio.currentTime = current.start;
+        }
         setTime(Math.round(audio.currentTime * 10) / 10);
       }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [playing]);
+  }, [playing, loopSentence, sentences]);
 
   // Cuộn danh sách phụ đề tới câu đang đọc (chỉ cuộn trong khung, không cuộn cả trang)
   useEffect(() => {
@@ -234,7 +239,7 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
             <ControlButton onClick={() => seekTo(activeIndex - 1)} label={t.prevSentence}>
               <SkipIcon flip />
             </ControlButton>
-            <ControlButton onClick={() => seekTo(activeIndex)} label={t.replaySentence}>
+            <ControlButton onClick={() => setLoopSentence((v) => !v)} label={t.replaySentence} active={loopSentence}>
               <ReplayIcon />
             </ControlButton>
             <ControlButton onClick={togglePlay} label={playing ? t.pauseKey : t.playKey} primary>
