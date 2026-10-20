@@ -5,7 +5,14 @@ import { lessonLabel, useI18n } from '../lib/i18n';
 import { formatTime, getSentences } from '../lib/sentences';
 import LanguageSwitch from './LanguageSwitch';
 
-const SPEEDS = [0.75, 0.9, 1, 1.25];
+// Nhãn hiển thị -> tốc độ phát thật (audio gốc hơi chậm nên "1x" phát nhanh hơn 1 chút)
+const SPEEDS = [
+  { label: 0.75, rate: 0.75 },
+  { label: 0.9, rate: 0.9 },
+  { label: 1, rate: 1.25 },
+  { label: 1.25, rate: 1.5 },
+  { label: 1.5, rate: 1.75 },
+];
 
 function findActive(sentences, t) {
   let idx = 0;
@@ -31,6 +38,7 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
   const [showVi, setShowVi] = useState(true);
   const hasTranslation = sentences.some((s) => s.vi);
   const [speed, setSpeed] = useState(1);
+  const rate = SPEEDS.find((s) => s.label === speed).rate;
   const [hasCover, setHasCover] = useState(Boolean(bookId || coverUrl));
   const coverSrc = coverUrl ?? `/covers/book_${bookId}.jpg`;
 
@@ -58,24 +66,20 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
     else audio.pause();
   }, [play]);
 
-  // Cập nhật thời gian ~60fps khi đang phát để lặp câu chính xác (timeupdate chỉ ~4Hz)
+  // Cập nhật thời gian ~60fps khi đang phát để câu đang đọc được tô sáng chính xác (timeupdate chỉ ~4Hz)
   useEffect(() => {
     if (!playing) return;
     let raf;
     const tick = () => {
       const audio = audioRef.current;
       if (audio) {
-        if (loop) {
-          const current = sentences[findActive(sentences, audio.currentTime)];
-          if (current && audio.currentTime >= current.end - 0.03) audio.currentTime = current.start;
-        }
         setTime(Math.round(audio.currentTime * 10) / 10);
       }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [playing, loop, sentences]);
+  }, [playing]);
 
   // Cuộn danh sách phụ đề tới câu đang đọc (chỉ cuộn trong khung, không cuộn cả trang)
   useEffect(() => {
@@ -100,10 +104,9 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
     return () => window.removeEventListener('keydown', onKey);
   }, [togglePlay, seekTo, activeIndex]);
 
-  const changeSpeed = (value) => {
-    setSpeed(value);
-    if (audioRef.current) audioRef.current.playbackRate = value;
-  };
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.playbackRate = rate;
+  }, [rate]);
 
   const blur = showText ? '' : 'blur-sm select-none';
 
@@ -204,7 +207,11 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
             ref={audioRef}
             src={lesson.audio_url}
             preload="auto"
-            onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+            loop={loop}
+            onLoadedMetadata={(e) => {
+              setDuration(e.currentTarget.duration);
+              e.currentTarget.playbackRate = rate;
+            }}
             onPlay={() => setPlaying(true)}
             onPause={() => setPlaying(false)}
             onEnded={() => setPlaying(false)}
@@ -251,12 +258,12 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
               {t.speed}
               <select
                 value={speed}
-                onChange={(e) => changeSpeed(Number(e.target.value))}
+                onChange={(e) => setSpeed(Number(e.target.value))}
                 className="bg-transparent font-medium focus:outline-none"
               >
                 {SPEEDS.map((s) => (
-                  <option key={s} value={s}>
-                    {s}x
+                  <option key={s.label} value={s.label}>
+                    {s.label}x
                   </option>
                 ))}
               </select>
