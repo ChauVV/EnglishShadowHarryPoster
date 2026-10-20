@@ -406,6 +406,10 @@ const TAG_COLORS = [
   { idle: 'border-pink-200 bg-pink-50 text-pink-700 hover:bg-pink-100', active: 'border-pink-600 bg-pink-600' },
   { idle: 'border-cyan-200 bg-cyan-50 text-cyan-700 hover:bg-cyan-100', active: 'border-cyan-600 bg-cyan-600' },
 ];
+// Topic 15 (Money & Banking) trùng màu rose với topic 05 (Daily Routines) nên cho màu vàng riêng
+const TAG_COLOR_OVERRIDE = {
+  15: { idle: 'border-yellow-300 bg-yellow-50 text-yellow-700 hover:bg-yellow-100', active: 'border-yellow-500 bg-yellow-500' },
+};
 const TAG_ALL_COLOR = { idle: 'border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200', active: 'border-slate-700 bg-slate-700' };
 
 // Header (h-14) + thanh tag dính: khoảng cần chừa khi cuộn tới một hàng topic
@@ -420,7 +424,7 @@ function TopicTags({ topics, tag, onSelect }) {
       slug: tp.topic,
       label: tp.title,
       icon: tp.number,
-      color: TAG_COLORS[(tp.number - 1) % TAG_COLORS.length],
+      color: TAG_COLOR_OVERRIDE[tp.number] ?? TAG_COLORS[(tp.number - 1) % TAG_COLORS.length],
     })),
   ];
   return (
