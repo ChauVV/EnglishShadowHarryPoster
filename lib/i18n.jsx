@@ -18,6 +18,8 @@ const DICT = {
     youtubeCount: (n) => `${n} video của bạn`,
     youtubeAdd: 'Thêm video',
     youtubeSentences: (n) => `${n} câu`,
+    youtubeSuggested: 'Gợi ý',
+    youtubeTryHint: 'Bấm một video gợi ý để tạo bài học',
     heroDesc:
       'Nghe giọng đọc chuẩn, lặp lại từng câu và nói theo ngay. Mỗi bài chỉ vài phút để giữ thói quen luyện tập mỗi ngày.',
     browseLibrary: 'Xem thư viện',
@@ -85,6 +87,8 @@ const DICT = {
     youtubeCount: (n) => `${n} of your videos`,
     youtubeAdd: 'Add video',
     youtubeSentences: (n) => `${n} ${n === 1 ? 'sentence' : 'sentences'}`,
+    youtubeSuggested: 'Suggested',
+    youtubeTryHint: 'Pick a suggested video to turn it into a lesson',
     heroDesc:
       'Listen to a clear narrator, repeat each sentence and speak right along. Every lesson takes just a few minutes, so daily practice stays easy.',
     browseLibrary: 'Browse library',

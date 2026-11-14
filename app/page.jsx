@@ -6,6 +6,7 @@ import GoogleAccount from '../components/GoogleAccount';
 import { FaYoutube } from 'react-icons/fa';
 import LanguageSwitch from '../components/LanguageSwitch';
 import TopicIcon from '../components/TopicIcon';
+import { FEATURED_VIDEOS } from '../lib/featuredVideos';
 import { lessonLabel, useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
 import { topicCoverSrc } from '../lib/topicCovers';
@@ -190,7 +191,13 @@ function TopicsSection({ topics, query, onClearQuery }) {
     if (!q || 'youtube'.includes(q)) return youtubeAll;
     return youtubeAll.filter((l) => normalizeText(l.title).includes(q));
   }, [youtubeAll, query]);
-  const hasYoutube = youtube.length > 0;
+  // Video gợi ý (chưa có trong danh sách của người dùng), cũng lọc theo ô tìm kiếm
+  const suggested = useMemo(() => {
+    const own = new Set(youtubeAll.map((l) => l.id));
+    const q = normalizeText(query);
+    return FEATURED_VIDEOS.filter((v) => !own.has(v.id) && (!q || 'youtube'.includes(q) || normalizeText(`${v.title} ${v.channel}`).includes(q)));
+  }, [youtubeAll, query]);
+  const hasYoutube = youtube.length > 0 || suggested.length > 0;
 
   const visible = useMemo(() => {
     const q = normalizeText(query);
@@ -262,7 +269,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
         </div>
       ) : (
         <div className="space-y-2">
-          {hasYoutube && <YouTubeRow lessons={youtube} />}
+          {hasYoutube && <YouTubeRow lessons={youtube} suggested={suggested} />}
           {visible.map(({ topic, lessons }) => (
             <TopicRow key={topic.topic} topic={topic} lessons={lessons} gradient={COVERS[(topic.number - 1) % COVERS.length]} />
           ))}
@@ -272,8 +279,8 @@ function TopicsSection({ topics, query, onClearQuery }) {
   );
 }
 
-// Hàng video YouTube của người dùng, nằm đầu danh sách; video mới nhất ở bên trái
-function YouTubeRow({ lessons }) {
+// Hàng video YouTube nằm đầu danh sách: video của người dùng (mới nhất bên trái), sau đó là các video gợi ý
+function YouTubeRow({ lessons, suggested }) {
   const { t } = useI18n();
   const scroller = useRef(null);
   const scrollBy = (dir) => {
@@ -290,7 +297,7 @@ function YouTubeRow({ lessons }) {
             YouTube
           </h3>
           <p className="text-xs text-slate-500 truncate">
-            {t.youtubeCount(lessons.length)} ·{' '}
+            {lessons.length > 0 ? t.youtubeCount(lessons.length) : t.youtubeTryHint} ·{' '}
             <Link href="/youtube" className="font-medium text-emerald-700 hover:underline">
               {t.youtubeAdd}
             </Link>
@@ -328,6 +335,25 @@ function YouTubeRow({ lessons }) {
               title={lesson.title}
               className="absolute right-1.5 top-1.5 bg-black/60 text-white hover:bg-red-600 sm:opacity-0 sm:group-hover/card:opacity-100 focus-visible:opacity-100"
             />
+          </li>
+        ))}
+        {suggested.map((video) => (
+          <li key={video.id} className="w-44 sm:w-52 shrink-0 snap-start">
+            <Link href={`/youtube/watch?v=${video.id}`} title={video.channel} className="group block rounded-xl focus-visible:outline-none">
+              <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                <span className="absolute inset-0 flex items-center justify-center bg-black/30 text-white opacity-0 transition group-hover:opacity-100">
+                  <PlayIcon className="h-8 w-8" />
+                </span>
+                <span className="absolute left-1.5 top-1.5 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold text-white">{t.youtubeSuggested}</span>
+                <span className="absolute bottom-1.5 right-1.5 inline-flex items-center gap-1 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-medium tabular-nums text-white">
+                  <ClockIcon className="h-3 w-3" />
+                  {formatTime(video.seconds)}
+                </span>
+              </span>
+              <span className="mt-1.5 block text-[13px] font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{video.title}</span>
+            </Link>
           </li>
         ))}
       </ul>
@@ -444,7 +470,6 @@ function TopicRow({ topic, lessons, gradient }) {
               lesson={lesson}
               gradient={gradient}
               coverSrc={topicCoverSrc(topic.topic, lesson.lesson_index)}
-              done={visited.has(key)}
               href={`/topic/${encodeURIComponent(topic.topic)}/${lesson.lesson_index}`}
               onOpen={() => markTopicLessonOpened(key)}
             />
@@ -455,8 +480,7 @@ function TopicRow({ topic, lessons, gradient }) {
   );
 }
 
-function LessonCard({ lesson, gradient, coverSrc, done, href, onOpen }) {
-  const { t } = useI18n();
+function LessonCard({ lesson, gradient, coverSrc, href, onOpen }) {
   const [coverFailed, setCoverFailed] = useState(false); // topic chưa có ảnh bìa -> dùng ô gradient + số bài
   return (
     <li className="w-44 sm:w-52 shrink-0 snap-start">
@@ -484,11 +508,6 @@ function LessonCard({ lesson, gradient, coverSrc, done, href, onOpen }) {
             <ClockIcon className="h-3 w-3" />
             {formatTime(lesson.duration_seconds)}
           </span>
-          {done && (
-            <span className="absolute left-1.5 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-white" title={t.studied}>
-              <CheckIcon className="h-3.5 w-3.5" />
-            </span>
-          )}
         </span>
         <span className="mt-2 block text-sm font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lessonLabel(lesson.title)}</span>
       </Link>
@@ -545,13 +564,6 @@ function PlayIcon({ className }) {
   return (
     <svg {...iconProps} className={className} fill="currentColor">
       <path d="M8 5v14l11-7z" />
-    </svg>
-  );
-}
-function CheckIcon({ className }) {
-  return (
-    <svg {...iconProps} className={className} {...stroke} strokeWidth={3}>
-      <path d="m5 12 5 5L20 7" />
     </svg>
   );
 }
