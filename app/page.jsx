@@ -297,7 +297,7 @@ function YouTubeRow({ lessons, suggested }) {
             YouTube
           </h3>
           <p className="text-xs text-slate-500 truncate">
-            {lessons.length > 0 ? t.youtubeCount(lessons.length) : t.youtubeTryHint} ·{' '}
+            {lessons.length > 0 ? t.youtubeCount(lessons.length) : suggested.length > 0 && suggested.every((v) => v.ready) ? t.youtubeTryHintReady : t.youtubeTryHint} ·{' '}
             <Link href="/youtube" className="font-medium text-emerald-700 hover:underline">
               {t.youtubeAdd}
             </Link>
@@ -339,7 +339,7 @@ function YouTubeRow({ lessons, suggested }) {
         ))}
         {suggested.map((video) => (
           <li key={video.id} className="w-44 sm:w-52 shrink-0 snap-start">
-            <Link href={`/youtube/watch?v=${video.id}`} title={video.channel} className="group block rounded-xl focus-visible:outline-none">
+            <Link href={`/youtube/watch?v=${video.id}`} title={`${video.channel}. ${video.ready ? t.youtubeReadyHint : t.youtubeCostHint}`} className="group block rounded-xl focus-visible:outline-none">
               <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />

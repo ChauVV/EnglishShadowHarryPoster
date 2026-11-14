@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { FiHome, FiRepeat } from 'react-icons/fi';
+import { FiDownload, FiHome, FiRepeat } from 'react-icons/fi';
 import { useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
 import { useYouTubeLessons } from '../lib/useYouTubeLessons';
@@ -42,7 +42,7 @@ function loadYouTubeApi() {
 }
 
 // Video YouTube nhúng (không tải video về) + danh sách câu có mốc thời gian, bản dịch, lặp câu, đổi tốc độ.
-export default function YouTubePlayer({ videoId, title, sentences, status, usage, pending, translating, onRetryTranslate, onBeforeDelete, onDeleted }) {
+export default function YouTubePlayer({ videoId, title, sentences, status, usage, pending, translating, onRetryTranslate, onBeforeDelete, onDeleted, builtIn, onExport }) {
   const { t } = useI18n();
   const y = t.yt;
   const hostRef = useRef(null);
@@ -219,7 +219,18 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
               </p>
             )}
           </div>
-          <DeleteLessonButton id={videoId} title={title} beforeDelete={onBeforeDelete} onDeleted={onDeleted} className="text-slate-500 hover:bg-red-50 hover:text-red-600" />
+          {onExport && (
+            <button
+              type="button"
+              onClick={onExport}
+              title={y.exportLesson}
+              aria-label={y.exportLesson}
+              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500"
+            >
+              <FiDownload className="h-4 w-4" aria-hidden="true" />
+            </button>
+          )}
+          {!builtIn && <DeleteLessonButton id={videoId} title={title} beforeDelete={onBeforeDelete} onDeleted={onDeleted} className="text-slate-500 hover:bg-red-50 hover:text-red-600" />}
           <LanguageSwitch tone="light" />
         </div>
       </header>

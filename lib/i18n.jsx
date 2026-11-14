@@ -19,7 +19,10 @@ const DICT = {
     youtubeAdd: 'Thêm video',
     youtubeSentences: (n) => `${n} câu`,
     youtubeSuggested: 'Gợi ý',
-    youtubeTryHint: 'Bấm một video gợi ý để tạo bài học',
+    youtubeTryHint: 'Bấm một video gợi ý để tạo bài học (tốn 1 lượt dịch)',
+    youtubeTryHintReady: 'Bấm một video để học ngay, không tốn lượt dịch',
+    youtubeReadyHint: 'Đã dịch sẵn: mở học ngay, không cần đăng nhập và không tốn lượt dịch.',
+    youtubeCostHint: 'Tạo bài từ video này tốn 1 lượt dịch link video YouTube. Mở lại bài đã tạo thì không tốn thêm.',
     heroDesc:
       'Nghe giọng đọc chuẩn, lặp lại từng câu và nói theo ngay. Mỗi bài chỉ vài phút để giữ thói quen luyện tập mỗi ngày.',
     browseLibrary: 'Xem thư viện',
@@ -88,7 +91,10 @@ const DICT = {
     youtubeAdd: 'Add video',
     youtubeSentences: (n) => `${n} ${n === 1 ? 'sentence' : 'sentences'}`,
     youtubeSuggested: 'Suggested',
-    youtubeTryHint: 'Pick a suggested video to turn it into a lesson',
+    youtubeTryHint: 'Pick a suggested video to turn it into a lesson (uses 1 translation)',
+    youtubeTryHintReady: 'Pick a video to start learning right away, no translation used',
+    youtubeReadyHint: 'Already translated: opens right away, no sign-in needed and no translation used.',
+    youtubeCostHint: 'Creating a lesson from this video uses 1 YouTube video translation. Reopening a lesson you already made is free.',
     heroDesc:
       'Listen to a clear narrator, repeat each sentence and speak right along. Every lesson takes just a few minutes, so daily practice stays easy.',
     browseLibrary: 'Browse library',

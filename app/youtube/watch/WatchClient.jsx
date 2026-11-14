@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import LessonSkeleton from '../../../components/LessonSkeleton';
 import YouTubePlayer from '../../../components/YouTubePlayer';
 import { downloadLesson, findLesson, uploadLesson } from '../../../lib/driveSync';
+import { readyFeatured } from '../../../lib/featuredVideos';
 import { authHeader, ensureSession, freshAuthHeader, signIn } from '../../../lib/googleAuth';
 import { useI18n } from '../../../lib/i18n';
 import { errorText } from '../../../lib/i18nYoutube';
@@ -22,10 +23,11 @@ const FATAL_CODES = ['NO_LOGIN', 'NO_GEMINI', 'DAILY_LIMIT'];
 
 export default function WatchClient() {
   const { t } = useI18n();
-  const videoId = extractVideoId(useSearchParams().get('v'));
+  const params = useSearchParams();
+  const videoId = extractVideoId(params.get('v'));
   if (!videoId) return <Message>{t.yt.invalidLink}</Message>;
-  // key={videoId}: đổi video thì dựng lại toàn bộ trạng thái
-  return <Lesson key={videoId} videoId={videoId} />;
+  // key={videoId}: đổi video thì dựng lại toàn bộ trạng thái. &export=1: hiện nút tải bài học ra file JSON (để làm bài dịch sẵn)
+  return <Lesson key={videoId} videoId={videoId} exportMode={params.get('export') === '1'} />;
 }
 
 async function postJson(url, body, headers = {}) {
@@ -43,7 +45,7 @@ const rawLines = (raw) => (raw.shifted ? raw.segments : shiftLines(raw.segments)
 const errorMessage = (y, e) => (!e ? '' : e.limit ? y.dailyLimitReset(e.limit, nextResetLabel()) : errorText(y, e.code, y.err[e.fallback] ?? y.err.generic));
 const noteMessage = (y, n) => (!n ? '' : n.seconds ? y.noteBusy(n.seconds) : y.noteWait);
 
-function Lesson({ videoId }) {
+function Lesson({ videoId, exportMode }) {
   const router = useRouter();
   const { t } = useI18n();
   const y = t.yt;
@@ -56,6 +58,7 @@ function Lesson({ videoId }) {
   const [usage, setUsage] = useState(null);
   const [note, setNote] = useState(null); // { wait: true } hoặc { seconds }
   const [attempt, setAttempt] = useState(0); // tăng lên để chạy lại sau khi đăng nhập
+  const [builtIn, setBuiltIn] = useState(false); // bài dịch sẵn đi kèm app (không thuộc danh sách của người dùng, không xóa được)
   const sentencesRef = useRef([]);
   const titleRef = useRef('');
   const metaRef = useRef({ v: SEG_VERSION });
@@ -325,6 +328,25 @@ function Lesson({ videoId }) {
       const cached = loadLesson(videoId);
       if (cached) return openLesson(cached);
 
+      // 1b. Video gợi ý đã có bài dịch sẵn đi kèm app: mở ngay, không cần đăng nhập, không tốn lượt, không lưu vào máy
+      if (readyFeatured(videoId)) {
+        const prebuilt = await fetch(`/featured-lessons/${videoId}.json`)
+          .then((r) => (r.ok ? r.json() : null))
+          .catch(() => null);
+        if (id !== runId.current) return;
+        if (Array.isArray(prebuilt?.sentences) && prebuilt.sentences.length > 0) {
+          titleRef.current = prebuilt.title ?? videoId;
+          sentencesRef.current = prebuilt.sentences;
+          setTitle(titleRef.current);
+          setSentences(prebuilt.sentences);
+          setShown(true);
+          setBuiltIn(true);
+          setPhase('ready');
+          return;
+        }
+        // Không đọc được file dịch sẵn: tạo bài như video bình thường
+      }
+
       // 2. Cần đăng nhập Google (để giới hạn lượt dịch theo người và đồng bộ Drive)
       const session = await ensureSession();
       if (id !== runId.current) return;
@@ -395,6 +417,16 @@ function Lesson({ videoId }) {
   }
   if (phase === 'loading') return <LessonSkeleton caption={y.loadingTranscript} />;
 
+  // Tải bài học đã dịch xong ra file <id>.json (chỉ khi mở link có &export=1)
+  const exportLesson = () => {
+    const data = { title: titleRef.current, sentences: sentencesRef.current, v: metaRef.current.v ?? SEG_VERSION };
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: 'application/json' }));
+    link.download = `${videoId}.json`;
+    link.click();
+    URL.revokeObjectURL(link.href);
+  };
+
   const translating = phase === 'translating';
   const done = sentences.filter((s) => s.vi).length;
   const noteText = noteMessage(y, note);
@@ -416,6 +448,8 @@ function Lesson({ videoId }) {
       onRetryTranslate={retryTranslate}
       onBeforeDelete={beforeDelete}
       onDeleted={afterDelete}
+      builtIn={builtIn}
+      onExport={exportMode && !builtIn && !translating && sentences.length > 0 && sentences.every((s) => s.vi) ? exportLesson : null}
     />
   );
 }
