@@ -135,7 +135,7 @@ function Hero() {
         <h1 className="font-display text-base font-bold leading-tight tracking-tight sm:text-lg">{t.heroTitle}</h1>
 
         <div className="mt-2">
-          <div className="inline-flex items-center gap-1.5 rounded-t-lg bg-white px-3 py-1 text-xs font-semibold text-[#FF0000]">
+          <div className="flex w-fit items-center gap-1.5 rounded-t-lg bg-white px-3 py-1 text-xs font-semibold text-[#FF0000]">
             <FaYoutube className="h-4 w-4" aria-hidden="true" />
             YouTube
           </div>

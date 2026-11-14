@@ -8,6 +8,7 @@ import { useYouTubeLessons } from '../lib/useYouTubeLessons';
 import { useTurnsLeft } from '../lib/ytClient';
 import DeleteLessonButton from './DeleteLessonButton';
 import LanguageSwitch from './LanguageSwitch';
+import LessonShelf from './LessonShelf';
 import { ControlButton, PauseIcon, PlayIcon, ReplayIcon, SkipIcon } from './ShadowingPlayer';
 
 const LOOP_KEY = 'yt-loop-lesson';
@@ -355,43 +356,15 @@ function TranslationSkeleton({ className = '', width = 66 }) {
 }
 
 // Danh sách các video YouTube của người dùng (mới nhất trước) ở khoảng trống dưới các nút điều khiển, bài đang xem được đánh dấu.
-// Chỉ hiện ở màn hình rộng, nơi cột trái còn trống; trên điện thoại ưu tiên danh sách phụ đề.
 function OtherLessons({ currentId }) {
   const { t } = useI18n();
   const y = t.yt;
   const lessons = useYouTubeLessons();
-  if (lessons.length < 2) return null; // chỉ có bài đang xem thì không cần danh sách
-  return (
-    <section aria-labelledby="other-lessons" className="mx-auto hidden w-full max-w-[calc(60vh*16/9)] pt-2 lg:block">
-      <div className="mb-2 flex items-baseline justify-between">
-        <h2 id="other-lessons" className="text-sm font-semibold">
-          {y.yourVideos}
-        </h2>
-        <Link href="/" className="text-xs font-medium text-emerald-700 hover:underline">
-          {y.seeAll}
-        </Link>
-      </div>
-      <ul className="grid grid-cols-3 gap-3 xl:grid-cols-4">
-        {lessons.slice(0, 12).map((lesson) => {
-          const current = lesson.id === currentId;
-          return (
-            <li key={lesson.id}>
-              <Link href={`/youtube/watch?v=${lesson.id}`} aria-current={current ? 'page' : undefined} className="group block rounded-xl focus-visible:outline-none">
-                <span
-                  className={`relative block aspect-video overflow-hidden rounded-xl bg-slate-200 transition group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 ${
-                    current ? 'ring-2 ring-emerald-500' : 'group-hover:shadow-md'
-                  }`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`https://i.ytimg.com/vi/${lesson.id}/mqdefault.jpg`} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-                  {current && <span className="absolute left-1.5 top-1.5 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold text-white">{y.nowPlaying}</span>}
-                </span>
-                <span className="mt-1.5 block line-clamp-2 text-xs font-medium leading-snug group-hover:text-emerald-700">{lesson.title}</span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-  );
+  const items = lessons.map((lesson) => ({
+    id: lesson.id,
+    href: `/youtube/watch?v=${lesson.id}`,
+    title: lesson.title,
+    image: `https://i.ytimg.com/vi/${lesson.id}/mqdefault.jpg`,
+  }));
+  return <LessonShelf heading={y.yourVideos} items={items} currentId={currentId} nowPlayingLabel={y.nowPlaying} seeAll={{ href: '/', label: y.seeAll }} />;
 }

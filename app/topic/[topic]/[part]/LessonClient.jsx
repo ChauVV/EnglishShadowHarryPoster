@@ -38,6 +38,18 @@ export default function LessonClient() {
 
   const base = `/topic/${encodeURIComponent(name)}`;
   const href = (l) => `${base}/${l.lesson_index}`;
+  // Các bài cùng chủ đề (có ảnh bìa và số bài) hiện ở khoảng trống dưới nút điều khiển
+  const shelf = {
+    heading: t.lessonsInTopic,
+    currentId: lesson.lesson_index,
+    items: lessons.map((l) => ({
+      id: l.lesson_index,
+      href: href(l),
+      title: lessonLabel(l.title),
+      image: topicCoverSrc(name, l.lesson_index),
+      badge: l.lesson_index,
+    })),
+  };
 
   return (
     <ShadowingPlayer
@@ -48,6 +60,7 @@ export default function LessonClient() {
       lesson={lesson}
       prevHref={idx > 0 ? href(lessons[idx - 1]) : null}
       nextHref={idx < lessons.length - 1 ? href(lessons[idx + 1]) : null}
+      shelf={shelf}
     />
   );
 }

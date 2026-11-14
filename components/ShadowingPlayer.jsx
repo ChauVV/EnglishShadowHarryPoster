@@ -1,9 +1,11 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { FiHome, FiRepeat } from 'react-icons/fi';
 import { useI18n } from '../lib/i18n';
 import { formatTime, getSentences } from '../lib/sentences';
 import LanguageSwitch from './LanguageSwitch';
+import LessonShelf from './LessonShelf';
 
 // Nhãn hiển thị -> tốc độ phát thật (audio gốc hơi chậm nên "1x" phát nhanh hơn 1 chút)
 const SPEEDS = [
@@ -23,7 +25,8 @@ function findActive(sentences, t) {
   return idx;
 }
 
-export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, prevHref, nextHref }) {
+// shelf: { heading, items: [{ id, href, title, image, badge }], currentId } - các bài cùng chủ đề, hiện ở khoảng trống dưới nút điều khiển
+export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, prevHref, nextHref, shelf }) {
   const { t } = useI18n();
   const audioRef = useRef(null);
   const listRef = useRef(null);
@@ -120,9 +123,7 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
       <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
         <div className="max-w-[1800px] mx-auto px-4 h-14 flex items-center gap-3">
           <Link href="/" aria-label={t.home} title={t.home} className="p-2 -ml-2 rounded-full hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="m3 11 9-8 9 8M5 10v10h5v-6h4v6h5V10" />
-            </svg>
+            <FiHome className="h-5 w-5" aria-hidden="true" />
           </Link>
           <div className="min-w-0 flex-1">
             <h1 className="text-sm lg:text-base font-bold truncate">
@@ -137,7 +138,7 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
       </header>
 
       <main className="max-w-[1800px] mx-auto p-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_440px] xl:grid-cols-[minmax(0,1fr)_560px] 2xl:grid-cols-[minmax(0,1fr)_680px]">
-        <section className="min-w-0 space-y-4">
+        <section className="min-w-0 space-y-3">
           {/* Khu vực "video" -> audio */}
           {/* Rộng tối đa 60vh x 16/9 để khung luôn đúng 16:9 như ảnh bìa (không hở hai bên khi bị giới hạn chiều cao) */}
           <div className="relative mx-auto overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 aspect-video max-h-[60vh] max-w-[calc(60vh*16/9)] w-full">
@@ -222,44 +223,46 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
             onEnded={() => setPlaying(false)}
           />
 
-          {/* Câu đang đọc */}
-          {/* Điện thoại/tablet: chữ nhỏ, khung gọn để nhường chỗ cho danh sách phụ đề bên dưới */}
-          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 px-4 py-3 lg:px-5 lg:py-4 text-center min-h-16 lg:min-h-24 flex flex-col items-center justify-center gap-1 lg:gap-2">
+          {/* Câu đang đọc: chiều cao cố định, tối đa 4 dòng mỗi thứ tiếng (giống trang video YouTube) */}
+          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 h-44 lg:h-36 overflow-hidden px-4 py-3 lg:px-5 lg:py-4 text-center flex flex-col items-center justify-center gap-1 lg:gap-2">
             {active?.speaker && (
               <p className="text-[10px] lg:text-xs font-semibold uppercase tracking-wider text-emerald-600">{active.speaker}</p>
             )}
-            <p className={`text-[13px] lg:text-lg font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
+            <p className={`line-clamp-4 text-[11px] lg:text-sm font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
             {hasTranslation && showVi && active?.vi && (
-              <p className="text-[11px] lg:text-base font-medium text-emerald-700 leading-snug">{active.vi}</p>
+              <p className="line-clamp-4 text-[10px] lg:text-xs font-medium text-emerald-700 leading-snug">{active.vi}</p>
             )}
           </div>
 
           {/* Điều khiển */}
           <div className="flex flex-wrap items-center justify-center gap-1.5 lg:gap-2">
-            <ControlButton onClick={() => seekTo(activeIndex - 1)} label={t.prevSentence}>
+            <ControlButton compact onClick={() => seekTo(activeIndex - 1)} label={t.prevSentence}>
               <SkipIcon flip />
             </ControlButton>
-            <ControlButton onClick={() => setLoopSentence((v) => !v)} label={t.replaySentence} active={loopSentence}>
+            <ControlButton compact onClick={() => setLoopSentence((v) => !v)} label={t.replaySentence} active={loopSentence}>
               <ReplayIcon />
             </ControlButton>
-            <ControlButton onClick={togglePlay} label={playing ? t.pauseKey : t.playKey} primary>
-              {playing ? <PauseIcon size={22} /> : <PlayIcon size={22} />}
+            <ControlButton compact onClick={togglePlay} label={playing ? t.pauseKey : t.playKey} primary>
+              {playing ? <PauseIcon size={18} /> : <PlayIcon size={18} />}
             </ControlButton>
-            <ControlButton onClick={() => seekTo(activeIndex + 1)} label={t.nextSentence}>
+            <ControlButton compact onClick={() => seekTo(activeIndex + 1)} label={t.nextSentence}>
               <SkipIcon />
             </ControlButton>
-            <ControlButton onClick={() => setLoop((v) => !v)} label={t.loopLabel} active={loop}>
-              <span className="text-xs lg:text-sm font-medium">{t.loopShort}</span>
+            <ControlButton compact onClick={() => setLoop((v) => !v)} label={t.loopLabel} active={loop}>
+              <span className="flex items-center gap-1.5 text-xs font-medium">
+                <FiRepeat className="h-4 w-4" aria-hidden="true" />
+                {t.loopShort}
+              </span>
             </ControlButton>
-            <ControlButton onClick={() => setShowText((v) => !v)} label={t.toggleSubs} active={!showText}>
-              <span className="text-xs lg:text-sm font-medium">{showText ? t.hideSubs : t.showSubs}</span>
+            <ControlButton compact onClick={() => setShowText((v) => !v)} label={t.toggleSubs} active={!showText}>
+              <span className="text-xs font-medium">{showText ? t.hideSubs : t.showSubs}</span>
             </ControlButton>
             {hasTranslation && (
-              <ControlButton onClick={() => setShowVi((v) => !v)} label={showVi ? t.hideTranslation : t.showTranslation} active={!showVi}>
-                <span className="text-xs lg:text-sm font-medium">{showVi ? t.hideTranslation : t.showTranslation}</span>
+              <ControlButton compact onClick={() => setShowVi((v) => !v)} label={showVi ? t.hideTranslation : t.showTranslation} active={!showVi}>
+                <span className="text-xs font-medium">{showVi ? t.hideTranslation : t.showTranslation}</span>
               </ControlButton>
             )}
-            <label className="flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 h-8 lg:h-10 text-xs lg:text-sm">
+            <label className="flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 h-8 text-xs">
               {t.speed}
               <select
                 value={speed}
@@ -274,6 +277,8 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
               </select>
             </label>
           </div>
+
+          {shelf && <LessonShelf heading={shelf.heading} items={shelf.items} currentId={shelf.currentId} nowPlayingLabel={t.nowPlaying} limit={20} />}
         </section>
 
         {/* Phụ đề */}
@@ -293,7 +298,7 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
               <li key={i} data-idx={i}>
                 <button
                   onClick={() => seekTo(i)}
-                  className={`group w-full flex items-start gap-2.5 lg:gap-3 rounded-xl px-2.5 py-2 lg:px-3 lg:py-3 text-left transition ${
+                  className={`group w-full flex items-start gap-2.5 lg:gap-3 rounded-xl px-2.5 py-1.5 lg:px-3 lg:py-2.5 text-left transition ${
                     i === activeIndex ? 'bg-emerald-100' : 'hover:bg-slate-50'
                   }`}
                 >
@@ -305,12 +310,12 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
                     <PlayIcon size={10} />
                   </span>
                   <span className="min-w-0">
-                    {s.speaker && <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">{s.speaker}</span>}
-                    <span className={`block text-[13px] lg:text-base leading-relaxed ${blur} ${showText ? '' : 'group-hover:blur-none'}`}>
+                    {s.speaker && <span className="block text-[10px] font-semibold uppercase tracking-wider text-slate-400">{s.speaker}</span>}
+                    <span className={`block text-[12px] lg:text-sm leading-relaxed ${blur} ${showText ? '' : 'group-hover:blur-none'}`}>
                       {s.text}
                     </span>
                     {showVi && s.vi && (
-                      <span className="block text-xs lg:text-[15px] leading-relaxed text-slate-600 mt-0.5">{s.vi}</span>
+                      <span className="block text-[11px] lg:text-[13px] leading-relaxed text-slate-600 mt-0.5">{s.vi}</span>
                     )}
                   </span>
                 </button>
@@ -338,7 +343,7 @@ function PlayToggle({ playing, onClick, t, overCover = false }) {
 }
 
 function LessonLink({ href, children }) {
-  const base = 'hidden sm:inline-flex items-center rounded-full px-4 h-9 text-sm font-medium border';
+  const base = 'hidden sm:inline-flex items-center rounded-full px-3 h-8 text-xs font-medium border';
   if (!href) return <span className={`${base} border-slate-100 text-slate-300`}>{children}</span>;
   return (
     <Link href={href} className={`${base} border-slate-200 hover:bg-slate-50`}>

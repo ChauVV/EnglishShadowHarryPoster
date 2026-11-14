@@ -27,9 +27,9 @@ export default function LessonSkeleton({ caption }) {
       </header>
 
       <main className="mx-auto grid max-w-[1800px] gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_440px] xl:grid-cols-[minmax(0,1fr)_560px] 2xl:grid-cols-[minmax(0,1fr)_680px]">
-        <section className="min-w-0 space-y-4">
+        <section className="min-w-0 space-y-3">
           <div className="mx-auto aspect-video max-h-[60vh] max-w-[calc(60vh*16/9)] w-full rounded-2xl bg-slate-200" />
-          <div className="mx-auto flex h-28 w-full max-w-[calc(60vh*16/9)] flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white">
+          <div className="mx-auto flex h-44 lg:h-36 w-full max-w-[calc(60vh*16/9)] flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white">
             {caption ? (
               <p className="px-4 text-center text-sm font-medium text-slate-500">{caption}</p>
             ) : (
@@ -42,7 +42,7 @@ export default function LessonSkeleton({ caption }) {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {[10, 10, 12, 10, 24, 28, 28, 24].map((w, i) => (
-              <div key={i} className={`h-10 rounded-full ${i === 2 ? 'bg-slate-300' : 'border border-slate-200 bg-white'}`} style={{ width: `${w * 4}px` }} />
+              <div key={i} className={`h-8 rounded-full ${i === 2 ? 'bg-slate-300' : 'border border-slate-200 bg-white'}`} style={{ width: `${w * 4}px` }} />
             ))}
           </div>
         </section>

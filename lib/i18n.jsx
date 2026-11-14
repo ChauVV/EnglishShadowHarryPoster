@@ -69,6 +69,8 @@ const DICT = {
     speed: 'Tốc độ',
     subtitles: 'Phụ đề',
     sentenceCount: (n) => `${n} câu`,
+    lessonsInTopic: 'Các bài trong chủ đề này',
+    nowPlaying: 'Đang xem',
     noTimestamps:
       'Bài này chưa có timestamp từng câu nên thời gian chỉ là ước lượng. Xử lý lại chapter bằng app mới để chính xác.',
   },
@@ -132,6 +134,8 @@ const DICT = {
     speed: 'Speed',
     subtitles: 'Subtitles',
     sentenceCount: (n) => `${n} ${n === 1 ? 'sentence' : 'sentences'}`,
+    lessonsInTopic: 'Lessons in this topic',
+    nowPlaying: 'Now playing',
     noTimestamps:
       'This lesson has no per-sentence timestamps, so timings are estimated. Reprocess the chapter with the new app for accuracy.',
   },
