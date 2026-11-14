@@ -370,6 +370,10 @@ const TAG_COLORS = [
 const TAG_COLOR_OVERRIDE = {
   15: { idle: 'border-yellow-300 bg-yellow-50 text-yellow-700 hover:bg-yellow-100', active: 'border-yellow-500 bg-yellow-500' },
 };
+// Màu của topic (theo số thứ tự) dùng chung cho tag và tiêu đề hàng topic
+const topicColor = (number) => TAG_COLOR_OVERRIDE[number] ?? TAG_COLORS[(number - 1) % TAG_COLORS.length];
+// Màu chữ của tiêu đề topic = màu chữ của tag (lấy từ chính chuỗi lớp của tag nên luôn khớp)
+const topicTitleClass = (number) => topicColor(number).idle.match(/text-[a-z]+-\d+/)[0];
 const TAG_ALL_COLOR = { idle: 'border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200', active: 'border-slate-700 bg-slate-700' };
 const TAG_YOUTUBE_COLOR = { idle: 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100', active: 'border-red-600 bg-red-600' };
 
@@ -386,7 +390,7 @@ function TopicTags({ topics, youtube, tag, onSelect, barRef }) {
       slug: tp.topic,
       label: tp.title,
       icon: tp.number,
-      color: TAG_COLOR_OVERRIDE[tp.number] ?? TAG_COLORS[(tp.number - 1) % TAG_COLORS.length],
+      color: topicColor(tp.number),
     })),
   ];
   return (
@@ -434,7 +438,7 @@ function TopicRow({ topic, lessons, gradient }) {
     <div id={`topic-${topic.topic}`} className="scroll-mt-28">
       <div className="mb-2 flex items-center gap-3">
         <div className="min-w-0 flex-1">
-          <h3 className="font-display text-lg sm:text-xl font-semibold leading-tight truncate">{topic.title}</h3>
+          <h3 className={`font-display text-lg sm:text-xl font-semibold leading-tight truncate ${topicTitleClass(topic.number)}`}>{topic.title}</h3>
         </div>
         <div className="hidden sm:flex gap-1.5">
           <ScrollButton onClick={() => scrollBy(-1)} label="←" flip />
