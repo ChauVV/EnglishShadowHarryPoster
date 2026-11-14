@@ -217,7 +217,7 @@ async function main() {
 }
 
 // Chỉ chạy khi gọi trực tiếp (scripts/make_lesson_photos.mjs import các hàm ở trên)
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((e) => {
     console.error(e.message);
     process.exit(1);

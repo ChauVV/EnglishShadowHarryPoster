@@ -8,6 +8,7 @@
 //   node scripts/make_lesson_photos.mjs --topic daily-routines --dry-run        # chỉ in từ khóa tìm ảnh, không tải gì
 //   thêm --sheet <đường dẫn .png> để xuất bảng xem nhanh các ảnh (đánh số theo bài) cho dễ duyệt
 //   thêm --query "3=man sleeping in bed,7=family dinner table" để tự đặt từ khóa cho một số bài (đổi ảnh lệch)
+//   --no-judge: bỏ bước nhờ Gemini xem ảnh và chấm điểm độ khớp với tiêu đề bài (mặc định có, ảnh điểm thấp sẽ thử ảnh khác)
 //   --resize: tạo lại cả hai cỡ ảnh từ đúng các ảnh đã chọn (theo credits.json), không tìm ảnh mới
 //
 // Cần PEXELS_API_KEY (miễn phí, https://www.pexels.com/api/) và GEMINI_API_KEY (chỉ dùng model chữ, gói miễn phí đủ) trong .env.local.
@@ -83,8 +84,11 @@ async function searchPexels(key, query) {
   url.searchParams.set('per_page', '30');
   for (let attempt = 1; ; attempt++) {
     const res = await fetch(url, { headers: { Authorization: key } });
-    if (res.status === 429 && attempt < 3) {
-      await sleep(5000 * attempt);
+    if (res.status === 429 && attempt <= 25) {
+      // Pexels cho khoảng 200 lượt tìm mỗi giờ: chờ cho tới khi được gọi lại (tối đa khoảng 1 giờ)
+      const wait = Math.min(Number(res.headers.get('retry-after')) * 1000 || 180000, 600000);
+      console.log(`  Pexels đang giới hạn lượt gọi, chờ ${Math.round(wait / 60000)} phút rồi thử lại (lần ${attempt})...`);
+      await sleep(wait);
       continue;
     }
     if (!res.ok) throw new Error(`Pexels HTTP ${res.status}${res.status === 401 ? ' (key sai?)' : res.status === 429 ? ' (hết lượt gọi, thử lại sau)' : ''}`);
@@ -93,9 +97,34 @@ async function searchPexels(key, query) {
   }
 }
 
-// Ảnh ngang đủ lớn, chưa dùng ở bài khác trong cùng topic. Pexels đã xếp theo độ liên quan nên lấy cái đầu tiên đạt.
-const pick = (photos, used) =>
-  photos.find((p) => !used.has(p.id) && p.width >= 1280 && p.width / p.height >= 1.4 && p.width / p.height <= 2.2) ?? photos.find((p) => !used.has(p.id));
+// Các ảnh ứng viên: ngang, đủ lớn, chưa dùng ở bài khác trong cùng topic. Pexels đã xếp theo độ liên quan nên giữ thứ tự.
+const candidatesOf = (photos, used) => {
+  const good = photos.filter((p) => !used.has(p.id) && p.width >= 1280 && p.width / p.height >= 1.4 && p.width / p.height <= 2.2).slice(0, 4);
+  return good.length ? good : photos.filter((p) => !used.has(p.id)).slice(0, 2);
+};
+
+// Nhờ Gemini nhìn ảnh và chấm 1-5 độ khớp với tiêu đề bài. Lỗi mạng/quá tải thì coi như điểm trung bình (3) để không kẹt cả đợt.
+async function judge(key, model, topicTitle, lessonTitle, photo) {
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const img = await fetch(photo.src.medium);
+      const data = Buffer.from(await img.arrayBuffer()).toString('base64');
+      const prompt =
+        `This photo will be the thumbnail of an English lesson titled "${lessonTitle}" (topic: ${topicTitle}). ` +
+        `Rate from 1 to 5 how clearly and recognizably the photo illustrates that title (5 = perfect, 3 = loosely related, 1 = unrelated or misleading). ` +
+        `Give 1 if the photo has readable text, logos or watermarks, shows an animal or object instead of the scene, or is inappropriate for a family audience.`;
+      const out = await gemini(`models/${model}:generateContent`, key, {
+        contents: [{ parts: [{ inlineData: { mimeType: 'image/jpeg', data } }, { text: prompt }] }],
+        generationConfig: { responseMimeType: 'application/json', responseSchema: { type: 'OBJECT', properties: { score: { type: 'INTEGER' } }, required: ['score'] } },
+      });
+      const score = Number(JSON.parse(out.candidates?.[0]?.content?.parts?.[0]?.text ?? '{}').score);
+      return score >= 1 && score <= 5 ? score : 3;
+    } catch {
+      if (attempt < 3) await sleep(3000 * attempt);
+    }
+  }
+  return 3;
+}
 
 // Tải ảnh một lần, ra hai cỡ: thẻ bài 640x360 và khung lớn ở trang bài học 1280x720
 async function renderBoth(url) {
@@ -203,7 +232,9 @@ async function main() {
   const used = new Set(Object.entries(credits).filter(([i]) => !redo.has(i)).map(([, c]) => c.id));
 
   let queries = {};
+  let judgeModel = null;
   if (todo.length) {
+    if (!flag('no-judge')) judgeModel = await pickTextModel(geminiKey).catch(() => null);
     // Gemini thỉnh thoảng báo quá tải: thử lại vài lần trước khi chịu dùng tiêu đề bài làm từ khóa (kém hơn từ khóa mô tả cảnh)
     for (let attempt = 1; attempt <= 5; attempt++) {
       try {
@@ -223,6 +254,19 @@ async function main() {
     return;
   }
 
+  // Chọn ảnh khớp nhất trong số ứng viên: dừng ngay khi có ảnh điểm >= 4; -> { photo, score } (score null nếu không chấm)
+  async function choose(photos, lesson) {
+    const list = candidatesOf(photos, used);
+    if (!judgeModel) return { photo: list[0] ?? null, score: null };
+    let best = null;
+    for (const p of list) {
+      const score = await judge(geminiKey, judgeModel, topic.title, lesson.title, p);
+      if (!best || score > best.score) best = { photo: p, score };
+      if (score >= 4) break;
+    }
+    return best ?? { photo: null, score: null };
+  }
+
   fs.mkdirSync(dir, { recursive: true });
   let done = 0;
   for (const l of todo) {
@@ -230,11 +274,16 @@ async function main() {
     try {
       let query = queryOf(l);
       let { photos, remaining } = await searchPexels(pexelsKey, query);
-      let photo = pick(photos, used);
-      if (!photo) {
-        query = l.title; // từ khóa quá hẹp: thử lại bằng chính tiêu đề bài
-        ({ photos, remaining } = await searchPexels(pexelsKey, query));
-        photo = pick(photos, used);
+      let { photo, score } = await choose(photos, l);
+      if (!photo || (score !== null && score <= 2)) {
+        // từ khóa quá hẹp hoặc ảnh không khớp: thử lại bằng chính tiêu đề bài, lấy kết quả tốt hơn
+        const retry = await searchPexels(pexelsKey, l.title);
+        const second = await choose(retry.photos, l);
+        if (second.photo && (!photo || (second.score ?? 0) > (score ?? 0))) {
+          ({ photo, score } = second);
+          query = l.title;
+          remaining = retry.remaining;
+        }
       }
       if (!photo) throw new Error(`không có ảnh cho "${query}"`);
       const { thumb, full } = await renderBoth(photo.src.large2x ?? photo.src.large);
@@ -243,7 +292,7 @@ async function main() {
       used.add(photo.id);
       credits[l.index] = { id: photo.id, photographer: photo.photographer, photographerUrl: photo.photographer_url, url: photo.url, query };
       done++;
-      console.log(`  ✓ ${label}  <-  "${query}"  (${photo.photographer}, còn ${remaining ?? '?'} lượt gọi)`);
+      console.log(`  ✓ ${label}  <-  "${query}"  (điểm khớp ${score ?? '-'}/5, ${photo.photographer}, còn ${remaining ?? '?'} lượt/tháng)`);
     } catch (e) {
       console.log(`  ✗ ${label}: ${e.message}`);
     }
