@@ -1,7 +1,12 @@
 import { NextResponse } from 'next/server';
+import { rateLimited } from '../../../../lib/rateLimit';
 import { ADMIN_COOKIE, SESSION_SECONDS, authConfigured, checkCredentials, createSessionToken } from '../../../../lib/auth';
 
 export async function POST(request) {
+  // Mỗi địa chỉ chỉ được thử 10 lần trong 15 phút, để mật khẩu đơn giản vẫn không bị đoán mò hàng loạt
+  if (rateLimited(request, { limit: 10, windowMs: 15 * 60_000 })) {
+    return NextResponse.json({ success: false, message: 'Thử quá nhiều lần, hãy đợi ít phút rồi thử lại.' }, { status: 429 });
+  }
   if (!authConfigured()) {
     return NextResponse.json({ success: false, message: 'Server chưa cấu hình tài khoản admin' }, { status: 500 });
   }

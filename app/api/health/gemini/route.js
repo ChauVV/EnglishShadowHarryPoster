@@ -1,6 +1,7 @@
 import { NextResponse, connection } from 'next/server';
 import { isAdminRequest } from '../../../../lib/auth';
 import { GeminiError, currentModel, geminiConfigured, geminiJson } from '../../../../lib/gemini';
+import { getGeminiUsage } from '../../../../lib/geminiUsage';
 
 export const maxDuration = 30;
 
@@ -22,7 +23,7 @@ export async function GET(request) {
   const started = Date.now();
   try {
     await geminiJson('Return the JSON array ["ok"].');
-    return NextResponse.json({ ok: true, model: currentModel(), ms: Date.now() - started });
+    return NextResponse.json({ ok: true, model: currentModel(), ms: Date.now() - started, usage: await getGeminiUsage() });
   } catch (err) {
     const status = err instanceof GeminiError ? err.status : 0;
     return NextResponse.json({
@@ -32,6 +33,7 @@ export async function GET(request) {
       status,
       problem: explain(status),
       detail: String(err.message).slice(0, 200),
+      usage: await getGeminiUsage(),
     });
   }
 }

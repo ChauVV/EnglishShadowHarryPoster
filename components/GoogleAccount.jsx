@@ -1,13 +1,16 @@
 'use client';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import { saveLocalAvatar, useAvatar } from '../lib/avatar';
 import { GOOGLE_CLIENT_ID, ensureSession, preloadGoogle, signIn, signOut, useGoogleUser } from '../lib/googleAuth';
 
-// Nút tài khoản ở header: chỉ hiện icon người dùng. Bấm vào mở hộp nhỏ:
-// đã đăng nhập -> email + Đăng xuất; chưa đăng nhập -> nút Đăng nhập bằng Google.
+// Nút tài khoản ở header: chỉ hiện ảnh đại diện (hoặc icon người dùng). Bấm vào mở hộp nhỏ:
+// đã đăng nhập -> email + Trang cá nhân + Đăng xuất; chưa đăng nhập -> nút Đăng nhập bằng Google.
 export default function GoogleAccount() {
   const user = useGoogleUser();
+  const { src } = useAvatar();
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
@@ -49,6 +52,7 @@ export default function GoogleAccount() {
 
   const logout = () => {
     signOut();
+    saveLocalAvatar(null); // máy dùng chung: không để lại ảnh của người vừa đăng xuất
     setOpen(false);
   };
 
@@ -61,11 +65,16 @@ export default function GoogleAccount() {
         aria-haspopup="true"
         aria-expanded={open}
         title={user?.email ?? 'Tài khoản'}
-        className={`flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500 ${
+        className={`flex h-9 w-9 items-center justify-center overflow-hidden rounded-full transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500 ${
           user ? 'text-emerald-600' : 'text-slate-500'
         }`}
       >
-        <FaUserCircle className="h-7 w-7" aria-hidden="true" />
+        {user && src ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={src} alt="" referrerPolicy="no-referrer" className="h-8 w-8 rounded-full object-cover ring-2 ring-emerald-500/40" />
+        ) : (
+          <FaUserCircle className="h-7 w-7" aria-hidden="true" />
+        )}
       </button>
 
       {open && (
@@ -74,10 +83,17 @@ export default function GoogleAccount() {
             <>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Đã đăng nhập</p>
               <p className="mt-1 break-all text-sm font-medium">{user.email ?? 'Tài khoản Google'}</p>
+              <Link
+                href="/profile"
+                onClick={() => setOpen(false)}
+                className="mt-3 flex h-9 w-full items-center justify-center rounded-full bg-emerald-500 text-sm font-semibold text-white transition hover:bg-emerald-600"
+              >
+                Trang cá nhân
+              </Link>
               <button
                 type="button"
                 onClick={logout}
-                className="mt-3 h-9 w-full rounded-full border border-slate-300 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+                className="mt-2 h-9 w-full rounded-full border border-slate-300 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
               >
                 Đăng xuất
               </button>

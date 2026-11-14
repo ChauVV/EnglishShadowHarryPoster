@@ -126,8 +126,32 @@ export default function AdminPage() {
               {!gemini.ok && gemini.detail ? <span className="mt-1 block text-xs text-slate-400">{gemini.detail}</span> : null}
             </p>
           )}
+          {gemini?.usage && <GeminiUsage usage={gemini.usage} />}
         </div>
       </div>
+    </div>
+  );
+}
+
+// Số lần gọi và token mà app đã dùng trong ngày. Hạn mức còn lại chính thức của key chỉ xem được trong Google AI Studio.
+function GeminiUsage({ usage }) {
+  const n = (value) => Number(value ?? 0).toLocaleString('vi-VN');
+  const reset = new Date(usage.resetAt).toLocaleString('vi-VN', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit' });
+  return (
+    <div className="mt-3 space-y-1 border-t border-slate-700 pt-3 text-sm text-slate-300">
+      <p>
+        Hôm nay app đã dùng: {n(usage.requests)} lần gọi · {n(usage.totalTokens)} token (vào {n(usage.promptTokens)}, ra {n(usage.outputTokens)})
+      </p>
+      {usage.rateLimited > 0 && <p className="text-amber-300">{n(usage.rateLimited)} lần bị giới hạn (429)</p>}
+      {usage.failed > 0 && <p className="text-red-300">{n(usage.failed)} lần lỗi khác</p>}
+      <p className="text-xs text-slate-400">
+        Hạn mức theo ngày của Google làm mới lúc {reset} (nửa đêm giờ Thái Bình Dương).
+        {!usage.durable && ' Chưa cấu hình Upstash nên số này chỉ tính trong tiến trình hiện tại, có thể thấp hơn thực tế.'} Hạn mức còn lại chính thức xem ở{' '}
+        <a href="https://aistudio.google.com/usage" target="_blank" rel="noopener noreferrer" className="text-indigo-300 underline">
+          Google AI Studio
+        </a>
+        .
+      </p>
     </div>
   );
 }
