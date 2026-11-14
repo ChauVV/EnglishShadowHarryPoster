@@ -1,7 +1,8 @@
 'use client';
 import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { FiDownload, FiHome, FiRepeat } from 'react-icons/fi';
+import { FEATURED_VIDEOS } from '../lib/featuredVideos';
 import { useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
 import { useYouTubeLessons } from '../lib/useYouTubeLessons';
@@ -366,16 +367,17 @@ function TranslationSkeleton({ className = '', width = 66 }) {
   return <span aria-hidden="true" className={`block animate-pulse rounded-full bg-slate-200 ${className}`} style={{ width: `${width}%` }} />;
 }
 
-// Danh sách các video YouTube của người dùng (mới nhất trước) ở khoảng trống dưới các nút điều khiển, bài đang xem được đánh dấu.
+// Các video trong tag YouTube (giống hàng YouTube ở trang chủ): video của người dùng (mới nhất trước), sau đó là các video gợi ý
+// chưa có trong danh sách của họ. Hiện ở khoảng trống dưới các nút điều khiển, bài đang xem được đánh dấu.
 function OtherLessons({ currentId }) {
   const { t } = useI18n();
   const y = t.yt;
   const lessons = useYouTubeLessons();
-  const items = lessons.map((lesson) => ({
-    id: lesson.id,
-    href: `/youtube/watch?v=${lesson.id}`,
-    title: lesson.title,
-    image: `https://i.ytimg.com/vi/${lesson.id}/mqdefault.jpg`,
-  }));
-  return <LessonShelf heading={y.yourVideos} items={items} currentId={currentId} nowPlayingLabel={y.nowPlaying} seeAll={{ href: '/', label: y.seeAll }} />;
+  const items = useMemo(() => {
+    const entry = (id, title) => ({ id, href: `/youtube/watch?v=${id}`, title, image: `https://i.ytimg.com/vi/${id}/mqdefault.jpg` });
+    const own = lessons.map((lesson) => entry(lesson.id, lesson.title));
+    const ids = new Set(own.map((item) => item.id));
+    return [...own, ...FEATURED_VIDEOS.filter((video) => !ids.has(video.id)).map((video) => entry(video.id, video.title))];
+  }, [lessons]);
+  return <LessonShelf heading={y.videosHeading} items={items} currentId={currentId} nowPlayingLabel={y.nowPlaying} seeAll={{ href: '/', label: y.seeAll }} />;
 }
