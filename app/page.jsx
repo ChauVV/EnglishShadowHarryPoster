@@ -77,7 +77,13 @@ export default function LibraryPage() {
 
       <footer className="border-t border-slate-200 bg-white">
         <div className="px-4 py-6 text-xs text-slate-500 sm:px-6">
-          {t.footer}
+          <p>{t.footer}</p>
+          <p className="mt-1">
+            {t.photoCredit}{' '}
+            <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer" className="font-medium underline hover:text-slate-700">
+              Pexels
+            </a>
+          </p>
         </div>
       </footer>
 
@@ -346,7 +352,6 @@ function YouTubeRow({ lessons, suggested }) {
                 <span className="absolute inset-0 flex items-center justify-center bg-black/30 text-white opacity-0 transition group-hover:opacity-100">
                   <PlayIcon className="h-8 w-8" />
                 </span>
-                <span className="absolute left-1.5 top-1.5 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold text-white">{t.youtubeSuggested}</span>
                 <span className="absolute bottom-1.5 right-1.5 inline-flex items-center gap-1 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-medium tabular-nums text-white">
                   <ClockIcon className="h-3 w-3" />
                   {formatTime(video.seconds)}
@@ -367,14 +372,14 @@ const TAG_COLORS = [
   { idle: 'border-sky-200 bg-sky-50 text-sky-700 hover:bg-sky-100', active: 'border-sky-600 bg-sky-600' },
   { idle: 'border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100', active: 'border-violet-600 bg-violet-600' },
   { idle: 'border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100', active: 'border-amber-600 bg-amber-600' },
-  { idle: 'border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100', active: 'border-rose-600 bg-rose-600' },
+  { idle: 'border-lime-300 bg-lime-50 text-lime-800 hover:bg-lime-100', active: 'border-lime-700 bg-lime-700' },
   { idle: 'border-teal-200 bg-teal-50 text-teal-700 hover:bg-teal-100', active: 'border-teal-600 bg-teal-600' },
   { idle: 'border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100', active: 'border-indigo-600 bg-indigo-600' },
   { idle: 'border-orange-200 bg-orange-50 text-orange-700 hover:bg-orange-100', active: 'border-orange-600 bg-orange-600' },
   { idle: 'border-pink-200 bg-pink-50 text-pink-700 hover:bg-pink-100', active: 'border-pink-600 bg-pink-600' },
   { idle: 'border-cyan-200 bg-cyan-50 text-cyan-700 hover:bg-cyan-100', active: 'border-cyan-600 bg-cyan-600' },
 ];
-// Topic 15 (Money & Banking) trùng màu rose với topic 05 (Daily Routines) nên cho màu vàng riêng
+// Topic 15 (Money & Banking) trùng màu lime với topic 05 (Daily Routines) nên cho màu vàng riêng
 const TAG_COLOR_OVERRIDE = {
   15: { idle: 'border-yellow-300 bg-yellow-50 text-yellow-700 hover:bg-yellow-100', active: 'border-yellow-500 bg-yellow-500' },
 };

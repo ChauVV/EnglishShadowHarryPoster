@@ -54,7 +54,7 @@ export default function LessonClient() {
   return (
     <ShadowingPlayer
       key={`${name}/${params.part}`}
-      coverUrl={topicCoverSrc(name, lesson.lesson_index)}
+      coverUrl={topicCoverSrc(name, lesson.lesson_index, 'full')}
       bookLabel={topic.title}
       heading={`${topic.title} · ${lessonLabel(lesson.title)}`}
       lesson={lesson}

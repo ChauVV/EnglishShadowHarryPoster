@@ -5,18 +5,18 @@
 //   node scripts/make_lesson_covers.mjs --topic daily-routines --only 1,2 # chỉ vài bài (để thử trước)
 //   node scripts/make_lesson_covers.mjs --topic daily-routines --force    # tạo lại, đè ảnh cũ
 //   node scripts/make_lesson_covers.mjs --topic daily-routines --dry-run  # chỉ in prompt, không gọi API
-//   thêm --style photo để thử kiểu ảnh chụp thay cho tranh minh họa; --model <tên> để chọn model tạo ảnh
+//   mặc định tạo kiểu ảnh chụp thật (--style photo); thêm --style illustration nếu muốn tranh minh họa; --model <tên> để chọn model tạo ảnh
 //
 // Cần GEMINI_API_KEY trong .env.local (key có quyền tạo ảnh; model tạo ảnh có thể yêu cầu bật thanh toán trên dự án Google).
 // Tiêu đề bài lấy từ docs/CONTENT_PLAN.md. Xong thì cập nhật lib/aiCovers.js để web biết bài nào đã có ảnh riêng
 // (bài chưa có ảnh vẫn dùng ảnh SVG chung của topic).
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import sharp from 'sharp';
 
-const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const COVERS = path.join(ROOT, 'public', 'topic-covers');
+export const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+export const COVERS = path.join(ROOT, 'public', 'topic-covers');
 const API = 'https://generativelanguage.googleapis.com/v1beta';
 const CONCURRENCY = 2;
 
@@ -28,7 +28,7 @@ const option = (name) => {
 };
 
 // ---- đọc biến môi trường từ .env.local (không in giá trị ra màn hình) ----
-function loadEnv() {
+export function loadEnv() {
   const file = path.join(ROOT, '.env.local');
   if (!fs.existsSync(file)) return;
   for (const line of fs.readFileSync(file, 'utf8').split(/\r?\n/)) {
@@ -45,7 +45,7 @@ export const slugify = (title) =>
     .replace(/^-|-$/g, '');
 
 // docs/CONTENT_PLAN.md -> { slug: { title, lessons: [{ index, title }] } }
-function readPlan() {
+export function readPlan() {
   const text = fs.readFileSync(path.join(ROOT, 'docs', 'CONTENT_PLAN.md'), 'utf8').replace(/\r\n/g, '\n');
   const topics = {};
   let current = null;
@@ -65,7 +65,8 @@ function readPlan() {
 const STYLES = {
   illustration:
     'A polished modern digital illustration in a warm, friendly style with rich saturated colors, soft lighting and gentle depth, like a high-quality app or video thumbnail.',
-  photo: 'A bright, natural, high-quality lifestyle photograph with soft daylight and a shallow depth of field, like a professional video thumbnail.',
+  photo:
+    'A photorealistic, natural candid photograph, as if taken by a professional photographer with a full-frame camera and a 35mm lens: real people with authentic expressions, true-to-life skin and fabric textures, soft natural light, shallow depth of field, in a real everyday location. Looks like a high-quality stock photo or video thumbnail, not a drawing, not 3D, not a cartoon.',
 };
 
 function promptFor(topicTitle, lessonTitle, style) {
@@ -132,7 +133,7 @@ async function withRetry(fn, label) {
 }
 
 // lib/aiCovers.js liệt kê bài nào của topic nào đã có ảnh riêng, tạo từ các file đang có trong public/topic-covers
-function writeManifest() {
+export function writeManifest() {
   const map = {};
   for (const slug of fs.readdirSync(COVERS).sort()) {
     const dir = path.join(COVERS, slug);
@@ -167,7 +168,7 @@ async function main() {
   const only = option('only')
     ?.split(',')
     .map(Number);
-  const style = option('style') ?? 'illustration';
+  const style = option('style') ?? 'photo';
   const lessons = topic.lessons.filter((l) => !only || only.includes(l.index));
   const dir = path.join(COVERS, slug);
   const fileOf = (l) => path.join(dir, `lesson-${String(l.index).padStart(2, '0')}.webp`);
@@ -215,7 +216,10 @@ async function main() {
   writeManifest();
 }
 
-main().catch((e) => {
-  console.error(e.message);
-  process.exit(1);
-});
+// Chỉ chạy khi gọi trực tiếp (scripts/make_lesson_photos.mjs import các hàm ở trên)
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((e) => {
+    console.error(e.message);
+    process.exit(1);
+  });
+}

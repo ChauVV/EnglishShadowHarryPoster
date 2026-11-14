@@ -16,7 +16,6 @@ const DICT = {
     linkPlaceholder: 'Dán link YouTube có phụ đề tiếng Anh...',
     generate: 'Generate',
     youtubeSentences: (n) => `${n} câu`,
-    youtubeSuggested: 'Gợi ý',
     youtubeReadyHint: 'Đã dịch sẵn: mở học ngay, không cần đăng nhập và không tốn lượt dịch.',
     youtubeCostHint: 'Tạo bài từ video này tốn 1 lượt dịch link video YouTube. Mở lại bài đã tạo thì không tốn thêm.',
     heroDesc:
@@ -42,6 +41,7 @@ const DICT = {
     freeTopicsDesc: 'Chúng tôi đang chuẩn bị các bài luyện shadowing miễn phí. Hãy quay lại sớm nhé!',
     footer: 'English Shadowing · Công cụ luyện nghe nói tiếng Anh theo phương pháp shadowing.',
     switchLang: 'Ngôn ngữ giao diện',
+    photoCredit: 'Ảnh bìa bài học do các nhiếp ảnh gia đóng góp trên',
     // learn page
     loadingLesson: 'Đang tải bài học...',
     lessonNotFound: 'Không tìm thấy bài học này.',
@@ -82,7 +82,6 @@ const DICT = {
     linkPlaceholder: 'Paste a YouTube link with English subtitles...',
     generate: 'Generate',
     youtubeSentences: (n) => `${n} ${n === 1 ? 'sentence' : 'sentences'}`,
-    youtubeSuggested: 'Suggested',
     youtubeReadyHint: 'Already translated: opens right away, no sign-in needed and no translation used.',
     youtubeCostHint: 'Creating a lesson from this video uses 1 YouTube video translation. Reopening a lesson you already made is free.',
     heroDesc:
@@ -108,6 +107,7 @@ const DICT = {
     freeTopicsDesc: 'We are preparing free shadowing lessons. Please check back soon!',
     footer: 'English Shadowing · An English listening and speaking trainer using the shadowing method.',
     switchLang: 'Interface language',
+    photoCredit: 'Lesson cover photos by photographers on',
     loadingLesson: 'Loading lesson...',
     lessonNotFound: 'This lesson could not be found.',
     backToList: 'Back to library',
