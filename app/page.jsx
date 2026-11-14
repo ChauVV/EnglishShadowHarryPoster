@@ -373,7 +373,7 @@ const TAG_COLOR_OVERRIDE = {
 // Màu của topic (theo số thứ tự) dùng chung cho tag và tiêu đề hàng topic
 const topicColor = (number) => TAG_COLOR_OVERRIDE[number] ?? TAG_COLORS[(number - 1) % TAG_COLORS.length];
 // Màu chữ của tiêu đề topic = màu chữ của tag (lấy từ chính chuỗi lớp của tag nên luôn khớp)
-const topicTitleClass = (number) => topicColor(number).idle.match(/text-[a-z]+-\d+/)[0];
+const topicTitleClass = (number) => topicColor(number).idle.match(/text-[a-z]+-[0-9]+/)?.[0] ?? 'text-slate-900';
 const TAG_ALL_COLOR = { idle: 'border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200', active: 'border-slate-700 bg-slate-700' };
 const TAG_YOUTUBE_COLOR = { idle: 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100', active: 'border-red-600 bg-red-600' };
 
