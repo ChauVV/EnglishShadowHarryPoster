@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { FiHome } from 'react-icons/fi';
 import { formatTime } from '../lib/sentences';
+import { useTurnsLeft } from '../lib/ytClient';
+import DeleteLessonButton from './DeleteLessonButton';
 import LanguageSwitch from './LanguageSwitch';
 import { ControlButton, PauseIcon, PlayIcon, ReplayIcon, SkipIcon } from './ShadowingPlayer';
 
@@ -36,7 +38,7 @@ function loadYouTubeApi() {
 }
 
 // Video YouTube nhúng (không tải video về) + danh sách câu có mốc thời gian, bản dịch, lặp câu, đổi tốc độ.
-export default function YouTubePlayer({ videoId, title, sentences, status, usage, pending, translating, onRetryTranslate }) {
+export default function YouTubePlayer({ videoId, title, sentences, status, usage, pending, translating, onRetryTranslate, onBeforeDelete, onDeleted }) {
   const hostRef = useRef(null);
   const playerRef = useRef(null);
   const listRef = useRef(null);
@@ -52,6 +54,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
   const activeIndex = findActive(sentences, time);
   const active = sentences[activeIndex];
   const hasTranslation = sentences.some((s) => s.vi);
+  const turns = useTurnsLeft(usage);
 
   // Tạo player của YouTube
   useEffect(() => {
@@ -173,12 +176,13 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
           </Link>
           <div className="min-w-0 flex-1">
             <h1 className="text-sm lg:text-base font-bold truncate">{title}</h1>
-            {usage && (
-              <p className="text-[11px] lg:text-xs text-slate-500 truncate" title="Mỗi video mới tính một lượt dịch. Mở lại bài đã tạo không tốn lượt.">
-                Hôm nay đã dùng {usage.used}/{usage.limit} lượt dịch
+            {turns && (
+              <p className="text-[11px] lg:text-xs text-slate-500 truncate" title="Mỗi video mới tính một lượt. Mở lại bài đã tạo không tốn lượt.">
+                Hôm nay còn {turns.remaining}/{turns.limit} lượt
               </p>
             )}
           </div>
+          <DeleteLessonButton id={videoId} title={title} beforeDelete={onBeforeDelete} onDeleted={onDeleted} className="text-slate-500 hover:bg-red-50 hover:text-red-600" />
           <LanguageSwitch tone="light" />
         </div>
       </header>

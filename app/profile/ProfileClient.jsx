@@ -8,7 +8,7 @@ import { FiCamera, FiHome } from 'react-icons/fi';
 import { prepareAvatar, saveLocalAvatar, useAvatar } from '../../lib/avatar';
 import { deleteAvatar, uploadAvatar } from '../../lib/driveSync';
 import { authHeader, ensureSession, signIn, signOut, useGoogleUser } from '../../lib/googleAuth';
-import { GET_KEY_URL, clearKey, isValidKeyFormat, nextResetLabel, saveKey, useQuota, useStoredKey } from '../../lib/ytClient';
+import { GET_KEY_URL, clearKey, isValidKeyFormat, nextResetLabel, saveKey, useQuota, useStoredKey, useTurnsLeft } from '../../lib/ytClient';
 
 export default function ProfileClient() {
   const router = useRouter();
@@ -18,6 +18,7 @@ export default function ProfileClient() {
   const storedKey = useStoredKey();
   const fileRef = useRef(null);
   const [usage, setUsage] = useState(null);
+  const turns = useTurnsLeft(usage); // một con số duy nhất: số nhỏ hơn giữa lượt của key và giới hạn của app
   const [avatarMsg, setAvatarMsg] = useState(null); // { ok, text }
   const [keyInput, setKeyInput] = useState('');
   const [keyMsg, setKeyMsg] = useState(null); // { ok, text }
@@ -108,10 +109,9 @@ export default function ProfileClient() {
     router.push('/');
   };
 
-  const used = usage?.used ?? 0;
-  const limit = usage?.limit ?? 10;
-  const percent = Math.min(100, Math.round((used / limit) * 100));
-  const translateOut = usage && used >= limit;
+  const total = turns?.limit ?? 10;
+  const percent = turns ? Math.min(100, Math.round(((total - turns.remaining) / total) * 100)) : 0;
+  const outOfTurns = turns && turns.remaining === 0;
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -187,20 +187,20 @@ export default function ProfileClient() {
               <p className="mt-3 text-xs text-slate-500">Ảnh được lưu trong thư mục riêng của ứng dụng trong Drive của bạn.</p>
             </section>
 
-            {/* Lượt dịch */}
+            {/* Lượt hôm nay */}
             <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="usage-title">
               <h2 id="usage-title" className="text-sm font-semibold text-slate-500">
-                Lượt dịch hôm nay
+                Lượt hôm nay
               </h2>
               <p className="mt-1 text-3xl font-semibold tabular-nums">
-                {usage ? limit - used : '–'}
-                <span className="text-base font-medium text-slate-500"> / {limit} lượt còn lại</span>
+                {turns ? turns.remaining : '–'}
+                <span className="text-base font-medium text-slate-500"> / {total} lượt còn lại</span>
               </p>
               <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200" role="progressbar" aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100}>
-                <div className={`h-full rounded-full transition-all ${translateOut ? 'bg-red-500' : 'bg-emerald-500'}`} style={{ width: `${percent}%` }} />
+                <div className={`h-full rounded-full transition-all ${outOfTurns ? 'bg-red-500' : 'bg-emerald-500'}`} style={{ width: `${percent}%` }} />
               </div>
               <p className="mt-2 text-xs text-slate-500">
-                {translateOut ? 'Bạn đã hết lượt dịch hôm nay. ' : ''}Mỗi video mới tính một lượt, xem lại bài đã tạo không tốn lượt. Lượt được làm mới lúc {nextResetLabel()}.
+                {outOfTurns ? 'Bạn đã hết lượt hôm nay. ' : ''}Mỗi video mới tính một lượt, xem lại bài đã tạo không tốn lượt. Lượt được làm mới lúc {nextResetLabel()}.
               </p>
             </section>
 
@@ -212,9 +212,6 @@ export default function ProfileClient() {
               {hasKey ? (
                 <>
                   <p className="mt-1 font-mono text-sm">{maskedKey}</p>
-                  <p className="mt-1 text-sm text-slate-600">
-                    Còn {quota.remaining}/{quota.limit} lượt lấy phụ đề hôm nay <span className="text-xs text-slate-400">(cập nhật sau mỗi lần dùng)</span>
-                  </p>
                 </>
               ) : (
                 <p className="mt-1 text-sm text-slate-600">Bạn chưa có key. Cần một key miễn phí để lấy phụ đề cho video mới.</p>

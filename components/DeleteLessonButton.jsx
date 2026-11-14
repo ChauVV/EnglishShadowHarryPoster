@@ -3,13 +3,17 @@ import { FiTrash2 } from 'react-icons/fi';
 import { deleteYouTubeLesson } from '../lib/deleteLesson';
 
 // Nút xóa một bài YouTube (có hỏi lại trước khi xóa). Màu sắc và vị trí do nơi dùng truyền vào qua className.
-export default function DeleteLessonButton({ id, title, className = '' }) {
+// beforeDelete: chạy sau khi người dùng xác nhận, trước khi xóa (ví dụ hủy việc đang dịch dở).
+// onDeleted: chạy sau khi xóa xong (ví dụ quay về trang chủ).
+export default function DeleteLessonButton({ id, title, className = '', beforeDelete, onDeleted }) {
   const onClick = async (e) => {
     e.preventDefault(); // nút nằm cạnh thẻ link, không để click lọt xuống mở bài
     e.stopPropagation();
     if (!window.confirm(`Xóa bài "${title}"?\nBài sẽ bị xóa khỏi máy này và khỏi Drive của bạn.`)) return;
+    await beforeDelete?.();
     const ok = await deleteYouTubeLesson(id);
     if (!ok) window.alert('Đã xóa trên máy này nhưng chưa xóa được bản lưu trong Drive. Bạn thử xóa lại khi có mạng.');
+    onDeleted?.();
   };
 
   return (

@@ -6,7 +6,7 @@ import LessonSkeleton from '../../../components/LessonSkeleton';
 import YouTubePlayer from '../../../components/YouTubePlayer';
 import { downloadLesson, findLesson, uploadLesson } from '../../../lib/driveSync';
 import { authHeader, ensureSession, getSession, signIn } from '../../../lib/googleAuth';
-import { SEG_VERSION, buildSentences, extractVideoId, mergeSentences } from '../../../lib/youtube';
+import { SEG_VERSION, buildSentences, extractVideoId, mergeSentences, shiftLines } from '../../../lib/youtube';
 import { clearKey, getKey, isValidKeyFormat, loadLesson, loadRaw, nextResetLabel, saveLesson, saveQuota, saveRaw } from '../../../lib/ytClient';
 
 const WINDOW = 250; // số dòng phụ đề gửi AI mỗi lần (bài dài thì chia thành nhiều lần chạy song song)
@@ -32,6 +32,9 @@ async function postJson(url, body, headers = {}) {
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// Phụ đề gốc đã lưu: bản lưu trước khi bù độ trễ (không có cờ shifted) thì bù lại cho đúng
+const rawLines = (raw) => (raw.shifted ? raw.segments : shiftLines(raw.segments));
 
 const failureMessage = (failure) =>
   failure?.code === 'NO_LOGIN' ? 'Phiên đăng nhập đã hết hạn. Bấm "Dịch lại" để đăng nhập Google và dịch tiếp.' : (failure?.message ?? 'Không dịch được. Thử lại sau.');
@@ -177,6 +180,14 @@ function Lesson({ videoId }) {
     [commit],
   );
 
+  // Xóa bài từ trang chi tiết: hủy việc đang dịch dở và việc đẩy lên Drive đang chờ (nếu không bài vừa xóa sẽ được lưu lại), xóa xong về trang chủ
+  const beforeDelete = useCallback(() => {
+    runId.current += 1;
+    clearTimeout(sync.timer);
+    sync.timer = null;
+  }, [sync]);
+  const afterDelete = useCallback(() => router.push('/'), [router]);
+
   // "Dịch lại": chỉ hiện khi tự thử lại vẫn lỗi. Hết phiên đăng nhập thì mở cửa sổ đăng nhập rồi làm tiếp.
   const retryTranslate = useCallback(async () => {
     const session = getSession() ?? (await signIn().catch(() => null));
@@ -216,6 +227,7 @@ function Lesson({ videoId }) {
     async function openLesson(lesson) {
       const complete = lesson.sentences.every((s) => s.vi);
       const current = (lesson.v ?? 1) >= SEG_VERSION;
+      const raw = loadRaw(videoId);
       const snoozed = lesson.skipUntil > Date.now(); // vừa nâng cấp thất bại, chưa thử lại ngay
       titleRef.current = lesson.title ?? videoId;
       setTitle(titleRef.current);
@@ -228,10 +240,19 @@ function Lesson({ videoId }) {
         return;
       }
 
+      // Bài đủ nội dung, chỉ lệch thời gian nhẹ và không còn phụ đề gốc để canh lại: chỉ dịch mốc thời gian, không cần gọi AI
+      if (complete && (lesson.v ?? 1) >= 3 && !raw) {
+        commit(shiftLines(lesson.sentences), { meta: { v: SEG_VERSION } });
+        setPhase('ready');
+        return;
+      }
+
       setPhase('translating');
       await ensureSession().catch(() => null); // làm mới phiên đăng nhập im lặng nếu hết hạn
       if (id !== runId.current) return;
-      const lines = lesson.sentences.map(({ start, end, text }) => ({ start, end, text }));
+      // Có phụ đề gốc thì dùng (canh thời gian chính xác nhất); không thì dùng các đoạn của bài đã lưu
+      const base = lesson.sentences.map(({ start, end, text }) => ({ start, end, text }));
+      const lines = raw ? rawLines(raw) : (lesson.v ?? 1) < SEG_VERSION ? shiftLines(base) : base;
       const outcome = await processLines(id, lines);
       if (!outcome) return;
       if (outcome.failed && complete) {
@@ -247,7 +268,7 @@ function Lesson({ videoId }) {
     // Trả về { title, segments }, hoặc null nếu đã chuyển trang / báo lỗi
     async function getTranscript() {
       const saved = loadRaw(videoId);
-      if (saved) return saved;
+      if (saved) return { ...saved, segments: rawLines(saved) };
 
       // Chưa có key lấy phụ đề: sang màn hình hướng dẫn tạo key
       const key = getKey();
@@ -286,7 +307,7 @@ function Lesson({ videoId }) {
         fail(res.data.message ?? 'Không lấy được phụ đề.');
         return null;
       }
-      const result = { title: res.data.title ?? videoId, segments: res.data.segments };
+      const result = { title: res.data.title ?? videoId, segments: res.data.segments, shifted: true }; // máy chủ đã bù độ trễ khi đọc phụ đề
       saveRaw(videoId, result);
       return result;
     }
@@ -384,6 +405,8 @@ function Lesson({ videoId }) {
       pending={translating && !shown}
       translating={translating}
       onRetryTranslate={retryTranslate}
+      onBeforeDelete={beforeDelete}
+      onDeleted={afterDelete}
     />
   );
 }

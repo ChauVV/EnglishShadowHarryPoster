@@ -8,12 +8,14 @@ import LanguageSwitch from '../../components/LanguageSwitch';
 import { authHeader, useGoogleUser } from '../../lib/googleAuth';
 import { useGenerateLesson } from '../../lib/useGenerateLesson';
 import { useYouTubeLessons } from '../../lib/useYouTubeLessons';
+import { useTurnsLeft } from '../../lib/ytClient';
 
 export default function YouTubeHome() {
   const { url, setUrl, error, busy, generate } = useGenerateLesson();
   const user = useGoogleUser();
   const lessons = useYouTubeLessons();
   const [usage, setUsage] = useState(null);
+  const turns = useTurnsLeft(usage);
 
   // Sau khi đăng nhập: lấy số video đã dịch hôm nay
   useEffect(() => {
@@ -83,7 +85,7 @@ export default function YouTubeHome() {
           <ul className="mt-3 space-y-1 text-xs text-slate-500">
             <li>
               {user
-                ? `Hôm nay bạn đã dùng ${usage?.used ?? 0}/${usage?.limit ?? 10} lượt dịch. Mỗi video mới tính một lượt, xem lại bài đã tạo không tốn lượt.`
+                ? `Hôm nay bạn còn ${turns?.remaining ?? '–'}/${turns?.limit ?? 10} lượt. Mỗi video mới tính một lượt, xem lại bài đã tạo không tốn lượt.`
                 : 'Bạn cần đăng nhập Google để tạo bài mới. Mỗi người được dịch tối đa 10 video mỗi ngày, bài đã tạo được lưu vào Drive của chính bạn.'}
             </li>
             {user && !user.drive && (
