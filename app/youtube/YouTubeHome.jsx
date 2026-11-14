@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaYoutube } from 'react-icons/fa';
+import DeleteLessonButton from '../../components/DeleteLessonButton';
 import GoogleAccount from '../../components/GoogleAccount';
 import LanguageSwitch from '../../components/LanguageSwitch';
 import { authHeader, useGoogleUser } from '../../lib/googleAuth';
@@ -105,10 +106,10 @@ export default function YouTubeHome() {
             </h2>
             <ul className="mt-3 grid gap-2">
               {lessons.map((l) => (
-                <li key={l.id}>
+                <li key={l.id} className="relative">
                   <Link
                     href={`/youtube/watch?v=${l.id}`}
-                    className="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-2 pr-4 transition hover:border-emerald-400 hover:shadow-sm"
+                    className="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-2 pr-14 transition hover:border-emerald-400 hover:shadow-sm"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={`https://i.ytimg.com/vi/${l.id}/mqdefault.jpg`} alt="" loading="lazy" className="aspect-video w-28 shrink-0 rounded-lg bg-slate-200 object-cover" />
@@ -117,6 +118,11 @@ export default function YouTubeHome() {
                       <span className="block text-xs text-slate-500">{l.count} câu</span>
                     </span>
                   </Link>
+                  <DeleteLessonButton
+                    id={l.id}
+                    title={l.title}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-100 text-slate-500 hover:bg-red-600 hover:text-white"
+                  />
                 </li>
               ))}
             </ul>

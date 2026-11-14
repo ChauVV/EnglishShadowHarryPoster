@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import DeleteLessonButton from '../components/DeleteLessonButton';
 import GoogleAccount from '../components/GoogleAccount';
 import { FaYoutube } from 'react-icons/fa';
 import LanguageSwitch from '../components/LanguageSwitch';
@@ -302,7 +303,7 @@ function YouTubeRow({ lessons }) {
         className="-mx-1 flex snap-x scroll-px-1 gap-3 overflow-x-auto px-1 pb-1 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {lessons.map((lesson) => (
-          <li key={lesson.id} className="w-44 sm:w-52 shrink-0 snap-start">
+          <li key={lesson.id} className="group/card relative w-44 sm:w-52 shrink-0 snap-start">
             <Link href={`/youtube/watch?v=${lesson.id}`} className="group block rounded-xl focus-visible:outline-none">
               <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -318,6 +319,11 @@ function YouTubeRow({ lessons }) {
               </span>
               <span className="mt-2 block text-sm font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lesson.title}</span>
             </Link>
+            <DeleteLessonButton
+              id={lesson.id}
+              title={lesson.title}
+              className="absolute right-1.5 top-1.5 bg-black/60 text-white hover:bg-red-600 sm:opacity-0 sm:group-hover/card:opacity-100 focus-visible:opacity-100"
+            />
           </li>
         ))}
       </ul>

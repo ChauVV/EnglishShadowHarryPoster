@@ -23,6 +23,22 @@ export default function AdminPage() {
     setIsAuth(false);
   };
 
+  const [gemini, setGemini] = useState(null);
+  const [geminiChecking, setGeminiChecking] = useState(false);
+
+  // Gọi thử Gemini để biết model còn sống không (key, model đang dùng, thời gian phản hồi)
+  const checkGemini = async () => {
+    setGeminiChecking(true);
+    setGemini(null);
+    try {
+      const res = await fetch('/api/health/gemini');
+      setGemini(await res.json());
+    } catch {
+      setGemini({ ok: false, problem: 'Không gọi được máy chủ.' });
+    }
+    setGeminiChecking(false);
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
@@ -86,6 +102,31 @@ export default function AdminPage() {
         <p className="bg-indigo-950/60 p-4 rounded-lg border border-indigo-800/50 text-slate-300">
           📌 Nội dung bài học được tạo bằng script Python tại máy local, sau đó upload lên Google Drive (xem docs/AI_WORKFLOW.md).
         </p>
+
+        <div className="mt-4 rounded-lg border border-slate-700 p-4">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <p className="font-semibold">Gemini (dịch phụ đề YouTube)</p>
+              <p className="text-xs text-slate-400">Kiểm tra key và model còn hoạt động không.</p>
+            </div>
+            <button
+              type="button"
+              onClick={checkGemini}
+              disabled={geminiChecking}
+              className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold hover:bg-indigo-500 disabled:opacity-60 transition"
+            >
+              {geminiChecking ? 'Đang kiểm tra...' : 'Kiểm tra'}
+            </button>
+          </div>
+          {gemini && (
+            <p className={`mt-3 text-sm ${gemini.ok ? 'text-emerald-300' : 'text-red-300'}`} role="status">
+              {gemini.ok
+                ? `Hoạt động tốt. Model: ${gemini.model} · phản hồi ${gemini.ms} ms`
+                : `Có vấn đề: ${gemini.problem}${gemini.model ? ` (model ${gemini.model}${gemini.status ? `, mã ${gemini.status}` : ''})` : ''}`}
+              {!gemini.ok && gemini.detail ? <span className="mt-1 block text-xs text-slate-400">{gemini.detail}</span> : null}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
