@@ -193,14 +193,14 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
           <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 px-4 py-3 lg:px-5 lg:py-4 text-center min-h-16 lg:min-h-24 flex flex-col items-center justify-center gap-1 lg:gap-2">
             {pending ? (
               <div className="flex w-full flex-col items-center gap-2" aria-busy="true">
-                <TranslationSkeleton className="h-4 lg:h-5" width={70} />
-                <TranslationSkeleton className="h-3.5 lg:h-4" width={50} />
+                <TranslationSkeleton className="h-3.5 lg:h-4" width={70} />
+                <TranslationSkeleton className="h-3 lg:h-3.5" width={50} />
               </div>
             ) : (
               <>
-                <p className={`text-[13px] lg:text-lg font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
-                {showVi && active?.vi && <p className="text-[11px] lg:text-base font-medium text-emerald-700 leading-snug">{active.vi}</p>}
-                {showVi && translating && active && !active.vi && <TranslationSkeleton className="h-3.5 lg:h-4" width={60} />}
+                <p className={`text-[12px] lg:text-base font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
+                {showVi && active?.vi && <p className="text-[11px] lg:text-sm font-medium text-emerald-700 leading-snug">{active.vi}</p>}
+                {showVi && translating && active && !active.vi && <TranslationSkeleton className="h-3 lg:h-3.5" width={60} />}
               </>
             )}
           </div>
@@ -273,7 +273,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
               <li key={i} data-idx={i}>
                 <button
                   onClick={() => seekTo(i)}
-                  className={`group w-full flex items-start gap-2.5 lg:gap-3 rounded-xl px-2.5 py-2 lg:px-3 lg:py-3 text-left transition ${
+                  className={`group w-full flex items-start gap-2.5 lg:gap-3 rounded-xl px-2.5 py-1.5 lg:px-3 lg:py-2.5 text-left transition ${
                     i === activeIndex ? 'bg-emerald-100' : 'hover:bg-slate-50'
                   }`}
                 >
@@ -281,13 +281,13 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
                     <PlayIcon size={10} />
                   </span>
                   <span className="min-w-0">
-                    <span className="block text-[11px] tabular-nums text-slate-400">{formatTime(s.start)}</span>
-                    <span className={`block text-[13px] lg:text-base leading-relaxed ${blur} ${showText ? '' : 'group-hover:blur-none'}`}>{s.text}</span>
+                    <span className="block text-[10px] tabular-nums text-slate-400">{formatTime(s.start)}</span>
+                    <span className={`block text-[12px] lg:text-sm leading-relaxed ${blur} ${showText ? '' : 'group-hover:blur-none'}`}>{s.text}</span>
                     {showVi &&
                       (s.vi ? (
-                        <span className="block text-xs lg:text-[15px] leading-relaxed text-slate-600 mt-0.5">{s.vi}</span>
+                        <span className="block text-[11px] lg:text-[13px] leading-relaxed text-slate-600 mt-0.5">{s.vi}</span>
                       ) : (
-                        translating && <TranslationSkeleton className="mt-2 h-3.5" width={50 + (i % 4) * 10} />
+                        translating && <TranslationSkeleton className="mt-2 h-3" width={50 + (i % 4) * 10} />
                       ))}
                   </span>
                 </button>
