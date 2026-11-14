@@ -2,12 +2,14 @@
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import GoogleAccount from '../components/GoogleAccount';
+import { FaYoutube } from 'react-icons/fa';
 import LanguageSwitch from '../components/LanguageSwitch';
 import TopicIcon from '../components/TopicIcon';
 import { lessonLabel, useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
 import { topicCoverSrc } from '../lib/topicCovers';
 import { markTopicLessonOpened, topicLessonKey, useTopicProgress } from '../lib/topicProgress';
+import { useGenerateLesson } from '../lib/useGenerateLesson';
 import { useYouTubeLessons } from '../lib/useYouTubeLessons';
 
 
@@ -122,32 +124,51 @@ function TopBar({ query, onQueryChange }) {
   );
 }
 
-// Banner mỏng một hàng: tiêu đề + nút học từ link YouTube
+// Banner đầu trang: một khối nền xanh, một tab YouTube và ô nhập link. Bấm Generate thì chuyển sang trang tạo bài.
 function Hero() {
   const { t } = useI18n();
+  const { url, setUrl, error, busy, generate } = useGenerateLesson();
   return (
-    <section className="relative overflow-hidden bg-slate-950 text-white">
-      <div
-        className="absolute inset-0 opacity-60"
-        aria-hidden="true"
-        style={{
-          background:
-            'radial-gradient(60% 120% at 85% 0%, rgba(16,185,129,.35), transparent 60%), radial-gradient(40% 100% at 0% 100%, rgba(245,158,11,.22), transparent 60%)',
-        }}
-      />
-      <div className="relative px-4 sm:px-6 py-4 sm:py-5 flex flex-wrap items-center gap-x-6 gap-y-3">
-        <div className="min-w-0 flex-1 basis-64">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">{t.eyebrow}</p>
-          <h1 className="font-display text-xl sm:text-2xl font-semibold leading-tight tracking-tight">{t.heroLine1}</h1>
-        </div>
+    <section className="px-4 pt-4 sm:px-6">
+      <div className="rounded-2xl bg-gradient-to-br from-emerald-700 via-emerald-500 to-teal-300 px-4 pb-4 pt-5 text-white shadow-sm sm:px-6">
+        <h1 className="font-display text-xl font-bold leading-tight tracking-tight sm:text-2xl">{t.heroTitle}</h1>
 
-        <Link
-          href="/youtube"
-          className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-5 h-10 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
-        >
-          <TopicIcon number="youtube" className="h-4 w-4" />
-          {t.youtubeCta}
-        </Link>
+        <div className="mt-4">
+          <div className="inline-flex items-center gap-2 rounded-t-xl bg-white px-4 py-2 text-sm font-semibold text-[#FF0000]">
+            <FaYoutube className="h-5 w-5" aria-hidden="true" />
+            YouTube
+          </div>
+          <form onSubmit={generate} className="rounded-b-xl rounded-tr-xl bg-white p-4 text-slate-900">
+            <label htmlFor="home-yt-url" className="text-xs font-medium text-slate-600">
+              {t.linkLabel}
+            </label>
+            <div className="mt-1.5 flex flex-col gap-2 sm:flex-row">
+              <input
+                id="home-yt-url"
+                type="text"
+                inputMode="url"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder={t.linkPlaceholder}
+                autoComplete="off"
+                spellCheck={false}
+                className="h-11 min-w-0 flex-1 rounded-xl border border-slate-300 px-3 text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
+              />
+              <button
+                type="submit"
+                disabled={busy}
+                className="h-11 rounded-xl bg-emerald-500 px-8 text-sm font-semibold text-white transition hover:bg-emerald-600 disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+              >
+                {t.generate}
+              </button>
+            </div>
+            {error && (
+              <p role="alert" className="mt-2 text-sm text-red-600">
+                {error}
+              </p>
+            )}
+          </form>
+        </div>
       </div>
     </section>
   );
@@ -259,7 +280,10 @@ function YouTubeRow({ lessons }) {
     <div id="topic-youtube" className="scroll-mt-28">
       <div className="mb-2 flex items-center gap-3">
         <div className="min-w-0 flex-1">
-          <h3 className="font-display text-lg sm:text-xl font-semibold leading-tight truncate">YouTube</h3>
+          <h3 className="font-display flex items-center gap-2 text-lg sm:text-xl font-semibold leading-tight">
+            <FaYoutube className="h-6 w-6 shrink-0 text-[#FF0000]" aria-hidden="true" />
+            YouTube
+          </h3>
           <p className="text-xs text-slate-500 truncate">
             {t.youtubeCount(lessons.length)} ·{' '}
             <Link href="/youtube" className="font-medium text-emerald-700 hover:underline">
@@ -356,7 +380,11 @@ function TopicTags({ topics, youtube, tag, onSelect }) {
                   active ? `${item.color.active} font-semibold text-white shadow-sm` : item.color.idle
                 }`}
               >
-                <TopicIcon number={item.icon} className="h-3.5 w-3.5 shrink-0" />
+                {item.icon === 'youtube' ? (
+                  <FaYoutube className="h-4 w-4 shrink-0" aria-hidden="true" />
+                ) : (
+                  <TopicIcon number={item.icon} className="h-3.5 w-3.5 shrink-0" />
+                )}
                 {item.label}
               </button>
             </li>

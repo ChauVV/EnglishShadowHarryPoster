@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 import { GOOGLE_CLIENT_ID, ensureSession, preloadGoogle, signIn, signOut, useGoogleUser } from '../lib/googleAuth';
 
 // Nút đăng nhập Google dùng chung cho header: chưa đăng nhập thì hiện nút, đã đăng nhập thì hiện email + Đăng xuất.
@@ -40,21 +41,22 @@ export default function GoogleAccount() {
   }
 
   return (
-    <div className="flex items-center gap-2">
-      {error && (
-        <span role="alert" className="hidden max-w-48 truncate text-xs text-red-600 md:inline" title={error}>
-          {error}
-        </span>
-      )}
+    <div className="relative">
       <button
         type="button"
         onClick={login}
-        disabled={busy || !GOOGLE_CLIENT_ID}
-        title={GOOGLE_CLIENT_ID ? undefined : 'Đăng nhập Google hiện chưa sẵn sàng'}
-        className="h-8 whitespace-nowrap rounded-full border border-slate-300 bg-white px-4 text-xs font-semibold text-slate-800 transition hover:bg-slate-100 disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-emerald-500"
+        disabled={busy}
+        className="inline-flex h-9 items-center gap-2.5 whitespace-nowrap rounded-full border border-[#dadce0] bg-white pl-3 pr-4 text-sm font-medium text-[#3c4043] transition hover:bg-[#f8f9fa] hover:shadow-sm disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4285F4]"
       >
-        Đăng nhập Google
+        <FcGoogle className="h-[18px] w-[18px]" aria-hidden="true" />
+        <span className="hidden sm:inline">Đăng nhập bằng Google</span>
+        <span className="sm:hidden">Đăng nhập</span>
       </button>
+      {error && (
+        <p role="alert" className="absolute right-0 top-full z-40 mt-2 w-64 rounded-lg border border-red-200 bg-white p-3 text-xs leading-snug text-red-700 shadow-lg">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

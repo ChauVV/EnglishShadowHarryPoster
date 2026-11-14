@@ -1,20 +1,16 @@
 'use client';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { FaYoutube } from 'react-icons/fa';
 import GoogleAccount from '../../components/GoogleAccount';
 import LanguageSwitch from '../../components/LanguageSwitch';
-import { findLesson } from '../../lib/driveSync';
-import { authHeader, getSession, signIn, useGoogleUser } from '../../lib/googleAuth';
-import { extractVideoId } from '../../lib/youtube';
+import { authHeader, useGoogleUser } from '../../lib/googleAuth';
+import { useGenerateLesson } from '../../lib/useGenerateLesson';
 import { useYouTubeLessons } from '../../lib/useYouTubeLessons';
-import { getKey, isValidKeyFormat, loadLesson, nextResetLabel, useQuota } from '../../lib/ytClient';
+import { nextResetLabel, useQuota } from '../../lib/ytClient';
 
 export default function YouTubeHome() {
-  const router = useRouter();
-  const [url, setUrl] = useState('');
-  const [error, setError] = useState('');
-  const [busy, setBusy] = useState(false);
+  const { url, setUrl, error, busy, generate } = useGenerateLesson();
   const user = useGoogleUser();
   const quota = useQuota();
   const lessons = useYouTubeLessons();
@@ -33,36 +29,6 @@ export default function YouTubeHome() {
     };
   }, [user]);
 
-  const generate = async (e) => {
-    e.preventDefault();
-    const id = extractVideoId(url);
-    if (!id) {
-      setError('Link YouTube không hợp lệ. Hãy dán link dạng youtube.com/watch?v=... hoặc youtu.be/...');
-      return;
-    }
-    setError('');
-    const watch = `/youtube/watch?v=${id}`;
-    // Bài đã có trên máy: xem lại ngay, không cần đăng nhập, không cần key, không tốn lượt
-    if (loadLesson(id)) return router.push(watch);
-
-    // Chưa đăng nhập: mở cửa sổ đăng nhập Google (gọi ngay trong sự kiện bấm nút)
-    let session = getSession();
-    if (!session) {
-      setBusy(true);
-      session = await signIn().catch((err) => {
-        setError(err.message);
-        return null;
-      });
-      setBusy(false);
-      if (!session) return setError((prev) => prev || 'Chưa đăng nhập được Google. Hãy thử lại.');
-    }
-
-    // Bài đã tạo trên thiết bị khác (có trong Drive): mở thẳng, không cần key
-    if (session.drive && (await findLesson(session.token, id).catch(() => null))) return router.push(watch);
-
-    router.push(isValidKeyFormat(getKey()) ? watch : `/youtube/key?v=${id}`);
-  };
-
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
@@ -78,7 +44,10 @@ export default function YouTubeHome() {
       </header>
 
       <main className="max-w-3xl mx-auto px-4 py-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">Học từ YouTube</p>
+        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
+          <FaYoutube className="h-6 w-6 text-[#FF0000]" aria-hidden="true" />
+          Học từ YouTube
+        </p>
         <h1 className="font-display mt-1 text-3xl font-semibold tracking-tight">Biến video yêu thích thành bài học</h1>
         <p className="mt-2 text-slate-600">
           Dán link YouTube có phụ đề tiếng Anh. Ứng dụng lấy phụ đề, chia thành câu và dịch sang tiếng Việt để bạn luyện shadowing ngay trên video.
@@ -91,7 +60,7 @@ export default function YouTubeHome() {
           <div className="mt-2 flex flex-col gap-2 sm:flex-row">
             <input
               id="yt-url"
-              type="url"
+              type="text"
               inputMode="url"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
