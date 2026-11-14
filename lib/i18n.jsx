@@ -12,6 +12,9 @@ const DICT = {
     eyebrow: 'Phương pháp shadowing',
     heroLine1: 'Nói tiếng Anh tự nhiên',
     youtubeCta: 'Học từ YouTube',
+    youtubeCount: (n) => `${n} video của bạn`,
+    youtubeAdd: 'Thêm video',
+    youtubeSentences: (n) => `${n} câu`,
     heroDesc:
       'Nghe giọng đọc chuẩn, lặp lại từng câu và nói theo ngay. Mỗi bài chỉ vài phút để giữ thói quen luyện tập mỗi ngày.',
     browseLibrary: 'Xem thư viện',
@@ -72,6 +75,9 @@ const DICT = {
     eyebrow: 'Shadowing method',
     heroLine1: 'Speak natural English',
     youtubeCta: 'Learn from YouTube',
+    youtubeCount: (n) => `${n} of your videos`,
+    youtubeAdd: 'Add video',
+    youtubeSentences: (n) => `${n} ${n === 1 ? 'sentence' : 'sentences'}`,
     heroDesc:
       'Listen to a clear narrator, repeat each sentence and speak right along. Every lesson takes just a few minutes, so daily practice stays easy.',
     browseLibrary: 'Browse library',

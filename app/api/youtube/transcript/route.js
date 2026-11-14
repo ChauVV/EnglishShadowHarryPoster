@@ -56,17 +56,20 @@ export async function POST(request) {
   const quota = readQuota(upstream.headers);
   if (upstream.status === 401) return fail(401, 'BAD_KEY', 'Key không đúng hoặc đã bị thay bằng key mới hơn.');
   if (upstream.status === 429) {
-    return fail(429, 'QUOTA', 'Bạn đã dùng hết lượt hôm nay. Hạn mức làm mới lúc 00:00 UTC.', {
+    return fail(429, 'QUOTA', 'Bạn đã dùng hết lượt lấy phụ đề hôm nay. Hãy quay lại vào ngày mai.', {
       quota: { limit: quota?.limit ?? null, remaining: 0 },
     });
   }
   if (upstream.status === 404) return fail(404, 'NO_TRANSCRIPT', 'Video này không có phụ đề để lấy.');
-  if (!upstream.ok) return fail(502, 'UPSTREAM', `Dịch vụ lấy phụ đề trả về lỗi ${upstream.status}.`);
+  if (!upstream.ok) {
+    console.error(`Dịch vụ youtube-transcript.ai trả về lỗi ${upstream.status}`);
+    return fail(502, 'UPSTREAM', 'Dịch vụ lấy phụ đề đang gặp sự cố. Vui lòng thử lại sau.');
+  }
 
   const text = await upstream.text();
   const segments = parseTranscript(text);
   if (segments.length === 0) {
-    return fail(422, 'UNPARSEABLE', 'Không đọc được phụ đề trả về (định dạng không có mốc thời gian).', {
+    return fail(422, 'UNPARSEABLE', 'Không đọc được phụ đề của video này. Hãy thử video khác.', {
       ...(process.env.NODE_ENV !== 'production' ? { sample: text.slice(0, 400) } : {}),
     });
   }

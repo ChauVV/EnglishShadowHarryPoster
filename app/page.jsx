@@ -1,12 +1,14 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import GoogleAccount from '../components/GoogleAccount';
 import LanguageSwitch from '../components/LanguageSwitch';
 import TopicIcon from '../components/TopicIcon';
 import { lessonLabel, useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
 import { topicCoverSrc } from '../lib/topicCovers';
 import { markTopicLessonOpened, topicLessonKey, useTopicProgress } from '../lib/topicProgress';
+import { useYouTubeLessons } from '../lib/useYouTubeLessons';
 
 
 // Mỗi tập một màu bìa riêng để dễ nhận biết trên "kệ sách"
@@ -111,7 +113,8 @@ function TopBar({ query, onQueryChange }) {
           )}
         </label>
 
-        <div className="shrink-0 sm:ml-auto">
+        <div className="flex shrink-0 items-center gap-3 sm:ml-auto">
+          <GoogleAccount />
           <LanguageSwitch tone="light" />
         </div>
       </div>
@@ -142,7 +145,7 @@ function Hero() {
           href="/youtube"
           className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-5 h-10 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
         >
-          <PlayIcon className="h-3.5 w-3.5" />
+          <TopicIcon number="youtube" className="h-4 w-4" />
           {t.youtubeCta}
         </Link>
       </div>
@@ -156,6 +159,15 @@ function TopicsSection({ topics, query, onClearQuery }) {
   const { t } = useI18n();
   const sectionRef = useRef(null);
   const [tag, setTag] = useState(null); // slug topic đang hiển thị trên màn hình (để tô tag), null = đầu danh sách
+
+  // Video YouTube của người dùng: hàng riêng ở đầu danh sách (mới nhất bên trái), lọc theo ô tìm kiếm
+  const youtubeAll = useYouTubeLessons();
+  const youtube = useMemo(() => {
+    const q = normalizeText(query);
+    if (!q || 'youtube'.includes(q)) return youtubeAll;
+    return youtubeAll.filter((l) => normalizeText(l.title).includes(q));
+  }, [youtubeAll, query]);
+  const hasYoutube = youtube.length > 0;
 
   const visible = useMemo(() => {
     const q = normalizeText(query);
@@ -179,9 +191,10 @@ function TopicsSection({ topics, query, onClearQuery }) {
     const update = () => {
       frame = 0;
       let current = null;
-      for (const { topic } of visible) {
-        const el = document.getElementById(`topic-${topic.topic}`);
-        if (el && el.getBoundingClientRect().top <= STICKY_OFFSET + 8) current = topic.topic;
+      const slugs = [...(hasYoutube ? ['youtube'] : []), ...visible.map(({ topic }) => topic.topic)];
+      for (const slug of slugs) {
+        const el = document.getElementById(`topic-${slug}`);
+        if (el && el.getBoundingClientRect().top <= STICKY_OFFSET + 8) current = slug;
       }
       setTag(current);
     };
@@ -194,7 +207,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
       window.removeEventListener('scroll', onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [visible]);
+  }, [visible, hasYoutube]);
 
   const scrollToTopic = (slug) => {
     const el = slug ? document.getElementById(`topic-${slug}`) : sectionRef.current;
@@ -205,11 +218,11 @@ function TopicsSection({ topics, query, onClearQuery }) {
 
   return (
     <section ref={sectionRef} className="mt-4" aria-label={t.topicsTitle}>
-      <TopicTags topics={visible.map((v) => v.topic)} tag={tag} onSelect={scrollToTopic} />
+      <TopicTags topics={visible.map((v) => v.topic)} youtube={hasYoutube} tag={tag} onSelect={scrollToTopic} />
 
       <div className="mt-4" />
 
-      {visible.length === 0 ? (
+      {visible.length === 0 && !hasYoutube ? (
         <div className="rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-12 text-center">
           <p className="font-semibold">{t.noResults}</p>
           <p className="mx-auto mt-1 max-w-sm text-sm text-slate-500">{t.noResultsDesc}</p>
@@ -223,12 +236,68 @@ function TopicsSection({ topics, query, onClearQuery }) {
         </div>
       ) : (
         <div className="space-y-2">
+          {hasYoutube && <YouTubeRow lessons={youtube} />}
           {visible.map(({ topic, lessons }) => (
             <TopicRow key={topic.topic} topic={topic} lessons={lessons} gradient={COVERS[(topic.number - 1) % COVERS.length]} />
           ))}
         </div>
       )}
     </section>
+  );
+}
+
+// Hàng video YouTube của người dùng, nằm đầu danh sách; video mới nhất ở bên trái
+function YouTubeRow({ lessons }) {
+  const { t } = useI18n();
+  const scroller = useRef(null);
+  const scrollBy = (dir) => {
+    const el = scroller.current;
+    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: 'smooth' });
+  };
+
+  return (
+    <div id="topic-youtube" className="scroll-mt-28">
+      <div className="mb-2 flex items-center gap-3">
+        <div className="min-w-0 flex-1">
+          <h3 className="font-display text-lg sm:text-xl font-semibold leading-tight truncate">YouTube</h3>
+          <p className="text-xs text-slate-500 truncate">
+            {t.youtubeCount(lessons.length)} ·{' '}
+            <Link href="/youtube" className="font-medium text-emerald-700 hover:underline">
+              {t.youtubeAdd}
+            </Link>
+          </p>
+        </div>
+        <div className="hidden sm:flex gap-1.5">
+          <ScrollButton onClick={() => scrollBy(-1)} label="←" flip />
+          <ScrollButton onClick={() => scrollBy(1)} label="→" />
+        </div>
+      </div>
+
+      <ul
+        ref={scroller}
+        className="-mx-1 flex snap-x scroll-px-1 gap-3 overflow-x-auto px-1 pb-1 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {lessons.map((lesson) => (
+          <li key={lesson.id} className="w-44 sm:w-52 shrink-0 snap-start">
+            <Link href={`/youtube/watch?v=${lesson.id}`} className="group block rounded-xl focus-visible:outline-none">
+              <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`https://i.ytimg.com/vi/${lesson.id}/mqdefault.jpg`} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                <span className="absolute inset-0 flex items-center justify-center bg-black/30 text-white opacity-0 transition group-hover:opacity-100">
+                  <PlayIcon className="h-8 w-8" />
+                </span>
+                {lesson.count > 0 && (
+                  <span className="absolute bottom-1.5 right-1.5 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-medium tabular-nums text-white">
+                    {t.youtubeSentences(lesson.count)}
+                  </span>
+                )}
+              </span>
+              <span className="mt-2 block text-sm font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lesson.title}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -250,15 +319,17 @@ const TAG_COLOR_OVERRIDE = {
   15: { idle: 'border-yellow-300 bg-yellow-50 text-yellow-700 hover:bg-yellow-100', active: 'border-yellow-500 bg-yellow-500' },
 };
 const TAG_ALL_COLOR = { idle: 'border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200', active: 'border-slate-700 bg-slate-700' };
+const TAG_YOUTUBE_COLOR = { idle: 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100', active: 'border-red-600 bg-red-600' };
 
 // Header (h-14) + thanh tag dính: khoảng cần chừa khi cuộn tới một hàng topic
 const STICKY_OFFSET = 112;
 
 // Hàng tag chủ đề cuộn ngang, dính dưới header khi cuộn trang
-function TopicTags({ topics, tag, onSelect }) {
+function TopicTags({ topics, youtube, tag, onSelect }) {
   const { t } = useI18n();
   const items = [
     { slug: null, label: t.allTopics, icon: 'all', color: TAG_ALL_COLOR },
+    ...(youtube ? [{ slug: 'youtube', label: 'YouTube', icon: 'youtube', color: TAG_YOUTUBE_COLOR }] : []),
     ...topics.map((tp) => ({
       slug: tp.topic,
       label: tp.title,

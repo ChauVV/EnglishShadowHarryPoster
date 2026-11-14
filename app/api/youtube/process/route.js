@@ -28,7 +28,8 @@ export async function POST(request) {
     return NextResponse.json({ code: 'TOO_MANY', message: 'Bạn thao tác quá nhanh, thử lại sau ít phút.' }, { status: 429 });
   }
   if (!geminiConfigured()) {
-    return NextResponse.json({ code: 'NO_GEMINI', message: 'Server chưa cấu hình GEMINI_API_KEY.' }, { status: 503 });
+    console.error('Thiếu biến môi trường GEMINI_API_KEY (khóa Gemini để dịch phụ đề).');
+    return NextResponse.json({ code: 'NO_GEMINI', message: 'Tính năng dịch tạm thời chưa sẵn sàng. Vui lòng thử lại sau.' }, { status: 503 });
   }
 
   // Dùng Gemini của chủ app nên bắt buộc đăng nhập Google để giới hạn theo từng người
@@ -61,7 +62,7 @@ export async function POST(request) {
   }
   if (!usage.allowed) {
     return NextResponse.json(
-      { code: 'DAILY_LIMIT', message: `Hôm nay bạn đã dịch đủ ${usage.limit} video. Lượt làm mới lúc 00:00 UTC.`, usage },
+      { code: 'DAILY_LIMIT', message: `Hôm nay bạn đã dịch đủ ${usage.limit} video. Hãy quay lại vào ngày mai.`, usage },
       { status: 429 },
     );
   }

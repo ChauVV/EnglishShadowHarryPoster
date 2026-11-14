@@ -6,7 +6,7 @@ import YouTubePlayer from '../../../components/YouTubePlayer';
 import { downloadLesson, findLesson, uploadLesson } from '../../../lib/driveSync';
 import { authHeader, ensureSession, getSession, signIn } from '../../../lib/googleAuth';
 import { extractVideoId, mergeSentences, needsCleaning } from '../../../lib/youtube';
-import { clearKey, getKey, isValidKeyFormat, loadLesson, saveLesson, saveQuota } from '../../../lib/ytClient';
+import { clearKey, getKey, isValidKeyFormat, loadLesson, nextResetLabel, saveLesson, saveQuota } from '../../../lib/ytClient';
 
 const CLEAN_BATCH = 50;
 const TRANSLATE_BATCH = 15;
@@ -173,7 +173,7 @@ function Lesson({ videoId }) {
       if (id !== runId.current) return;
       if (current) {
         setUsage(current);
-        if (current.used >= current.limit) return fail(`Hôm nay bạn đã dịch đủ ${current.limit} video. Lượt làm mới lúc 00:00 UTC.`);
+        if (current.used >= current.limit) return fail(`Hôm nay bạn đã dịch đủ ${current.limit} video. Lượt được làm mới lúc ${nextResetLabel()}.`);
       }
 
       // 6. Lấy phụ đề (tốn 1 lượt của key người dùng)
