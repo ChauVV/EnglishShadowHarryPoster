@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import DeleteLessonButton from '../components/DeleteLessonButton';
 import GoogleAccount from '../components/GoogleAccount';
+import NoticeDialog from '../components/NoticeDialog';
 import { FaYoutube } from 'react-icons/fa';
 import LanguageSwitch from '../components/LanguageSwitch';
 import TopicIcon from '../components/TopicIcon';
@@ -13,6 +14,7 @@ import { topicCoverSrc } from '../lib/topicCovers';
 import { markTopicLessonOpened, topicLessonKey, useTopicProgress } from '../lib/topicProgress';
 import { useGenerateLesson } from '../lib/useGenerateLesson';
 import { useYouTubeLessons } from '../lib/useYouTubeLessons';
+import { errorMessage, useFlash } from '../lib/ytFlash';
 
 
 // Mỗi tập một màu bìa riêng để dễ nhận biết trên "kệ sách"
@@ -40,6 +42,8 @@ export default function LibraryPage() {
   const [topics, setTopics] = useState(null);
   const [error, setError] = useState(false);
   const [query, setQuery] = useState('');
+  // Lỗi khi tạo bài học từ trang xem video (hết lượt, lỗi mạng...): trang đó đưa về đây kèm popup cảnh báo, chỉ hiện một lần
+  const [notice, closeNotice] = useFlash();
 
   useEffect(() => {
     fetch('/api/topics')
@@ -76,6 +80,8 @@ export default function LibraryPage() {
           {t.footer}
         </div>
       </footer>
+
+      {notice && <NoticeDialog title={t.yt.noticeTitle} message={errorMessage(t.yt, notice)} okLabel={t.yt.noticeOk} onClose={closeNotice} />}
     </div>
   );
 }

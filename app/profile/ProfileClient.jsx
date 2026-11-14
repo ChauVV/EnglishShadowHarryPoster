@@ -5,11 +5,13 @@ import { useEffect, useRef, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { FiCamera, FiHome } from 'react-icons/fi';
+import NoticeDialog from '../../components/NoticeDialog';
 import { prepareAvatar, saveLocalAvatar, useAvatar } from '../../lib/avatar';
 import { deleteAvatar, uploadAvatar } from '../../lib/driveSync';
 import { authHeader, ensureSession, signIn, signOut, useGoogleUser } from '../../lib/googleAuth';
 import { useI18n } from '../../lib/i18n';
 import { errorText } from '../../lib/i18nYoutube';
+import { errorMessage, useFlash } from '../../lib/ytFlash';
 import { GET_KEY_URL, clearKey, isValidKeyFormat, nextResetLabel, saveKey, useQuota, useStoredKey, useTurnsLeft } from '../../lib/ytClient';
 
 export default function ProfileClient() {
@@ -28,6 +30,7 @@ export default function ProfileClient() {
   const [editingKey, setEditingKey] = useState(false); // ô nhập key chỉ hiện khi người dùng bấm "Cập nhật key"
   const [keyMsg, setKeyMsg] = useState(null); // { ok, text }
   const [signInError, setSignInError] = useState('');
+  const [notice, closeNotice] = useFlash(); // hết lượt khi tạo bài: trang xem video đưa về đây kèm popup giải thích
 
   // Khôi phục phiên đăng nhập im lặng nếu có thể
   useEffect(() => {
@@ -310,6 +313,8 @@ export default function ProfileClient() {
           </>
         )}
       </main>
+
+      {notice && <NoticeDialog title={y.noticeTitle} message={errorMessage(y, notice)} okLabel={y.noticeOk} onClose={closeNotice} />}
     </div>
   );
 }

@@ -6,6 +6,7 @@ import LessonSkeleton from '../../../components/LessonSkeleton';
 import YouTubePlayer from '../../../components/YouTubePlayer';
 import { downloadLesson, findLesson, uploadLesson } from '../../../lib/driveSync';
 import { readyFeatured } from '../../../lib/featuredVideos';
+import { errorMessage, setFlash } from '../../../lib/ytFlash';
 import { authHeader, ensureSession, freshAuthHeader, signIn } from '../../../lib/googleAuth';
 import { useI18n } from '../../../lib/i18n';
 import { errorText } from '../../../lib/i18nYoutube';
@@ -42,7 +43,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const rawLines = (raw) => (raw.shifted ? raw.segments : shiftLines(raw.segments));
 
 // Lỗi và ghi chú được lưu dưới dạng mã/số (không phải chữ), để đổi ngôn ngữ thì chữ đổi theo ngay
-const errorMessage = (y, e) => (!e ? '' : e.limit ? y.dailyLimitReset(e.limit, nextResetLabel()) : errorText(y, e.code, y.err[e.fallback] ?? y.err.generic));
 const noteMessage = (y, n) => (!n ? '' : n.seconds ? y.noteBusy(n.seconds) : y.noteWait);
 
 function Lesson({ videoId, exportMode }) {
@@ -211,6 +211,14 @@ function Lesson({ videoId, exportMode }) {
     const outcome = await processLines(id, lines);
     if (outcome) finish(outcome);
   }, [processLines, finish]);
+
+  // Không tạo được bài: về trang chủ và hiện popup cảnh báo thay vì trang trống.
+  // Riêng hết lượt dịch thì về trang hồ sơ (có số lượt còn lại, giờ làm mới và nút nâng cấp key).
+  useEffect(() => {
+    if (phase !== 'error') return;
+    setFlash(error);
+    router.replace(error?.limit || error?.code === 'QUOTA' || error?.code === 'DAILY_LIMIT' ? '/profile' : '/');
+  }, [phase, error, router]);
 
   // Hiện số lượt dịch đã dùng hôm nay ngay cả khi mở lại bài đã lưu (lúc đó không có lần gọi AI nào trả số này về)
   useEffect(() => {
@@ -403,18 +411,7 @@ function Lesson({ videoId, exportMode }) {
       </Message>
     );
   }
-  if (phase === 'error') {
-    return (
-      <Message>
-        <span role="alert" className="block text-red-700">
-          {errorMessage(y, error)}
-        </span>
-        <Link href="/youtube" className="mt-3 inline-block text-emerald-700 underline">
-          {y.back}
-        </Link>
-      </Message>
-    );
-  }
+  if (phase === 'error') return null; // đang chuyển về trang chủ để hiện popup cảnh báo (effect ở trên)
   if (phase === 'loading') return <LessonSkeleton caption={y.loadingTranscript} />;
 
   // Tải bài học đã dịch xong ra file <id>.json (chỉ khi mở link có &export=1)
