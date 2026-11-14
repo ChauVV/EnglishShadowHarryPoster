@@ -1,11 +1,11 @@
 'use client';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { FiCamera, FiHome } from 'react-icons/fi';
+import { FiCamera } from 'react-icons/fi';
 import NoticeDialog from '../../components/NoticeDialog';
+import SiteHeader from '../../components/SiteHeader';
 import { prepareAvatar, saveLocalAvatar, useAvatar } from '../../lib/avatar';
 import { deleteAvatar, uploadAvatar } from '../../lib/driveSync';
 import { authHeader, ensureSession, signIn, signOut, useGoogleUser } from '../../lib/googleAuth';
@@ -130,16 +130,11 @@ export default function ProfileClient() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex h-14 max-w-2xl items-center gap-3 px-4">
-          <Link href="/" aria-label={y.home} title={y.home} className="-ml-2 rounded-full p-2 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500">
-            <FiHome className="h-5 w-5" aria-hidden="true" />
-          </Link>
-          <h1 className="font-display text-base font-semibold">{y.profileTitle}</h1>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="mx-auto max-w-2xl space-y-4 px-4 py-6">
+        <h1 className="font-display text-xl font-semibold">{y.profileTitle}</h1>
+
         {!user ? (
           <section className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
             <p className="font-semibold">{y.notSignedIn}</p>

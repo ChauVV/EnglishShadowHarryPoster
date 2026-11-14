@@ -3,8 +3,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaYoutube } from 'react-icons/fa';
 import DeleteLessonButton from '../../components/DeleteLessonButton';
-import GoogleAccount from '../../components/GoogleAccount';
-import LanguageSwitch from '../../components/LanguageSwitch';
+import SiteHeader from '../../components/SiteHeader';
 import { authHeader, useGoogleUser } from '../../lib/googleAuth';
 import { useI18n } from '../../lib/i18n';
 import { useGenerateLesson } from '../../lib/useGenerateLesson';
@@ -35,17 +34,7 @@ export default function YouTubeHome() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
-        <div className="max-w-3xl mx-auto px-4 h-14 flex items-center gap-3">
-          <Link href="/" className="text-sm font-medium text-slate-600 hover:text-slate-900">
-            {y.backHomeArrow}
-          </Link>
-          <div className="ml-auto flex items-center gap-3">
-            <GoogleAccount />
-            <LanguageSwitch tone="light" />
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="max-w-3xl mx-auto px-4 py-10">
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">

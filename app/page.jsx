@@ -2,10 +2,9 @@
 import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import DeleteLessonButton from '../components/DeleteLessonButton';
-import GoogleAccount from '../components/GoogleAccount';
 import NoticeDialog from '../components/NoticeDialog';
+import SiteHeader from '../components/SiteHeader';
 import { FaYoutube } from 'react-icons/fa';
-import LanguageSwitch from '../components/LanguageSwitch';
 import TopicIcon from '../components/TopicIcon';
 import { FEATURED_VIDEOS } from '../lib/featuredVideos';
 import { lessonLabel, useI18n } from '../lib/i18n';
@@ -98,43 +97,31 @@ export default function LibraryPage() {
 function TopBar({ query, onQueryChange }) {
   const { t } = useI18n();
   return (
-    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="px-4 sm:px-6 h-14 flex items-center gap-3">
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-400 text-slate-950">
-          <HeadphonesIcon className="h-4 w-4" />
-        </span>
-        <span className="hidden sm:inline font-display font-semibold tracking-tight text-slate-900">{t.brand}</span>
-
-        <label className="relative min-w-0 flex-1 sm:ml-4 sm:max-w-xl">
-          <span className="sr-only">{t.searchLabel}</span>
-          <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => onQueryChange(e.target.value)}
-            onKeyDown={(e) => e.key === 'Escape' && onQueryChange('')}
-            placeholder={t.searchPlaceholder}
-            autoComplete="off"
-            className="h-9 w-full rounded-full border border-transparent bg-slate-100 pl-10 pr-9 text-sm text-slate-900 placeholder:text-slate-400 transition [&::-webkit-search-cancel-button]:hidden focus:border-emerald-400 focus:bg-white focus:outline-2 focus:outline-emerald-400/30"
-          />
-          {query && (
-            <button
-              type="button"
-              onClick={() => onQueryChange('')}
-              aria-label={t.clearSearch}
-              className="absolute right-1.5 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-emerald-500"
-            >
-              <CloseIcon className="h-3.5 w-3.5" />
-            </button>
-          )}
-        </label>
-
-        <div className="flex shrink-0 items-center gap-3 sm:ml-auto">
-          <GoogleAccount />
-          <LanguageSwitch tone="light" />
-        </div>
-      </div>
-    </header>
+    <SiteHeader>
+      <label className="relative min-w-0 flex-1 sm:ml-4 sm:max-w-xl">
+        <span className="sr-only">{t.searchLabel}</span>
+        <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => onQueryChange(e.target.value)}
+          onKeyDown={(e) => e.key === 'Escape' && onQueryChange('')}
+          placeholder={t.searchPlaceholder}
+          autoComplete="off"
+          className="h-9 w-full rounded-full border border-transparent bg-slate-100 pl-10 pr-9 text-sm text-slate-900 placeholder:text-slate-400 transition [&::-webkit-search-cancel-button]:hidden focus:border-emerald-400 focus:bg-white focus:outline-2 focus:outline-emerald-400/30"
+        />
+        {query && (
+          <button
+            type="button"
+            onClick={() => onQueryChange('')}
+            aria-label={t.clearSearch}
+            className="absolute right-1.5 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-emerald-500"
+          >
+            <CloseIcon className="h-3.5 w-3.5" />
+          </button>
+        )}
+      </label>
+    </SiteHeader>
   );
 }
 
@@ -591,15 +578,6 @@ function CloseIcon({ className }) {
   return (
     <svg {...iconProps} className={className} {...stroke}>
       <path d="M6 6l12 12M18 6 6 18" />
-    </svg>
-  );
-}
-function HeadphonesIcon({ className }) {
-  return (
-    <svg {...iconProps} className={className} {...stroke}>
-      <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
-      <rect x="3" y="14" width="4" height="6" rx="1.5" />
-      <rect x="17" y="14" width="4" height="6" rx="1.5" />
     </svg>
   );
 }

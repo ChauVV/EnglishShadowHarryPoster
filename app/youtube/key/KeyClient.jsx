@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
+import SiteHeader from '../../../components/SiteHeader';
 import { useI18n } from '../../../lib/i18n';
 import { extractVideoId } from '../../../lib/youtube';
 import { GET_KEY_URL, isValidKeyFormat, saveKey } from '../../../lib/ytClient';
@@ -31,15 +32,12 @@ export default function KeyClient() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="border-b border-slate-200 bg-white">
-        <div className="max-w-2xl mx-auto px-4 h-14 flex items-center">
-          <Link href="/youtube" className="text-sm font-medium text-slate-600 hover:text-slate-900">
-            {y.backArrow}
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="max-w-2xl mx-auto px-4 py-10">
+        <Link href="/youtube" className="mb-6 inline-block text-sm font-medium text-slate-600 hover:text-slate-900">
+          {y.backArrow}
+        </Link>
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">{y.step1of2}</p>
         <h1 className="font-display mt-1 text-3xl font-semibold tracking-tight">{y.keyTitle}</h1>
         <p className="mt-2 text-slate-600">
