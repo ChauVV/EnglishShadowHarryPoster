@@ -1,13 +1,15 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { FiHome } from 'react-icons/fi';
+import { FiHome, FiRepeat } from 'react-icons/fi';
 import { formatTime } from '../lib/sentences';
+import { useYouTubeLessons } from '../lib/useYouTubeLessons';
 import { useTurnsLeft } from '../lib/ytClient';
 import DeleteLessonButton from './DeleteLessonButton';
 import LanguageSwitch from './LanguageSwitch';
 import { ControlButton, PauseIcon, PlayIcon, ReplayIcon, SkipIcon } from './ShadowingPlayer';
 
+const LOOP_KEY = 'yt-loop-lesson';
 const SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2];
 
 function findActive(sentences, t) {
@@ -48,6 +50,20 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
   const [loopSentence, setLoopSentence] = useState(false);
   const [loopIndex, setLoopIndex] = useState(0);
   const [speed, setSpeed] = useState(1);
+  // "Lặp bài": hết video thì tự phát lại từ đầu. Nhớ lựa chọn cho các video sau.
+  const [loopLesson, setLoopLesson] = useState(() => {
+    try {
+      return window.localStorage.getItem(LOOP_KEY) === '1';
+    } catch {
+      return false;
+    }
+  });
+  const loopLessonRef = useRef(loopLesson);
+  const sentencesRef = useRef(sentences);
+  useEffect(() => {
+    loopLessonRef.current = loopLesson;
+    sentencesRef.current = sentences;
+  });
   const [showText, setShowText] = useState(true);
   const [showVi, setShowVi] = useState(true);
 
@@ -76,7 +92,14 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
             playerRef.current = player;
             setReady(true);
           },
-          onStateChange: (e) => setPlaying(e.data === 1),
+          onStateChange: (e) => {
+            setPlaying(e.data === 1);
+            // Video phát hết (trạng thái 0) và đang bật "Lặp bài": quay lại câu đầu (bỏ qua đoạn nhạc mở đầu) và phát tiếp
+            if (e.data === 0 && loopLessonRef.current) {
+              player.seekTo(sentencesRef.current[0]?.start ?? 0, true);
+              player.playVideo();
+            }
+          },
         },
       });
     });
@@ -160,6 +183,16 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
     return () => window.removeEventListener('keydown', onKey);
   }, [togglePlay, seekTo, activeIndex]);
 
+  const toggleLoopLesson = () => {
+    const next = !loopLesson;
+    setLoopLesson(next);
+    try {
+      window.localStorage.setItem(LOOP_KEY, next ? '1' : '0');
+    } catch {
+      // không lưu được thì chỉ mất việc nhớ lựa chọn
+    }
+  };
+
   const toggleLoop = () => {
     setLoopIndex(activeIndex);
     setLoopSentence((v) => !v);
@@ -194,7 +227,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
             className="relative mx-auto aspect-video max-h-[60vh] max-w-[calc(60vh*16/9)] w-full overflow-hidden rounded-2xl bg-slate-900 [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:h-full [&_iframe]:w-full"
           />
 
-          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 px-4 py-3 lg:px-5 lg:py-4 text-center min-h-16 lg:min-h-24 flex flex-col items-center justify-center gap-1 lg:gap-2">
+          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 h-44 lg:h-36 overflow-hidden px-4 py-3 lg:px-5 lg:py-4 text-center flex flex-col items-center justify-center gap-1 lg:gap-2">
             {pending ? (
               <div className="flex w-full flex-col items-center gap-2" aria-busy="true">
                 <TranslationSkeleton className="h-3.5 lg:h-4" width={70} />
@@ -202,8 +235,8 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
               </div>
             ) : (
               <>
-                <p className={`text-[12px] lg:text-base font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
-                {showVi && active?.vi && <p className="text-[11px] lg:text-sm font-medium text-emerald-700 leading-snug">{active.vi}</p>}
+                <p className={`line-clamp-4 text-[11px] lg:text-sm font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
+                {showVi && active?.vi && <p className="line-clamp-4 text-[10px] lg:text-xs font-medium text-emerald-700 leading-snug">{active.vi}</p>}
                 {showVi && translating && active && !active.vi && <TranslationSkeleton className="h-3 lg:h-3.5" width={60} />}
               </>
             )}
@@ -221,6 +254,12 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
             </ControlButton>
             <ControlButton onClick={() => seekTo(activeIndex + 1)} label="Câu sau (→)">
               <SkipIcon />
+            </ControlButton>
+            <ControlButton onClick={toggleLoopLesson} label="Lặp bài: hết video tự phát lại từ đầu" active={loopLesson}>
+              <span className="flex items-center gap-1.5 text-xs lg:text-sm font-medium">
+                <FiRepeat className="h-4 w-4" aria-hidden="true" />
+                Lặp bài
+              </span>
             </ControlButton>
             <ControlButton onClick={() => setShowText((v) => !v)} label="Ẩn/hiện phụ đề" active={!showText}>
               <span className="text-xs lg:text-sm font-medium">{showText ? 'Ẩn phụ đề' : 'Hiện phụ đề'}</span>
@@ -241,6 +280,8 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
               </select>
             </label>
           </div>
+
+          <OtherLessons currentId={videoId} />
         </section>
 
         <aside className="rounded-2xl bg-white border border-slate-200 flex flex-col overflow-hidden h-[calc(100dvh-5rem)] scroll-mt-[4.5rem] lg:h-[calc(100vh-6.5rem)] lg:sticky lg:top-[4.5rem]">
@@ -308,4 +349,44 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
 // Thanh xám nhấp nháy giữ chỗ cho bản dịch đang chờ
 function TranslationSkeleton({ className = '', width = 66 }) {
   return <span aria-hidden="true" className={`block animate-pulse rounded-full bg-slate-200 ${className}`} style={{ width: `${width}%` }} />;
+}
+
+// Danh sách các video YouTube của người dùng (mới nhất trước) ở khoảng trống dưới các nút điều khiển, bài đang xem được đánh dấu.
+// Chỉ hiện ở màn hình rộng, nơi cột trái còn trống; trên điện thoại ưu tiên danh sách phụ đề.
+function OtherLessons({ currentId }) {
+  const lessons = useYouTubeLessons();
+  if (lessons.length < 2) return null; // chỉ có bài đang xem thì không cần danh sách
+  return (
+    <section aria-labelledby="other-lessons" className="mx-auto hidden w-full max-w-[calc(60vh*16/9)] pt-2 lg:block">
+      <div className="mb-2 flex items-baseline justify-between">
+        <h2 id="other-lessons" className="text-sm font-semibold">
+          Video YouTube của bạn
+        </h2>
+        <Link href="/" className="text-xs font-medium text-emerald-700 hover:underline">
+          Xem tất cả
+        </Link>
+      </div>
+      <ul className="grid grid-cols-3 gap-3 xl:grid-cols-4">
+        {lessons.slice(0, 12).map((lesson) => {
+          const current = lesson.id === currentId;
+          return (
+            <li key={lesson.id}>
+              <Link href={`/youtube/watch?v=${lesson.id}`} aria-current={current ? 'page' : undefined} className="group block rounded-xl focus-visible:outline-none">
+                <span
+                  className={`relative block aspect-video overflow-hidden rounded-xl bg-slate-200 transition group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 ${
+                    current ? 'ring-2 ring-emerald-500' : 'group-hover:shadow-md'
+                  }`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`https://i.ytimg.com/vi/${lesson.id}/mqdefault.jpg`} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                  {current && <span className="absolute left-1.5 top-1.5 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold text-white">Đang xem</span>}
+                </span>
+                <span className="mt-1.5 block line-clamp-2 text-xs font-medium leading-snug group-hover:text-emerald-700">{lesson.title}</span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
 }
