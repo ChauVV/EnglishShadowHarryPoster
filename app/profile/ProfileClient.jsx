@@ -8,10 +8,14 @@ import { FiCamera, FiHome } from 'react-icons/fi';
 import { prepareAvatar, saveLocalAvatar, useAvatar } from '../../lib/avatar';
 import { deleteAvatar, uploadAvatar } from '../../lib/driveSync';
 import { authHeader, ensureSession, signIn, signOut, useGoogleUser } from '../../lib/googleAuth';
+import { useI18n } from '../../lib/i18n';
+import { errorText } from '../../lib/i18nYoutube';
 import { GET_KEY_URL, clearKey, isValidKeyFormat, nextResetLabel, saveKey, useQuota, useStoredKey, useTurnsLeft } from '../../lib/ytClient';
 
 export default function ProfileClient() {
   const router = useRouter();
+  const { t } = useI18n();
+  const y = t.yt;
   const user = useGoogleUser();
   const { src, custom } = useAvatar();
   const quota = useQuota();
@@ -19,8 +23,9 @@ export default function ProfileClient() {
   const fileRef = useRef(null);
   const [usage, setUsage] = useState(null);
   const turns = useTurnsLeft(usage); // một con số duy nhất: số nhỏ hơn giữa lượt của key và giới hạn của app
-  const [avatarMsg, setAvatarMsg] = useState(null); // { ok, text }
+  const [avatarMsg, setAvatarMsg] = useState(null); // { ok, key } hoặc { ok, code }: khóa trong từ điển, để đổi ngôn ngữ thì chữ đổi theo
   const [keyInput, setKeyInput] = useState('');
+  const [editingKey, setEditingKey] = useState(false); // ô nhập key chỉ hiện khi người dùng bấm "Cập nhật key"
   const [keyMsg, setKeyMsg] = useState(null); // { ok, text }
   const [signInError, setSignInError] = useState('');
 
@@ -50,35 +55,35 @@ export default function ProfileClient() {
     const file = e.target.files?.[0];
     e.target.value = '';
     if (!file || !user) return;
-    setAvatarMsg({ ok: true, text: 'Đang lưu ảnh...' });
+    setAvatarMsg({ ok: true, key: 'avatarSaving' });
     let prepared;
     try {
       prepared = await prepareAvatar(file);
     } catch (err) {
-      setAvatarMsg({ ok: false, text: err.message || 'Không xử lý được ảnh này.' });
+      setAvatarMsg({ ok: false, code: err.code });
       return;
     }
     saveLocalAvatar(prepared.dataUrl); // đổi ngay trên máy này
     if (!user.drive) {
-      setAvatarMsg({ ok: true, text: 'Đã đổi ảnh trên máy này. Ảnh chưa được lưu vào Drive vì bạn chưa cấp quyền Drive khi đăng nhập.' });
+      setAvatarMsg({ ok: true, key: 'avatarLocalOnly' });
       return;
     }
     try {
       await uploadAvatar(user.token, prepared.blob);
-      setAvatarMsg({ ok: true, text: 'Đã lưu ảnh vào Drive của bạn.' });
+      setAvatarMsg({ ok: true, key: 'avatarSaved' });
     } catch {
-      setAvatarMsg({ ok: false, text: 'Đã đổi ảnh trên máy này nhưng chưa lưu được vào Drive. Hãy thử lại khi có mạng.' });
+      setAvatarMsg({ ok: false, key: 'avatarDriveFailed' });
     }
   };
 
   const onRemoveAvatar = async () => {
     saveLocalAvatar(null);
-    setAvatarMsg({ ok: true, text: 'Đã xóa ảnh.' });
+    setAvatarMsg({ ok: true, key: 'avatarRemoved' });
     if (user?.drive) {
       try {
         await deleteAvatar(user.token);
       } catch {
-        setAvatarMsg({ ok: false, text: 'Đã xóa ảnh trên máy này nhưng chưa xóa được bản trong Drive. Hãy thử lại khi có mạng.' });
+        setAvatarMsg({ ok: false, key: 'avatarRemoveDriveFailed' });
       }
     }
   };
@@ -86,21 +91,28 @@ export default function ProfileClient() {
   const onSaveKey = (e) => {
     e.preventDefault();
     if (!isValidKeyFormat(keyInput)) {
-      setKeyMsg({ ok: false, text: 'Key không đúng định dạng. Key hợp lệ bắt đầu bằng "yta_". Hãy sao chép lại đầy đủ.' });
+      setKeyMsg({ ok: false, key: 'keyBadFormat' });
       return;
     }
     if (!saveKey(keyInput)) {
-      setKeyMsg({ ok: false, text: 'Trình duyệt đang chặn lưu dữ liệu nên không lưu được key.' });
+      setKeyMsg({ ok: false, key: 'keyStorageBlocked' });
       return;
     }
     setKeyInput('');
-    setKeyMsg({ ok: true, text: 'Đã cập nhật key.' });
+    setEditingKey(false);
+    setKeyMsg({ ok: true, key: 'keyUpdated' });
+  };
+
+  const cancelEditKey = () => {
+    setEditingKey(false);
+    setKeyInput('');
+    setKeyMsg(null);
   };
 
   const onRemoveKey = () => {
-    if (!window.confirm('Xóa key khỏi trình duyệt này? Bài đã tạo vẫn xem được bình thường.')) return;
+    if (!window.confirm(y.removeKeyConfirm)) return;
     clearKey();
-    setKeyMsg({ ok: true, text: 'Đã xóa key.' });
+    setKeyMsg({ ok: true, key: 'keyRemoved' });
   };
 
   const logout = () => {
@@ -117,29 +129,29 @@ export default function ProfileClient() {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-2xl items-center gap-3 px-4">
-          <Link href="/" aria-label="Trang chủ" title="Trang chủ" className="-ml-2 rounded-full p-2 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500">
+          <Link href="/" aria-label={y.home} title={y.home} className="-ml-2 rounded-full p-2 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500">
             <FiHome className="h-5 w-5" aria-hidden="true" />
           </Link>
-          <h1 className="font-display text-base font-semibold">Tài khoản</h1>
+          <h1 className="font-display text-base font-semibold">{y.profileTitle}</h1>
         </div>
       </header>
 
       <main className="mx-auto max-w-2xl space-y-4 px-4 py-6">
         {!user ? (
           <section className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-            <p className="font-semibold">Bạn chưa đăng nhập</p>
-            <p className="mt-1 text-sm text-slate-600">Đăng nhập để xem tài khoản, số lượt dịch và quản lý key.</p>
+            <p className="font-semibold">{y.notSignedIn}</p>
+            <p className="mt-1 text-sm text-slate-600">{y.notSignedInHint}</p>
             <button
               type="button"
-              onClick={() => signIn().catch((err) => setSignInError(err.message))}
+              onClick={() => signIn().catch((err) => setSignInError(err.code ?? 'signInFailed'))}
               className="mx-auto mt-4 inline-flex h-10 items-center gap-2.5 rounded-full border border-[#dadce0] bg-white px-5 text-sm font-medium text-[#3c4043] transition hover:bg-[#f8f9fa] hover:shadow-sm"
             >
               <FcGoogle className="h-[18px] w-[18px]" aria-hidden="true" />
-              Đăng nhập bằng Google
+              {y.signInWithGoogle}
             </button>
             {signInError && (
               <p role="alert" className="mt-2 text-sm text-red-600">
-                {signInError}
+                {errorText(y, signInError, y.err.signInFailed)}
               </p>
             )}
           </section>
@@ -151,7 +163,7 @@ export default function ProfileClient() {
                 <button
                   type="button"
                   onClick={() => fileRef.current?.click()}
-                  aria-label="Đổi ảnh đại diện"
+                  aria-label={y.changeAvatarLabel}
                   className="group relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-slate-100 ring-2 ring-emerald-500/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
                 >
                   {src ? (
@@ -166,14 +178,14 @@ export default function ProfileClient() {
                 </button>
                 <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={onPickAvatar} />
                 <div className="min-w-0">
-                  <p className="truncate text-lg font-semibold">{user.email ?? 'Tài khoản Google'}</p>
+                  <p className="truncate text-lg font-semibold">{user.email ?? y.googleAccount}</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     <button type="button" onClick={() => fileRef.current?.click()} className="h-8 rounded-full border border-slate-300 px-4 text-xs font-semibold hover:bg-slate-100">
-                      Đổi ảnh
+                      {y.changeAvatar}
                     </button>
                     {custom && (
                       <button type="button" onClick={onRemoveAvatar} className="h-8 rounded-full px-3 text-xs font-medium text-slate-500 underline hover:text-slate-900">
-                        Xóa ảnh
+                        {y.removeAvatar}
                       </button>
                     )}
                   </div>
@@ -181,98 +193,119 @@ export default function ProfileClient() {
               </div>
               {avatarMsg && (
                 <p role="status" className={`mt-3 text-sm ${avatarMsg.ok ? 'text-slate-600' : 'text-red-600'}`}>
-                  {avatarMsg.text}
+                  {avatarMsg.code ? errorText(y, avatarMsg.code, y.err.AVATAR_FAILED) : y[avatarMsg.key]}
                 </p>
               )}
-              <p className="mt-3 text-xs text-slate-500">Ảnh được lưu trong thư mục riêng của ứng dụng trong Drive của bạn.</p>
+              <p className="mt-3 text-xs text-slate-500">{y.avatarNote}</p>
             </section>
 
             {/* Lượt hôm nay */}
             <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="usage-title">
               <h2 id="usage-title" className="text-sm font-semibold text-slate-500">
-                Lượt dịch link video YouTube hôm nay
+                {y.turnsCardTitle}
               </h2>
               <p className="mt-1 text-3xl font-semibold tabular-nums">
                 {turns ? turns.remaining : '–'}
-                <span className="text-base font-medium text-slate-500"> / {total} lượt dịch còn lại</span>
+                <span className="text-base font-medium text-slate-500">{y.turnsRemaining(total)}</span>
               </p>
               <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200" role="progressbar" aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100}>
                 <div className={`h-full rounded-full transition-all ${outOfTurns ? 'bg-red-500' : 'bg-emerald-500'}`} style={{ width: `${percent}%` }} />
               </div>
               <p className="mt-2 text-xs text-slate-500">
-                {outOfTurns ? 'Bạn đã hết lượt dịch hôm nay. ' : ''}Mỗi link video YouTube mới tính một lượt dịch, xem lại bài đã tạo không tốn lượt. Lượt dịch được làm mới lúc {nextResetLabel()}.
+                {outOfTurns ? y.turnsOutPrefix : ''}
+                {y.turnsExplain(nextResetLabel())}
               </p>
             </section>
 
             {/* Key lấy phụ đề */}
             <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="key-title">
               <h2 id="key-title" className="text-sm font-semibold text-slate-500">
-                Key lấy phụ đề
+                {y.keyCardTitle}
               </h2>
+              <p className="mt-1 text-xs leading-relaxed text-slate-500">{y.keyExplain}</p>
               {hasKey ? (
-                <>
-                  <p className="mt-1 font-mono text-sm">{maskedKey}</p>
-                </>
+                <p className="mt-3 font-mono text-sm">{maskedKey}</p>
               ) : (
-                <p className="mt-1 text-sm text-slate-600">Bạn chưa có key. Cần một key miễn phí để lấy phụ đề cho video mới.</p>
+                <p className="mt-3 text-sm text-slate-600">{y.noKeyYet}</p>
               )}
 
               {keyOut && (
                 <div role="alert" className="mt-3 rounded-xl border border-amber-300 bg-amber-50 p-3">
-                  <p className="text-sm font-medium text-amber-900">Key đã hết lượt dịch hôm nay.</p>
-                  <p className="mt-0.5 text-xs text-amber-800">Nâng cấp để có nhiều lượt dịch hơn, rồi dán key mới vào ô bên dưới. Lượt dịch miễn phí được làm mới lúc {nextResetLabel()}.</p>
+                  <p className="text-sm font-medium text-amber-900">{y.keyOutTitle}</p>
+                  <p className="mt-0.5 text-xs text-amber-800">{y.keyOutBody(nextResetLabel())}</p>
                   <a
                     href={GET_KEY_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 inline-flex h-9 items-center rounded-full bg-amber-500 px-5 text-sm font-semibold text-white transition hover:bg-amber-600"
                   >
-                    Nâng cấp ↗
+                    {y.upgrade}
                   </a>
                 </div>
               )}
 
-              <form onSubmit={onSaveKey} className="mt-4">
-                <label htmlFor="profile-key" className="text-sm font-medium">
-                  {hasKey ? 'Cập nhật key mới' : 'Nhập key'}
-                </label>
-                <div className="mt-1.5 flex flex-col gap-2 sm:flex-row">
-                  <input
-                    id="profile-key"
-                    type="password"
-                    value={keyInput}
-                    onChange={(e) => setKeyInput(e.target.value)}
-                    placeholder="yta_..."
-                    autoComplete="off"
-                    spellCheck={false}
-                    className="h-10 min-w-0 flex-1 rounded-xl border border-slate-300 px-3 font-mono text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
-                  />
-                  <button type="submit" className="h-10 rounded-xl bg-emerald-500 px-6 text-sm font-semibold text-white transition hover:bg-emerald-600">
-                    Lưu key
-                  </button>
-                </div>
-                {keyMsg && (
-                  <p role="status" className={`mt-2 text-sm ${keyMsg.ok ? 'text-emerald-700' : 'text-red-600'}`}>
-                    {keyMsg.text}
+              {hasKey && !editingKey ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditingKey(true);
+                    setKeyMsg(null);
+                  }}
+                  className="mt-3 block text-sm font-medium text-emerald-700 underline hover:text-emerald-900"
+                >
+                  {y.updateKey}
+                </button>
+              ) : (
+                <form onSubmit={onSaveKey} className="mt-4">
+                  <label htmlFor="profile-key" className="text-sm font-medium">
+                    {hasKey ? y.updateKey : y.enterKey}
+                  </label>
+                  <div className="mt-1.5 flex flex-col gap-2 sm:flex-row">
+                    <input
+                      id="profile-key"
+                      type="password"
+                      value={keyInput}
+                      onChange={(e) => setKeyInput(e.target.value)}
+                      placeholder="yta_..."
+                      autoComplete="off"
+                      spellCheck={false}
+                      autoFocus={hasKey}
+                      className="h-10 min-w-0 flex-1 rounded-xl border border-slate-300 px-3 font-mono text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
+                    />
+                    <button type="submit" className="h-10 rounded-xl bg-emerald-500 px-6 text-sm font-semibold text-white transition hover:bg-emerald-600">
+                      {y.saveKey}
+                    </button>
+                    {hasKey && (
+                      <button type="button" onClick={cancelEditKey} className="h-10 rounded-xl border border-slate-300 px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-100">
+                        {y.cancel}
+                      </button>
+                    )}
+                  </div>
+                  <p className="mt-2 text-xs text-slate-500">
+                    {y.noKeyAsk}{' '}
+                    <a href={GET_KEY_URL} target="_blank" rel="noopener noreferrer" className="font-medium text-emerald-700 underline">
+                      {y.createFreeKey}
+                    </a>
+                    {y.keyStoredLocally}
                   </p>
-                )}
-                <p className="mt-2 text-xs text-slate-500">
-                  Chưa có key?{' '}
-                  <a href={GET_KEY_URL} target="_blank" rel="noopener noreferrer" className="font-medium text-emerald-700 underline">
-                    Tạo key miễn phí ↗
-                  </a>
-                  . Key chỉ lưu trong trình duyệt của bạn.
+                </form>
+              )}
+
+              {keyMsg && (
+                <p role="status" className={`mt-2 text-sm ${keyMsg.ok ? 'text-emerald-700' : 'text-red-600'}`}>
+                  {y[keyMsg.key]}
                 </p>
-              </form>
-              {hasKey && (
-                <button type="button" onClick={onRemoveKey} className="mt-3 text-xs font-medium text-slate-500 underline hover:text-red-600">
-                  Xóa key khỏi trình duyệt này
+              )}
+
+              {hasKey && !editingKey && (
+                <button type="button" onClick={onRemoveKey} className="mt-3 block text-xs font-medium text-slate-500 underline hover:text-red-600">
+                  {y.removeKey}
                 </button>
               )}
             </section>
 
             <button type="button" onClick={logout} className="h-10 w-full rounded-full border border-slate-300 bg-white text-sm font-medium text-slate-700 transition hover:bg-slate-100">
-              Đăng xuất
+              {y.signOut}
             </button>
           </>
         )}

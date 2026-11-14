@@ -5,7 +5,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import LessonSkeleton from '../../../components/LessonSkeleton';
 import YouTubePlayer from '../../../components/YouTubePlayer';
 import { downloadLesson, findLesson, uploadLesson } from '../../../lib/driveSync';
-import { authHeader, ensureSession, getSession, signIn } from '../../../lib/googleAuth';
+import { authHeader, ensureSession, freshAuthHeader, signIn } from '../../../lib/googleAuth';
+import { useI18n } from '../../../lib/i18n';
+import { errorText } from '../../../lib/i18nYoutube';
 import { SEG_VERSION, buildSentences, extractVideoId, mergeSentences, resplitSentences, shiftLines } from '../../../lib/youtube';
 import { clearKey, getKey, isValidKeyFormat, loadLesson, loadRaw, nextResetLabel, saveLesson, saveQuota, saveRaw } from '../../../lib/ytClient';
 
@@ -19,8 +21,9 @@ const TRANSIENT_CODES = ['GEMINI', 'BAD_OUTPUT', 'USAGE', 'TOO_MANY'];
 const FATAL_CODES = ['NO_LOGIN', 'NO_GEMINI', 'DAILY_LIMIT'];
 
 export default function WatchClient() {
+  const { t } = useI18n();
   const videoId = extractVideoId(useSearchParams().get('v'));
-  if (!videoId) return <Message>Link video không hợp lệ.</Message>;
+  if (!videoId) return <Message>{t.yt.invalidLink}</Message>;
   // key={videoId}: đổi video thì dựng lại toàn bộ trạng thái
   return <Lesson key={videoId} videoId={videoId} />;
 }
@@ -36,19 +39,22 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 // Phụ đề gốc đã lưu: bản lưu trước khi bù độ trễ (không có cờ shifted) thì bù lại cho đúng
 const rawLines = (raw) => (raw.shifted ? raw.segments : shiftLines(raw.segments));
 
-const failureMessage = (failure) =>
-  failure?.code === 'NO_LOGIN' ? 'Phiên đăng nhập đã hết hạn. Bấm "Dịch lại" để đăng nhập Google và dịch tiếp.' : (failure?.message ?? 'Không dịch được. Thử lại sau.');
+// Lỗi và ghi chú được lưu dưới dạng mã/số (không phải chữ), để đổi ngôn ngữ thì chữ đổi theo ngay
+const errorMessage = (y, e) => (!e ? '' : e.limit ? y.dailyLimitReset(e.limit, nextResetLabel()) : errorText(y, e.code, y.err[e.fallback] ?? y.err.generic));
+const noteMessage = (y, n) => (!n ? '' : n.seconds ? y.noteBusy(n.seconds) : y.noteWait);
 
 function Lesson({ videoId }) {
   const router = useRouter();
+  const { t } = useI18n();
+  const y = t.yt;
   const [title, setTitle] = useState('');
   const [sentences, setSentences] = useState([]); // phần đang HIỂN THỊ; bản đầy đủ nằm trong sentencesRef
   const [shown, setShown] = useState(false); // đã hiện phụ đề lần đầu chưa (trước đó chỉ hiện khung chờ)
   const [phase, setPhase] = useState('loading'); // loading | login | translating | ready | error
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null); // { code, fallback } hoặc { limit }
   const [translateFailed, setTranslateFailed] = useState(false);
   const [usage, setUsage] = useState(null);
-  const [note, setNote] = useState('');
+  const [note, setNote] = useState(null); // { wait: true } hoặc { seconds }
   const [attempt, setAttempt] = useState(0); // tăng lên để chạy lại sau khi đăng nhập
   const sentencesRef = useRef([]);
   const titleRef = useRef('');
@@ -57,9 +63,9 @@ function Lesson({ videoId }) {
   const [sync] = useState(() => ({ timer: null }));
 
   // Đẩy bài lên Drive của người dùng (nếu đã đăng nhập và cấp quyền), gộp nhiều lần lưu liên tiếp thành một
-  const syncNow = useCallback(() => {
+  const syncNow = useCallback(async () => {
     sync.timer = null;
-    const session = getSession();
+    const session = await ensureSession();
     if (!session?.drive || sentencesRef.current.length === 0) return;
     uploadLesson(session.token, videoId, { title: titleRef.current, sentences: sentencesRef.current, ...metaRef.current }).catch(() => {});
   }, [sync, videoId]);
@@ -108,7 +114,7 @@ function Lesson({ videoId }) {
         let failures = 0;
         for (;;) {
           if (id !== runId.current) return { cancelled: true };
-          const res = await postJson('/api/youtube/process', { mode: 'segment', videoId, lines: part.map((l) => l.text) }, authHeader(getSession())).catch(() => ({
+          const res = await postJson('/api/youtube/process', { mode: 'segment', videoId, lines: part.map((l) => l.text) }, await freshAuthHeader()).catch(() => ({
             ok: false,
             data: {},
             status: 0,
@@ -122,7 +128,7 @@ function Lesson({ videoId }) {
           // AI trả sai hoặc chạy quá giờ (cửa sổ quá lớn): chia đôi rồi làm lần lượt
           const tooBig = code === 'BAD_OUTPUT' || (code === 'GEMINI' && !upstreamStatus) || (!code && res.status >= 500);
           if (tooBig && part.length > MIN_WINDOW) {
-            setNote('vui lòng chờ thêm một chút');
+            setNote({ wait: true });
             const mid = a + Math.ceil(part.length / 2);
             const first = await runRange(a, mid);
             if (first.cancelled) return first;
@@ -134,10 +140,10 @@ function Lesson({ videoId }) {
           const transient = TRANSIENT_CODES.includes(code) || (!code && (res.status === 0 || res.status >= 500));
           if (transient && failures < MAX_AUTO_RETRIES) {
             const wait = Math.min(45, res.data.retryAfter ?? 2 ** (failures + 1));
-            setNote(`đang bận, tự thử lại sau ${Math.ceil(wait)} giây`);
+            setNote({ seconds: Math.ceil(wait) });
             await sleep(wait * 1000);
             if (id !== runId.current) return { cancelled: true };
-            setNote('');
+            setNote(null);
             failures++;
             continue;
           }
@@ -172,11 +178,11 @@ function Lesson({ videoId }) {
   // Kết quả xử lý xong: lưu, hiện phụ đề kèm bản dịch (hoặc báo lỗi và hiện nút "Dịch lại" nếu có phần chưa dịch được)
   const finish = useCallback(
     (outcome, nextTitle = titleRef.current) => {
-      setNote('');
+      setNote(null);
       commit(outcome.sentences, { title: nextTitle, meta: { v: SEG_VERSION } });
       if (outcome.failed) {
         setTranslateFailed(true);
-        setError(failureMessage(outcome.failure));
+        setError({ code: outcome.failure?.code === 'NO_LOGIN' ? 'sessionExpired' : outcome.failure?.code });
       }
       setPhase('ready');
     },
@@ -193,7 +199,7 @@ function Lesson({ videoId }) {
 
   // "Dịch lại": chỉ hiện khi tự thử lại vẫn lỗi. Hết phiên đăng nhập thì mở cửa sổ đăng nhập rồi làm tiếp.
   const retryTranslate = useCallback(async () => {
-    const session = getSession() ?? (await signIn().catch(() => null));
+    const session = (await ensureSession()) ?? (await signIn().catch(() => null));
     if (!session) return;
     const id = runId.current;
     setTranslateFailed(false);
@@ -205,11 +211,10 @@ function Lesson({ videoId }) {
 
   // Hiện số lượt dịch đã dùng hôm nay ngay cả khi mở lại bài đã lưu (lúc đó không có lần gọi AI nào trả số này về)
   useEffect(() => {
-    const session = getSession();
-    if (!session) return;
     let cancelled = false;
-    fetch('/api/youtube/usage', { headers: authHeader(session) })
-      .then((r) => (r.ok ? r.json() : null))
+    ensureSession()
+      .then((session) => (session ? fetch('/api/youtube/usage', { headers: authHeader(session) }) : null))
+      .then((r) => (r?.ok ? r.json() : null))
       .then((u) => !cancelled && u && setUsage((prev) => prev ?? u))
       .catch(() => {});
     return () => {
@@ -260,7 +265,7 @@ function Lesson({ videoId }) {
       if (!outcome) return;
       if (outcome.failed && complete) {
         // Bài cũ đã dịch đủ mà AI đang lỗi: giữ nguyên bản cũ, không báo lỗi, một lúc sau mới thử nâng cấp lại
-        setNote('');
+        setNote(null);
         commit(lesson.sentences, { meta: { v: lesson.v, skipUntil: Date.now() + UPGRADE_RETRY_MS } });
         setPhase('ready');
         return;
@@ -281,14 +286,14 @@ function Lesson({ videoId }) {
       }
 
       // Kiểm tra trước còn lượt dịch hôm nay không, tránh tốn lượt lấy phụ đề rồi mới bị từ chối
-      const current = await fetch('/api/youtube/usage', { headers: authHeader(getSession()) })
+      const current = await fetch('/api/youtube/usage', { headers: await freshAuthHeader() })
         .then((r) => (r.ok ? r.json() : null))
         .catch(() => null);
       if (id !== runId.current) return null;
       if (current) {
         setUsage(current);
         if (current.used >= current.limit) {
-          fail(`Hôm nay bạn đã hết ${current.limit} lượt dịch link video YouTube. Lượt dịch được làm mới lúc ${nextResetLabel()}.`);
+          fail({ limit: current.limit });
           return null;
         }
       }
@@ -296,7 +301,7 @@ function Lesson({ videoId }) {
       const res = await postJson('/api/youtube/transcript', { url: videoId }, { 'x-transcript-key': key }).catch(() => null);
       if (id !== runId.current) return null;
       if (!res) {
-        fail('Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.');
+        fail({ code: 'network' });
         return null;
       }
       if (res.data.quota) saveQuota(res.data.quota);
@@ -307,7 +312,7 @@ function Lesson({ videoId }) {
           router.replace(`/youtube/key?v=${videoId}&reason=invalid`);
           return null;
         }
-        fail(res.data.message ?? 'Không lấy được phụ đề.');
+        fail({ code: res.data.code, fallback: 'transcriptFailed' });
         return null;
       }
       const result = { title: res.data.title ?? videoId, segments: res.data.segments, shifted: true }; // máy chủ đã bù độ trễ khi đọc phụ đề
@@ -362,16 +367,16 @@ function Lesson({ videoId }) {
   if (phase === 'login') {
     return (
       <Message>
-        <span className="block text-slate-700">Đăng nhập Google để tạo bài học. Mỗi người có 10 lượt dịch link video YouTube mỗi ngày và bài được lưu vào Drive của chính bạn.</span>
+        <span className="block text-slate-700">{y.loginPrompt}</span>
         <button
           type="button"
-          onClick={() => signIn().then((s) => s && setAttempt((n) => n + 1)).catch((e) => { setError(e.message); setPhase('error'); })}
+          onClick={() => signIn().then((s) => s && setAttempt((n) => n + 1)).catch((e) => { setError({ code: e.code, fallback: 'signInFailed' }); setPhase('error'); })}
           className="mt-4 h-11 rounded-xl bg-emerald-500 px-6 text-sm font-semibold text-white hover:bg-emerald-600 transition"
         >
-          Đăng nhập Google
+          {y.signIn}
         </button>
         <Link href="/youtube" className="mt-3 block text-emerald-700 underline">
-          Quay lại
+          {y.back}
         </Link>
       </Message>
     );
@@ -380,22 +385,23 @@ function Lesson({ videoId }) {
     return (
       <Message>
         <span role="alert" className="block text-red-700">
-          {error}
+          {errorMessage(y, error)}
         </span>
         <Link href="/youtube" className="mt-3 inline-block text-emerald-700 underline">
-          Quay lại
+          {y.back}
         </Link>
       </Message>
     );
   }
-  if (phase === 'loading') return <LessonSkeleton caption="Đang lấy phụ đề của video..." />;
+  if (phase === 'loading') return <LessonSkeleton caption={y.loadingTranscript} />;
 
   const translating = phase === 'translating';
   const done = sentences.filter((s) => s.vi).length;
+  const noteText = noteMessage(y, note);
   const status = translateFailed
-    ? { text: `${error} (đã dịch ${done}/${sentences.length} câu)`, retry: true }
+    ? { text: y.failedStatus(errorMessage(y, error), done, sentences.length), retry: true }
     : translating
-      ? { text: `Đang dịch${note ? ` · ${note}` : '...'}` }
+      ? { text: `${y.translating}${noteText ? ` · ${noteText}` : '...'}` }
       : null;
 
   return (

@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { FiHome, FiRepeat } from 'react-icons/fi';
+import { useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
 import { useYouTubeLessons } from '../lib/useYouTubeLessons';
 import { useTurnsLeft } from '../lib/ytClient';
@@ -41,6 +42,8 @@ function loadYouTubeApi() {
 
 // Video YouTube nhúng (không tải video về) + danh sách câu có mốc thời gian, bản dịch, lặp câu, đổi tốc độ.
 export default function YouTubePlayer({ videoId, title, sentences, status, usage, pending, translating, onRetryTranslate, onBeforeDelete, onDeleted }) {
+  const { t } = useI18n();
+  const y = t.yt;
   const hostRef = useRef(null);
   const playerRef = useRef(null);
   const listRef = useRef(null);
@@ -204,14 +207,14 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
         <div className="max-w-[1800px] mx-auto px-4 h-14 flex items-center gap-3">
-          <Link href="/" aria-label="Trang chủ" title="Trang chủ" className="p-2 -ml-2 rounded-full hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500">
+          <Link href="/" aria-label={y.home} title={y.home} className="p-2 -ml-2 rounded-full hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500">
             <FiHome className="h-5 w-5" aria-hidden="true" />
           </Link>
           <div className="min-w-0 flex-1">
             <h1 className="text-sm lg:text-base font-bold truncate">{title}</h1>
             {turns && (
-              <p className="text-[11px] lg:text-xs text-slate-500 truncate" title="Mỗi link video YouTube mới tính một lượt dịch. Mở lại bài đã tạo không tốn lượt.">
-                Hôm nay còn {turns.remaining}/{turns.limit} lượt dịch link video YouTube
+              <p className="text-[11px] lg:text-xs text-slate-500 truncate" title={y.turnsTitle}>
+                {y.turnsLeft(turns.remaining, turns.limit)}
               </p>
             )}
           </div>
@@ -221,7 +224,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
       </header>
 
       <main className="max-w-[1800px] mx-auto p-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_440px] xl:grid-cols-[minmax(0,1fr)_560px] 2xl:grid-cols-[minmax(0,1fr)_680px]">
-        <section className="min-w-0 space-y-4">
+        <section className="min-w-0 space-y-3">
           <div
             ref={hostRef}
             className="relative mx-auto aspect-video max-h-[60vh] max-w-[calc(60vh*16/9)] w-full overflow-hidden rounded-2xl bg-slate-900 [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:h-full [&_iframe]:w-full"
@@ -243,34 +246,34 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
           </div>
 
           <div className={`flex flex-wrap items-center justify-center gap-1.5 lg:gap-2 ${pending ? 'pointer-events-none opacity-50' : ''}`}>
-            <ControlButton onClick={() => seekTo(activeIndex - 1)} label="Câu trước (←)">
+            <ControlButton compact onClick={() => seekTo(activeIndex - 1)} label={y.prevSentence}>
               <SkipIcon flip />
             </ControlButton>
-            <ControlButton onClick={toggleLoop} label="Lặp lại câu này" active={loopSentence}>
+            <ControlButton compact onClick={toggleLoop} label={y.repeatSentence} active={loopSentence}>
               <ReplayIcon />
             </ControlButton>
-            <ControlButton onClick={togglePlay} label="Phát/dừng (Space)" primary>
-              {playing ? <PauseIcon size={22} /> : <PlayIcon size={22} />}
+            <ControlButton compact onClick={togglePlay} label={y.playPause} primary>
+              {playing ? <PauseIcon size={18} /> : <PlayIcon size={18} />}
             </ControlButton>
-            <ControlButton onClick={() => seekTo(activeIndex + 1)} label="Câu sau (→)">
+            <ControlButton compact onClick={() => seekTo(activeIndex + 1)} label={y.nextSentence}>
               <SkipIcon />
             </ControlButton>
-            <ControlButton onClick={toggleLoopLesson} label="Lặp bài: hết video tự phát lại từ đầu" active={loopLesson}>
-              <span className="flex items-center gap-1.5 text-xs lg:text-sm font-medium">
+            <ControlButton compact onClick={toggleLoopLesson} label={y.loopLessonLabel} active={loopLesson}>
+              <span className="flex items-center gap-1.5 text-xs font-medium">
                 <FiRepeat className="h-4 w-4" aria-hidden="true" />
-                Lặp bài
+                {y.loopLesson}
               </span>
             </ControlButton>
-            <ControlButton onClick={() => setShowText((v) => !v)} label="Ẩn/hiện phụ đề" active={!showText}>
-              <span className="text-xs lg:text-sm font-medium">{showText ? 'Ẩn phụ đề' : 'Hiện phụ đề'}</span>
+            <ControlButton compact onClick={() => setShowText((v) => !v)} label={y.toggleSubs} active={!showText}>
+              <span className="text-xs font-medium">{showText ? y.hideSubs : y.showSubs}</span>
             </ControlButton>
             {hasTranslation && (
-              <ControlButton onClick={() => setShowVi((v) => !v)} label="Ẩn/hiện bản dịch" active={!showVi}>
-                <span className="text-xs lg:text-sm font-medium">{showVi ? 'Ẩn bản dịch' : 'Hiện bản dịch'}</span>
+              <ControlButton compact onClick={() => setShowVi((v) => !v)} label={y.toggleTranslation} active={!showVi}>
+                <span className="text-xs font-medium">{showVi ? y.hideTranslation : y.showTranslation}</span>
               </ControlButton>
             )}
-            <label className="flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 h-8 lg:h-10 text-xs lg:text-sm">
-              Tốc độ
+            <label className="flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 h-8 text-xs">
+              {y.speed}
               <select value={speed} onChange={(e) => setSpeed(Number(e.target.value))} className="bg-transparent font-medium focus:outline-none">
                 {SPEEDS.map((s) => (
                   <option key={s} value={s}>
@@ -286,15 +289,15 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
 
         <aside className="rounded-2xl bg-white border border-slate-200 flex flex-col overflow-hidden h-[calc(100dvh-5rem)] scroll-mt-[4.5rem] lg:h-[calc(100vh-6.5rem)] lg:sticky lg:top-[4.5rem]">
           <div className="flex items-center justify-between px-4 py-2 lg:py-3 border-b border-slate-100">
-            <h2 className="text-sm lg:text-base font-semibold">Phụ đề</h2>
-            <span className="text-xs text-slate-500">{pending ? '' : `${sentences.length} câu`}</span>
+            <h2 className="text-sm lg:text-base font-semibold">{y.subtitles}</h2>
+            <span className="text-xs text-slate-500">{pending ? '' : y.sentenceCount(sentences.length)}</span>
           </div>
           {status && (
             <p className="flex items-center justify-between gap-2 px-4 py-2 text-xs text-emerald-800 bg-emerald-50 border-b border-emerald-100">
               <span>{status.text}</span>
               {status.retry && (
                 <button type="button" onClick={onRetryTranslate} className="shrink-0 rounded-full bg-emerald-600 px-3 py-1 font-semibold text-white hover:bg-emerald-700">
-                  Dịch lại
+                  {y.retry}
                 </button>
               )}
             </p>
@@ -354,16 +357,18 @@ function TranslationSkeleton({ className = '', width = 66 }) {
 // Danh sách các video YouTube của người dùng (mới nhất trước) ở khoảng trống dưới các nút điều khiển, bài đang xem được đánh dấu.
 // Chỉ hiện ở màn hình rộng, nơi cột trái còn trống; trên điện thoại ưu tiên danh sách phụ đề.
 function OtherLessons({ currentId }) {
+  const { t } = useI18n();
+  const y = t.yt;
   const lessons = useYouTubeLessons();
   if (lessons.length < 2) return null; // chỉ có bài đang xem thì không cần danh sách
   return (
     <section aria-labelledby="other-lessons" className="mx-auto hidden w-full max-w-[calc(60vh*16/9)] pt-2 lg:block">
       <div className="mb-2 flex items-baseline justify-between">
         <h2 id="other-lessons" className="text-sm font-semibold">
-          Video YouTube của bạn
+          {y.yourVideos}
         </h2>
         <Link href="/" className="text-xs font-medium text-emerald-700 hover:underline">
-          Xem tất cả
+          {y.seeAll}
         </Link>
       </div>
       <ul className="grid grid-cols-3 gap-3 xl:grid-cols-4">
@@ -379,7 +384,7 @@ function OtherLessons({ currentId }) {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`https://i.ytimg.com/vi/${lesson.id}/mqdefault.jpg`} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-                  {current && <span className="absolute left-1.5 top-1.5 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold text-white">Đang xem</span>}
+                  {current && <span className="absolute left-1.5 top-1.5 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold text-white">{y.nowPlaying}</span>}
                 </span>
                 <span className="mt-1.5 block line-clamp-2 text-xs font-medium leading-snug group-hover:text-emerald-700">{lesson.title}</span>
               </Link>

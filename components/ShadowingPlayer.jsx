@@ -347,18 +347,20 @@ function LessonLink({ href, children }) {
   );
 }
 
-export function ControlButton({ children, onClick, label, primary, active }) {
+// compact: nút nhỏ gọn hơn (cao 32px ở mọi cỡ màn hình), dùng khi cần tiết kiệm chiều cao
+export function ControlButton({ children, onClick, label, primary, active, compact }) {
+  const pad = compact ? 'px-3' : 'px-3 lg:px-4';
   const style = primary
-    ? 'bg-emerald-500 text-white hover:bg-emerald-600 w-10 lg:w-12'
+    ? `bg-emerald-500 text-white hover:bg-emerald-600 ${compact ? 'w-9' : 'w-10 lg:w-12'}`
     : active
-      ? 'bg-emerald-100 text-emerald-800 border border-emerald-300 px-3 lg:px-4'
-      : 'bg-white border border-slate-200 hover:bg-slate-50 px-3 lg:px-4';
+      ? `bg-emerald-100 text-emerald-800 border border-emerald-300 ${pad}`
+      : `bg-white border border-slate-200 hover:bg-slate-50 ${pad}`;
   return (
     <button
       onClick={onClick}
       aria-label={label}
       title={label}
-      className={`flex h-8 lg:h-10 items-center justify-center rounded-full transition ${style}`}
+      className={`flex ${compact ? 'h-8' : 'h-8 lg:h-10'} items-center justify-center rounded-full transition ${style}`}
     >
       {children}
     </button>

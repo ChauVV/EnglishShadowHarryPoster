@@ -50,7 +50,7 @@ export async function POST(request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ message: 'Yêu cầu không hợp lệ.' }, { status: 400 });
+    return NextResponse.json({ code: 'BAD_REQUEST', message: 'Yêu cầu không hợp lệ.' }, { status: 400 });
   }
   const { mode, lines } = body ?? {};
   const videoId = extractVideoId(body?.videoId);
@@ -61,7 +61,7 @@ export async function POST(request) {
     lines.length > 0 &&
     lines.length <= MAX_LINES &&
     lines.every((l) => typeof l === 'string' && l.length <= MAX_LINE_CHARS);
-  if (!valid) return NextResponse.json({ message: 'Dữ liệu không hợp lệ.' }, { status: 400 });
+  if (!valid) return NextResponse.json({ code: 'BAD_REQUEST', message: 'Dữ liệu không hợp lệ.' }, { status: 400 });
 
   // Mỗi người tối đa N video mới mỗi ngày; một video chỉ tính 1 lần dù gọi nhiều đợt
   let usage;

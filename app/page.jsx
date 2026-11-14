@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import DeleteLessonButton from '../components/DeleteLessonButton';
 import GoogleAccount from '../components/GoogleAccount';
 import { FaYoutube } from 'react-icons/fa';
@@ -125,25 +125,25 @@ function TopBar({ query, onQueryChange }) {
   );
 }
 
-// Banner đầu trang: một khối nền xanh, một tab YouTube và ô nhập link. Bấm Generate thì chuyển sang trang tạo bài.
+// Banner đầu trang (gọn): một khối nền xanh, một tab YouTube và ô nhập link. Bấm Generate thì chuyển sang trang tạo bài.
 function Hero() {
   const { t } = useI18n();
   const { url, setUrl, error, busy, generate } = useGenerateLesson();
   return (
-    <section className="px-4 pt-4 sm:px-6">
-      <div className="rounded-2xl bg-gradient-to-br from-emerald-700 via-emerald-500 to-teal-300 px-4 pb-4 pt-5 text-white shadow-sm sm:px-6">
-        <h1 className="font-display text-xl font-bold leading-tight tracking-tight sm:text-2xl">{t.heroTitle}</h1>
+    <section className="px-4 pt-3 sm:px-6">
+      <div className="rounded-xl bg-gradient-to-br from-emerald-700 via-emerald-500 to-teal-300 px-3 pb-3 pt-2.5 text-white shadow-sm sm:px-4">
+        <h1 className="font-display text-base font-bold leading-tight tracking-tight sm:text-lg">{t.heroTitle}</h1>
 
-        <div className="mt-4">
-          <div className="inline-flex items-center gap-2 rounded-t-xl bg-white px-4 py-2 text-sm font-semibold text-[#FF0000]">
-            <FaYoutube className="h-5 w-5" aria-hidden="true" />
+        <div className="mt-2">
+          <div className="inline-flex items-center gap-1.5 rounded-t-lg bg-white px-3 py-1 text-xs font-semibold text-[#FF0000]">
+            <FaYoutube className="h-4 w-4" aria-hidden="true" />
             YouTube
           </div>
-          <form onSubmit={generate} className="rounded-b-xl rounded-tr-xl bg-white p-4 text-slate-900">
-            <label htmlFor="home-yt-url" className="text-xs font-medium text-slate-600">
+          <form onSubmit={generate} className="rounded-b-lg rounded-tr-lg bg-white p-2.5 text-slate-900">
+            <label htmlFor="home-yt-url" className="sr-only">
               {t.linkLabel}
             </label>
-            <div className="mt-1.5 flex flex-col gap-2 sm:flex-row">
+            <div className="flex flex-col gap-2 sm:flex-row">
               <input
                 id="home-yt-url"
                 type="text"
@@ -153,18 +153,18 @@ function Hero() {
                 placeholder={t.linkPlaceholder}
                 autoComplete="off"
                 spellCheck={false}
-                className="h-11 min-w-0 flex-1 rounded-xl border border-slate-300 px-3 text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
+                className="h-9 min-w-0 flex-1 rounded-lg border border-slate-300 px-3 text-[13px] focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
               />
               <button
                 type="submit"
                 disabled={busy}
-                className="h-11 rounded-xl bg-emerald-500 px-8 text-sm font-semibold text-white transition hover:bg-emerald-600 disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+                className="h-9 rounded-lg bg-emerald-500 px-6 text-[13px] font-semibold text-white transition hover:bg-emerald-600 disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
               >
                 {t.generate}
               </button>
             </div>
             {error && (
-              <p role="alert" className="mt-2 text-sm text-red-600">
+              <p role="alert" className="mt-1.5 text-xs text-red-600">
                 {error}
               </p>
             )}
@@ -180,6 +180,7 @@ function Hero() {
 function TopicsSection({ topics, query, onClearQuery }) {
   const { t } = useI18n();
   const sectionRef = useRef(null);
+  const barRef = useRef(null); // thanh tag: xuống dòng khi dài nên chiều cao thay đổi
   const [tag, setTag] = useState(null); // slug topic đang hiển thị trên màn hình (để tô tag), null = đầu danh sách
 
   // Video YouTube của người dùng: hàng riêng ở đầu danh sách (mới nhất bên trái), lọc theo ô tìm kiếm
@@ -207,6 +208,9 @@ function TopicsSection({ topics, query, onClearQuery }) {
     return result;
   }, [topics, query]);
 
+  // Khoảng cần chừa phía trên khi cuộn tới một hàng: header, cộng thanh tag nếu nó đang dính (chỉ ở màn hình rộng)
+  const stickyOffset = useCallback(() => HEADER_HEIGHT + (window.matchMedia('(min-width: 1024px)').matches ? (barRef.current?.offsetHeight ?? 0) : 0), []);
+
   // Tô tag theo hàng topic đang nằm ngay dưới thanh tag khi cuộn trang
   useEffect(() => {
     let frame = 0;
@@ -216,7 +220,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
       const slugs = [...(hasYoutube ? ['youtube'] : []), ...visible.map(({ topic }) => topic.topic)];
       for (const slug of slugs) {
         const el = document.getElementById(`topic-${slug}`);
-        if (el && el.getBoundingClientRect().top <= STICKY_OFFSET + 8) current = slug;
+        if (el && el.getBoundingClientRect().top <= stickyOffset() + 8) current = slug;
       }
       setTag(current);
     };
@@ -229,18 +233,18 @@ function TopicsSection({ topics, query, onClearQuery }) {
       window.removeEventListener('scroll', onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [visible, hasYoutube]);
+  }, [visible, hasYoutube, stickyOffset]);
 
   const scrollToTopic = (slug) => {
     const el = slug ? document.getElementById(`topic-${slug}`) : sectionRef.current;
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - STICKY_OFFSET;
+    const top = el.getBoundingClientRect().top + window.scrollY - stickyOffset();
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   };
 
   return (
     <section ref={sectionRef} className="mt-4" aria-label={t.topicsTitle}>
-      <TopicTags topics={visible.map((v) => v.topic)} youtube={hasYoutube} tag={tag} onSelect={scrollToTopic} />
+      <TopicTags topics={visible.map((v) => v.topic)} youtube={hasYoutube} tag={tag} onSelect={scrollToTopic} barRef={barRef} />
 
       <div className="mt-4" />
 
@@ -317,7 +321,7 @@ function YouTubeRow({ lessons }) {
                   </span>
                 )}
               </span>
-              <span className="mt-2 block text-sm font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lesson.title}</span>
+              <span className="mt-1.5 block text-[13px] font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lesson.title}</span>
             </Link>
             <DeleteLessonButton
               id={lesson.id}
@@ -351,11 +355,11 @@ const TAG_COLOR_OVERRIDE = {
 const TAG_ALL_COLOR = { idle: 'border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200', active: 'border-slate-700 bg-slate-700' };
 const TAG_YOUTUBE_COLOR = { idle: 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100', active: 'border-red-600 bg-red-600' };
 
-// Header (h-14) + thanh tag dính: khoảng cần chừa khi cuộn tới một hàng topic
-const STICKY_OFFSET = 112;
+// Chiều cao header cố định (h-14)
+const HEADER_HEIGHT = 56;
 
-// Hàng tag chủ đề cuộn ngang, dính dưới header khi cuộn trang
-function TopicTags({ topics, youtube, tag, onSelect }) {
+// Các tag chủ đề: dài thì xuống dòng. Chỉ dính dưới header ở màn hình rộng (trên điện thoại nhiều dòng sẽ chiếm quá nhiều chỗ).
+function TopicTags({ topics, youtube, tag, onSelect, barRef }) {
   const { t } = useI18n();
   const items = [
     { slug: null, label: t.allTopics, icon: 'all', color: TAG_ALL_COLOR },
@@ -368,16 +372,16 @@ function TopicTags({ topics, youtube, tag, onSelect }) {
     })),
   ];
   return (
-    <div className="sticky top-14 z-20 -mx-4 border-b border-slate-200/70 bg-slate-50/90 px-4 py-2.5 sm:-mx-6 sm:px-6 backdrop-blur">
+    <div ref={barRef} className="lg:sticky lg:top-14 z-20 -mx-4 border-b border-slate-200/70 bg-slate-50/90 px-4 py-2.5 sm:-mx-6 sm:px-6 backdrop-blur">
       <ul
         role="group"
         aria-label={t.topicTags}
-        className="flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex flex-wrap gap-2"
       >
         {items.map((item) => {
           const active = item.slug === tag;
           return (
-            <li key={item.slug ?? 'all'} className="shrink-0">
+            <li key={item.slug ?? 'all'}>
               <button
                 type="button"
                 aria-pressed={active}

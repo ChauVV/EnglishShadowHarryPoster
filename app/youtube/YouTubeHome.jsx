@@ -6,11 +6,14 @@ import DeleteLessonButton from '../../components/DeleteLessonButton';
 import GoogleAccount from '../../components/GoogleAccount';
 import LanguageSwitch from '../../components/LanguageSwitch';
 import { authHeader, useGoogleUser } from '../../lib/googleAuth';
+import { useI18n } from '../../lib/i18n';
 import { useGenerateLesson } from '../../lib/useGenerateLesson';
 import { useYouTubeLessons } from '../../lib/useYouTubeLessons';
 import { useTurnsLeft } from '../../lib/ytClient';
 
 export default function YouTubeHome() {
+  const { t } = useI18n();
+  const y = t.yt;
   const { url, setUrl, error, busy, generate } = useGenerateLesson();
   const user = useGoogleUser();
   const lessons = useYouTubeLessons();
@@ -35,7 +38,7 @@ export default function YouTubeHome() {
       <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
         <div className="max-w-3xl mx-auto px-4 h-14 flex items-center gap-3">
           <Link href="/" className="text-sm font-medium text-slate-600 hover:text-slate-900">
-            ← Trang chủ
+            {y.backHomeArrow}
           </Link>
           <div className="ml-auto flex items-center gap-3">
             <GoogleAccount />
@@ -47,11 +50,11 @@ export default function YouTubeHome() {
       <main className="max-w-3xl mx-auto px-4 py-10">
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
           <FaYoutube className="h-6 w-6 text-[#FF0000]" aria-hidden="true" />
-          Học từ YouTube
+          {y.eyebrow}
         </p>
-        <h1 className="font-display mt-1 text-3xl font-semibold tracking-tight">Biến video yêu thích thành bài học</h1>
+        <h1 className="font-display mt-1 text-3xl font-semibold tracking-tight">{y.heading}</h1>
         <p className="mt-2 text-slate-600">
-          Dán link YouTube có phụ đề tiếng Anh. Ứng dụng lấy phụ đề, chia thành câu và dịch sang tiếng Việt để bạn luyện shadowing ngay trên video.
+          {y.intro}
         </p>
 
         <form onSubmit={generate} className="mt-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -85,11 +88,11 @@ export default function YouTubeHome() {
           <ul className="mt-3 space-y-1 text-xs text-slate-500">
             <li>
               {user
-                ? `Hôm nay bạn còn ${turns?.remaining ?? '–'}/${turns?.limit ?? 10} lượt dịch link video YouTube. Mỗi link video mới tính một lượt, xem lại bài đã tạo không tốn lượt.`
-                : 'Bạn cần đăng nhập Google để tạo bài mới. Mỗi người có 10 lượt dịch link video YouTube mỗi ngày, bài đã tạo được lưu vào Drive của chính bạn.'}
+                ? y.turnsNote(turns?.remaining ?? '–', turns?.limit ?? 10)
+                : y.loggedOutNote}
             </li>
             {user && !user.drive && (
-              <li className="text-amber-700">Bạn chưa cấp quyền Drive nên bài chỉ lưu trên máy này. Đăng xuất rồi đăng nhập lại và tick quyền lưu dữ liệu ứng dụng.</li>
+              <li className="text-amber-700">{y.noDriveNote}</li>
             )}
           </ul>
         </form>
@@ -97,7 +100,7 @@ export default function YouTubeHome() {
         {lessons.length > 0 && (
           <section className="mt-10" aria-labelledby="recent-title">
             <h2 id="recent-title" className="font-display text-xl font-semibold">
-              Bài đã tạo
+              {y.createdLessons}
             </h2>
             <ul className="mt-3 grid gap-2">
               {lessons.map((l) => (
@@ -109,8 +112,8 @@ export default function YouTubeHome() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={`https://i.ytimg.com/vi/${l.id}/mqdefault.jpg`} alt="" loading="lazy" className="aspect-video w-28 shrink-0 rounded-lg bg-slate-200 object-cover" />
                     <span className="min-w-0">
-                      <span className="block truncate text-sm font-semibold group-hover:text-emerald-700">{l.title}</span>
-                      <span className="block text-xs text-slate-500">{l.count} câu</span>
+                      <span className="block truncate text-[13px] font-semibold group-hover:text-emerald-700">{l.title}</span>
+                      <span className="block text-xs text-slate-500">{y.sentenceCount(l.count)}</span>
                     </span>
                   </Link>
                   <DeleteLessonButton

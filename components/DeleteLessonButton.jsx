@@ -3,11 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { FiTrash2 } from 'react-icons/fi';
 import { deleteLessonFromDrive, deleteLessonOnThisDevice } from '../lib/deleteLesson';
+import { useI18n } from '../lib/i18n';
 
 // Nút xóa một bài YouTube, mở hộp thoại xác nhận. Màu sắc và vị trí nút do nơi dùng truyền vào qua className.
 // beforeDelete: chạy khi bắt đầu xóa (ví dụ hủy việc đang dịch dở).
 // onDeleted: chạy sau khi xóa xong (ví dụ quay về trang chủ).
 export default function DeleteLessonButton({ id, title, className = '', beforeDelete, onDeleted }) {
+  const { t } = useI18n();
+  const y = t.yt;
   const [open, setOpen] = useState(false);
   const [phase, setPhase] = useState('confirm'); // confirm | deleting | error
 
@@ -40,8 +43,8 @@ export default function DeleteLessonButton({ id, title, className = '', beforeDe
           e.stopPropagation();
           setOpen(true);
         }}
-        aria-label={`Xóa bài ${title}`}
-        title="Xóa bài"
+        aria-label={y.deleteLesson(title)}
+        title={y.deleteTitle}
         className={`flex h-8 w-8 items-center justify-center rounded-full transition focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-red-500 ${className}`}
       >
         <FiTrash2 className="h-4 w-4" aria-hidden="true" />
@@ -55,6 +58,8 @@ export default function DeleteLessonButton({ id, title, className = '', beforeDe
 }
 
 function ConfirmDialog({ title, phase, onCancel, onConfirm, onLocalOnly }) {
+  const { t } = useI18n();
+  const y = t.yt;
   const dialogRef = useRef(null);
   const cancelRef = useRef(null);
   const deleting = phase === 'deleting';
@@ -110,17 +115,15 @@ function ConfirmDialog({ title, phase, onCancel, onConfirm, onLocalOnly }) {
           <FiTrash2 className="h-6 w-6" aria-hidden="true" />
         </div>
         <h2 id="delete-title" className="font-display mt-4 text-lg font-semibold">
-          {failed ? 'Chưa xóa được trong Drive' : 'Xóa bài học này?'}
+          {failed ? y.deleteFailedHeading : y.deleteHeading}
         </h2>
         <div id="delete-desc" className="mt-2 text-sm leading-relaxed text-slate-600">
           {failed ? (
-            <p>
-              Không kết nối được Drive nên bản lưu ở đó chưa bị xóa. Bạn có thể thử lại, hoặc chỉ xóa trên máy này (bản trong Drive có thể hiện lại khi bạn đăng nhập).
-            </p>
+            <p>{y.deleteFailedBody}</p>
           ) : (
             <>
               <p className="line-clamp-2 font-medium text-slate-900">{title}</p>
-              <p className="mt-1">Bài sẽ bị xóa khỏi máy này và khỏi Drive của bạn. Bạn không thể hoàn tác.</p>
+              <p className="mt-1">{y.deleteBody}</p>
             </>
           )}
         </div>
@@ -132,7 +135,7 @@ function ConfirmDialog({ title, phase, onCancel, onConfirm, onLocalOnly }) {
               onClick={onLocalOnly}
               className="h-10 rounded-xl border border-slate-300 px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
             >
-              Chỉ xóa trên máy
+              {y.deleteLocalOnly}
             </button>
           ) : (
             <button
@@ -142,7 +145,7 @@ function ConfirmDialog({ title, phase, onCancel, onConfirm, onLocalOnly }) {
               disabled={deleting}
               className="h-10 rounded-xl border border-slate-300 px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
             >
-              Hủy
+              {y.cancel}
             </button>
           )}
           <button
@@ -152,7 +155,7 @@ function ConfirmDialog({ title, phase, onCancel, onConfirm, onLocalOnly }) {
             className="inline-flex h-10 min-w-28 items-center justify-center gap-2 rounded-xl bg-red-600 px-4 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
             {deleting && <Spinner />}
-            {deleting ? 'Đang xóa...' : failed ? 'Thử lại' : 'Xóa bài'}
+            {deleting ? y.deleting : failed ? y.tryAgain : y.deleteConfirm}
           </button>
         </div>
       </div>

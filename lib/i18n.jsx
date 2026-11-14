@@ -1,5 +1,6 @@
 'use client';
 import { createContext, useContext, useEffect, useMemo, useSyncExternalStore } from 'react';
+import { YT } from './i18nYoutube';
 
 export const LANGS = ['vi', 'en'];
 const LANG_KEY = 'hp-shadowing-lang';
@@ -7,6 +8,7 @@ const DEFAULT_LANG = 'vi';
 
 const DICT = {
   vi: {
+    yt: YT.vi, // tính năng học từ YouTube (lib/i18nYoutube.js)
     brand: 'English Shadowing',
     tagline: 'Luyện nghe · nói',
     heroTitle: 'Biến video yêu thích thành bài học.',
@@ -71,6 +73,7 @@ const DICT = {
       'Bài này chưa có timestamp từng câu nên thời gian chỉ là ước lượng. Xử lý lại chapter bằng app mới để chính xác.',
   },
   en: {
+    yt: YT.en,
     brand: 'English Shadowing',
     tagline: 'Listen · Speak',
     heroTitle: 'Turn your favorite videos into lessons.',
