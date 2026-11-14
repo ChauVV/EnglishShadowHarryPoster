@@ -74,8 +74,11 @@ export async function POST(request) {
     }
     return NextResponse.json({ lines: result.map((l) => l.trim()), usage });
   } catch (err) {
-    const status = err instanceof GeminiError && err.status === 429 ? 429 : 502;
+    const upstream = err instanceof GeminiError ? err.status : 0;
+    const status = upstream === 429 ? 429 : 502;
     const message = status === 429 ? 'AI đang quá tải hoặc hết hạn mức, thử lại sau.' : 'Không gọi được AI để xử lý.';
-    return NextResponse.json({ code: 'GEMINI', message }, { status });
+    // Lý do thật ghi vào log của server; mã lỗi của Google đính kèm để dễ kiểm tra (không chứa key)
+    console.error(`Gemini lỗi ${upstream || ''}: ${String(err.message).slice(0, 300)}`);
+    return NextResponse.json({ code: 'GEMINI', message, upstreamStatus: upstream || undefined, detail: String(err.message).slice(0, 200) }, { status });
   }
 }
