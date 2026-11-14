@@ -11,7 +11,7 @@ import { FEATURED_VIDEOS } from '../lib/featuredVideos';
 import { lessonLabel, useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
 import { topicCoverSrc } from '../lib/topicCovers';
-import { markTopicLessonOpened, topicLessonKey, useTopicProgress } from '../lib/topicProgress';
+import { markTopicLessonOpened, topicLessonKey } from '../lib/topicProgress';
 import { useGenerateLesson } from '../lib/useGenerateLesson';
 import { useYouTubeLessons } from '../lib/useYouTubeLessons';
 import { errorMessage, useFlash } from '../lib/ytFlash';
@@ -302,12 +302,6 @@ function YouTubeRow({ lessons, suggested }) {
             <FaYoutube className="h-6 w-6 shrink-0 text-[#FF0000]" aria-hidden="true" />
             YouTube
           </h3>
-          <p className="text-xs text-slate-500 truncate">
-            {lessons.length > 0 ? t.youtubeCount(lessons.length) : suggested.length > 0 && suggested.every((v) => v.ready) ? t.youtubeTryHintReady : t.youtubeTryHint} ·{' '}
-            <Link href="/youtube" className="font-medium text-emerald-700 hover:underline">
-              {t.youtubeAdd}
-            </Link>
-          </p>
         </div>
         <div className="hidden sm:flex gap-1.5">
           <ScrollButton onClick={() => scrollBy(-1)} label="←" flip />
@@ -438,11 +432,7 @@ function TopicTags({ topics, youtube, tag, onSelect, barRef }) {
 }
 
 function TopicRow({ topic, lessons, gradient }) {
-  const { t } = useI18n();
-  const visited = useTopicProgress();
   const scroller = useRef(null);
-  const total = topic.lessons.length;
-  const done = topic.lessons.filter((l) => visited.has(topicLessonKey(topic.topic, l.lesson_index))).length;
   const scrollBy = (dir) => {
     const el = scroller.current;
     if (el) el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: 'smooth' });
@@ -453,10 +443,6 @@ function TopicRow({ topic, lessons, gradient }) {
       <div className="mb-2 flex items-center gap-3">
         <div className="min-w-0 flex-1">
           <h3 className="font-display text-lg sm:text-xl font-semibold leading-tight truncate">{topic.title}</h3>
-          <p className="text-xs text-slate-500 truncate">
-            {topic.title_vi && <span>{topic.title_vi} · </span>}
-            {t.topicLessons(done, total)}
-          </p>
         </div>
         <div className="hidden sm:flex gap-1.5">
           <ScrollButton onClick={() => scrollBy(-1)} label="←" flip />
