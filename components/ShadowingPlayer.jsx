@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { lessonLabel, useI18n } from '../lib/i18n';
+import { useI18n } from '../lib/i18n';
 import { formatTime, getSentences } from '../lib/sentences';
 import LanguageSwitch from './LanguageSwitch';
 
@@ -23,7 +23,7 @@ function findActive(sentences, t) {
   return idx;
 }
 
-export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, heading, lesson, prevHref, nextHref }) {
+export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, prevHref, nextHref }) {
   const { t } = useI18n();
   const audioRef = useRef(null);
   const listRef = useRef(null);
@@ -40,8 +40,8 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
   const hasTranslation = sentences.some((s) => s.vi);
   const [speed, setSpeed] = useState(1);
   const rate = SPEEDS.find((s) => s.label === speed).rate;
-  const [hasCover, setHasCover] = useState(Boolean(bookId || coverUrl));
-  const coverSrc = coverUrl ?? `/covers/book_${bookId}.jpg`;
+  const [hasCover, setHasCover] = useState(Boolean(coverUrl));
+  const coverSrc = coverUrl;
 
   const activeIndex = findActive(sentences, time);
   const active = sentences[activeIndex];
@@ -126,7 +126,7 @@ export default function ShadowingPlayer({ bookId, coverUrl, bookLabel, chapter, 
           </Link>
           <div className="min-w-0 flex-1">
             <h1 className="text-sm lg:text-base font-bold truncate">
-              {heading ?? `Chapter ${chapter.chapter_number}: ${chapter.chapter_title} · ${lessonLabel(lesson.title)}`}
+              {heading}
             </h1>
             <p className="text-[11px] lg:text-xs text-slate-500 truncate">{bookLabel}</p>
           </div>
@@ -347,7 +347,7 @@ function LessonLink({ href, children }) {
   );
 }
 
-function ControlButton({ children, onClick, label, primary, active }) {
+export function ControlButton({ children, onClick, label, primary, active }) {
   const style = primary
     ? 'bg-emerald-500 text-white hover:bg-emerald-600 w-10 lg:w-12'
     : active
@@ -365,7 +365,7 @@ function ControlButton({ children, onClick, label, primary, active }) {
   );
 }
 
-function PlayIcon({ size = 24 }) {
+export function PlayIcon({ size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M8 5v14l11-7z" />
@@ -373,7 +373,7 @@ function PlayIcon({ size = 24 }) {
   );
 }
 
-function PauseIcon({ size = 24 }) {
+export function PauseIcon({ size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
@@ -381,7 +381,7 @@ function PauseIcon({ size = 24 }) {
   );
 }
 
-function SkipIcon({ flip }) {
+export function SkipIcon({ flip }) {
   return (
     <svg
       width="18"
@@ -396,7 +396,7 @@ function SkipIcon({ flip }) {
   );
 }
 
-function ReplayIcon() {
+export function ReplayIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
       <path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5" />

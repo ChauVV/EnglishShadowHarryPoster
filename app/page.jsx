@@ -1,15 +1,13 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import LanguageSwitch from '../components/LanguageSwitch';
 import TopicIcon from '../components/TopicIcon';
-import { BOOKS } from '../lib/books';
 import { lessonLabel, useI18n } from '../lib/i18n';
 import { formatTime } from '../lib/sentences';
 import { topicCoverSrc } from '../lib/topicCovers';
 import { markTopicLessonOpened, topicLessonKey, useTopicProgress } from '../lib/topicProgress';
 
-const PROGRESS_KEY = 'hp-shadowing-progress';
 
 // Mỗi tập một màu bìa riêng để dễ nhận biết trên "kệ sách"
 const COVERS = [
@@ -22,46 +20,6 @@ const COVERS = [
   'from-zinc-900 via-stone-700 to-amber-600',
 ];
 
-// ---- tiến độ học lưu trên trình duyệt (các bài đã mở + bài mở gần nhất) ----
-function subscribeProgress(callback) {
-  window.addEventListener('storage', callback);
-  return () => window.removeEventListener('storage', callback);
-}
-const readProgressRaw = () => {
-  try {
-    return window.localStorage.getItem(PROGRESS_KEY);
-  } catch {
-    return null;
-  }
-};
-
-function useProgress() {
-  const raw = useSyncExternalStore(subscribeProgress, readProgressRaw, () => null);
-  return useMemo(() => {
-    try {
-      const parsed = JSON.parse(raw ?? '{}');
-      return { visited: new Set(parsed.visited ?? []), last: parsed.last ?? null };
-    } catch {
-      return { visited: new Set(), last: null };
-    }
-  }, [raw]);
-}
-
-function markOpened(key) {
-  try {
-    const parsed = JSON.parse(readProgressRaw() ?? '{}');
-    const visited = new Set(parsed.visited ?? []);
-    visited.add(key);
-    window.localStorage.setItem(PROGRESS_KEY, JSON.stringify({ visited: [...visited], last: key }));
-  } catch {
-    // localStorage bị chặn -> bỏ qua, chỉ mất tính năng nhớ tiến độ
-  }
-}
-
-const lessonKey = (book, chapter, lesson) => `${book}/${chapter}/${lesson}`;
-const lessonHref = (key) => `/learn/${key}`;
-const minutes = (seconds) => Math.max(1, Math.round(seconds / 60));
-
 // Tìm kiếm không phân biệt hoa/thường và dấu tiếng Việt ("ngan hang" khớp "Ngân hàng")
 const normalizeText = (text) =>
   String(text ?? '')
@@ -73,80 +31,25 @@ const normalizeText = (text) =>
 
 export default function LibraryPage() {
   const { t } = useI18n();
-  const [library, setLibrary] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
   const [topics, setTopics] = useState(null);
   const [error, setError] = useState(false);
-  const [selectedId, setSelectedId] = useState(null);
   const [query, setQuery] = useState('');
-  const progress = useProgress();
-
-  useEffect(() => {
-    fetch('/api/lessons')
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(String(res.status)))))
-      .then((data) => {
-        setIsAdmin(Boolean(data.admin));
-        setLibrary(data.books);
-      })
-      .catch(() => setError(true));
-  }, []);
 
   useEffect(() => {
     fetch('/api/topics')
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(String(res.status)))))
       .then((data) => setTopics(data.topics))
-      .catch(() => setTopics([]));
+      .catch(() => {
+        setError(true);
+        setTopics([]);
+      });
   }, []);
-
-  const chaptersByBook = useMemo(
-    () => new Map((library ?? []).map((b) => [b.book_number, b.chapters])),
-    [library],
-  );
-
-  // Phẳng hóa toàn bộ bài học để tính thống kê / tìm "bài tiếp theo"
-  const allLessons = useMemo(() => {
-    const list = [];
-    for (const book of BOOKS) {
-      for (const chapter of chaptersByBook.get(book.id) ?? []) {
-        for (const lesson of chapter.lessons) {
-          list.push({
-            key: lessonKey(book.id, chapter.chapter_number, lesson.lesson_index),
-            book,
-            chapter,
-            lesson,
-          });
-        }
-      }
-    }
-    return list;
-  }, [chaptersByBook]);
-
-  const totalMinutes = Math.round(allLessons.reduce((sum, l) => sum + l.lesson.duration_seconds, 0) / 60);
-  const doneCount = allLessons.filter((l) => progress.visited.has(l.key)).length;
-
-  const lastEntry = allLessons.find((l) => l.key === progress.last);
-  const nextEntry =
-    allLessons[allLessons.findIndex((l) => l.key === progress.last) + 1] ??
-    allLessons.find((l) => !progress.visited.has(l.key)) ??
-    allLessons[0];
-  const startEntry = lastEntry ? nextEntry : allLessons[0];
-
-  const firstOpenBook = BOOKS.find((b) => (chaptersByBook.get(b.id) ?? []).length > 0)?.id ?? 1;
-  const activeId = selectedId ?? firstOpenBook;
 
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
       <TopBar query={query} onQueryChange={setQuery} />
 
-      <Hero
-        loaded={Boolean(library)}
-        bookCount={chaptersByBook.size}
-        lessonCount={allLessons.length}
-        totalMinutes={totalMinutes}
-        startEntry={startEntry}
-        continuing={Boolean(lastEntry)}
-        hasTopics={topics?.length > 0}
-      />
+      <Hero />
 
       <main className="flex-1 px-4 pb-10 sm:px-6">
         {error && (
@@ -155,60 +58,11 @@ export default function LibraryPage() {
           </p>
         )}
 
-        {!library && !error && <LibrarySkeleton />}
+        {!topics && <LibrarySkeleton />}
 
         {topics?.length > 0 && <TopicsSection topics={topics} query={query} onClearQuery={() => setQuery('')} />}
 
-        {library && topics && !isAdmin && topics.length === 0 && <FreeTopicsPlaceholder />}
-
-        {library && isAdmin && (
-          <>
-            {lastEntry && (
-              <ContinueCard
-                entry={lastEntry}
-                next={nextEntry}
-                done={doneCount}
-                total={allLessons.length}
-              />
-            )}
-
-            <section className="mt-12" aria-labelledby="shelf-title">
-              <SectionHeading
-                id="shelf-title"
-                eyebrow={t.library}
-                title={t.pickBook}
-                note={t.booksAvailable(chaptersByBook.size, BOOKS.length)}
-              />
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3">
-                  {BOOKS.map((book, i) => {
-                    const chapters = chaptersByBook.get(book.id) ?? [];
-                    const lessons = chapters.flatMap((c) => c.lessons.map((l) => lessonKey(book.id, c.chapter_number, l.lesson_index)));
-                    return (
-                      <BookCover
-                        key={book.id}
-                        book={book}
-                        gradient={COVERS[i % COVERS.length]}
-                        active={book.id === activeId}
-                        chapterCount={chapters.length}
-                        lessonCount={lessons.length}
-                        doneCount={lessons.filter((k) => progress.visited.has(k)).length}
-                        onSelect={() => setSelectedId(book.id)}
-                      />
-                    );
-                  })}
-              </div>
-            </section>
-
-            <BookPanel
-              key={activeId}
-              lastKey={progress.last}
-              book={BOOKS.find((b) => b.id === activeId)}
-              gradient={COVERS[(activeId - 1) % COVERS.length]}
-              chapters={chaptersByBook.get(activeId) ?? []}
-              visited={progress.visited}
-            />
-          </>
-        )}
+        {topics && !error && topics.length === 0 && <FreeTopicsPlaceholder />}
       </main>
 
       <footer className="border-t border-slate-200 bg-white">
@@ -221,6 +75,7 @@ export default function LibraryPage() {
 }
 
 /* ------------------------------------------------------------------ */
+
 
 function TopBar({ query, onQueryChange }) {
   const { t } = useI18n();
@@ -264,8 +119,8 @@ function TopBar({ query, onQueryChange }) {
   );
 }
 
-// Banner mỏng một hàng: tiêu đề + số liệu nhanh + nút học tiếp
-function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, continuing, hasTopics }) {
+// Banner mỏng một hàng: tiêu đề + nút học từ link YouTube
+function Hero() {
   const { t } = useI18n();
   return (
     <section className="relative overflow-hidden bg-slate-950 text-white">
@@ -283,34 +138,18 @@ function Hero({ loaded, bookCount, lessonCount, totalMinutes, startEntry, contin
           <h1 className="font-display text-xl sm:text-2xl font-semibold leading-tight tracking-tight">{t.heroLine1}</h1>
         </div>
 
-        {!(loaded && lessonCount === 0) && (
-          <dl className="hidden md:flex gap-6">
-            <Stat value={loaded ? bookCount : '–'} label={t.statBooks} />
-            <Stat value={loaded ? lessonCount : '–'} label={t.statLessons} />
-            <Stat value={loaded ? totalMinutes : '–'} label={t.statMinutes} />
-          </dl>
-        )}
-
-        {startEntry ? (
-          <Link
-            href={lessonHref(startEntry.key)}
-            onClick={() => markOpened(startEntry.key)}
-            className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-5 h-10 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
-          >
-            <PlayIcon className="h-3.5 w-3.5" />
-            {continuing ? t.nextLesson : t.startLearning}
-          </Link>
-        ) : (
-          !hasTopics && (
-            <span className="inline-flex items-center rounded-full bg-white/10 px-5 h-10 text-sm text-slate-300">
-              {loaded ? t.noLessons : t.loading}
-            </span>
-          )
-        )}
+        <Link
+          href="/youtube"
+          className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-5 h-10 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+        >
+          <PlayIcon className="h-3.5 w-3.5" />
+          {t.youtubeCta}
+        </Link>
       </div>
     </section>
   );
 }
+
 
 // Topic miễn phí: hàng tag chủ đề (bấm để cuộn tới hàng của topic) + mỗi topic là một nhóm có tiêu đề, bên dưới là hàng lesson cuộn ngang (kiểu Corodomo)
 function TopicsSection({ topics, query, onClearQuery }) {
@@ -561,7 +400,7 @@ function ScrollButton({ onClick, label, flip }) {
   );
 }
 
-// Khách chưa đăng nhập admin: không có nội dung nào để hiển thị (Harry Potter chỉ dành cho admin)
+// Chưa có chủ đề nào để hiển thị
 function FreeTopicsPlaceholder() {
   const { t } = useI18n();
   return (
@@ -573,313 +412,21 @@ function FreeTopicsPlaceholder() {
   );
 }
 
-function Stat({ value, label }) {
-  return (
-    <div className="border-l-2 border-emerald-400/60 pl-3">
-      <dd className="font-display text-xl font-semibold leading-tight tabular-nums">{value}</dd>
-      <dt className="text-xs text-slate-400">{label}</dt>
-    </div>
-  );
-}
-
-function ContinueCard({ entry, next, done, total }) {
-  const { t } = useI18n();
-  const percent = total ? Math.round((done / total) * 100) : 0;
-  return (
-    <section className="-mt-7 relative z-10 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-900/5 p-5 flex flex-col gap-4 sm:flex-row sm:items-center">
-      <div className="min-w-0 flex-1">
-        <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600">{t.lastStudied}</p>
-        <p className="mt-1 font-semibold truncate">
-          Book {entry.book.id} · Chapter {entry.chapter.chapter_number} · {lessonLabel(entry.lesson.title)}
-        </p>
-        <p className="text-sm text-slate-500 truncate">{entry.chapter.chapter_title}</p>
-      </div>
-
-      <div className="sm:w-56">
-        <div className="flex justify-between text-xs text-slate-500 mb-1.5">
-          <span>{t.progress}</span>
-          <span className="tabular-nums">{t.lessonsDone(done, total)}</span>
-        </div>
-        <ProgressBar percent={percent} />
-      </div>
-
-      <div className="flex gap-2">
-        <Link
-          href={lessonHref(entry.key)}
-          className="inline-flex items-center justify-center h-11 px-4 rounded-full border border-slate-200 text-sm font-medium hover:bg-slate-50 transition"
-        >
-          {t.review}
-        </Link>
-        {next && next.key !== entry.key && (
-          <Link
-            href={lessonHref(next.key)}
-            onClick={() => markOpened(next.key)}
-            className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-700 transition"
-          >
-            {t.nextShort}
-            <ArrowIcon className="h-4 w-4" />
-          </Link>
-        )}
-      </div>
-    </section>
-  );
-}
-
-function SectionHeading({ id, eyebrow, title, note }) {
-  return (
-    <div className="mb-5 flex flex-wrap items-end justify-between gap-2">
-      <div>
-        {eyebrow && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">{eyebrow}</p>}
-        <h2 id={id} className="font-display mt-1 text-2xl sm:text-3xl font-semibold tracking-tight">
-          {title}
-        </h2>
-      </div>
-      {note && <p className="text-sm text-slate-500">{note}</p>}
-    </div>
-  );
-}
-
-// Ảnh bìa lấy từ public/covers/book_N.jpg; tập nào chưa có file thì dùng ô gradient
-function CoverImage({ book, gradient, className = '', children }) {
-  const [hasCover, setHasCover] = useState(true);
-  return (
-    <div
-      className={`relative aspect-[2/3] overflow-hidden bg-gradient-to-br ${gradient} text-white ${className}`}
-    >
-      {hasCover ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={`/covers/book_${book.id}.jpg`}
-          alt={`Book ${book.id} - ${book.title}`}
-          loading="lazy"
-          onError={() => setHasCover(false)}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      ) : (
-        <div className="absolute inset-0 p-3 flex flex-col justify-between">
-          <div className="absolute inset-y-0 left-0 w-2 bg-black/20" aria-hidden="true" />
-          <span className="font-display text-5xl font-semibold leading-none opacity-90 pl-1">{book.id}</span>
-          <span className="font-display text-sm font-semibold leading-snug drop-shadow pl-1">{book.title}</span>
-        </div>
-      )}
-      {children}
-    </div>
-  );
-}
-
-function BookCover({ book, gradient, active, chapterCount, lessonCount, doneCount, onSelect }) {
-  const { t } = useI18n();
-  const empty = chapterCount === 0;
-  const percent = lessonCount ? Math.round((doneCount / lessonCount) * 100) : 0;
-
-  return (
-    <button
-      type="button"
-      onClick={onSelect}
-      aria-pressed={active}
-      className={`group relative min-w-0 text-left rounded-2xl p-2 transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 ${
-        active
-          ? 'bg-white shadow-lg shadow-emerald-900/10 ring-2 ring-emerald-500 -translate-y-0.5'
-          : 'bg-white/60 ring-1 ring-slate-200 hover:bg-white hover:shadow-md hover:-translate-y-0.5'
-      }`}
-    >
-      <CoverImage
-        book={book}
-        gradient={gradient}
-        className={`rounded-xl shadow-md shadow-slate-900/15 ${empty ? 'grayscale opacity-60' : ''}`}
-      >
-        {empty && (
-          <span className="absolute top-1.5 right-1.5 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-medium text-white">
-            {t.comingSoon}
-          </span>
-        )}
-      </CoverImage>
-
-      <div className="mt-2 px-1 pb-0.5">
-        <p className="text-sm font-semibold">Book {book.id}</p>
-        {empty ? (
-          <p className="text-xs text-slate-400 truncate">{t.noContent}</p>
-        ) : (
-          <>
-            <p className="text-xs text-slate-500 truncate">{t.chaptersLessons(chapterCount, lessonCount)}</p>
-            <div className="mt-1.5">
-              <ProgressBar percent={percent} small />
-            </div>
-          </>
-        )}
-      </div>
-    </button>
-  );
-}
-
-// Accordion: chỉ mở một chapter tại một thời điểm. Mặc định mở chapter đang học dở, không có thì chapter đầu.
-function BookPanel({ book, gradient, chapters, visited, lastKey }) {
-  const { t } = useI18n();
-  const [openChapter, setOpenChapter] = useState(undefined); // undefined = chưa chọn, null = đóng hết
-  const lastChapter = lastKey?.startsWith(`${book.id}/`) ? Number(lastKey.split('/')[1]) : null;
-  const defaultChapter = chapters.some((c) => c.chapter_number === lastChapter) ? lastChapter : chapters[0]?.chapter_number;
-  const openNumber = openChapter === undefined ? defaultChapter : openChapter;
-  const lessonCount = chapters.reduce((sum, c) => sum + c.lessons.length, 0);
-  const totalMin = Math.round(chapters.reduce((sum, c) => sum + c.lessons.reduce((s, l) => s + l.duration_seconds, 0), 0) / 60);
-
-  return (
-    <section
-      className="mt-6 grid md:grid-cols-[260px_1fr] rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
-      aria-label={t.bookContentLabel(book.id)}
-    >
-      <aside className="flex flex-col items-center gap-4 p-6 bg-gradient-to-b from-slate-50 to-slate-100 md:border-r border-b md:border-b-0 border-slate-200">
-        <CoverImage
-          book={book}
-          gradient={gradient}
-          className={`w-44 md:w-full rounded-xl shadow-xl shadow-slate-900/25 ring-1 ring-black/5 ${
-            chapters.length === 0 ? 'grayscale opacity-60' : ''
-          }`}
-        />
-        <div className="w-full text-center md:text-left">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">Book {book.id}</p>
-          <h3 className="font-display mt-1 text-xl font-semibold leading-snug">{book.title}</h3>
-          {chapters.length > 0 && (
-            <p className="mt-1.5 text-sm text-slate-500">{t.bookSummary(chapters.length, lessonCount, totalMin)}</p>
-          )}
-        </div>
-      </aside>
-
-      {chapters.length === 0 ? (
-        <div className="flex flex-col items-center justify-center px-6 py-14 text-center">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-400">
-            <LockIcon className="h-5 w-5" />
-          </span>
-          <p className="mt-4 font-semibold">{t.comingSoonTitle}</p>
-          <p className="text-sm text-slate-500 mt-1 max-w-sm">{t.comingSoonDesc}</p>
-        </div>
-      ) : (
-        <div className="min-w-0 divide-y divide-slate-100">
-          {chapters.map((chapter) => {
-            const done = chapter.lessons.filter((l) => visited.has(lessonKey(book.id, chapter.chapter_number, l.lesson_index))).length;
-            const open = chapter.chapter_number === openNumber;
-            const panelId = `chapter-${book.id}-${chapter.chapter_number}`;
-            return (
-              <div key={chapter.chapter_number}>
-                <button
-                  type="button"
-                  onClick={() => setOpenChapter(open ? null : chapter.chapter_number)}
-                  aria-expanded={open}
-                  aria-controls={panelId}
-                  className={`group flex w-full items-center gap-3 px-5 sm:px-6 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-emerald-500 ${
-                    open ? 'bg-emerald-50/40' : ''
-                  }`}
-                >
-                  <span
-                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-display text-sm font-semibold transition ${
-                      open ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-600 group-hover:bg-slate-200'
-                    }`}
-                  >
-                    {chapter.chapter_number}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block font-display text-base sm:text-lg font-semibold leading-snug truncate">
-                      <span className="text-emerald-600">Chapter {chapter.chapter_number}</span>
-                      <span className="text-slate-300 mx-2">/</span>
-                      {chapter.chapter_title}
-                    </span>
-                    <span className="block text-xs font-medium text-slate-500 tabular-nums">
-                      {t.lessonsStudied(done, chapter.lessons.length)}
-                    </span>
-                  </span>
-                  <ChevronIcon
-                    className={`h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 ${open ? 'rotate-180 text-emerald-600' : ''}`}
-                  />
-                </button>
-
-                <div
-                  id={panelId}
-                  role="region"
-                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
-                >
-                  <div className="overflow-hidden" inert={!open}>
-                    <ul className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3 px-5 sm:px-6 pb-5 pt-1">
-                      {chapter.lessons.map((lesson) => {
-                        const key = lessonKey(book.id, chapter.chapter_number, lesson.lesson_index);
-                        return (
-                          <LessonRow
-                            key={key}
-                            lesson={lesson}
-                            done={visited.has(key)}
-                            href={lessonHref(key)}
-                            onOpen={() => markOpened(key)}
-                          />
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </section>
-  );
-}
-
-function LessonRow({ lesson, done, href, onOpen }) {
-  const { t } = useI18n();
-  return (
-    <li>
-      <Link
-        href={href}
-        onClick={onOpen}
-        className="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-3 transition hover:border-emerald-400 hover:bg-emerald-50/60 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
-      >
-        <span
-          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition ${
-            done ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-700 group-hover:bg-slate-900 group-hover:text-white'
-          }`}
-        >
-          {done ? <CheckIcon className="h-4 w-4" /> : <PlayIcon className="h-3.5 w-3.5" />}
-        </span>
-        <span className="min-w-0 flex-1">
-          <span className="block text-sm font-semibold truncate">{lessonLabel(lesson.title)}</span>
-          <span className="flex items-center gap-1 text-xs text-slate-500">
-            <ClockIcon className="h-3 w-3" />
-            {t.minutesShort(minutes(lesson.duration_seconds))}
-            {done && <span className="ml-1 text-emerald-600 font-medium">· {t.studied}</span>}
-          </span>
-        </span>
-        <ArrowIcon className="h-4 w-4 text-slate-300 transition group-hover:text-emerald-600 group-hover:translate-x-0.5" />
-      </Link>
-    </li>
-  );
-}
-
-function ProgressBar({ percent, small = false }) {
-  return (
-    <div
-      className={`w-full overflow-hidden rounded-full bg-slate-200 ${small ? 'h-1' : 'h-2'}`}
-      role="progressbar"
-      aria-valuenow={percent}
-      aria-valuemin={0}
-      aria-valuemax={100}
-    >
-      <div className="h-full rounded-full bg-emerald-500 transition-all" style={{ width: `${percent}%` }} />
-    </div>
-  );
-}
-
 function LibrarySkeleton() {
   const { t } = useI18n();
   return (
-    <div className="mt-12 animate-pulse" aria-busy="true" aria-label={t.loading}>
-      <div className="h-6 w-56 rounded bg-slate-200" />
-      <div className="mt-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3">
-        {Array.from({ length: 7 }, (_, i) => (
-          <div key={i} className="aspect-[2/3.5] rounded-2xl bg-slate-200" />
+    <div className="mt-6 animate-pulse" aria-busy="true" aria-label={t.loading}>
+      <div className="h-7 w-2/3 rounded-full bg-slate-200" />
+      <div className="mt-6 h-6 w-48 rounded bg-slate-200" />
+      <div className="mt-3 flex gap-3 overflow-hidden">
+        {Array.from({ length: 6 }, (_, i) => (
+          <div key={i} className="aspect-video w-44 sm:w-52 shrink-0 rounded-xl bg-slate-200" />
         ))}
       </div>
-      <div className="mt-6 h-72 rounded-3xl bg-slate-200" />
     </div>
   );
 }
+
 
 /* ---- icons ---- */
 const iconProps = { viewBox: '0 0 24 24', 'aria-hidden': true };
@@ -906,26 +453,11 @@ function ArrowIcon({ className }) {
     </svg>
   );
 }
-function ChevronIcon({ className }) {
-  return (
-    <svg {...iconProps} className={className} {...stroke}>
-      <path d="m6 9 6 6 6-6" />
-    </svg>
-  );
-}
 function ClockIcon({ className }) {
   return (
     <svg {...iconProps} className={className} {...stroke}>
       <circle cx="12" cy="12" r="9" />
       <path d="M12 7v5l3 2" />
-    </svg>
-  );
-}
-function LockIcon({ className }) {
-  return (
-    <svg {...iconProps} className={className} {...stroke}>
-      <rect x="5" y="11" width="14" height="9" rx="2" />
-      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
     </svg>
   );
 }

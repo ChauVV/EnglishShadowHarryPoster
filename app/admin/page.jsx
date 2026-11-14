@@ -84,7 +84,7 @@ export default function AdminPage() {
           Xem thư viện bài học →
         </Link>
         <p className="bg-indigo-950/60 p-4 rounded-lg border border-indigo-800/50 text-slate-300">
-          📌 Chạy file Python script tại máy local để xử lý Audio + PDF, sau đó upload thư mục kết quả lên Google Drive <code className="text-amber-300">harry_poster_english_shadowing</code>.
+          📌 Nội dung bài học được tạo bằng script Python tại máy local, sau đó upload lên Google Drive (xem docs/AI_WORKFLOW.md).
         </p>
       </div>
     </div>

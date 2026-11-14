@@ -9,7 +9,7 @@ const safeDecode = (value) => {
   }
 };
 
-// GET /api/topic-audio/<slug>/<lesson number> -> audio của bài (Harry Potter không đi qua route công khai này)
+// GET /api/topic-audio/<slug>/<lesson number> -> audio của bài
 export async function GET(request, { params }) {
   const { topic, lesson } = await params;
   const lessonIndex = Number(lesson);

@@ -206,7 +206,6 @@ Nếu thấy lỗi "Chưa có client.json" hoặc "Chưa đăng nhập Google": 
     Lesson_01_Checking_in_at_the_Airport_Counter/
       audio.mp3
       metadata.json
-  Book_1/ ...                                   <- Harry Potter cũ (chỉ admin xem), bỏ qua
 ```
 Web: trang chủ liệt kê topic từ `catalog.json`; mở một bài mới tải `metadata.json` (text, từng câu có `start/end/vi/speaker`) và stream `audio.mp3`.
 
