@@ -45,7 +45,6 @@ function Lesson({ videoId }) {
   const [error, setError] = useState('');
   const [translateFailed, setTranslateFailed] = useState(false);
   const [usage, setUsage] = useState(null);
-  const [progress, setProgress] = useState({ done: 0, total: 0 });
   const [note, setNote] = useState('');
   const [attempt, setAttempt] = useState(0); // tăng lên để chạy lại sau khi đăng nhập
   const sentencesRef = useRef([]);
@@ -99,9 +98,6 @@ function Lesson({ videoId }) {
     async (id) => {
       setTranslateFailed(false);
       setPhase('translating');
-      const total = sentencesRef.current.length;
-      const countDone = () => sentencesRef.current.filter((s) => s.vi).length;
-      setProgress({ done: countDone(), total });
 
       async function enrichBatch(indices) {
         let failures = 0;
@@ -123,7 +119,6 @@ function Lesson({ videoId }) {
               next[i].vi = res.data.vi[n] || '—';
             });
             commit(next, { display: false, sync: false });
-            setProgress({ done: countDone(), total });
             return { ok: true };
           }
 
@@ -131,7 +126,7 @@ function Lesson({ videoId }) {
           // AI trả sai số lượng, hoặc chạy quá giờ (lô quá lớn): chia đôi rồi làm lần lượt
           const tooBig = code === 'BAD_OUTPUT' || (code === 'GEMINI' && !upstreamStatus) || (!code && res.status >= 500);
           if (tooBig && indices.length > MIN_BATCH) {
-            setNote('Đang chia nhỏ để xử lý nhanh hơn...');
+            setNote('vui lòng chờ thêm một chút');
             const mid = Math.ceil(indices.length / 2);
             const first = await enrichBatch(indices.slice(0, mid));
             if (!first.ok) return first;
@@ -140,7 +135,7 @@ function Lesson({ videoId }) {
           // Lỗi tạm thời (quá tải, mất mạng...): chờ rồi thử lại, nghe theo thời gian Google yêu cầu nếu có
           if ((!code || TRANSIENT_CODES.includes(code)) && failures < MAX_AUTO_RETRIES) {
             const wait = Math.min(45, res.data.retryAfter ?? 2 ** (failures + 1));
-            setNote(`AI đang bận, tự thử lại sau ${Math.ceil(wait)} giây...`);
+            setNote(`đang bận, tự thử lại sau ${Math.ceil(wait)} giây`);
             await sleep(wait * 1000);
             if (id !== runId.current) return { ok: false, cancelled: true };
             setNote('');
@@ -338,9 +333,7 @@ function Lesson({ videoId }) {
   const status = translateFailed
     ? { text: `${error} (đã dịch ${done}/${sentences.length} câu)`, retry: true }
     : translating
-      ? {
-          text: `${progress.done > 0 && progress.done < progress.total ? `Đang dịch ${progress.done}/${progress.total} câu` : 'Đang thêm dấu câu, chia câu và dịch (khoảng 30 giây)'}${note ? ` · ${note}` : '...'}`,
-        }
+      ? { text: `Đang dịch${note ? ` · ${note}` : '...'}` }
       : null;
 
   return (
