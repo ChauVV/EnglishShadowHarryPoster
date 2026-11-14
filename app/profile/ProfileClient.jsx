@@ -190,17 +190,17 @@ export default function ProfileClient() {
             {/* Lượt hôm nay */}
             <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="usage-title">
               <h2 id="usage-title" className="text-sm font-semibold text-slate-500">
-                Lượt hôm nay
+                Lượt dịch link video YouTube hôm nay
               </h2>
               <p className="mt-1 text-3xl font-semibold tabular-nums">
                 {turns ? turns.remaining : '–'}
-                <span className="text-base font-medium text-slate-500"> / {total} lượt còn lại</span>
+                <span className="text-base font-medium text-slate-500"> / {total} lượt dịch còn lại</span>
               </p>
               <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200" role="progressbar" aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100}>
                 <div className={`h-full rounded-full transition-all ${outOfTurns ? 'bg-red-500' : 'bg-emerald-500'}`} style={{ width: `${percent}%` }} />
               </div>
               <p className="mt-2 text-xs text-slate-500">
-                {outOfTurns ? 'Bạn đã hết lượt hôm nay. ' : ''}Mỗi video mới tính một lượt, xem lại bài đã tạo không tốn lượt. Lượt được làm mới lúc {nextResetLabel()}.
+                {outOfTurns ? 'Bạn đã hết lượt dịch hôm nay. ' : ''}Mỗi link video YouTube mới tính một lượt dịch, xem lại bài đã tạo không tốn lượt. Lượt dịch được làm mới lúc {nextResetLabel()}.
               </p>
             </section>
 
@@ -219,8 +219,8 @@ export default function ProfileClient() {
 
               {keyOut && (
                 <div role="alert" className="mt-3 rounded-xl border border-amber-300 bg-amber-50 p-3">
-                  <p className="text-sm font-medium text-amber-900">Key đã hết lượt lấy phụ đề hôm nay.</p>
-                  <p className="mt-0.5 text-xs text-amber-800">Nâng cấp để có nhiều lượt hơn, rồi dán key mới vào ô bên dưới. Lượt miễn phí được làm mới lúc {nextResetLabel()}.</p>
+                  <p className="text-sm font-medium text-amber-900">Key đã hết lượt dịch hôm nay.</p>
+                  <p className="mt-0.5 text-xs text-amber-800">Nâng cấp để có nhiều lượt dịch hơn, rồi dán key mới vào ô bên dưới. Lượt dịch miễn phí được làm mới lúc {nextResetLabel()}.</p>
                   <a
                     href={GET_KEY_URL}
                     target="_blank"

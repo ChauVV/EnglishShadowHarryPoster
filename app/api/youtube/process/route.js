@@ -68,11 +68,11 @@ export async function POST(request) {
   try {
     usage = await recordVideo(user.id, videoId);
   } catch {
-    return NextResponse.json({ code: 'USAGE', message: 'Không kiểm tra được số lượt đã dùng, thử lại sau.' }, { status: 502 });
+    return NextResponse.json({ code: 'USAGE', message: 'Không kiểm tra được số lượt dịch đã dùng, thử lại sau.' }, { status: 502 });
   }
   if (!usage.allowed) {
     return NextResponse.json(
-      { code: 'DAILY_LIMIT', message: `Hôm nay bạn đã dịch đủ ${usage.limit} video. Hãy quay lại vào ngày mai.`, usage },
+      { code: 'DAILY_LIMIT', message: `Hôm nay bạn đã hết ${usage.limit} lượt dịch link video YouTube. Hãy quay lại vào ngày mai.`, usage },
       { status: 429 },
     );
   }

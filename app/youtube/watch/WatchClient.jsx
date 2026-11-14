@@ -6,7 +6,7 @@ import LessonSkeleton from '../../../components/LessonSkeleton';
 import YouTubePlayer from '../../../components/YouTubePlayer';
 import { downloadLesson, findLesson, uploadLesson } from '../../../lib/driveSync';
 import { authHeader, ensureSession, getSession, signIn } from '../../../lib/googleAuth';
-import { SEG_VERSION, buildSentences, extractVideoId, mergeSentences, shiftLines } from '../../../lib/youtube';
+import { SEG_VERSION, buildSentences, extractVideoId, mergeSentences, resplitSentences, shiftLines } from '../../../lib/youtube';
 import { clearKey, getKey, isValidKeyFormat, loadLesson, loadRaw, nextResetLabel, saveLesson, saveQuota, saveRaw } from '../../../lib/ytClient';
 
 const WINDOW = 250; // số dòng phụ đề gửi AI mỗi lần (bài dài thì chia thành nhiều lần chạy song song)
@@ -98,7 +98,9 @@ function Lesson({ videoId }) {
   // Bài dài được chia thành nhiều cửa sổ chạy song song. Cửa sổ quá lớn / chạy quá giờ thì tự chia đôi; AI lỗi tạm thời thì tự thử lại.
   // -> { sentences, failed, failure } hoặc null nếu đã bị hủy. Cửa sổ nào lỗi hẳn thì giữ bản tiếng Anh chưa dịch của cửa sổ đó.
   const processLines = useCallback(
-    async (id, lines) => {
+    async (id, inputLines) => {
+      // Bài cũ có "câu" rất dài (hàng trăm ký tự): chia nhỏ thành các dòng ngắn trước khi gửi, vì máy chủ từ chối dòng quá dài
+      const lines = resplitSentences(inputLines.map(({ start, end, text }) => ({ start, end, text })), { maxChars: 100 }).map(({ start, end, text }) => ({ start, end, text }));
       let stop = false; // gặp lỗi không thể tự khắc phục (hết phiên, hết lượt...) thì không gọi thêm
 
       async function runRange(a, b) {
@@ -129,7 +131,8 @@ function Lesson({ videoId }) {
             return { sentences: [...first.sentences, ...second.sentences], failed: first.failed || second.failed, failure: first.failure ?? second.failure };
           }
           // Lỗi tạm thời (quá tải, mất mạng...): chờ rồi thử lại, nghe theo thời gian Google yêu cầu nếu có
-          if ((!code || TRANSIENT_CODES.includes(code)) && failures < MAX_AUTO_RETRIES) {
+          const transient = TRANSIENT_CODES.includes(code) || (!code && (res.status === 0 || res.status >= 500));
+          if (transient && failures < MAX_AUTO_RETRIES) {
             const wait = Math.min(45, res.data.retryAfter ?? 2 ** (failures + 1));
             setNote(`đang bận, tự thử lại sau ${Math.ceil(wait)} giây`);
             await sleep(wait * 1000);
@@ -285,7 +288,7 @@ function Lesson({ videoId }) {
       if (current) {
         setUsage(current);
         if (current.used >= current.limit) {
-          fail(`Hôm nay bạn đã dịch đủ ${current.limit} video. Lượt được làm mới lúc ${nextResetLabel()}.`);
+          fail(`Hôm nay bạn đã hết ${current.limit} lượt dịch link video YouTube. Lượt dịch được làm mới lúc ${nextResetLabel()}.`);
           return null;
         }
       }
@@ -359,7 +362,7 @@ function Lesson({ videoId }) {
   if (phase === 'login') {
     return (
       <Message>
-        <span className="block text-slate-700">Đăng nhập Google để tạo bài học. Mỗi người được dịch tối đa 10 video mỗi ngày và bài được lưu vào Drive của chính bạn.</span>
+        <span className="block text-slate-700">Đăng nhập Google để tạo bài học. Mỗi người có 10 lượt dịch link video YouTube mỗi ngày và bài được lưu vào Drive của chính bạn.</span>
         <button
           type="button"
           onClick={() => signIn().then((s) => s && setAttempt((n) => n + 1)).catch((e) => { setError(e.message); setPhase('error'); })}

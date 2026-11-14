@@ -85,8 +85,8 @@ export default function YouTubeHome() {
           <ul className="mt-3 space-y-1 text-xs text-slate-500">
             <li>
               {user
-                ? `Hôm nay bạn còn ${turns?.remaining ?? '–'}/${turns?.limit ?? 10} lượt. Mỗi video mới tính một lượt, xem lại bài đã tạo không tốn lượt.`
-                : 'Bạn cần đăng nhập Google để tạo bài mới. Mỗi người được dịch tối đa 10 video mỗi ngày, bài đã tạo được lưu vào Drive của chính bạn.'}
+                ? `Hôm nay bạn còn ${turns?.remaining ?? '–'}/${turns?.limit ?? 10} lượt dịch link video YouTube. Mỗi link video mới tính một lượt, xem lại bài đã tạo không tốn lượt.`
+                : 'Bạn cần đăng nhập Google để tạo bài mới. Mỗi người có 10 lượt dịch link video YouTube mỗi ngày, bài đã tạo được lưu vào Drive của chính bạn.'}
             </li>
             {user && !user.drive && (
               <li className="text-amber-700">Bạn chưa cấp quyền Drive nên bài chỉ lưu trên máy này. Đăng xuất rồi đăng nhập lại và tick quyền lưu dữ liệu ứng dụng.</li>

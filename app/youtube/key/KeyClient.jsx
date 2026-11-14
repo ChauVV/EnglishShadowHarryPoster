@@ -8,7 +8,7 @@ import { GET_KEY_URL, isValidKeyFormat, saveKey } from '../../../lib/ytClient';
 const STEPS = [
   'Bấm nút "Mở trang tạo key" bên dưới (trang mở ở tab mới).',
   'Đăng nhập bằng tài khoản Google.',
-  'Bấm "Create API key". Gói miễn phí cho 10 lượt mỗi ngày.',
+  'Bấm "Create API key". Gói miễn phí cho 10 lượt dịch mỗi ngày.',
   'Sao chép key (bắt đầu bằng yta_). Trang chỉ hiện key đầy đủ một lần.',
   'Quay lại đây, dán key vào ô bên dưới rồi bấm "Lưu key và tiếp tục".',
 ];

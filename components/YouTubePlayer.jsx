@@ -177,8 +177,8 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
           <div className="min-w-0 flex-1">
             <h1 className="text-sm lg:text-base font-bold truncate">{title}</h1>
             {turns && (
-              <p className="text-[11px] lg:text-xs text-slate-500 truncate" title="Mỗi video mới tính một lượt. Mở lại bài đã tạo không tốn lượt.">
-                Hôm nay còn {turns.remaining}/{turns.limit} lượt
+              <p className="text-[11px] lg:text-xs text-slate-500 truncate" title="Mỗi link video YouTube mới tính một lượt dịch. Mở lại bài đã tạo không tốn lượt.">
+                Hôm nay còn {turns.remaining}/{turns.limit} lượt dịch link video YouTube
               </p>
             )}
           </div>

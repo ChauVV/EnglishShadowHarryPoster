@@ -9,6 +9,6 @@ export async function GET(request) {
   try {
     return NextResponse.json(await getUsage(user.id));
   } catch {
-    return NextResponse.json({ code: 'USAGE', message: 'Không đọc được số lượt đã dùng.' }, { status: 502 });
+    return NextResponse.json({ code: 'USAGE', message: 'Không đọc được số lượt dịch đã dùng.' }, { status: 502 });
   }
 }

@@ -56,7 +56,7 @@ export async function POST(request) {
   const quota = readQuota(upstream.headers);
   if (upstream.status === 401) return fail(401, 'BAD_KEY', 'Key không đúng hoặc đã bị thay bằng key mới hơn.');
   if (upstream.status === 429) {
-    return fail(429, 'QUOTA', 'Bạn đã dùng hết lượt lấy phụ đề hôm nay. Hãy quay lại vào ngày mai.', {
+    return fail(429, 'QUOTA', 'Bạn đã hết lượt dịch hôm nay. Hãy quay lại vào ngày mai.', {
       quota: { limit: quota?.limit ?? null, remaining: 0 },
     });
   }
