@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { FiHome } from 'react-icons/fi';
 import { formatTime } from '../lib/sentences';
-import { useQuota, nextResetLabel } from '../lib/ytClient';
 import LanguageSwitch from './LanguageSwitch';
 import { ControlButton, PauseIcon, PlayIcon, ReplayIcon, SkipIcon } from './ShadowingPlayer';
 
@@ -49,7 +48,6 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
   const [speed, setSpeed] = useState(1);
   const [showText, setShowText] = useState(true);
   const [showVi, setShowVi] = useState(true);
-  const quota = useQuota();
 
   const activeIndex = findActive(sentences, time);
   const active = sentences[activeIndex];
@@ -175,9 +173,11 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
           </Link>
           <div className="min-w-0 flex-1">
             <h1 className="text-sm lg:text-base font-bold truncate">{title}</h1>
-            <p className="text-[11px] lg:text-xs text-slate-500 truncate">
-              {usage ? `Đã dịch ${usage.used}/${usage.limit} video · ` : ''}Lấy phụ đề {quota.used}/{quota.limit} lượt · làm mới lúc {nextResetLabel()}
-            </p>
+            {usage && (
+              <p className="text-[11px] lg:text-xs text-slate-500 truncate" title="Mỗi video mới tính một lượt dịch. Mở lại bài đã tạo không tốn lượt.">
+                Hôm nay đã dùng {usage.used}/{usage.limit} lượt dịch
+              </p>
+            )}
           </div>
           <LanguageSwitch tone="light" />
         </div>

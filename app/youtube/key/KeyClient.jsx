@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { extractVideoId } from '../../../lib/youtube';
-import { GET_KEY_URL, isValidKeyFormat, nextResetLabel, saveKey, useQuota } from '../../../lib/ytClient';
+import { GET_KEY_URL, isValidKeyFormat, saveKey } from '../../../lib/ytClient';
 
 const STEPS = [
   'Bấm nút "Mở trang tạo key" bên dưới (trang mở ở tab mới).',
@@ -18,7 +18,6 @@ export default function KeyClient() {
   const params = useSearchParams();
   const videoId = extractVideoId(params.get('v'));
   const invalid = params.get('reason') === 'invalid';
-  const quota = useQuota();
   const [value, setValue] = useState('');
   const [error, setError] = useState('');
 
@@ -112,7 +111,7 @@ export default function KeyClient() {
             Lưu key và tiếp tục
           </button>
           <p className="mt-3 text-xs text-slate-500">
-            Key chỉ lưu trong trình duyệt của bạn và chỉ dùng để lấy phụ đề, không lưu trên máy chủ của chúng tôi. Hôm nay bạn đã dùng {quota.used}/{quota.limit} lượt (làm mới lúc {nextResetLabel()}).
+            Key chỉ lưu trong trình duyệt của bạn và chỉ dùng để lấy phụ đề, không lưu trên máy chủ của chúng tôi.
           </p>
         </form>
       </main>

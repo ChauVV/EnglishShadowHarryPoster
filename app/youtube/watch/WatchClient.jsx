@@ -6,14 +6,17 @@ import LessonSkeleton from '../../../components/LessonSkeleton';
 import YouTubePlayer from '../../../components/YouTubePlayer';
 import { downloadLesson, findLesson, uploadLesson } from '../../../lib/driveSync';
 import { authHeader, ensureSession, getSession, signIn } from '../../../lib/googleAuth';
-import { SEG_VERSION, extractVideoId, mergeSentences, resplitSentences } from '../../../lib/youtube';
+import { SEG_VERSION, buildSentences, extractVideoId, mergeSentences } from '../../../lib/youtube';
 import { clearKey, getKey, isValidKeyFormat, loadLesson, loadRaw, nextResetLabel, saveLesson, saveQuota, saveRaw } from '../../../lib/ytClient';
 
-const BATCH_SIZE = 400; // gửi cả bài trong một lần gọi AI (model lite xử lý khoảng 100 đoạn mỗi 8 giây)
-const MIN_BATCH = 40; // lô nhỏ hơn mức này thì không chia nhỏ thêm
+const WINDOW = 250; // số dòng phụ đề gửi AI mỗi lần (bài dài thì chia thành nhiều lần chạy song song)
+const MIN_WINDOW = 60; // lần gọi nhỏ hơn mức này thì không chia nhỏ thêm
+const CONCURRENCY = 3;
 const MAX_AUTO_RETRIES = 3; // tự thử lại khi AI lỗi tạm thời
 const SYNC_DELAY_MS = 2500;
+const UPGRADE_RETRY_MS = 60 * 60 * 1000; // bài cũ đã đủ nội dung mà AI lỗi: một tiếng sau mới thử nâng cấp lại
 const TRANSIENT_CODES = ['GEMINI', 'BAD_OUTPUT', 'USAGE', 'TOO_MANY'];
+const FATAL_CODES = ['NO_LOGIN', 'NO_GEMINI', 'DAILY_LIMIT'];
 
 export default function WatchClient() {
   const videoId = extractVideoId(useSearchParams().get('v'));
@@ -30,16 +33,13 @@ async function postJson(url, body, headers = {}) {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// Bài lưu bằng cách chia câu cũ -> tự chia lại khi mở
-const needsUpgrade = (lesson) => (lesson.v ?? 1) < SEG_VERSION;
-
-const failureMessage = (out) =>
-  out.code === 'NO_LOGIN' ? 'Phiên đăng nhập đã hết hạn. Bấm "Dịch lại" để đăng nhập Google và dịch tiếp.' : (out.message ?? 'Không dịch được. Thử lại sau.');
+const failureMessage = (failure) =>
+  failure?.code === 'NO_LOGIN' ? 'Phiên đăng nhập đã hết hạn. Bấm "Dịch lại" để đăng nhập Google và dịch tiếp.' : (failure?.message ?? 'Không dịch được. Thử lại sau.');
 
 function Lesson({ videoId }) {
   const router = useRouter();
   const [title, setTitle] = useState('');
-  const [sentences, setSentences] = useState([]); // chỉ là phần đang HIỂN THỊ; bản đầy đủ nằm trong sentencesRef
+  const [sentences, setSentences] = useState([]); // phần đang HIỂN THỊ; bản đầy đủ nằm trong sentencesRef
   const [shown, setShown] = useState(false); // đã hiện phụ đề lần đầu chưa (trước đó chỉ hiện khung chờ)
   const [phase, setPhase] = useState('loading'); // loading | login | translating | ready | error
   const [error, setError] = useState('');
@@ -61,9 +61,9 @@ function Lesson({ videoId }) {
     uploadLesson(session.token, videoId, { title: titleRef.current, sentences: sentencesRef.current, ...metaRef.current }).catch(() => {});
   }, [sync, videoId]);
 
-  // Cập nhật bản đầy đủ và lưu lại. display = false: chưa hiện lên màn hình (đang chờ AI xong cả lô).
+  // Cập nhật bản đầy đủ và lưu lại; display = true thì hiện lên màn hình
   const commit = useCallback(
-    (next, { title: nextTitle = titleRef.current, meta = metaRef.current, display = true, sync: syncToDrive = true } = {}) => {
+    (next, { title: nextTitle = titleRef.current, meta = metaRef.current, display = true } = {}) => {
       sentencesRef.current = next;
       titleRef.current = nextTitle;
       metaRef.current = meta;
@@ -73,10 +73,8 @@ function Lesson({ videoId }) {
         setShown(true);
       }
       saveLesson(videoId, { title: nextTitle, sentences: next, ...meta });
-      if (syncToDrive) {
-        clearTimeout(sync.timer);
-        sync.timer = setTimeout(syncNow, SYNC_DELAY_MS);
-      }
+      clearTimeout(sync.timer);
+      sync.timer = setTimeout(syncNow, SYNC_DELAY_MS);
     },
     [videoId, sync, syncNow],
   );
@@ -92,90 +90,118 @@ function Lesson({ videoId }) {
     [sync, syncNow],
   );
 
-  // Thêm dấu câu và dịch tất cả các đoạn chưa có bản dịch bằng MỘT lần gọi AI cho cả bài (nhanh hơn chia nhỏ).
-  // Chỉ khi xong mới hiện phụ đề. Lô quá lớn / chạy quá giờ thì tự chia đôi; AI lỗi tạm thời thì tự thử lại.
-  const enrichAll = useCallback(
-    async (id) => {
-      setTranslateFailed(false);
-      setPhase('translating');
+  // Nhờ AI cắt lời thoại thành câu ngắn (theo dấu chấm; câu dài cắt sau dấu phẩy), thêm dấu câu và dịch đúng từng câu.
+  // lines = [{ start, end, text }] (dòng phụ đề gốc, hoặc các đoạn của bài đã lưu).
+  // Bài dài được chia thành nhiều cửa sổ chạy song song. Cửa sổ quá lớn / chạy quá giờ thì tự chia đôi; AI lỗi tạm thời thì tự thử lại.
+  // -> { sentences, failed, failure } hoặc null nếu đã bị hủy. Cửa sổ nào lỗi hẳn thì giữ bản tiếng Anh chưa dịch của cửa sổ đó.
+  const processLines = useCallback(
+    async (id, lines) => {
+      let stop = false; // gặp lỗi không thể tự khắc phục (hết phiên, hết lượt...) thì không gọi thêm
 
-      async function enrichBatch(indices) {
+      async function runRange(a, b) {
+        const part = lines.slice(a, b);
         let failures = 0;
         for (;;) {
-          if (id !== runId.current) return { ok: false, cancelled: true };
-          const current = sentencesRef.current;
-          const res = await postJson(
-            '/api/youtube/process',
-            { mode: 'enrich', videoId, lines: indices.map((i) => current[i].text) },
-            authHeader(getSession()),
-          ).catch(() => ({ ok: false, data: {}, status: 0 }));
-          if (id !== runId.current) return { ok: false, cancelled: true };
+          if (id !== runId.current) return { cancelled: true };
+          const res = await postJson('/api/youtube/process', { mode: 'segment', videoId, lines: part.map((l) => l.text) }, authHeader(getSession())).catch(() => ({
+            ok: false,
+            data: {},
+            status: 0,
+          }));
+          if (id !== runId.current) return { cancelled: true };
           if (res.data.usage) setUsage(res.data.usage);
-
-          if (res.ok) {
-            const next = sentencesRef.current.map((s) => ({ ...s }));
-            indices.forEach((i, n) => {
-              next[i].text = res.data.lines[n] || next[i].text;
-              next[i].vi = res.data.vi[n] || '—';
-            });
-            commit(next, { display: false, sync: false });
-            return { ok: true };
-          }
+          if (res.ok) return { sentences: buildSentences(part, res.data.pieces), failed: false };
 
           const { code, upstreamStatus } = res.data;
-          // AI trả sai số lượng, hoặc chạy quá giờ (lô quá lớn): chia đôi rồi làm lần lượt
+          console.warn('[youtube] xử lý AI lỗi', { status: res.status, code, upstreamStatus, detail: res.data.detail, lines: part.length });
+          // AI trả sai hoặc chạy quá giờ (cửa sổ quá lớn): chia đôi rồi làm lần lượt
           const tooBig = code === 'BAD_OUTPUT' || (code === 'GEMINI' && !upstreamStatus) || (!code && res.status >= 500);
-          if (tooBig && indices.length > MIN_BATCH) {
+          if (tooBig && part.length > MIN_WINDOW) {
             setNote('vui lòng chờ thêm một chút');
-            const mid = Math.ceil(indices.length / 2);
-            const first = await enrichBatch(indices.slice(0, mid));
-            if (!first.ok) return first;
-            return enrichBatch(indices.slice(mid));
+            const mid = a + Math.ceil(part.length / 2);
+            const first = await runRange(a, mid);
+            if (first.cancelled) return first;
+            const second = await runRange(mid, b);
+            if (second.cancelled) return second;
+            return { sentences: [...first.sentences, ...second.sentences], failed: first.failed || second.failed, failure: first.failure ?? second.failure };
           }
           // Lỗi tạm thời (quá tải, mất mạng...): chờ rồi thử lại, nghe theo thời gian Google yêu cầu nếu có
           if ((!code || TRANSIENT_CODES.includes(code)) && failures < MAX_AUTO_RETRIES) {
             const wait = Math.min(45, res.data.retryAfter ?? 2 ** (failures + 1));
             setNote(`đang bận, tự thử lại sau ${Math.ceil(wait)} giây`);
             await sleep(wait * 1000);
-            if (id !== runId.current) return { ok: false, cancelled: true };
+            if (id !== runId.current) return { cancelled: true };
             setNote('');
             failures++;
             continue;
           }
-          return { ok: false, code, message: res.data.message };
+          if (FATAL_CODES.includes(code)) stop = true;
+          return { sentences: mergeSentences(part), failed: true, failure: { code, message: res.data.message } };
         }
       }
 
-      const missing = [];
-      sentencesRef.current.forEach((s, i) => {
-        if (!s.vi) missing.push(i);
-      });
-      const result = missing.length > 0 ? await enrichBatch(missing.slice(0, BATCH_SIZE)) : { ok: true };
-      // Nếu còn thừa (bài rất dài) thì làm tiếp phần còn lại
-      let outcome = result;
-      for (let from = BATCH_SIZE; outcome.ok && from < missing.length; from += BATCH_SIZE) {
-        outcome = await enrichBatch(missing.slice(from, from + BATCH_SIZE));
+      const ranges = [];
+      for (let a = 0; a < lines.length; a += WINDOW) ranges.push([a, Math.min(lines.length, a + WINDOW)]);
+      const results = new Array(ranges.length);
+      let nextRange = 0;
+      async function worker() {
+        while (nextRange < ranges.length) {
+          const k = nextRange++;
+          const [a, b] = ranges[k];
+          results[k] = stop ? { sentences: mergeSentences(lines.slice(a, b)), failed: true } : await runRange(a, b);
+          if (results[k].cancelled) return;
+        }
       }
-      if (id !== runId.current) return;
+      await Promise.all(Array.from({ length: Math.min(CONCURRENCY, ranges.length) }, worker));
+      if (id !== runId.current || results.some((r) => !r || r.cancelled)) return null;
+      return {
+        sentences: results.flatMap((r) => r.sentences),
+        failed: results.some((r) => r.failed),
+        failure: results.find((r) => r.failure)?.failure,
+      };
+    },
+    [videoId],
+  );
 
+  // Kết quả xử lý xong: lưu, hiện phụ đề kèm bản dịch (hoặc báo lỗi và hiện nút "Dịch lại" nếu có phần chưa dịch được)
+  const finish = useCallback(
+    (outcome, nextTitle = titleRef.current) => {
       setNote('');
-      commit(sentencesRef.current, { display: false }); // lưu lần cuối và đồng bộ Drive
-      setSentences(sentencesRef.current);
-      setShown(true);
-      if (!outcome.ok) {
+      commit(outcome.sentences, { title: nextTitle, meta: { v: SEG_VERSION } });
+      if (outcome.failed) {
         setTranslateFailed(true);
-        setError(failureMessage(outcome));
+        setError(failureMessage(outcome.failure));
       }
       setPhase('ready');
     },
-    [commit, videoId],
+    [commit],
   );
 
-  // "Dịch lại": chỉ hiện khi tự thử lại vẫn lỗi. Hết phiên đăng nhập thì mở cửa sổ đăng nhập rồi dịch tiếp.
+  // "Dịch lại": chỉ hiện khi tự thử lại vẫn lỗi. Hết phiên đăng nhập thì mở cửa sổ đăng nhập rồi làm tiếp.
   const retryTranslate = useCallback(async () => {
     const session = getSession() ?? (await signIn().catch(() => null));
-    if (session) enrichAll(runId.current);
-  }, [enrichAll]);
+    if (!session) return;
+    const id = runId.current;
+    setTranslateFailed(false);
+    setPhase('translating');
+    const lines = sentencesRef.current.map(({ start, end, text }) => ({ start, end, text }));
+    const outcome = await processLines(id, lines);
+    if (outcome) finish(outcome);
+  }, [processLines, finish]);
+
+  // Hiện số lượt dịch đã dùng hôm nay ngay cả khi mở lại bài đã lưu (lúc đó không có lần gọi AI nào trả số này về)
+  useEffect(() => {
+    const session = getSession();
+    if (!session) return;
+    let cancelled = false;
+    fetch('/api/youtube/usage', { headers: authHeader(session) })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((u) => !cancelled && u && setUsage((prev) => prev ?? u))
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     const id = ++runId.current;
@@ -185,30 +211,37 @@ function Lesson({ videoId }) {
       setPhase('error');
     };
 
-    // Có sẵn bài (trên máy hoặc từ Drive): bài đã đủ bản dịch thì hiện ngay, còn thiếu thì chờ AI xong rồi mới hiện
+    // Có sẵn bài (trên máy hoặc từ Drive). Bài đã chia câu chuẩn và dịch đủ thì hiện ngay; bài cũ hoặc còn thiếu thì
+    // tự xử lý lại bằng AI (hiện khung chờ) rồi mới hiện, không tốn lượt lấy phụ đề.
     async function openLesson(lesson) {
-      let list = lesson.sentences;
-      const upgraded = needsUpgrade(lesson);
-      if (upgraded) list = resplitSentences(list); // chia lại câu dài của bài cũ; câu bị chia sẽ được dịch lại
-      const meta = { v: SEG_VERSION };
-      if (upgraded) commit(list, { title: lesson.title ?? videoId, meta, display: false, sync: false });
-      else {
-        sentencesRef.current = list;
-        titleRef.current = lesson.title ?? videoId;
-        metaRef.current = meta;
-        setTitle(titleRef.current);
-      }
-      if (list.every((s) => s.vi)) {
-        if (upgraded) commit(list, { display: false });
-        setSentences(list);
+      const complete = lesson.sentences.every((s) => s.vi);
+      const current = (lesson.v ?? 1) >= SEG_VERSION;
+      const snoozed = lesson.skipUntil > Date.now(); // vừa nâng cấp thất bại, chưa thử lại ngay
+      titleRef.current = lesson.title ?? videoId;
+      setTitle(titleRef.current);
+      if (complete && (current || snoozed)) {
+        sentencesRef.current = lesson.sentences;
+        metaRef.current = { v: lesson.v, skipUntil: lesson.skipUntil };
+        setSentences(lesson.sentences);
         setShown(true);
         setPhase('ready');
         return;
       }
+
       setPhase('translating');
       await ensureSession().catch(() => null); // làm mới phiên đăng nhập im lặng nếu hết hạn
       if (id !== runId.current) return;
-      await enrichAll(id);
+      const lines = lesson.sentences.map(({ start, end, text }) => ({ start, end, text }));
+      const outcome = await processLines(id, lines);
+      if (!outcome) return;
+      if (outcome.failed && complete) {
+        // Bài cũ đã dịch đủ mà AI đang lỗi: giữ nguyên bản cũ, không báo lỗi, một lúc sau mới thử nâng cấp lại
+        setNote('');
+        commit(lesson.sentences, { meta: { v: lesson.v, skipUntil: Date.now() + UPGRADE_RETRY_MS } });
+        setPhase('ready');
+        return;
+      }
+      finish(outcome);
     }
 
     // Trả về { title, segments }, hoặc null nếu đã chuyển trang / báo lỗi
@@ -244,6 +277,7 @@ function Lesson({ videoId }) {
       }
       if (res.data.quota) saveQuota(res.data.quota);
       if (!res.ok) {
+        console.warn('[youtube] lấy phụ đề lỗi', { status: res.status, code: res.data.code });
         if (res.data.code === 'BAD_KEY' || res.data.code === 'NO_KEY') {
           clearKey();
           router.replace(`/youtube/key?v=${videoId}&reason=invalid`);
@@ -286,16 +320,20 @@ function Lesson({ videoId }) {
       const transcript = await getTranscript();
       if (!transcript) return;
 
-      // 5. Ghép các dòng phụ đề thành đoạn ngắn theo mốc thời gian (chưa hiện), rồi nhờ AI thêm dấu câu và dịch cả bài một lượt
-      commit(mergeSentences(transcript.segments), { title: transcript.title, meta: { v: SEG_VERSION }, display: false, sync: false });
-      await enrichAll(id);
+      // 5. Nhờ AI cắt câu và dịch; trong lúc chờ chỉ hiện khung chờ
+      titleRef.current = transcript.title;
+      setTitle(transcript.title);
+      setPhase('translating');
+      const outcome = await processLines(id, transcript.segments);
+      if (!outcome) return;
+      finish(outcome, transcript.title);
     }
 
     run();
     return () => {
       runId.current = id + 1; // hủy lượt chạy đang dở khi rời trang
     };
-  }, [videoId, router, commit, enrichAll, attempt]);
+  }, [videoId, router, commit, processLines, finish, attempt]);
 
   if (phase === 'login') {
     return (
