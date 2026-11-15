@@ -1,9 +1,10 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { FiHome, FiRepeat } from 'react-icons/fi';
+import { FiRepeat } from 'react-icons/fi';
 import { useI18n } from '../lib/i18n';
 import { formatTime, getSentences } from '../lib/sentences';
+import AppLogo from './AppLogo';
 import LanguageSwitch from './LanguageSwitch';
 import LessonShelf from './LessonShelf';
 
@@ -122,8 +123,8 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
         <div className="max-w-[1800px] mx-auto px-4 h-14 flex items-center gap-3">
-          <Link href="/" aria-label={t.home} title={t.home} className="p-2 -ml-2 rounded-full hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500">
-            <FiHome className="h-5 w-5" aria-hidden="true" />
+          <Link href="/" aria-label={t.home} title={t.home} className="-ml-1 flex shrink-0 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500">
+            <AppLogo className="h-8 w-8" />
           </Link>
           <div className="min-w-0 flex-1">
             <h1 className="text-sm lg:text-base font-bold truncate">
