@@ -134,7 +134,7 @@ function Hero() {
       <div className="rounded-xl bg-gradient-to-br from-emerald-700 via-emerald-500 to-teal-300 px-3 py-2.5 text-white shadow-sm sm:px-4">
         <h1 className="font-display text-base font-bold leading-tight tracking-tight sm:text-lg">{t.heroTitle}</h1>
 
-        <form onSubmit={generate} className="mt-2 rounded-lg bg-white dark:bg-slate-900 p-2 text-slate-900 dark:text-slate-100">
+        <form onSubmit={generate} className="mt-2 rounded-lg bg-white dark:bg-slate-800 p-2 text-slate-900 dark:text-slate-100">
           <label htmlFor="home-yt-url" className="sr-only">
             {t.linkLabel}
           </label>
@@ -150,7 +150,7 @@ function Hero() {
                 placeholder={t.linkPlaceholder}
                 autoComplete="off"
                 spellCheck={false}
-                className="h-9 w-full rounded-lg border border-slate-300 dark:border-slate-700 pl-9 pr-3 text-[13px] focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
+                className="h-9 w-full rounded-lg border border-slate-300 dark:border-slate-600 pl-9 pr-3 text-[13px] focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
               />
             </div>
             <button
