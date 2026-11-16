@@ -16,7 +16,7 @@ export default function LessonShelf({ heading, items, currentId, nowPlayingLabel
       <div className="mb-2 flex items-baseline justify-between">
         <h2 className="text-sm font-semibold">{heading}</h2>
         {seeAll && (
-          <Link href={seeAll.href} className="text-xs font-medium text-emerald-700 hover:underline">
+          <Link href={seeAll.href} className="text-xs font-medium text-emerald-700 dark:text-emerald-300 hover:underline">
             {seeAll.label}
           </Link>
         )}
@@ -55,7 +55,7 @@ function ShelfItem({ item, current, nowPlayingLabel }) {
           )}
           {current && <span className="absolute left-1.5 top-1.5 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold text-white">{nowPlayingLabel}</span>}
         </span>
-        <span className="mt-1.5 block line-clamp-2 text-xs font-medium leading-snug group-hover:text-emerald-700">{item.title}</span>
+        <span className="mt-1.5 block line-clamp-2 text-xs font-medium leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-300">{item.title}</span>
       </Link>
     </li>
   );

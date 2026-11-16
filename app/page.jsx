@@ -55,14 +55,14 @@ export default function LibraryPage() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       <TopBar query={query} onQueryChange={setQuery} />
 
       <Hero />
 
       <main className="mx-auto w-full max-w-[1800px] flex-1 px-4 pb-10 sm:px-6">
         {error && (
-          <p className="mt-8 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
+          <p className="mt-8 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-sm px-4 py-3">
             {t.loadError}
           </p>
         )}
@@ -74,12 +74,12 @@ export default function LibraryPage() {
         {topics && !error && topics.length === 0 && <FreeTopicsPlaceholder />}
       </main>
 
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-[1800px] px-4 py-6 text-xs text-slate-500 sm:px-6">
+      <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <div className="mx-auto max-w-[1800px] px-4 py-6 text-xs text-slate-500 dark:text-slate-400 sm:px-6">
           <p>{t.footer}</p>
           <p className="mt-1">
             {t.photoCredit}{' '}
-            <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer" className="font-medium underline hover:text-slate-700">
+            <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer" className="font-medium underline hover:text-slate-700 dark:hover:text-slate-300">
               Pexels
             </a>
           </p>
@@ -100,7 +100,7 @@ function TopBar({ query, onQueryChange }) {
     <SiteHeader>
       <label className="relative min-w-0 flex-1 sm:ml-4 sm:max-w-xl">
         <span className="sr-only">{t.searchLabel}</span>
-        <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+        <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
         <input
           type="search"
           value={query}
@@ -108,14 +108,14 @@ function TopBar({ query, onQueryChange }) {
           onKeyDown={(e) => e.key === 'Escape' && onQueryChange('')}
           placeholder={t.searchPlaceholder}
           autoComplete="off"
-          className="h-9 w-full rounded-full border border-transparent bg-slate-100 pl-10 pr-9 text-sm text-slate-900 placeholder:text-slate-400 transition [&::-webkit-search-cancel-button]:hidden focus:border-emerald-400 focus:bg-white focus:outline-2 focus:outline-emerald-400/30"
+          className="h-9 w-full rounded-full border border-transparent bg-slate-100 dark:bg-slate-800 pl-10 pr-9 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition [&::-webkit-search-cancel-button]:hidden focus:border-emerald-400 focus:bg-white dark:focus:bg-slate-900 focus:outline-2 focus:outline-emerald-400/30"
         />
         {query && (
           <button
             type="button"
             onClick={() => onQueryChange('')}
             aria-label={t.clearSearch}
-            className="absolute right-1.5 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-emerald-500"
+            className="absolute right-1.5 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-emerald-500"
           >
             <CloseIcon className="h-3.5 w-3.5" />
           </button>
@@ -134,7 +134,7 @@ function Hero() {
       <div className="rounded-xl bg-gradient-to-br from-emerald-700 via-emerald-500 to-teal-300 px-3 py-2.5 text-white shadow-sm sm:px-4">
         <h1 className="font-display text-base font-bold leading-tight tracking-tight sm:text-lg">{t.heroTitle}</h1>
 
-        <form onSubmit={generate} className="mt-2 rounded-lg bg-white p-2 text-slate-900">
+        <form onSubmit={generate} className="mt-2 rounded-lg bg-white dark:bg-slate-900 p-2 text-slate-900 dark:text-slate-100">
           <label htmlFor="home-yt-url" className="sr-only">
             {t.linkLabel}
           </label>
@@ -150,7 +150,7 @@ function Hero() {
                 placeholder={t.linkPlaceholder}
                 autoComplete="off"
                 spellCheck={false}
-                className="h-9 w-full rounded-lg border border-slate-300 pl-9 pr-3 text-[13px] focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
+                className="h-9 w-full rounded-lg border border-slate-300 dark:border-slate-700 pl-9 pr-3 text-[13px] focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
               />
             </div>
             <button
@@ -162,7 +162,7 @@ function Hero() {
             </button>
           </div>
           {error && (
-            <p role="alert" className="mt-1.5 text-xs text-red-600">
+            <p role="alert" className="mt-1.5 text-xs text-red-600 dark:text-red-400">
               {error}
             </p>
           )}
@@ -252,13 +252,13 @@ function TopicsSection({ topics, query, onClearQuery }) {
       <div className="mt-4" />
 
       {visible.length === 0 && !hasYoutube ? (
-        <div className="rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-12 text-center">
+        <div className="rounded-3xl border border-dashed border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-6 py-12 text-center">
           <p className="font-semibold">{t.noResults}</p>
-          <p className="mx-auto mt-1 max-w-sm text-sm text-slate-500">{t.noResultsDesc}</p>
+          <p className="mx-auto mt-1 max-w-sm text-sm text-slate-500 dark:text-slate-400">{t.noResultsDesc}</p>
           <button
             type="button"
             onClick={onClearQuery}
-            className="mt-4 inline-flex h-9 items-center rounded-full bg-slate-900 px-4 text-sm font-semibold text-white hover:bg-slate-700 transition"
+            className="mt-4 inline-flex h-9 items-center rounded-full bg-slate-900 dark:bg-slate-700 px-4 text-sm font-semibold text-white hover:bg-slate-700 dark:hover:bg-slate-600 transition"
           >
             {t.clearFilters}
           </button>
@@ -305,7 +305,7 @@ function YouTubeRow({ lessons, suggested }) {
         {lessons.map((lesson) => (
           <li key={lesson.id} className="group/card relative">
             <Link href={`/youtube/watch?v=${lesson.id}`} className="group block rounded-xl focus-visible:outline-none">
-              <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
+              <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-700 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50 dark:group-focus-visible:ring-offset-slate-950">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`https://i.ytimg.com/vi/${lesson.id}/mqdefault.jpg`} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
                 <span className="absolute inset-0 flex items-center justify-center bg-black/30 text-white opacity-0 transition group-hover:opacity-100">
@@ -317,7 +317,7 @@ function YouTubeRow({ lessons, suggested }) {
                   </span>
                 )}
               </span>
-              <span className="mt-1.5 block text-[13px] font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lesson.title}</span>
+              <span className="mt-1.5 block text-[13px] font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-300">{lesson.title}</span>
             </Link>
             <DeleteLessonButton
               id={lesson.id}
@@ -329,7 +329,7 @@ function YouTubeRow({ lessons, suggested }) {
         {suggested.map((video) => (
           <li key={video.id}>
             <Link href={`/youtube/watch?v=${video.id}`} title={`${video.channel}. ${video.ready ? t.youtubeReadyHint : t.youtubeCostHint}`} className="group block rounded-xl focus-visible:outline-none">
-              <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
+              <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-700 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50 dark:group-focus-visible:ring-offset-slate-950">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
                 <span className="absolute inset-0 flex items-center justify-center bg-black/30 text-white opacity-0 transition group-hover:opacity-100">
@@ -340,7 +340,7 @@ function YouTubeRow({ lessons, suggested }) {
                   {formatTime(video.seconds)}
                 </span>
               </span>
-              <span className="mt-1.5 block text-[13px] font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{video.title}</span>
+              <span className="mt-1.5 block text-[13px] font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-300">{video.title}</span>
             </Link>
           </li>
         ))}
@@ -351,27 +351,27 @@ function YouTubeRow({ lessons, suggested }) {
 
 // Màu tag: nền pastel + viền nhạt + chữ/icon cùng tông đậm; tag đang chọn đổi sang nền đặc, chữ trắng
 const TAG_COLORS = [
-  { idle: 'border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100', active: 'border-emerald-600 bg-emerald-600' },
-  { idle: 'border-sky-200 bg-sky-50 text-sky-700 hover:bg-sky-100', active: 'border-sky-600 bg-sky-600' },
-  { idle: 'border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100', active: 'border-violet-600 bg-violet-600' },
-  { idle: 'border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100', active: 'border-amber-600 bg-amber-600' },
-  { idle: 'border-lime-300 bg-lime-50 text-lime-800 hover:bg-lime-100', active: 'border-lime-700 bg-lime-700' },
-  { idle: 'border-teal-200 bg-teal-50 text-teal-700 hover:bg-teal-100', active: 'border-teal-600 bg-teal-600' },
-  { idle: 'border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100', active: 'border-indigo-600 bg-indigo-600' },
-  { idle: 'border-orange-200 bg-orange-50 text-orange-700 hover:bg-orange-100', active: 'border-orange-600 bg-orange-600' },
-  { idle: 'border-pink-200 bg-pink-50 text-pink-700 hover:bg-pink-100', active: 'border-pink-600 bg-pink-600' },
-  { idle: 'border-cyan-200 bg-cyan-50 text-cyan-700 hover:bg-cyan-100', active: 'border-cyan-600 bg-cyan-600' },
+  { idle: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/40', active: 'border-emerald-600 bg-emerald-600' },
+  { idle: 'border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 hover:bg-sky-100 dark:hover:bg-sky-900/40', active: 'border-sky-600 bg-sky-600' },
+  { idle: 'border-violet-200 dark:border-violet-800 bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-300 hover:bg-violet-100 dark:hover:bg-violet-900/40', active: 'border-violet-600 bg-violet-600' },
+  { idle: 'border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40', active: 'border-amber-600 bg-amber-600' },
+  { idle: 'border-lime-300 dark:border-lime-700 bg-lime-50 dark:bg-lime-950/40 text-lime-800 dark:text-lime-300 hover:bg-lime-100 dark:hover:bg-lime-900/40', active: 'border-lime-700 bg-lime-700' },
+  { idle: 'border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900/40', active: 'border-teal-600 bg-teal-600' },
+  { idle: 'border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40', active: 'border-indigo-600 bg-indigo-600' },
+  { idle: 'border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-900/40', active: 'border-orange-600 bg-orange-600' },
+  { idle: 'border-pink-200 dark:border-pink-800 bg-pink-50 dark:bg-pink-950/40 text-pink-700 dark:text-pink-300 hover:bg-pink-100 dark:hover:bg-pink-900/40', active: 'border-pink-600 bg-pink-600' },
+  { idle: 'border-cyan-200 dark:border-cyan-800 bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 hover:bg-cyan-100 dark:hover:bg-cyan-900/40', active: 'border-cyan-600 bg-cyan-600' },
 ];
 // Topic 15 (Money & Banking) trùng màu lime với topic 05 (Daily Routines) nên cho màu vàng riêng
 const TAG_COLOR_OVERRIDE = {
-  15: { idle: 'border-yellow-300 bg-yellow-50 text-yellow-700 hover:bg-yellow-100', active: 'border-yellow-500 bg-yellow-500' },
+  15: { idle: 'border-yellow-300 dark:border-yellow-700 bg-yellow-50 dark:bg-yellow-950/40 text-yellow-700 dark:text-yellow-300 hover:bg-yellow-100 dark:hover:bg-yellow-900/40', active: 'border-yellow-500 bg-yellow-500' },
 };
 // Màu của topic (theo số thứ tự) dùng chung cho tag và tiêu đề hàng topic
 const topicColor = (number) => TAG_COLOR_OVERRIDE[number] ?? TAG_COLORS[(number - 1) % TAG_COLORS.length];
 // Nền, viền và chữ của tiêu đề topic = màu của tag lúc chưa chọn (lấy từ chính chuỗi lớp của tag nên luôn khớp), bỏ phần hover
-const chipColorClass = (color) => color.idle.split(' ').filter((c) => !c.startsWith('hover:')).join(' ');
-const TAG_ALL_COLOR = { idle: 'border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200', active: 'border-slate-700 bg-slate-700' };
-const TAG_YOUTUBE_COLOR = { idle: 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100', active: 'border-red-600 bg-red-600' };
+const chipColorClass = (color) => color.idle.split(' ').filter((c) => !c.includes('hover:')).join(' ');
+const TAG_ALL_COLOR = { idle: 'border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700', active: 'border-slate-700 bg-slate-700' };
+const TAG_YOUTUBE_COLOR = { idle: 'border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/40 text-red-700 dark:text-red-300 hover:bg-red-100 dark:hover:bg-red-900/40', active: 'border-red-600 bg-red-600' };
 
 // Chiều cao header cố định (h-14)
 const HEADER_HEIGHT = 56;
@@ -390,7 +390,7 @@ function TopicTags({ topics, youtube, tag, onSelect, barRef }) {
     })),
   ];
   return (
-    <div ref={barRef} className="lg:sticky lg:top-14 z-20 -mx-4 border-b border-slate-200/70 bg-slate-50/90 px-4 py-2.5 sm:-mx-6 sm:px-6 backdrop-blur">
+    <div ref={barRef} className="lg:sticky lg:top-14 z-20 -mx-4 border-b border-slate-200/70 dark:border-slate-800/70 bg-slate-50/90 dark:bg-slate-950/90 px-4 py-2.5 sm:-mx-6 sm:px-6 backdrop-blur">
       <ul
         role="group"
         aria-label={t.topicTags}
@@ -458,7 +458,7 @@ function LessonCard({ lesson, gradient, coverSrc, href, onOpen }) {
         onClick={onOpen}
         className="group block rounded-xl focus-visible:outline-none"
       >
-        <span className={`relative flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br text-white shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50 ${gradient}`}>
+        <span className={`relative flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br text-white shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50 dark:group-focus-visible:ring-offset-slate-950 ${gradient}`}>
           {coverFailed ? (
             <span className="font-display text-5xl font-semibold opacity-90 drop-shadow">{lesson.lesson_index}</span>
           ) : (
@@ -478,7 +478,7 @@ function LessonCard({ lesson, gradient, coverSrc, href, onOpen }) {
             {formatTime(lesson.duration_seconds)}
           </span>
         </span>
-        <span className="mt-2 block text-sm font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lessonLabel(lesson.title)}</span>
+        <span className="mt-2 block text-sm font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-300">{lessonLabel(lesson.title)}</span>
       </Link>
     </li>
   );
@@ -488,10 +488,10 @@ function LessonCard({ lesson, gradient, coverSrc, href, onOpen }) {
 function FreeTopicsPlaceholder() {
   const { t } = useI18n();
   return (
-    <section className="mt-12 rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-14 text-center" aria-labelledby="shelf-title">
-      <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600">{t.library}</p>
+    <section className="mt-12 rounded-3xl border border-dashed border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-6 py-14 text-center" aria-labelledby="shelf-title">
+      <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">{t.library}</p>
       <h2 id="shelf-title" className="font-display mt-2 text-2xl font-semibold">{t.freeTopicsTitle}</h2>
-      <p className="mx-auto mt-2 max-w-md text-sm text-slate-500">{t.freeTopicsDesc}</p>
+      <p className="mx-auto mt-2 max-w-md text-sm text-slate-500 dark:text-slate-400">{t.freeTopicsDesc}</p>
     </section>
   );
 }
@@ -500,11 +500,11 @@ function LibrarySkeleton() {
   const { t } = useI18n();
   return (
     <div className="mt-6 animate-pulse" aria-busy="true" aria-label={t.loading}>
-      <div className="h-7 w-2/3 rounded-full bg-slate-200" />
-      <div className="mt-6 h-6 w-48 rounded bg-slate-200" />
+      <div className="h-7 w-2/3 rounded-full bg-slate-200 dark:bg-slate-700" />
+      <div className="mt-6 h-6 w-48 rounded bg-slate-200 dark:bg-slate-700" />
       <div className="mt-3 flex gap-3 overflow-hidden">
         {Array.from({ length: 6 }, (_, i) => (
-          <div key={i} className="aspect-video w-44 sm:w-52 shrink-0 rounded-xl bg-slate-200" />
+          <div key={i} className="aspect-video w-44 sm:w-52 shrink-0 rounded-xl bg-slate-200 dark:bg-slate-700" />
         ))}
       </div>
     </div>

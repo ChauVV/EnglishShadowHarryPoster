@@ -29,7 +29,7 @@ export default function LessonClient() {
     return (
       <Message>
         {t.lessonNotFound}{' '}
-        <Link href="/" className="text-emerald-600 underline">
+        <Link href="/" className="text-emerald-600 dark:text-emerald-400 underline">
           {t.backToList}
         </Link>
       </Message>
@@ -67,7 +67,7 @@ export default function LessonClient() {
 
 function Message({ children }) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-500 text-sm">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 text-sm">
       <p>{children}</p>
     </div>
   );

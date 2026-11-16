@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
+/* Giao diện tối do người dùng chọn ở trang tài khoản (lưu trong localStorage, mặc định sáng): class "dark" trên <html>.
+   Không theo cài đặt của hệ điều hành. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+html.dark {
+  --background: #020617;
+  --foreground: #f1f5f9;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -12,10 +22,12 @@
   --font-display: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Ô nhập không có nền riêng: trong chế độ tối để trong suốt, nhận màu nền của thẻ chứa nó (không lấy xám mặc định của trình duyệt) */
+@layer base {
+  html.dark input,
+  html.dark textarea,
+  html.dark select {
+    background-color: transparent;
   }
 }
 

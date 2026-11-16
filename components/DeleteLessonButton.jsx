@@ -97,7 +97,7 @@ function ConfirmDialog({ title, phase, onCancel, onConfirm, onLocalOnly }) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 dark:bg-black/60 p-4 backdrop-blur-sm"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget && !deleting) onCancel();
       }}
@@ -109,20 +109,20 @@ function ConfirmDialog({ title, phase, onCancel, onConfirm, onLocalOnly }) {
         aria-modal="true"
         aria-labelledby="delete-title"
         aria-describedby="delete-desc"
-        className="dialog-in w-full max-w-sm rounded-2xl bg-white p-6 text-slate-900 shadow-2xl"
+        className="dialog-in w-full max-w-sm rounded-2xl bg-white dark:bg-slate-900 dark:ring-1 dark:ring-slate-700 p-6 text-slate-900 dark:text-slate-100 shadow-2xl"
       >
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-red-600">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400">
           <FiTrash2 className="h-6 w-6" aria-hidden="true" />
         </div>
         <h2 id="delete-title" className="font-display mt-4 text-lg font-semibold">
           {failed ? y.deleteFailedHeading : y.deleteHeading}
         </h2>
-        <div id="delete-desc" className="mt-2 text-sm leading-relaxed text-slate-600">
+        <div id="delete-desc" className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
           {failed ? (
             <p>{y.deleteFailedBody}</p>
           ) : (
             <>
-              <p className="line-clamp-2 font-medium text-slate-900">{title}</p>
+              <p className="line-clamp-2 font-medium text-slate-900 dark:text-slate-100">{title}</p>
               <p className="mt-1">{y.deleteBody}</p>
             </>
           )}
@@ -133,7 +133,7 @@ function ConfirmDialog({ title, phase, onCancel, onConfirm, onLocalOnly }) {
             <button
               type="button"
               onClick={onLocalOnly}
-              className="h-10 rounded-xl border border-slate-300 px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+              className="h-10 rounded-xl border border-slate-300 dark:border-slate-700 px-4 text-sm font-medium text-slate-700 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
             >
               {y.deleteLocalOnly}
             </button>
@@ -143,7 +143,7 @@ function ConfirmDialog({ title, phase, onCancel, onConfirm, onLocalOnly }) {
               type="button"
               onClick={onCancel}
               disabled={deleting}
-              className="h-10 rounded-xl border border-slate-300 px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+              className="h-10 rounded-xl border border-slate-300 dark:border-slate-700 px-4 text-sm font-medium text-slate-700 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
             >
               {y.cancel}
             </button>

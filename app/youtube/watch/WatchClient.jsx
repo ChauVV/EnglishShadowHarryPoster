@@ -397,7 +397,7 @@ function Lesson({ videoId, exportMode }) {
   if (phase === 'login') {
     return (
       <Message>
-        <span className="block text-slate-700">{y.loginPrompt}</span>
+        <span className="block text-slate-700 dark:text-slate-300">{y.loginPrompt}</span>
         <button
           type="button"
           onClick={() => signIn().then((s) => s && setAttempt((n) => n + 1)).catch((e) => { setError({ code: e.code, fallback: 'signInFailed' }); setPhase('error'); })}
@@ -405,7 +405,7 @@ function Lesson({ videoId, exportMode }) {
         >
           {y.signIn}
         </button>
-        <Link href="/youtube" className="mt-3 block text-emerald-700 underline">
+        <Link href="/youtube" className="mt-3 block text-emerald-700 dark:text-emerald-300 underline">
           {y.back}
         </Link>
       </Message>
@@ -453,7 +453,7 @@ function Lesson({ videoId, exportMode }) {
 
 function Message({ children }) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4 text-center text-sm text-slate-500">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 px-4 text-center text-sm text-slate-500 dark:text-slate-400">
       <div className="max-w-md">{children}</div>
     </div>
   );

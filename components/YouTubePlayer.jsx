@@ -207,8 +207,8 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
   const blur = showText ? '' : 'blur-sm select-none';
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      <header className="sticky top-0 z-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-[1800px] mx-auto px-4 h-14 flex items-center gap-3">
           <Link href="/" aria-label={y.home} title={y.home} className="-ml-1 flex shrink-0 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500">
             <AppLogo className="h-8 w-8" />
@@ -216,7 +216,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
           <div className="min-w-0 flex-1">
             <h1 className="text-sm lg:text-base font-bold truncate">{title}</h1>
             {turns && (
-              <p className="text-[11px] lg:text-xs text-slate-500 truncate" title={y.turnsTitle}>
+              <p className="text-[11px] lg:text-xs text-slate-500 dark:text-slate-400 truncate" title={y.turnsTitle}>
                 {y.turnsLeft(turns.remaining, turns.limit)}
               </p>
             )}
@@ -227,12 +227,12 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
               onClick={onExport}
               title={y.exportLesson}
               aria-label={y.exportLesson}
-              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 dark:text-slate-400 transition hover:bg-slate-100 dark:hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500"
             >
               <FiDownload className="h-4 w-4" aria-hidden="true" />
             </button>
           )}
-          {!builtIn && <DeleteLessonButton id={videoId} title={title} beforeDelete={onBeforeDelete} onDeleted={onDeleted} className="text-slate-500 hover:bg-red-50 hover:text-red-600" />}
+          {!builtIn && <DeleteLessonButton id={videoId} title={title} beforeDelete={onBeforeDelete} onDeleted={onDeleted} className="text-slate-500 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-600 dark:hover:text-red-400" />}
           <LanguageSwitch tone="light" />
         </div>
       </header>
@@ -244,7 +244,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
             className="relative mx-auto aspect-video max-h-[60vh] max-w-[calc(60vh*16/9)] w-full overflow-hidden rounded-2xl bg-slate-900 [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:h-full [&_iframe]:w-full"
           />
 
-          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 h-44 lg:h-36 overflow-hidden px-4 py-3 lg:px-5 lg:py-4 text-center flex flex-col items-center justify-center gap-1 lg:gap-2">
+          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 h-44 lg:h-36 overflow-hidden px-4 py-3 lg:px-5 lg:py-4 text-center flex flex-col items-center justify-center gap-1 lg:gap-2">
             {pending ? (
               <div className="flex w-full flex-col items-center gap-2" aria-busy="true">
                 <TranslationSkeleton className="h-3.5 lg:h-4" width={70} />
@@ -253,7 +253,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
             ) : (
               <>
                 <p className={`line-clamp-4 text-[11px] lg:text-sm font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
-                {showVi && active?.vi && <p className="line-clamp-4 text-[10px] lg:text-xs font-medium text-emerald-700 leading-snug">{active.vi}</p>}
+                {showVi && active?.vi && <p className="line-clamp-4 text-[10px] lg:text-xs font-medium text-emerald-700 dark:text-emerald-300 leading-snug">{active.vi}</p>}
                 {showVi && translating && active && !active.vi && <TranslationSkeleton className="h-3 lg:h-3.5" width={60} />}
               </>
             )}
@@ -286,7 +286,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
                 <span className="text-xs font-medium">{showVi ? y.hideTranslation : y.showTranslation}</span>
               </ControlButton>
             )}
-            <label className="flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 h-8 text-xs">
+            <label className="flex items-center gap-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 h-8 text-xs">
               {y.speed}
               <select value={speed} onChange={(e) => setSpeed(Number(e.target.value))} className="bg-transparent font-medium focus:outline-none">
                 {SPEEDS.map((s) => (
@@ -301,13 +301,13 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
           <OtherLessons currentId={videoId} />
         </section>
 
-        <aside className="rounded-2xl bg-white border border-slate-200 flex flex-col overflow-hidden h-[calc(100dvh-5rem)] scroll-mt-[4.5rem] lg:h-[calc(100vh-6.5rem)] lg:sticky lg:top-[4.5rem]">
-          <div className="flex items-center justify-between px-4 py-2 lg:py-3 border-b border-slate-100">
+        <aside className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden h-[calc(100dvh-5rem)] scroll-mt-[4.5rem] lg:h-[calc(100vh-6.5rem)] lg:sticky lg:top-[4.5rem]">
+          <div className="flex items-center justify-between px-4 py-2 lg:py-3 border-b border-slate-100 dark:border-slate-800">
             <h2 className="text-sm lg:text-base font-semibold">{y.subtitles}</h2>
-            <span className="text-xs text-slate-500">{pending ? '' : y.sentenceCount(sentences.length)}</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400">{pending ? '' : y.sentenceCount(sentences.length)}</span>
           </div>
           {status && (
-            <p className="flex items-center justify-between gap-2 px-4 py-2 text-xs text-emerald-800 bg-emerald-50 border-b border-emerald-100">
+            <p className="flex items-center justify-between gap-2 px-4 py-2 text-xs text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border-b border-emerald-100 dark:border-emerald-900">
               <span>{status.text}</span>
               {status.retry && (
                 <button type="button" onClick={onRetryTranslate} className="shrink-0 rounded-full bg-emerald-600 px-3 py-1 font-semibold text-white hover:bg-emerald-700">
@@ -320,7 +320,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
             <ol className="flex-1 space-y-3 overflow-hidden p-2" aria-busy="true">
               {Array.from({ length: 9 }, (_, i) => (
                 <li key={i} className="flex gap-3 px-3 py-3">
-                  <span className="mt-1 h-6 w-6 shrink-0 animate-pulse rounded-full bg-slate-200" />
+                  <span className="mt-1 h-6 w-6 shrink-0 animate-pulse rounded-full bg-slate-200 dark:bg-slate-700" />
                   <span className="min-w-0 flex-1 space-y-2">
                     <TranslationSkeleton className="h-2.5" width={12} />
                     <TranslationSkeleton className="h-4" width={92 - (i % 3) * 12} />
@@ -336,18 +336,18 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
                 <button
                   onClick={() => seekTo(i)}
                   className={`group w-full flex items-start gap-2.5 lg:gap-3 rounded-xl px-2.5 py-1.5 lg:px-3 lg:py-2.5 text-left transition ${
-                    i === activeIndex ? 'bg-emerald-100' : 'hover:bg-slate-50'
+                    i === activeIndex ? 'bg-emerald-100 dark:bg-emerald-900/40' : 'hover:bg-slate-50 dark:hover:bg-slate-800'
                   }`}
                 >
-                  <span className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${i === activeIndex ? 'bg-slate-900 text-white' : 'bg-slate-200 text-slate-500'}`}>
+                  <span className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${i === activeIndex ? 'bg-slate-900 dark:bg-emerald-600 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
                     <PlayIcon size={10} />
                   </span>
                   <span className="min-w-0">
-                    <span className="block text-[10px] tabular-nums text-slate-400">{formatTime(s.start)}</span>
+                    <span className="block text-[10px] tabular-nums text-slate-400 dark:text-slate-500">{formatTime(s.start)}</span>
                     <span className={`block text-[12px] lg:text-sm leading-relaxed ${blur} ${showText ? '' : 'group-hover:blur-none'}`}>{s.text}</span>
                     {showVi &&
                       (s.vi ? (
-                        <span className="block text-[11px] lg:text-[13px] leading-relaxed text-slate-600 mt-0.5">{s.vi}</span>
+                        <span className="block text-[11px] lg:text-[13px] leading-relaxed text-slate-600 dark:text-slate-300 mt-0.5">{s.vi}</span>
                       ) : (
                         translating && <TranslationSkeleton className="mt-2 h-3" width={50 + (i % 4) * 10} />
                       ))}
@@ -365,7 +365,7 @@ export default function YouTubePlayer({ videoId, title, sentences, status, usage
 
 // Thanh xám nhấp nháy giữ chỗ cho bản dịch đang chờ
 function TranslationSkeleton({ className = '', width = 66 }) {
-  return <span aria-hidden="true" className={`block animate-pulse rounded-full bg-slate-200 ${className}`} style={{ width: `${width}%` }} />;
+  return <span aria-hidden="true" className={`block animate-pulse rounded-full bg-slate-200 dark:bg-slate-700 ${className}`} style={{ width: `${width}%` }} />;
 }
 
 // Các video trong tag YouTube (giống hàng YouTube ở trang chủ): video của người dùng (mới nhất trước), sau đó là các video gợi ý

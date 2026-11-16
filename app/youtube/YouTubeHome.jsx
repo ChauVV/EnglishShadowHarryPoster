@@ -33,20 +33,20 @@ export default function YouTubeHome() {
   }, [user]);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       <SiteHeader />
 
       <main className="max-w-3xl mx-auto px-4 py-10">
-        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
+        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">
           <FaYoutube className="h-6 w-6 text-[#FF0000]" aria-hidden="true" />
           {y.eyebrow}
         </p>
         <h1 className="font-display mt-1 text-3xl font-semibold tracking-tight">{y.heading}</h1>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-slate-600 dark:text-slate-300">
           {y.intro}
         </p>
 
-        <form onSubmit={generate} className="mt-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <form onSubmit={generate} className="mt-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
           <label htmlFor="yt-url" className="text-sm font-medium">
             Link YouTube
           </label>
@@ -59,7 +59,7 @@ export default function YouTubeHome() {
               onChange={(e) => setUrl(e.target.value)}
               placeholder="https://www.youtube.com/watch?v=..."
               autoComplete="off"
-              className="h-11 min-w-0 flex-1 rounded-xl border border-slate-300 px-3 text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
+              className="h-11 min-w-0 flex-1 rounded-xl border border-slate-300 dark:border-slate-700 px-3 text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
             />
             <button
               type="submit"
@@ -70,18 +70,18 @@ export default function YouTubeHome() {
             </button>
           </div>
           {error && (
-            <p role="alert" className="mt-2 text-sm text-red-600">
+            <p role="alert" className="mt-2 text-sm text-red-600 dark:text-red-400">
               {error}
             </p>
           )}
-          <ul className="mt-3 space-y-1 text-xs text-slate-500">
+          <ul className="mt-3 space-y-1 text-xs text-slate-500 dark:text-slate-400">
             <li>
               {user
                 ? y.turnsNote(turns?.remaining ?? '–', turns?.limit ?? 10)
                 : y.loggedOutNote}
             </li>
             {user && !user.drive && (
-              <li className="text-amber-700">{y.noDriveNote}</li>
+              <li className="text-amber-700 dark:text-amber-300">{y.noDriveNote}</li>
             )}
           </ul>
         </form>
@@ -96,19 +96,19 @@ export default function YouTubeHome() {
                 <li key={l.id} className="relative">
                   <Link
                     href={`/youtube/watch?v=${l.id}`}
-                    className="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-2 pr-14 transition hover:border-emerald-400 hover:shadow-sm"
+                    className="group flex items-center gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2 pr-14 transition hover:border-emerald-400 hover:shadow-sm"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={`https://i.ytimg.com/vi/${l.id}/mqdefault.jpg`} alt="" loading="lazy" className="aspect-video w-28 shrink-0 rounded-lg bg-slate-200 object-cover" />
+                    <img src={`https://i.ytimg.com/vi/${l.id}/mqdefault.jpg`} alt="" loading="lazy" className="aspect-video w-28 shrink-0 rounded-lg bg-slate-200 dark:bg-slate-700 object-cover" />
                     <span className="min-w-0">
-                      <span className="block truncate text-[13px] font-semibold group-hover:text-emerald-700">{l.title}</span>
-                      <span className="block text-xs text-slate-500">{y.sentenceCount(l.count)}</span>
+                      <span className="block truncate text-[13px] font-semibold group-hover:text-emerald-700 dark:group-hover:text-emerald-300">{l.title}</span>
+                      <span className="block text-xs text-slate-500 dark:text-slate-400">{y.sentenceCount(l.count)}</span>
                     </span>
                   </Link>
                   <DeleteLessonButton
                     id={l.id}
                     title={l.title}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-100 text-slate-500 hover:bg-red-600 hover:text-white"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-red-600 hover:text-white"
                   />
                 </li>
               ))}

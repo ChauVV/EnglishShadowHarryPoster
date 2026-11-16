@@ -31,31 +31,31 @@ export default function KeyClient() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       <SiteHeader />
 
       <main className="max-w-2xl mx-auto px-4 py-10">
-        <Link href="/youtube" className="mb-6 inline-block text-sm font-medium text-slate-600 hover:text-slate-900">
+        <Link href="/youtube" className="mb-6 inline-block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100">
           {y.backArrow}
         </Link>
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">{y.step1of2}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">{y.step1of2}</p>
         <h1 className="font-display mt-1 text-3xl font-semibold tracking-tight">{y.keyTitle}</h1>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-slate-600 dark:text-slate-300">
           {y.keyIntro}
         </p>
 
         {invalid && (
-          <p role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          <p role="alert" className="mt-4 rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/40 px-4 py-3 text-sm text-red-700 dark:text-red-300">
             {y.keyInvalidNotice}
           </p>
         )}
 
         {videoId && (
-          <div className="mt-6 flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-2 pr-4">
+          <div className="mt-6 flex items-center gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2 pr-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`} alt="" className="aspect-video w-28 shrink-0 rounded-lg bg-slate-200 object-cover" />
-            <p className="min-w-0 text-sm text-slate-600">
-              {y.videoPrefix}<span className="font-mono text-slate-900">{videoId}</span>{y.videoSuffix}
+            <img src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`} alt="" className="aspect-video w-28 shrink-0 rounded-lg bg-slate-200 dark:bg-slate-700 object-cover" />
+            <p className="min-w-0 text-sm text-slate-600 dark:text-slate-300">
+              {y.videoPrefix}<span className="font-mono text-slate-900 dark:text-slate-100">{videoId}</span>{y.videoSuffix}
             </p>
           </div>
         )}
@@ -63,7 +63,7 @@ export default function KeyClient() {
         <ol className="mt-6 space-y-3">
           {y.keySteps.map((step, i) => (
             <li key={step} className="flex gap-3">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-800">{i + 1}</span>
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-sm font-semibold text-emerald-800 dark:text-emerald-300">{i + 1}</span>
               <span className="pt-0.5 text-sm">{step}</span>
             </li>
           ))}
@@ -73,12 +73,12 @@ export default function KeyClient() {
           href={GET_KEY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex h-11 items-center rounded-xl border border-slate-300 bg-white px-5 text-sm font-semibold hover:bg-slate-100 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+          className="mt-5 inline-flex h-11 items-center rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-5 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
         >
           {y.openKeyPage}
         </a>
 
-        <form onSubmit={submit} className="mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <form onSubmit={submit} className="mt-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
           <label htmlFor="yt-key" className="text-sm font-medium">
             {y.pasteKey}
           </label>
@@ -90,10 +90,10 @@ export default function KeyClient() {
             placeholder="yta_..."
             autoComplete="off"
             spellCheck={false}
-            className="mt-2 h-11 w-full rounded-xl border border-slate-300 px-3 font-mono text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
+            className="mt-2 h-11 w-full rounded-xl border border-slate-300 dark:border-slate-700 px-3 font-mono text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
           />
           {error && (
-            <p role="alert" className="mt-2 text-sm text-red-600">
+            <p role="alert" className="mt-2 text-sm text-red-600 dark:text-red-400">
               {y[error]}
             </p>
           )}
@@ -103,7 +103,7 @@ export default function KeyClient() {
           >
             {y.saveContinue}
           </button>
-          <p className="mt-3 text-xs text-slate-500">
+          <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
             {y.keyPrivacy}
           </p>
         </form>

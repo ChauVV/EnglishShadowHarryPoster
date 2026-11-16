@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { FiCamera } from 'react-icons/fi';
+import { FiCamera, FiMoon, FiSun } from 'react-icons/fi';
 import NoticeDialog from '../../components/NoticeDialog';
 import SiteHeader from '../../components/SiteHeader';
 import { prepareAvatar, saveLocalAvatar, useAvatar } from '../../lib/avatar';
@@ -11,6 +11,7 @@ import { deleteAvatar, uploadAvatar } from '../../lib/driveSync';
 import { authHeader, ensureSession, signIn, signOut, useGoogleUser } from '../../lib/googleAuth';
 import { useI18n } from '../../lib/i18n';
 import { errorText } from '../../lib/i18nYoutube';
+import { useTheme } from '../../lib/theme';
 import { errorMessage, useFlash } from '../../lib/ytFlash';
 import { GET_KEY_URL, clearKey, isValidKeyFormat, nextResetLabel, saveKey, useQuota, useStoredKey, useTurnsLeft } from '../../lib/ytClient';
 
@@ -129,16 +130,18 @@ export default function ProfileClient() {
   const outOfTurns = turns && turns.remaining === 0;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       <SiteHeader />
 
       <main className="mx-auto max-w-2xl space-y-4 px-4 py-6">
         <h1 className="font-display text-xl font-semibold">{y.profileTitle}</h1>
 
+        <ThemeCard />
+
         {!user ? (
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
+          <section className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center shadow-sm">
             <p className="font-semibold">{y.notSignedIn}</p>
-            <p className="mt-1 text-sm text-slate-600">{y.notSignedInHint}</p>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{y.notSignedInHint}</p>
             <button
               type="button"
               onClick={() => signIn().catch((err) => setSignInError(err.code ?? 'signInFailed'))}
@@ -148,7 +151,7 @@ export default function ProfileClient() {
               {y.signInWithGoogle}
             </button>
             {signInError && (
-              <p role="alert" className="mt-2 text-sm text-red-600">
+              <p role="alert" className="mt-2 text-sm text-red-600 dark:text-red-400">
                 {errorText(y, signInError, y.err.signInFailed)}
               </p>
             )}
@@ -156,19 +159,19 @@ export default function ProfileClient() {
         ) : (
           <>
             {/* Ảnh đại diện */}
-            <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <section className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm">
               <div className="flex items-center gap-4">
                 <button
                   type="button"
                   onClick={() => fileRef.current?.click()}
                   aria-label={y.changeAvatarLabel}
-                  className="group relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-slate-100 ring-2 ring-emerald-500/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+                  className="group relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800 ring-2 ring-emerald-500/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
                 >
                   {src ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={src} alt="" referrerPolicy="no-referrer" className="h-full w-full object-cover" />
                   ) : (
-                    <FaUserCircle className="h-full w-full text-slate-300" aria-hidden="true" />
+                    <FaUserCircle className="h-full w-full text-slate-300 dark:text-slate-600" aria-hidden="true" />
                   )}
                   <span className="absolute inset-0 flex items-center justify-center bg-black/45 text-white opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
                     <FiCamera className="h-6 w-6" aria-hidden="true" />
@@ -178,11 +181,11 @@ export default function ProfileClient() {
                 <div className="min-w-0">
                   <p className="truncate text-lg font-semibold">{user.email ?? y.googleAccount}</p>
                   <div className="mt-2 flex flex-wrap gap-2">
-                    <button type="button" onClick={() => fileRef.current?.click()} className="h-8 rounded-full border border-slate-300 px-4 text-xs font-semibold hover:bg-slate-100">
+                    <button type="button" onClick={() => fileRef.current?.click()} className="h-8 rounded-full border border-slate-300 dark:border-slate-700 px-4 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">
                       {y.changeAvatar}
                     </button>
                     {custom && (
-                      <button type="button" onClick={onRemoveAvatar} className="h-8 rounded-full px-3 text-xs font-medium text-slate-500 underline hover:text-slate-900">
+                      <button type="button" onClick={onRemoveAvatar} className="h-8 rounded-full px-3 text-xs font-medium text-slate-500 dark:text-slate-400 underline hover:text-slate-900 dark:hover:text-slate-100">
                         {y.removeAvatar}
                       </button>
                     )}
@@ -190,47 +193,47 @@ export default function ProfileClient() {
                 </div>
               </div>
               {avatarMsg && (
-                <p role="status" className={`mt-3 text-sm ${avatarMsg.ok ? 'text-slate-600' : 'text-red-600'}`}>
+                <p role="status" className={`mt-3 text-sm ${avatarMsg.ok ? 'text-slate-600 dark:text-slate-300' : 'text-red-600 dark:text-red-400'}`}>
                   {avatarMsg.code ? errorText(y, avatarMsg.code, y.err.AVATAR_FAILED) : y[avatarMsg.key]}
                 </p>
               )}
-              <p className="mt-3 text-xs text-slate-500">{y.avatarNote}</p>
+              <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">{y.avatarNote}</p>
             </section>
 
             {/* Lượt hôm nay */}
-            <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="usage-title">
-              <h2 id="usage-title" className="text-sm font-semibold text-slate-500">
+            <section className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm" aria-labelledby="usage-title">
+              <h2 id="usage-title" className="text-sm font-semibold text-slate-500 dark:text-slate-400">
                 {y.turnsCardTitle}
               </h2>
               <p className="mt-1 text-3xl font-semibold tabular-nums">
                 {turns ? turns.remaining : '–'}
-                <span className="text-base font-medium text-slate-500">{y.turnsRemaining(total)}</span>
+                <span className="text-base font-medium text-slate-500 dark:text-slate-400">{y.turnsRemaining(total)}</span>
               </p>
-              <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200" role="progressbar" aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100}>
+              <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700" role="progressbar" aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100}>
                 <div className={`h-full rounded-full transition-all ${outOfTurns ? 'bg-red-500' : 'bg-emerald-500'}`} style={{ width: `${percent}%` }} />
               </div>
-              <p className="mt-2 text-xs text-slate-500">
+              <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
                 {outOfTurns ? y.turnsOutPrefix : ''}
                 {y.turnsExplain(nextResetLabel())}
               </p>
             </section>
 
             {/* Key lấy phụ đề */}
-            <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="key-title">
-              <h2 id="key-title" className="text-sm font-semibold text-slate-500">
+            <section className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm" aria-labelledby="key-title">
+              <h2 id="key-title" className="text-sm font-semibold text-slate-500 dark:text-slate-400">
                 {y.keyCardTitle}
               </h2>
-              <p className="mt-1 text-xs leading-relaxed text-slate-500">{y.keyExplain}</p>
+              <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">{y.keyExplain}</p>
               {hasKey ? (
                 <p className="mt-3 font-mono text-sm">{maskedKey}</p>
               ) : (
-                <p className="mt-3 text-sm text-slate-600">{y.noKeyYet}</p>
+                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{y.noKeyYet}</p>
               )}
 
               {keyOut && (
-                <div role="alert" className="mt-3 rounded-xl border border-amber-300 bg-amber-50 p-3">
-                  <p className="text-sm font-medium text-amber-900">{y.keyOutTitle}</p>
-                  <p className="mt-0.5 text-xs text-amber-800">{y.keyOutBody(nextResetLabel())}</p>
+                <div role="alert" className="mt-3 rounded-xl border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 p-3">
+                  <p className="text-sm font-medium text-amber-900 dark:text-amber-200">{y.keyOutTitle}</p>
+                  <p className="mt-0.5 text-xs text-amber-800 dark:text-amber-300">{y.keyOutBody(nextResetLabel())}</p>
                   <a
                     href={GET_KEY_URL}
                     target="_blank"
@@ -249,7 +252,7 @@ export default function ProfileClient() {
                     setEditingKey(true);
                     setKeyMsg(null);
                   }}
-                  className="mt-3 block text-sm font-medium text-emerald-700 underline hover:text-emerald-900"
+                  className="mt-3 block text-sm font-medium text-emerald-700 dark:text-emerald-300 underline hover:text-emerald-900 dark:hover:text-emerald-200"
                 >
                   {y.updateKey}
                 </button>
@@ -268,20 +271,20 @@ export default function ProfileClient() {
                       autoComplete="off"
                       spellCheck={false}
                       autoFocus={hasKey}
-                      className="h-10 min-w-0 flex-1 rounded-xl border border-slate-300 px-3 font-mono text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
+                      className="h-10 min-w-0 flex-1 rounded-xl border border-slate-300 dark:border-slate-700 px-3 font-mono text-sm focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
                     />
                     <button type="submit" className="h-10 rounded-xl bg-emerald-500 px-6 text-sm font-semibold text-white transition hover:bg-emerald-600">
                       {y.saveKey}
                     </button>
                     {hasKey && (
-                      <button type="button" onClick={cancelEditKey} className="h-10 rounded-xl border border-slate-300 px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-100">
+                      <button type="button" onClick={cancelEditKey} className="h-10 rounded-xl border border-slate-300 dark:border-slate-700 px-4 text-sm font-medium text-slate-700 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-slate-800">
                         {y.cancel}
                       </button>
                     )}
                   </div>
-                  <p className="mt-2 text-xs text-slate-500">
+                  <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
                     {y.noKeyAsk}{' '}
-                    <a href={GET_KEY_URL} target="_blank" rel="noopener noreferrer" className="font-medium text-emerald-700 underline">
+                    <a href={GET_KEY_URL} target="_blank" rel="noopener noreferrer" className="font-medium text-emerald-700 dark:text-emerald-300 underline">
                       {y.createFreeKey}
                     </a>
                     {y.keyStoredLocally}
@@ -290,19 +293,19 @@ export default function ProfileClient() {
               )}
 
               {keyMsg && (
-                <p role="status" className={`mt-2 text-sm ${keyMsg.ok ? 'text-emerald-700' : 'text-red-600'}`}>
+                <p role="status" className={`mt-2 text-sm ${keyMsg.ok ? 'text-emerald-700 dark:text-emerald-300' : 'text-red-600 dark:text-red-400'}`}>
                   {y[keyMsg.key]}
                 </p>
               )}
 
               {hasKey && !editingKey && (
-                <button type="button" onClick={onRemoveKey} className="mt-3 block text-xs font-medium text-slate-500 underline hover:text-red-600">
+                <button type="button" onClick={onRemoveKey} className="mt-3 block text-xs font-medium text-slate-500 dark:text-slate-400 underline hover:text-red-600 dark:hover:text-red-400">
                   {y.removeKey}
                 </button>
               )}
             </section>
 
-            <button type="button" onClick={logout} className="h-10 w-full rounded-full border border-slate-300 bg-white text-sm font-medium text-slate-700 transition hover:bg-slate-100">
+            <button type="button" onClick={logout} className="h-10 w-full rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-medium text-slate-700 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-slate-800">
               {y.signOut}
             </button>
           </>
@@ -311,5 +314,40 @@ export default function ProfileClient() {
 
       {notice && <NoticeDialog title={y.noticeTitle} message={errorMessage(y, notice)} okLabel={y.noticeOk} onClose={closeNotice} />}
     </div>
+  );
+}
+
+// Chọn giao diện sáng/tối: lưu trên thiết bị này, mặc định sáng. Hiện cả khi chưa đăng nhập.
+function ThemeCard() {
+  const { t } = useI18n();
+  const y = t.yt;
+  const { theme, setTheme } = useTheme();
+  const options = [
+    { value: 'light', label: y.themeLight, Icon: FiSun },
+    { value: 'dark', label: y.themeDark, Icon: FiMoon },
+  ];
+  return (
+    <section className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm">
+      <h2 id="theme-title" className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+        {y.themeTitle}
+      </h2>
+      <div role="radiogroup" aria-labelledby="theme-title" className="inline-flex rounded-full border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 p-0.5">
+        {options.map(({ value, label, Icon }) => (
+          <button
+            key={value}
+            type="button"
+            role="radio"
+            aria-checked={theme === value}
+            onClick={() => setTheme(value)}
+            className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3.5 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500 ${
+              theme === value ? 'bg-slate-900 dark:bg-emerald-500 text-white' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+            }`}
+          >
+            <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+            {label}
+          </button>
+        ))}
+      </div>
+    </section>
   );
 }

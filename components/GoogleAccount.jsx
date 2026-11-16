@@ -70,8 +70,8 @@ export default function GoogleAccount() {
         aria-haspopup="true"
         aria-expanded={open}
         title={user?.email ?? y.account}
-        className={`flex h-9 w-9 items-center justify-center overflow-hidden rounded-full transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500 ${
-          user ? 'text-emerald-600' : 'text-slate-500'
+        className={`flex h-9 w-9 items-center justify-center overflow-hidden rounded-full transition hover:bg-slate-100 dark:hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-emerald-500 ${
+          user ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400'
         }`}
       >
         {user && src ? (
@@ -83,10 +83,10 @@ export default function GoogleAccount() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full z-40 mt-2 w-64 rounded-xl border border-slate-200 bg-white p-3 text-slate-900 shadow-lg">
+        <div className="absolute right-0 top-full z-40 mt-2 w-64 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 text-slate-900 dark:text-slate-100 shadow-lg">
           {user ? (
             <>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">{y.signedIn}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">{y.signedIn}</p>
               <p className="mt-1 break-all text-sm font-medium">{user.email ?? y.googleAccount}</p>
               <Link
                 href="/profile"
@@ -98,14 +98,14 @@ export default function GoogleAccount() {
               <button
                 type="button"
                 onClick={logout}
-                className="mt-2 h-9 w-full rounded-full border border-slate-300 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+                className="mt-2 h-9 w-full rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-slate-800"
               >
                 {y.signOut}
               </button>
             </>
           ) : (
             <>
-              <p className="text-sm text-slate-600">{y.signInPrompt}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-300">{y.signInPrompt}</p>
               <button
                 type="button"
                 onClick={login}
@@ -116,7 +116,7 @@ export default function GoogleAccount() {
                 {y.signInWithGoogle}
               </button>
               {error && (
-                <p role="alert" className="mt-2 text-xs leading-snug text-red-600">
+                <p role="alert" className="mt-2 text-xs leading-snug text-red-600 dark:text-red-400">
                   {error}
                 </p>
               )}

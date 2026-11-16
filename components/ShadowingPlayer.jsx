@@ -120,8 +120,8 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
   const blur = showText ? '' : 'blur-sm select-none';
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      <header className="sticky top-0 z-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-[1800px] mx-auto px-4 h-14 flex items-center gap-3">
           <Link href="/" aria-label={t.home} title={t.home} className="-ml-1 flex shrink-0 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500">
             <AppLogo className="h-8 w-8" />
@@ -130,7 +130,7 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
             <h1 className="text-sm lg:text-base font-bold truncate">
               {heading}
             </h1>
-            <p className="text-[11px] lg:text-xs text-slate-500 truncate">{bookLabel}</p>
+            <p className="text-[11px] lg:text-xs text-slate-500 dark:text-slate-400 truncate">{bookLabel}</p>
           </div>
           <LessonLink href={prevHref}>{t.prevLessonLink}</LessonLink>
           <LessonLink href={nextHref}>{t.nextLessonLink}</LessonLink>
@@ -225,13 +225,13 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
           />
 
           {/* Câu đang đọc: chiều cao cố định, tối đa 4 dòng mỗi thứ tiếng (giống trang video YouTube) */}
-          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white border border-slate-200 h-44 lg:h-36 overflow-hidden px-4 py-3 lg:px-5 lg:py-4 text-center flex flex-col items-center justify-center gap-1 lg:gap-2">
+          <div className="mx-auto w-full max-w-[calc(60vh*16/9)] rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 h-44 lg:h-36 overflow-hidden px-4 py-3 lg:px-5 lg:py-4 text-center flex flex-col items-center justify-center gap-1 lg:gap-2">
             {active?.speaker && (
-              <p className="text-[10px] lg:text-xs font-semibold uppercase tracking-wider text-emerald-600">{active.speaker}</p>
+              <p className="text-[10px] lg:text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">{active.speaker}</p>
             )}
             <p className={`line-clamp-4 text-[11px] lg:text-sm font-semibold leading-snug transition ${blur}`}>{active?.text}</p>
             {hasTranslation && showVi && active?.vi && (
-              <p className="line-clamp-4 text-[10px] lg:text-xs font-medium text-emerald-700 leading-snug">{active.vi}</p>
+              <p className="line-clamp-4 text-[10px] lg:text-xs font-medium text-emerald-700 dark:text-emerald-300 leading-snug">{active.vi}</p>
             )}
           </div>
 
@@ -263,7 +263,7 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
                 <span className="text-xs font-medium">{showVi ? t.hideTranslation : t.showTranslation}</span>
               </ControlButton>
             )}
-            <label className="flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 h-8 text-xs">
+            <label className="flex items-center gap-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 h-8 text-xs">
               {t.speed}
               <select
                 value={speed}
@@ -284,13 +284,13 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
 
         {/* Phụ đề */}
         {/* Điện thoại/tablet: cao gần bằng màn hình (trừ header) để cuộn xuống là thấy nhiều câu */}
-        <aside className="rounded-2xl bg-white border border-slate-200 flex flex-col overflow-hidden h-[calc(100dvh-5rem)] scroll-mt-[4.5rem] lg:h-[calc(100vh-6.5rem)] lg:sticky lg:top-[4.5rem]">
-          <div className="flex items-center justify-between px-4 py-2 lg:py-3 border-b border-slate-100">
+        <aside className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden h-[calc(100dvh-5rem)] scroll-mt-[4.5rem] lg:h-[calc(100vh-6.5rem)] lg:sticky lg:top-[4.5rem]">
+          <div className="flex items-center justify-between px-4 py-2 lg:py-3 border-b border-slate-100 dark:border-slate-800">
             <h2 className="text-sm lg:text-base font-semibold">{t.subtitles}</h2>
-            <span className="text-xs text-slate-500">{t.sentenceCount(sentences.length)}</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400">{t.sentenceCount(sentences.length)}</span>
           </div>
           {!hasTimestamps && (
-            <p className="px-4 py-2 text-xs text-amber-700 bg-amber-50 border-b border-amber-100">
+            <p className="px-4 py-2 text-xs text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-b border-amber-100 dark:border-amber-900">
               {t.noTimestamps}
             </p>
           )}
@@ -300,23 +300,23 @@ export default function ShadowingPlayer({ coverUrl, bookLabel, heading, lesson, 
                 <button
                   onClick={() => seekTo(i)}
                   className={`group w-full flex items-start gap-2.5 lg:gap-3 rounded-xl px-2.5 py-1.5 lg:px-3 lg:py-2.5 text-left transition ${
-                    i === activeIndex ? 'bg-emerald-100' : 'hover:bg-slate-50'
+                    i === activeIndex ? 'bg-emerald-100 dark:bg-emerald-900/40' : 'hover:bg-slate-50 dark:hover:bg-slate-800'
                   }`}
                 >
                   <span
                     className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${
-                      i === activeIndex ? 'bg-slate-900 text-white' : 'bg-slate-200 text-slate-500'
+                      i === activeIndex ? 'bg-slate-900 dark:bg-emerald-600 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
                     }`}
                   >
                     <PlayIcon size={10} />
                   </span>
                   <span className="min-w-0">
-                    {s.speaker && <span className="block text-[10px] font-semibold uppercase tracking-wider text-slate-400">{s.speaker}</span>}
+                    {s.speaker && <span className="block text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">{s.speaker}</span>}
                     <span className={`block text-[12px] lg:text-sm leading-relaxed ${blur} ${showText ? '' : 'group-hover:blur-none'}`}>
                       {s.text}
                     </span>
                     {showVi && s.vi && (
-                      <span className="block text-[11px] lg:text-[13px] leading-relaxed text-slate-600 mt-0.5">{s.vi}</span>
+                      <span className="block text-[11px] lg:text-[13px] leading-relaxed text-slate-600 dark:text-slate-300 mt-0.5">{s.vi}</span>
                     )}
                   </span>
                 </button>
@@ -336,7 +336,7 @@ function PlayToggle({ playing, onClick, t, overCover = false }) {
     <button
       onClick={onClick}
       aria-label={playing ? t.pause : t.play}
-      className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-20 w-20 items-center justify-center rounded-full bg-white/95 text-slate-900 shadow-xl hover:scale-105 transition ${fade}`}
+      className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-20 w-20 items-center justify-center rounded-full bg-white/95 dark:bg-slate-900/95 text-slate-900 dark:text-slate-100 shadow-xl hover:scale-105 transition ${fade}`}
     >
       {playing ? <PauseIcon size={34} /> : <PlayIcon size={34} />}
     </button>
@@ -345,9 +345,9 @@ function PlayToggle({ playing, onClick, t, overCover = false }) {
 
 function LessonLink({ href, children }) {
   const base = 'hidden sm:inline-flex items-center rounded-full px-3 h-8 text-xs font-medium border';
-  if (!href) return <span className={`${base} border-slate-100 text-slate-300`}>{children}</span>;
+  if (!href) return <span className={`${base} border-slate-100 dark:border-slate-800 text-slate-300 dark:text-slate-600`}>{children}</span>;
   return (
-    <Link href={href} className={`${base} border-slate-200 hover:bg-slate-50`}>
+    <Link href={href} className={`${base} border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800`}>
       {children}
     </Link>
   );
@@ -359,8 +359,8 @@ export function ControlButton({ children, onClick, label, primary, active, compa
   const style = primary
     ? `bg-emerald-500 text-white hover:bg-emerald-600 ${compact ? 'w-9' : 'w-10 lg:w-12'}`
     : active
-      ? `bg-emerald-100 text-emerald-800 border border-emerald-300 ${pad}`
-      : `bg-white border border-slate-200 hover:bg-slate-50 ${pad}`;
+      ? `bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 ${pad}`
+      : `bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 ${pad}`;
   return (
     <button
       onClick={onClick}

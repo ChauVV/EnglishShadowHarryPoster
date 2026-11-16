@@ -24,19 +24,19 @@ export default function NoticeDialog({ title, message, okLabel, onClose }) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 dark:bg-black/60 p-4 backdrop-blur-sm"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div role="alertdialog" aria-modal="true" aria-labelledby="notice-title" aria-describedby="notice-desc" className="dialog-in w-full max-w-sm rounded-2xl bg-white p-6 text-slate-900 shadow-2xl">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+      <div role="alertdialog" aria-modal="true" aria-labelledby="notice-title" aria-describedby="notice-desc" className="dialog-in w-full max-w-sm rounded-2xl bg-white dark:bg-slate-900 dark:ring-1 dark:ring-slate-700 p-6 text-slate-900 dark:text-slate-100 shadow-2xl">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400">
           <FiAlertTriangle className="h-6 w-6" aria-hidden="true" />
         </div>
         <h2 id="notice-title" className="font-display mt-4 text-lg font-semibold">
           {title}
         </h2>
-        <p id="notice-desc" className="mt-2 text-sm leading-relaxed text-slate-600">
+        <p id="notice-desc" className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
           {message}
         </p>
         <div className="mt-6 flex justify-end">
