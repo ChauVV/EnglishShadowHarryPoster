@@ -66,7 +66,7 @@ export default function YouTubeHome() {
               disabled={busy}
               className="h-11 rounded-xl bg-emerald-500 px-6 text-sm font-semibold text-white hover:bg-emerald-600 disabled:opacity-60 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
             >
-              Generate
+              {t.generate}
             </button>
           </div>
           {error && (

@@ -14,7 +14,7 @@ const DICT = {
     heroTitle: 'Biến video yêu thích thành bài học.',
     linkLabel: 'Link YouTube',
     linkPlaceholder: 'Dán link YouTube có phụ đề tiếng Anh...',
-    generate: 'Generate',
+    generate: 'Tạo bài học',
     youtubeSentences: (n) => `${n} câu`,
     youtubeReadyHint: 'Đã dịch sẵn: mở học ngay, không cần đăng nhập và không tốn lượt dịch.',
     youtubeCostHint: 'Tạo bài từ video này tốn 1 lượt dịch link video YouTube. Mở lại bài đã tạo thì không tốn thêm.',

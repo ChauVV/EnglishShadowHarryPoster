@@ -60,7 +60,7 @@ export default function LibraryPage() {
 
       <Hero />
 
-      <main className="flex-1 px-4 pb-10 sm:px-6">
+      <main className="mx-auto w-full max-w-[1800px] flex-1 px-4 pb-10 sm:px-6">
         {error && (
           <p className="mt-8 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
             {t.loadError}
@@ -75,7 +75,7 @@ export default function LibraryPage() {
       </main>
 
       <footer className="border-t border-slate-200 bg-white">
-        <div className="px-4 py-6 text-xs text-slate-500 sm:px-6">
+        <div className="mx-auto max-w-[1800px] px-4 py-6 text-xs text-slate-500 sm:px-6">
           <p>{t.footer}</p>
           <p className="mt-1">
             {t.photoCredit}{' '}
@@ -125,25 +125,22 @@ function TopBar({ query, onQueryChange }) {
   );
 }
 
-// Banner đầu trang (gọn): một khối nền xanh, một tab YouTube và ô nhập link. Bấm Generate thì chuyển sang trang tạo bài.
+// Banner đầu trang (gọn): một khối nền xanh; icon YouTube và ô nhập link nằm chung một hàng với nút tạo bài.
 function Hero() {
   const { t } = useI18n();
   const { url, setUrl, error, busy, generate } = useGenerateLesson();
   return (
-    <section className="px-4 pt-3 sm:px-6">
-      <div className="rounded-xl bg-gradient-to-br from-emerald-700 via-emerald-500 to-teal-300 px-3 pb-3 pt-2.5 text-white shadow-sm sm:px-4">
+    <section className="mx-auto w-full max-w-[1800px] px-4 pt-3 sm:px-6">
+      <div className="rounded-xl bg-gradient-to-br from-emerald-700 via-emerald-500 to-teal-300 px-3 py-2.5 text-white shadow-sm sm:px-4">
         <h1 className="font-display text-base font-bold leading-tight tracking-tight sm:text-lg">{t.heroTitle}</h1>
 
-        <div className="mt-2">
-          <div className="flex w-fit items-center gap-1.5 rounded-t-lg bg-white px-3 py-1 text-xs font-semibold text-[#FF0000]">
-            <FaYoutube className="h-4 w-4" aria-hidden="true" />
-            YouTube
-          </div>
-          <form onSubmit={generate} className="rounded-b-lg rounded-tr-lg bg-white p-2.5 text-slate-900">
-            <label htmlFor="home-yt-url" className="sr-only">
-              {t.linkLabel}
-            </label>
-            <div className="flex flex-col gap-2 sm:flex-row">
+        <form onSubmit={generate} className="mt-2 rounded-lg bg-white p-2 text-slate-900">
+          <label htmlFor="home-yt-url" className="sr-only">
+            {t.linkLabel}
+          </label>
+          <div className="flex items-center gap-2">
+            <div className="relative min-w-0 flex-1">
+              <FaYoutube className="pointer-events-none absolute left-2.5 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FF0000]" aria-hidden="true" />
               <input
                 id="home-yt-url"
                 type="text"
@@ -153,23 +150,23 @@ function Hero() {
                 placeholder={t.linkPlaceholder}
                 autoComplete="off"
                 spellCheck={false}
-                className="h-9 min-w-0 flex-1 rounded-lg border border-slate-300 px-3 text-[13px] focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
+                className="h-9 w-full rounded-lg border border-slate-300 pl-9 pr-3 text-[13px] focus:border-emerald-500 focus:outline-2 focus:outline-emerald-400/30"
               />
-              <button
-                type="submit"
-                disabled={busy}
-                className="h-9 rounded-lg bg-emerald-500 px-6 text-[13px] font-semibold text-white transition hover:bg-emerald-600 disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
-              >
-                {t.generate}
-              </button>
             </div>
-            {error && (
-              <p role="alert" className="mt-1.5 text-xs text-red-600">
-                {error}
-              </p>
-            )}
-          </form>
-        </div>
+            <button
+              type="submit"
+              disabled={busy}
+              className="h-9 shrink-0 whitespace-nowrap rounded-lg bg-emerald-500 px-4 text-[13px] font-semibold text-white transition hover:bg-emerald-600 disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 sm:px-6"
+            >
+              {t.generate}
+            </button>
+          </div>
+          {error && (
+            <p role="alert" className="mt-1.5 text-xs text-red-600">
+              {error}
+            </p>
+          )}
+        </form>
       </div>
     </section>
   );
@@ -278,6 +275,11 @@ function TopicsSection({ topics, query, onClearQuery }) {
   );
 }
 
+// Mỗi topic (kể cả YouTube) tối đa 2 hàng: card lấp theo cột rồi cuộn ngang, nên topic dài không kéo trang dài ra.
+// Độ rộng cột trùng với w-44 / sm:w-52 của card.
+const TWO_ROW_SCROLLER =
+  '-mx-1 grid snap-x scroll-px-1 grid-flow-col grid-rows-2 auto-cols-[11rem] gap-3 overflow-x-auto px-1 pb-1 pt-1 sm:auto-cols-[13rem] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden';
+
 // Hàng video YouTube nằm đầu danh sách: video của người dùng (mới nhất bên trái), sau đó là các video gợi ý
 function YouTubeRow({ lessons, suggested }) {
   const { t } = useI18n();
@@ -302,10 +304,7 @@ function YouTubeRow({ lessons, suggested }) {
         </div>
       </div>
 
-      <ul
-        ref={scroller}
-        className="-mx-1 flex snap-x scroll-px-1 gap-3 overflow-x-auto px-1 pb-1 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
+      <ul ref={scroller} className={TWO_ROW_SCROLLER}>
         {lessons.map((lesson) => (
           <li key={lesson.id} className="group/card relative w-44 sm:w-52 shrink-0 snap-start">
             <Link href={`/youtube/watch?v=${lesson.id}`} className="group block rounded-xl focus-visible:outline-none">
@@ -446,10 +445,7 @@ function TopicRow({ topic, lessons, gradient }) {
         </div>
       </div>
 
-      <ul
-        ref={scroller}
-        className="-mx-1 flex snap-x scroll-px-1 gap-3 overflow-x-auto px-1 pb-1 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
+      <ul ref={scroller} className={TWO_ROW_SCROLLER}>
         {lessons.map((lesson) => {
           const key = topicLessonKey(topic.topic, lesson.lesson_index);
           return (
