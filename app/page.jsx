@@ -264,7 +264,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
           </button>
         </div>
       ) : (
-        <div className="space-y-5">
+        <div className="space-y-8">
           {hasYoutube && <YouTubeRow lessons={youtube} suggested={suggested} />}
           {visible.map(({ topic, lessons }) => (
             <TopicRow key={topic.topic} topic={topic} lessons={lessons} gradient={COVERS[(topic.number - 1) % COVERS.length]} />
@@ -275,8 +275,9 @@ function TopicsSection({ topics, query, onClearQuery }) {
   );
 }
 
-// Mỗi topic (kể cả YouTube) hiện hết các card, không cuộn ngang: card cố định độ rộng, hàng nào đầy thì mới xuống hàng.
-const CARD_GRID = 'flex flex-wrap gap-x-3 gap-y-4';
+// Mỗi topic (kể cả YouTube) hiện hết các card, không cuộn ngang: hàng nào đầy thì mới xuống hàng.
+// Số cột tự chia theo bề rộng, card giãn đều lấp hết hàng (không chừa dải trống lệch bên phải) và các cột thẳng hàng giữa các topic.
+const CARD_GRID = 'grid grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] gap-x-3 gap-y-4 sm:grid-cols-[repeat(auto-fill,minmax(13rem,1fr))]';
 
 // Tiêu đề mỗi topic: nền nhạt + viền cùng tông với tag, khung hình bình hành hơi nghiêng; chữ nghiêng ngược lại để vẫn thẳng
 function TopicHeading({ color, children }) {
@@ -302,7 +303,7 @@ function YouTubeRow({ lessons, suggested }) {
 
       <ul className={CARD_GRID}>
         {lessons.map((lesson) => (
-          <li key={lesson.id} className="group/card relative w-44 sm:w-52 shrink-0">
+          <li key={lesson.id} className="group/card relative">
             <Link href={`/youtube/watch?v=${lesson.id}`} className="group block rounded-xl focus-visible:outline-none">
               <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -326,7 +327,7 @@ function YouTubeRow({ lessons, suggested }) {
           </li>
         ))}
         {suggested.map((video) => (
-          <li key={video.id} className="w-44 sm:w-52 shrink-0">
+          <li key={video.id}>
             <Link href={`/youtube/watch?v=${video.id}`} title={`${video.channel}. ${video.ready ? t.youtubeReadyHint : t.youtubeCostHint}`} className="group block rounded-xl focus-visible:outline-none">
               <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -451,7 +452,7 @@ function TopicRow({ topic, lessons, gradient }) {
 function LessonCard({ lesson, gradient, coverSrc, href, onOpen }) {
   const [coverFailed, setCoverFailed] = useState(false); // topic chưa có ảnh bìa -> dùng ô gradient + số bài
   return (
-    <li className="w-44 sm:w-52 shrink-0">
+    <li>
       <Link
         href={href}
         onClick={onOpen}
