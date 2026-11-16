@@ -264,7 +264,7 @@ function TopicsSection({ topics, query, onClearQuery }) {
           </button>
         </div>
       ) : (
-        <div className="space-y-2">
+        <div className="space-y-5">
           {hasYoutube && <YouTubeRow lessons={youtube} suggested={suggested} />}
           {visible.map(({ topic, lessons }) => (
             <TopicRow key={topic.topic} topic={topic} lessons={lessons} gradient={COVERS[(topic.number - 1) % COVERS.length]} />
@@ -275,38 +275,34 @@ function TopicsSection({ topics, query, onClearQuery }) {
   );
 }
 
-// Mỗi topic (kể cả YouTube) tối đa 2 hàng: card lấp theo cột rồi cuộn ngang, nên topic dài không kéo trang dài ra.
-// Độ rộng cột trùng với w-44 / sm:w-52 của card.
-const TWO_ROW_SCROLLER =
-  '-mx-1 grid snap-x scroll-px-1 grid-flow-col grid-rows-2 auto-cols-[11rem] gap-3 overflow-x-auto px-1 pb-1 pt-1 sm:auto-cols-[13rem] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden';
+// Mỗi topic (kể cả YouTube) hiện hết các card, không cuộn ngang: card cố định độ rộng, hàng nào đầy thì mới xuống hàng.
+const CARD_GRID = 'flex flex-wrap gap-x-3 gap-y-4';
 
-// Hàng video YouTube nằm đầu danh sách: video của người dùng (mới nhất bên trái), sau đó là các video gợi ý
+// Tiêu đề mỗi topic: nền nhạt + viền cùng tông với tag, khung hình bình hành hơi nghiêng; chữ nghiêng ngược lại để vẫn thẳng
+function TopicHeading({ color, children }) {
+  return (
+    <h3 className="mb-2">
+      <span className={`inline-flex max-w-full -skew-x-6 items-center rounded-sm border px-4 py-1 ${chipColorClass(color)}`}>
+        <span className="font-display flex min-w-0 skew-x-6 items-center gap-2 text-lg font-semibold leading-tight sm:text-xl">{children}</span>
+      </span>
+    </h3>
+  );
+}
+
+// Hàng video YouTube nằm đầu danh sách: video của người dùng (mới nhất đầu tiên), sau đó là các video gợi ý
 function YouTubeRow({ lessons, suggested }) {
   const { t } = useI18n();
-  const scroller = useRef(null);
-  const scrollBy = (dir) => {
-    const el = scroller.current;
-    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: 'smooth' });
-  };
 
   return (
     <div id="topic-youtube" className="scroll-mt-28">
-      <div className="mb-2 flex items-center gap-3">
-        <div className="min-w-0 flex-1">
-          <h3 className="font-display flex items-center gap-2 text-lg sm:text-xl font-semibold leading-tight">
-            <FaYoutube className="h-6 w-6 shrink-0 text-[#FF0000]" aria-hidden="true" />
-            YouTube
-          </h3>
-        </div>
-        <div className="hidden sm:flex gap-1.5">
-          <ScrollButton onClick={() => scrollBy(-1)} label="←" flip />
-          <ScrollButton onClick={() => scrollBy(1)} label="→" />
-        </div>
-      </div>
+      <TopicHeading color={TAG_YOUTUBE_COLOR}>
+        <FaYoutube className="h-6 w-6 shrink-0 text-[#FF0000]" aria-hidden="true" />
+        YouTube
+      </TopicHeading>
 
-      <ul ref={scroller} className={TWO_ROW_SCROLLER}>
+      <ul className={CARD_GRID}>
         {lessons.map((lesson) => (
-          <li key={lesson.id} className="group/card relative w-44 sm:w-52 shrink-0 snap-start">
+          <li key={lesson.id} className="group/card relative w-44 sm:w-52 shrink-0">
             <Link href={`/youtube/watch?v=${lesson.id}`} className="group block rounded-xl focus-visible:outline-none">
               <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -330,7 +326,7 @@ function YouTubeRow({ lessons, suggested }) {
           </li>
         ))}
         {suggested.map((video) => (
-          <li key={video.id} className="w-44 sm:w-52 shrink-0 snap-start">
+          <li key={video.id} className="w-44 sm:w-52 shrink-0">
             <Link href={`/youtube/watch?v=${video.id}`} title={`${video.channel}. ${video.ready ? t.youtubeReadyHint : t.youtubeCostHint}`} className="group block rounded-xl focus-visible:outline-none">
               <span className="relative block aspect-video overflow-hidden rounded-xl bg-slate-200 shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-emerald-500 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-slate-50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -371,8 +367,8 @@ const TAG_COLOR_OVERRIDE = {
 };
 // Màu của topic (theo số thứ tự) dùng chung cho tag và tiêu đề hàng topic
 const topicColor = (number) => TAG_COLOR_OVERRIDE[number] ?? TAG_COLORS[(number - 1) % TAG_COLORS.length];
-// Màu chữ của tiêu đề topic = màu chữ của tag (lấy từ chính chuỗi lớp của tag nên luôn khớp)
-const topicTitleClass = (number) => topicColor(number).idle.match(/text-[a-z]+-[0-9]+/)?.[0] ?? 'text-slate-900';
+// Nền, viền và chữ của tiêu đề topic = màu của tag lúc chưa chọn (lấy từ chính chuỗi lớp của tag nên luôn khớp), bỏ phần hover
+const chipColorClass = (color) => color.idle.split(' ').filter((c) => !c.startsWith('hover:')).join(' ');
 const TAG_ALL_COLOR = { idle: 'border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200', active: 'border-slate-700 bg-slate-700' };
 const TAG_YOUTUBE_COLOR = { idle: 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100', active: 'border-red-600 bg-red-600' };
 
@@ -427,25 +423,13 @@ function TopicTags({ topics, youtube, tag, onSelect, barRef }) {
 }
 
 function TopicRow({ topic, lessons, gradient }) {
-  const scroller = useRef(null);
-  const scrollBy = (dir) => {
-    const el = scroller.current;
-    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: 'smooth' });
-  };
-
   return (
     <div id={`topic-${topic.topic}`} className="scroll-mt-28">
-      <div className="mb-2 flex items-center gap-3">
-        <div className="min-w-0 flex-1">
-          <h3 className={`font-display text-lg sm:text-xl font-semibold leading-tight truncate ${topicTitleClass(topic.number)}`}>{topic.title}</h3>
-        </div>
-        <div className="hidden sm:flex gap-1.5">
-          <ScrollButton onClick={() => scrollBy(-1)} label="←" flip />
-          <ScrollButton onClick={() => scrollBy(1)} label="→" />
-        </div>
-      </div>
+      <TopicHeading color={topicColor(topic.number)}>
+        <span className="truncate">{topic.title}</span>
+      </TopicHeading>
 
-      <ul ref={scroller} className={TWO_ROW_SCROLLER}>
+      <ul className={CARD_GRID}>
         {lessons.map((lesson) => {
           const key = topicLessonKey(topic.topic, lesson.lesson_index);
           return (
@@ -467,7 +451,7 @@ function TopicRow({ topic, lessons, gradient }) {
 function LessonCard({ lesson, gradient, coverSrc, href, onOpen }) {
   const [coverFailed, setCoverFailed] = useState(false); // topic chưa có ảnh bìa -> dùng ô gradient + số bài
   return (
-    <li className="w-44 sm:w-52 shrink-0 snap-start">
+    <li className="w-44 sm:w-52 shrink-0">
       <Link
         href={href}
         onClick={onOpen}
@@ -496,19 +480,6 @@ function LessonCard({ lesson, gradient, coverSrc, href, onOpen }) {
         <span className="mt-2 block text-sm font-semibold leading-snug line-clamp-2 group-hover:text-emerald-700">{lessonLabel(lesson.title)}</span>
       </Link>
     </li>
-  );
-}
-
-function ScrollButton({ onClick, label, flip }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={flip ? 'Scroll left' : 'Scroll right'}
-      className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-emerald-500"
-    >
-      <ArrowIcon className={`h-4 w-4 ${flip ? 'rotate-180' : ''}`} />
-    </button>
   );
 }
 
@@ -548,13 +519,6 @@ function PlayIcon({ className }) {
   return (
     <svg {...iconProps} className={className} fill="currentColor">
       <path d="M8 5v14l11-7z" />
-    </svg>
-  );
-}
-function ArrowIcon({ className }) {
-  return (
-    <svg {...iconProps} className={className} {...stroke}>
-      <path d="M5 12h14m-6-6 6 6-6 6" />
     </svg>
   );
 }
